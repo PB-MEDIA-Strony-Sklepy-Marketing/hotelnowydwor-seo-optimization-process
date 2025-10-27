@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => 'erropix/oxygen-attributes',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => '5726d9a3e86db715ecee25d8aac8916d2cb8616b',
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => true,
+    ),
+    'versions' => array(
+        'erropix/oxygen-attributes' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '5726d9a3e86db715ecee25d8aac8916d2cb8616b',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'freemius/wordpress-sdk' => array(
+            'pretty_version' => '2.5.10',
+            'version' => '2.5.10.0',
+            'reference' => NULL,
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../freemius/wordpress-sdk',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'masterminds/html5' => array(
+            'pretty_version' => '2.8.0',
+            'version' => '2.8.0.0',
+            'reference' => '3c5d5a56d56f48a1ca08a0670f0f80c1dad368f3',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../masterminds/html5',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);

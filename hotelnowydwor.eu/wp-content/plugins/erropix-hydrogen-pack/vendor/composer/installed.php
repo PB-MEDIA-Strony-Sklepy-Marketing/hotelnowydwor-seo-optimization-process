@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => 'erropix/hydrogen-pack',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => '78d6fb4c0a05d3a0ee5e4150c6619c2223e3c731',
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => true,
+    ),
+    'versions' => array(
+        'erropix/hydrogen-pack' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '78d6fb4c0a05d3a0ee5e4150c6619c2223e3c731',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'freemius/wordpress-sdk' => array(
+            'pretty_version' => '2.6.2',
+            'version' => '2.6.2.0',
+            'reference' => 'ea3a288e52ff74c755b3c1eb857f41c5a2d899e5',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../freemius/wordpress-sdk',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'masterminds/html5' => array(
+            'pretty_version' => '2.9.0',
+            'version' => '2.9.0.0',
+            'reference' => 'f5ac2c0b0a2eefca70b2ce32a5809992227e75a6',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../masterminds/html5',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);
