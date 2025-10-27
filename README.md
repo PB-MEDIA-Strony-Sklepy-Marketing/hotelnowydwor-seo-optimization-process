@@ -1,2 +1,4 @@
 # hotelnowydwor-eu-improve-seo-high-pagespeed-wordpress-oxygen-builder
 Pliki strony internetowej aplikacji CMS WordPress. Założenia tego repozytorium to wdrożenie dla tej instalacji poprawek z Audytu SEO i optymalizacji wyświetlanej się strony. Cele: 1. Wyższe pozycje w wyszukiwarce Google 2. Wyższy wynik w Page Speed minimum 90 punktów. 3. Lepszy UI/ UX 4. Większe nasycenie strony tekstami SEO. 5. Na samym końcu testowanie i deployment.
+
+Pliki strony internetowej aplikacji CMS WordPress. Założenia tego repozytorium to wdrożenie dla tej instalacji poprawek z Audytu SEO i optymalizacji wyświetlanej się strony. Cele: 1. Wyższe pozycje w wyszukiwarce Google 2. Wyższy wynik w Page Speed minimum 90 punktów. 3. Lepszy UI/ UX 4. Większe nasycenie strony tekstami SEO. 5. Na samym końcu testowanie i deployment.
