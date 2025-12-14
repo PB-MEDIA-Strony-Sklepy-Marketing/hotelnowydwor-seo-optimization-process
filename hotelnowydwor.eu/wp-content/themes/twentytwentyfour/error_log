@@ -10,3 +10,7 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in /home/nowydwor/public_html/hotelnowydwor.eu-nowastrona/wp-content/themes/twentytwentyfour/functions.php on line 147
+[10-Dec-2025 06:20:32 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function add_action() in /home/nowydwor/public_html/hotelnowydwor.eu-nowastrona/wp-content/themes/twentytwentyfour/functions.php:147
+Stack trace:
+#0 {main}
+  thrown in /home/nowydwor/public_html/hotelnowydwor.eu-nowastrona/wp-content/themes/twentytwentyfour/functions.php on line 147

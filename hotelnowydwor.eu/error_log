@@ -1,0 +1,1 @@
+[14-Dec-2025 19:18:47 UTC] Błąd ponownego ustawienia zdarzenia harmonogramu cron dla uchwytu: wpsol_auto_purge_cache, kod błędu: invalid_schedule, komunikat błędu: Harmonogram wydarzeń nie istnieje., dane: {"schedule":"wpsol_cache","args":[],"interval":2400}
