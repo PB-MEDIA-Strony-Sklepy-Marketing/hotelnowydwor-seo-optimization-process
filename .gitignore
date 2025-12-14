@@ -1,13 +1,13 @@
 # WordPress - ignore
-wp-config.php
-wp-content/uploads/
-wp-content/upgrade/
-wp-content/cache/
-*.sql
-*.sql.gz
-*.log
+!/wp-config.php
+!/wp-content/uploads/
+!/wp-content/upgrade/
+!/wp-content/cache/
+!*.sql
+!*.sql.gz
+!*.log
 .env
-/vendor/
-node_modules/
+!/vendor/
+!/node_modules/
 # ignore commercial plugins (ACF Pro etc.)
-wp-content/plugins/advanced-custom-fields-pro/
+!/wp-content/plugins/advanced-custom-fields-pro/
