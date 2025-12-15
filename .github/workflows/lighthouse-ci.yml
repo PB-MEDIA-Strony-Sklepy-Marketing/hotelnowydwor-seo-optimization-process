@@ -1,0 +1,22 @@
+name: Lighthouse CI
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Lighthouse CI
+        uses: treosh/lighthouse-ci-action@01b696c310e9799e72144669f1b83e0d63d3b076 # v12.1.0
+        with:
+          # Assuming a staging URL is available or we test the production URL for regression
+          urls: 'https://www.hotelnowydwor.eu/' 
+          configPath: './.github/lighthouse/lhci-config.json'
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+          runs: 3

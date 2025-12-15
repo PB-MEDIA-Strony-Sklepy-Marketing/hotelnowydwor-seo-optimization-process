@@ -1,0 +1,14 @@
+{
+  "ci": {
+    "collect": {
+      "settings": {
+        "onlyCategories": ["seo"]
+      }
+    },
+    "assert": {
+      "assertions": {
+        "categories:seo": ["error", {"minScore": 1.0}]
+      }
+    }
+  }
+}

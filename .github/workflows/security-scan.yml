@@ -1,0 +1,42 @@
+name: Security Scan
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    - cron: '30 5 * * 1' # Weekly on Mondays
+
+jobs:
+  wpscan:
+    runs-on: ubuntu-latest
+    name: WPScan
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: WPScan
+        uses: wpscan/wpscan-action@7e2b7d6a6d6b4728e88250f2c635a31e3c9e3a8c # v1.0.0 (Verify SHA if possible, using a known one for v1)
+        with:
+          command: wpscan --url https://www.hotelnowydwor.eu/ --disable-tls-checks --enumerate p,t,u --force
+        env:
+          WPSCAN_API_TOKEN: ${{ secrets.WPSCAN_API_TOKEN }}
+
+  php-security-audit:
+    runs-on: ubuntu-latest
+    name: PHP Security Audit
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@c541c155eee45413f5b09a52248675b1a2575231 # v2.31.1
+        with:
+          php-version: '7.4'
+
+      - name: Install Dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Run PHPCS Security Checks
+        run: ./vendor/bin/phpcs --standard=WordPress-Extra --extensions=php src/

@@ -1,0 +1,29 @@
+name: PageSpeed Insights Test
+
+on:
+  schedule:
+    - cron: '0 6 * * *' # Run daily at 6 AM
+  workflow_dispatch:
+
+jobs:
+  pagespeed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Run PageSpeed Insights (Mobile)
+        uses: treosh/lighthouse-ci-action@01b696c310e9799e72144669f1b83e0d63d3b076 # v12.1.0
+        with:
+          urls: 'https://www.hotelnowydwor.eu/'
+          configPath: './.github/lighthouse/mobile-config.json'
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+
+      - name: Run PageSpeed Insights (Desktop)
+        uses: treosh/lighthouse-ci-action@01b696c310e9799e72144669f1b83e0d63d3b076 # v12.1.0
+        with:
+          urls: 'https://www.hotelnowydwor.eu/'
+          configPath: './.github/lighthouse/desktop-config.json'
+          uploadArtifacts: true
+          temporaryPublicStorage: true
