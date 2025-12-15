@@ -21,7 +21,7 @@
 	$options = json_decode( $options, true );
 
 	if ( ! $options ) {
-		_e("Can't get shortcode options", "component-theme");
+		oxygen_translate_echo("Can't get shortcode options", "component-theme");
 		die();
 	};
 
@@ -121,7 +121,7 @@
 	}
 
 	if ( $executed_shortcode == $shortcode ) {
-		_e("Can't execute the shortcode. Make sure tag and parameters are correct.", "component-theme");
+		oxygen_translate_echo("Can't execute the shortcode. Make sure tag and parameters are correct.", "component-theme");
 	}
 	else {
 		// initilize global $wp_styles if not exist

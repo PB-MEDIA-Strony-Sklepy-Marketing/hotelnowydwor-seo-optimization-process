@@ -1213,7 +1213,7 @@ function ct_render_widget_by_ajax() {
 		wp_print_styles( $wp_styles->queue );
 	}
 	else {
-		printf( __("<b>Error!</b><br/> No '%s' widget registered in this installation", "component-theme"), $options['class_name'] );
+		printf( oxygen_translate("<b>Error!</b><br/> No '%s' widget registered in this installation", "component-theme"), $options['class_name'] );
 	}
 
 	die();
@@ -1293,7 +1293,7 @@ function ct_render_widget_form_by_ajax() {
 		//wp_footer();
 	}
 	else {
-		printf( __("<b>Error!</b><br/> No '%s' widget registered in this installation", "component-theme"), $options['class_name'] );
+		printf( oxygen_translate("<b>Error!</b><br/> No '%s' widget registered in this installation", "component-theme"), $options['class_name'] );
 	}
 
 	die();
@@ -1333,7 +1333,7 @@ function ct_render_sidebar_by_ajax() {
 		<ul><?php dynamic_sidebar( $options['sidebar_id'] ); ?></ul>
 	<?php }
 	else {
-		printf( __("<b>Warning:</b> No '%s' sidebar active in this installation", "component-theme"), $options['sidebar_id'] );
+		printf( oxygen_translate("<b>Warning:</b> No '%s' sidebar active in this installation", "component-theme"), $options['sidebar_id'] );
 	}
 
 	die();
@@ -1853,7 +1853,7 @@ function ct_exec_code() {
 		eval( ' ?>' . $code . '<?php ' );
 	}
 	else {
-		_e('No code found', 'component-theme');
+		oxygen_translate_echo('No code found', 'component-theme');
 	}
 
 	/* Restore original Post Data. Do we actually need this? */
@@ -4069,7 +4069,7 @@ function delete_all_oxygen_revisions() {
 	$nonce = $_REQUEST['nonce'];
 
 	if ( ! wp_verify_nonce( $nonce, 'oxygen-nonce-revisions' ) ) {
-		die( __( 'Security check', 'oxygen' ) ); 
+		die( oxygen_translate( 'Security check', 'oxygen' ) ); 
 	} 
 
 	global $wpdb;

@@ -79,6 +79,8 @@ class ExtraslideMenu extends OxygenExtraElements {
 
         $menu_source = isset( $options['menu_source'] ) ? esc_attr($options['menu_source']) : "";
 
+        $auto_collapse = isset( $options['auto_collapse'] ) ? esc_attr($options['auto_collapse']) : "";
+
         if ('custom' === $menu_source) {
 
             $menu_name  = isset( $options['extras_menu_custom'] ) ? $dynamic( $options['extras_menu_custom'] ) : '';
@@ -104,7 +106,7 @@ class ExtraslideMenu extends OxygenExtraElements {
             echo $menu_title;
         }
         
-        ?><<?php echo $nav_tag; ?> class="oxy-slide-menu_inner" <?php echo $schema_markup; ?> data-currentopen="<?php echo $maybe_current_menu_open; ?>" data-duration="<?php echo $duration; ?>" data-start="<?php echo $start; ?>" data-icon="<?php echo $icon; ?>" data-trigger-selector="<?php echo $trigger; ?>">  <?php
+        ?><<?php echo $nav_tag; ?> class="oxy-slide-menu_inner" <?php echo $schema_markup; ?> data-currentopen="<?php echo $maybe_current_menu_open; ?>" data-duration="<?php echo $duration; ?>" data-collapse="<?php echo $auto_collapse; ?>" data-start="<?php echo $start; ?>" data-icon="<?php echo $icon; ?>" data-trigger-selector="<?php echo $trigger; ?>">  <?php
 		
 		wp_nav_menu( array(
 			'menu'           => $menu_name,
@@ -340,6 +342,19 @@ class ExtraslideMenu extends OxygenExtraElements {
                 "base64" => true,
             )
         );
+
+      
+        $this->addOptionControl(
+            array(
+                'type' => 'buttons-list',
+                'name' =>  __('Auto collapse when hash link clicked'),
+                'slug' => 'auto_collapse',
+                "condition" => 'start=hidden',
+            )
+        )->setValue(array( 
+            "true" => __("Enable"), 
+            "false" => __("Disable") 
+        ))->setDefaultValue('disable');
         
         $item_selector = ".oxy-slide-menu_list .menu-item a";
         
@@ -960,10 +975,15 @@ class ExtraslideMenu extends OxygenExtraElements {
 
                               let slide_trigger_selector = $( slide_menu.children( '.oxy-slide-menu_inner' ).data( 'trigger-selector' ) );
 
-                              //slide_trigger_selector.click( function( event ) {
                               slide_trigger_selector.on( touchEvent, function(e) {      
                                  slide_menu.slideToggle(slide_duration);
                               } );
+
+                             if (true == slide_menu.children( '.oxy-slide-menu_inner' ).data( 'collapse' ) ) {
+                                slide_menu.find(".menu-item a[href^='#']:not([href='#'])").on('click', function(e) {
+                                    slide_trigger_selector.click()
+                                })
+                            }
 
                           }
                         
@@ -976,6 +996,8 @@ class ExtraslideMenu extends OxygenExtraElements {
                               currentAncestorButton.addClass('oxy-slide-menu_open');
                               currentAncestorButton.closest('.current-menu-ancestor').children('.sub-menu').slideDown(0);
                           }
+
+                          
                         
                     });
 

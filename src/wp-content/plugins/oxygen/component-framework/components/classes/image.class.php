@@ -174,7 +174,7 @@ Class CT_Image extends CT_Component {
 			);
 			$image_query = new WP_Query($args);
 			if( !$image_query->have_posts() || count( $image_query->posts ) != 1 ) {
-				$json = json_encode( array("error" => __("Image not found", "oxygen")) );
+				$json = json_encode( array("error" => oxygen_translate("Image not found", "oxygen")) );
 			}
 			else {
 				$attachment = wp_prepare_attachment_for_js( $image_query->posts[0] );
@@ -237,15 +237,15 @@ $oxygen_vsb_components['image'] = new CT_Image (
 						"heading" 		=> "",
 						"param_name" 	=> "image_type",
 						"value" 		=> array(
-							2   	    => __("Media Library"),
-							1 	        => __("Image URL")
+							2   	    => oxygen_translate("Media Library"),
+							1 	        => oxygen_translate("Image URL")
 						),
 						"default"       => 1,
 						"css"			=> false,
 					),
 					array(
 						"type" 			=> "mediaurl",
-						"heading" 		=> __("Image URL"),
+						"heading" 		=> oxygen_translate("Image URL"),
 						"param_name" 	=> "src",
 						"value" 		=> "http://via.placeholder.com/1600x900",
 						"condition"		=> "image_type=1",
@@ -253,7 +253,7 @@ $oxygen_vsb_components['image'] = new CT_Image (
 					),
 					array(
 						"type" 			=> "mediaurl",
-						"heading" 		=> __("ID"),
+						"heading" 		=> oxygen_translate("ID"),
 						"param_name" 	=> "attachment_id",
 						"value" 		=> "",
 						"condition"		=> "image_type=2",
@@ -274,14 +274,14 @@ $oxygen_vsb_components['image'] = new CT_Image (
 					),
 					array(
 						"type" 			=> "measurebox",
-						"heading" 		=> __("Width"),
+						"heading" 		=> oxygen_translate("Width"),
 						"param_name" 	=> "width",
 						"value" 		=> "",
 						"hide_wrapper_end" => true,
 					),
 					array(
 						"type" 			=> "measurebox",
-						"heading" 		=> __("Height"),
+						"heading" 		=> oxygen_translate("Height"),
 						"param_name" 	=> "height",
 						"value" 		=> "",
 						"hide_wrapper_start" => true,
@@ -308,7 +308,7 @@ $oxygen_vsb_components['image'] = new CT_Image (
 					),
 					array(
 						"type"			=> "dropdown",
-						"heading"		=> __("Object Fit", "oxygen"),
+						"heading"		=> oxygen_translate("Object Fit", "oxygen"),
 						"param_name"	=> "object-fit",
 						"value"		=> array(
 							""				=> '&nbsp',
@@ -322,14 +322,14 @@ $oxygen_vsb_components['image'] = new CT_Image (
 					),
 					array(
 						"type" 			=> "textfield",
-						"heading" 		=> __("Object Position", "oxygen"),
+						"heading" 		=> oxygen_translate("Object Position", "oxygen"),
 						"param_name" 	=> "object-position",
 						"value" 		=> "center center",
 						"css" 			=> true
 					),
 					array(
 						"type" 			=> "textfield",
-						"heading" 		=> __("Aspect Ratio", "oxygen"),
+						"heading" 		=> oxygen_translate("Aspect Ratio", "oxygen"),
 						"param_name" 	=> "aspect-ratio",
 						"value" 		=> "initial",
 						"css" 			=> true
@@ -341,7 +341,7 @@ $oxygen_vsb_components['image'] = new CT_Image (
 					),
 					array(
 						"type" 			=> "textfield",
-						"heading" 		=> __("Alt Text"),
+						"heading" 		=> oxygen_translate("Alt Text"),
 						"param_name" 	=> "alt",
 						"value" 		=> "",
 						"css" 			=> false,
@@ -350,7 +350,7 @@ $oxygen_vsb_components['image'] = new CT_Image (
 					),
 					array(
 						"type" 			=> "checkbox",
-						"label" 		=> __("Lazy Load", "oxygen"),
+						"label" 		=> oxygen_translate("Lazy Load", "oxygen"),
 						"param_name" 	=> "lazy",
 						"value" 		=> "",
 						"true_value" 	=> "lazy",

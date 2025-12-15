@@ -1,11 +1,11 @@
 <?php $this->settings_breadcrumbs(	
-		__('Width & Breakpoints','oxygen'),
-		__('Global Styles','oxygen'),
+		oxygen_translate('Width & Breakpoints','oxygen'),
+		oxygen_translate('Global Styles','oxygen'),
 		'default-styles'); ?>
 
 <div class="oxygen-control-row">
 	<div class='oxygen-control-wrapper'>
-		<label class='oxygen-control-label'><?php _e("Page Width","oxygen"); ?></label>
+		<label class='oxygen-control-label'><?php oxygen_translate_echo("Page Width","oxygen"); ?></label>
 		<div class='oxygen-measure-box'>
 			<input type="text" spellcheck="false"
                 ng-model-options="{ updateOn: 'blur' }"
@@ -20,9 +20,9 @@
 
 <?php
 $ct_breakpoints = array(
-	'tablet' => __("Tablet", 'oxygen'),
-	'phone-landscape' => __("Landscape", 'oxygen'),
-	'phone-portrait' => __("Portrait", 'oxygen'),
+	'tablet' => oxygen_translate("Tablet", 'oxygen'),
+	'phone-landscape' => oxygen_translate("Landscape", 'oxygen'),
+	'phone-portrait' => oxygen_translate("Portrait", 'oxygen'),
 );
 foreach ($ct_breakpoints as $bp_name => $bp_label){
 ?>

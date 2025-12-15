@@ -562,6 +562,16 @@ class MainWP_Pages {
                 opacity: 0.45;
             }
 
+            a.mainwp-basic-button {
+                text-decoration: none;
+                display: inline-block;
+                background-color:#fff !important;
+                border: 1px solid #e6e8ea;
+                color: #333333 !important;
+                font-size: 13px;
+                font-weight: normal;
+            }
+
             .mainwp-number-field {
                 margin: 0;
                 outline: none;
@@ -749,7 +759,6 @@ class MainWP_Pages {
                     <tr>
                 </tbody>
             </table>
-
             <div>
 
             </div>
@@ -766,7 +775,7 @@ class MainWP_Pages {
         <form method="post" onsubmit="return confirm('<?php echo esc_js( __( 'Are you sure you want to Disconnect Site from your ' . $branding_title . ' Dashboard?', 'mainwp-child' ) ); ?>');"  action="options-general.php?page=mainwp_child_tab">
             <p><?php printf( esc_html__( 'Click this button to disconnect this site from your %s Dashboard.', 'mainwp-child' ), esc_html( stripslashes( $branding_title ) ) ); ?></p>
             <p class="submit">
-                <input <?php echo empty( get_option( 'mainwp_child_pubkey' ) ) ? ' disabled="disabled" ' : ''; ?> type="submit" name="submit" id="submit" class="mainwp-basic-button" value="<?php esc_attr_e( 'Clear Connection Data', 'mainwp-child' ); ?>">
+                <input <?php echo empty( get_option( 'mainwp_child_pubkey' ) ) ? ' disabled="disabled" ' : ''; ?> type="submit" name="submit" id="submit2" class="mainwp-basic-button" value="<?php esc_attr_e( 'Clear Connection Data', 'mainwp-child' ); ?>">
             </p>
             <input type="hidden" name="nonce-disconnect" value="<?php echo esc_attr( wp_create_nonce( 'child-settings-disconnect' ) ); ?>">
         </form>

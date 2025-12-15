@@ -1503,7 +1503,6 @@ class Extrapopover extends OxygenExtraElements {
                         cursor: pointer;
                         box-shadow: none;
                         border: none;
-                        outline: none;
                         will-change: transform;
                         transition: all 300ms ease;
                         padding: 0;
@@ -1831,6 +1830,13 @@ class Extrapopover extends OxygenExtraElements {
                                     },
                                 ],
                         },
+                        onShown() {
+                            document.addEventListener('keydown', function(e) {
+                                if((e.key === "Escape" || e.key === "Esc")){
+                                    tippy.hideAll()
+                                }
+                            });
+                        }
                     });
                     
                     

@@ -4,7 +4,7 @@
 		<div class="oxy-style-indicator"
 			ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('display')&&!IDHasOption('display'),'oxygen-has-id-value':iframeScope.IDHasOption('display')}"
 		></div>
-		<label class='oxygen-control-label'><?php _e("Display", "oxygen"); ?></label>
+		<label class='oxygen-control-label'><?php oxygen_translate_echo("Display", "oxygen"); ?></label>
 		<div class='oxygen-control'>
 			<div class='oxygen-button-list'>
 
@@ -42,7 +42,7 @@
 			<div class="oxy-style-indicator"
 				ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('flex-direction')&&!IDHasOption('flex-direction'),'oxygen-has-id-value':iframeScope.IDHasOption('flex-direction')}"
 			></div>
-			<label class='oxygen-control-label'><?php _e("Flex Direction","oxygen"); ?></label>
+			<label class='oxygen-control-label'><?php oxygen_translate_echo("Flex Direction","oxygen"); ?></label>
 			<div class='oxygen-control'>
 				<div class='oxygen-button-list'>
 
@@ -59,7 +59,7 @@
 							<?php $this->ng_attributes('flex-reverse'); ?>> 
 						<div class='oxygen-checkbox-checkbox'
 							ng-class="{'oxygen-checkbox-checkbox-active':iframeScope.getOption('flex-reverse')=='reverse'}">
-							<?php _e("Reverse","component-theme"); ?>
+							<?php oxygen_translate_echo("Reverse","component-theme"); ?>
 						</div>
 					</label>
 
@@ -69,7 +69,7 @@
 	</div>
 
 	<div class='oxygen-control-row'>
-		<?php $oxygen_toolbar->measure_box_with_wrapper("gap", __("Gap"), 'px,%,em'); ?>
+		<?php $oxygen_toolbar->measure_box_with_wrapper("gap", oxygen_translate("Gap"), 'px,%,em'); ?>
 	</div>
 
 	<!-- align items, justify content. we should use the icons here. -->
@@ -78,7 +78,7 @@
 			<div class="oxy-style-indicator"
 				ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('align-items')&&!IDHasOption('align-items'),'oxygen-has-id-value':iframeScope.IDHasOption('align-items')}"
 			></div>
-			<label class='oxygen-control-label'><?php _e("Align Items","oxygen"); ?></label>
+			<label class='oxygen-control-label'><?php oxygen_translate_echo("Align Items","oxygen"); ?></label>
 			<div class='oxygen-control'>
 				<div class='oxygen-button-list'>
 
@@ -97,7 +97,7 @@
 			<div class="oxy-style-indicator"
 				ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('justify-content')&&!IDHasOption('justify-content'),'oxygen-has-id-value':iframeScope.IDHasOption('justify-content')}"
 			></div>
-			<label class='oxygen-control-label'><?php _e("Justify Content","oxygen"); ?></label>
+			<label class='oxygen-control-label'><?php oxygen_translate_echo("Justify Content","oxygen"); ?></label>
 			<div class='oxygen-control'>
 				<div class='oxygen-button-list'>
 
@@ -118,7 +118,7 @@
 			<div class="oxy-style-indicator"
 				ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('flex-wrap')&&!IDHasOption('flex-wrap'),'oxygen-has-id-value':iframeScope.IDHasOption('flex-wrap')}"
 			></div>
-			<label class='oxygen-control-label'><?php _e("Flex Wrap","oxygen"); ?></label>
+			<label class='oxygen-control-label'><?php oxygen_translate_echo("Flex Wrap","oxygen"); ?></label>
 			<div class='oxygen-control'>
 				<div class='oxygen-button-list'>
 
@@ -136,7 +136,7 @@
 			<div class="oxy-style-indicator"
 				ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('align-content')&&!IDHasOption('align-content'),'oxygen-has-id-value':iframeScope.IDHasOption('align-content')}"
 			></div>
-			<label class='oxygen-control-label'><?php _e("Align Content","oxygen"); ?></label>
+			<label class='oxygen-control-label'><?php oxygen_translate_echo("Align Content","oxygen"); ?></label>
 			<div class='oxygen-control'>
 				<div class='oxygen-button-list'>
 
@@ -158,7 +158,7 @@
 		<div class="oxy-style-indicator"
 			ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('float')&&!IDHasOption('float'),'oxygen-has-id-value':iframeScope.IDHasOption('float')}"
 		></div>
-		<label class='oxygen-control-label'><?php _e("Float","oxygen"); ?></label>
+		<label class='oxygen-control-label'><?php oxygen_translate_echo("Float","oxygen"); ?></label>
 		<div class='oxygen-control'>
 			<div class='oxygen-button-list'>
 
@@ -176,7 +176,7 @@
 		<div class="oxy-style-indicator"
 			ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('overflow')&&!IDHasOption('overflow'),'oxygen-has-id-value':iframeScope.IDHasOption('overflow')}"
 		></div>
-		<label class='oxygen-control-label'><?php _e("Overflow","oxygen"); ?></label>
+		<label class='oxygen-control-label'><?php oxygen_translate_echo("Overflow","oxygen"); ?></label>
 		<div class='oxygen-control'>
 			<div class='oxygen-button-list'>
 				
@@ -194,7 +194,7 @@
 		<div class="oxy-style-indicator"
 			ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('clear')&&!IDHasOption('clear'),'oxygen-has-id-value':iframeScope.IDHasOption('clear')}"
 		></div>
-		<label class='oxygen-control-label'><?php _e("Clear","oxygen"); ?></label>
+		<label class='oxygen-control-label'><?php oxygen_translate_echo("Clear","oxygen"); ?></label>
 		<div class='oxygen-control'>
 			<div class='oxygen-button-list'>
 				
@@ -213,7 +213,7 @@
 		<div class="oxy-style-indicator"
 			ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('visibility')&&!IDHasOption('visibility'),'oxygen-has-id-value':iframeScope.IDHasOption('visibility')}"
 		></div>
-		<label class='oxygen-control-label'><?php _e("Visibility","oxygen"); ?></label>
+		<label class='oxygen-control-label'><?php oxygen_translate_echo("Visibility","oxygen"); ?></label>
 		<div class='oxygen-control'>
 			<div class='oxygen-button-list'>
 				
@@ -230,7 +230,7 @@
 		<div class="oxy-style-indicator"
 			ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('z-index')&&!IDHasOption('z-index'),'oxygen-has-id-value':iframeScope.IDHasOption('z-index')}"
 		></div>
-		<label class='oxygen-control-label'><?php _e("Z-index","oxygen"); ?></label>
+		<label class='oxygen-control-label'><?php oxygen_translate_echo("Z-index","oxygen"); ?></label>
 		<div class='oxygen-control'>
 			<div class="oxygen-input">
 		        <input type="text" spellcheck="false"
@@ -245,7 +245,7 @@
 		<div class="oxy-style-indicator"
 			ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('position')&&!IDHasOption('position'),'oxygen-has-id-value':iframeScope.IDHasOption('position')}"
 		></div>
-		<label class='oxygen-control-label'><?php _e("Position","oxygen"); ?></label>
+		<label class='oxygen-control-label'><?php oxygen_translate_echo("Position","oxygen"); ?></label>
 		<div class='oxygen-control'>
 			<div class='oxygen-button-list'>
 				
@@ -278,14 +278,14 @@
 <div class='oxygen-inset-controls oxygen-inset-controls-light' id='flex-child-controls'
 	ng-show="iframeScope.component.options[iframeScope.component.active.parent.id]['model']['display'] == 'flex'||iframeScope.component.options[iframeScope.component.active.parent.id]['model']['display'] == 'inline-flex'">
 
-	<h3><?php _e("Flexbox Child Controls","oxygen"); ?></h3>
+	<h3><?php oxygen_translate_echo("Flexbox Child Controls","oxygen"); ?></h3>
 	
 	<div class='oxygen-control-row'>
 		<div class='oxygen-control-wrapper oxy-indicator-underline'>
 			<div class="oxy-style-indicator"
 				ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('align-self')&&!IDHasOption('align-self'),'oxygen-has-id-value':iframeScope.IDHasOption('align-self')}"
 			></div>
-			<label class='oxygen-control-label'><?php _e("Align Self","oxygen"); ?></label>
+			<label class='oxygen-control-label'><?php oxygen_translate_echo("Align Self","oxygen"); ?></label>
 			<div class='oxygen-control'>
 				<div class='oxygen-button-list'>
 

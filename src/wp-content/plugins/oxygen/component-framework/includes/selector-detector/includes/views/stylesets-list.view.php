@@ -9,7 +9,7 @@
 <script type="text/ng-template" id="styleSelectorMenu">
 	<span class="ct-icon ct-visible-icon"
 	ng-click="iframeScope.highlightSelector(true,selector.key,$event)"
-	title="<?php _e("Highlight selector", "component-theme"); ?>">
+	title="<?php oxygen_translate_echo("Highlight selector", "component-theme"); ?>">
 	</span>
 
 	<span class="ct-icon ct-delete-icon"

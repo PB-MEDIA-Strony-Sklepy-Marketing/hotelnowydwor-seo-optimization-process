@@ -76,7 +76,7 @@ $oxygen_vsb_components['link_text'] = new CT_Link_Text (
 
 					array(
 						"type" 			=> "hyperlink",
-						"heading" 		=> __("URL"),
+						"heading" 		=> oxygen_translate("URL"),
 						"param_name" 	=> "url",
 						"value" 		=> "http://",
 						"css" 			=> false,
@@ -84,7 +84,7 @@ $oxygen_vsb_components['link_text'] = new CT_Link_Text (
 					),
 					array(
 						"type" 			=> "dropdown",
-						"heading" 		=> __("Target","oxygen"),
+						"heading" 		=> oxygen_translate("Target","oxygen"),
 						"param_name" 	=> "target",
 						"value" 		=> array (
 											"" => "&nbsp;",
@@ -98,7 +98,7 @@ $oxygen_vsb_components['link_text'] = new CT_Link_Text (
 					),
 					array(
 						"type" 			=> "html_attribute",
-						"heading" 		=> __("Rel","oxygen"),
+						"heading" 		=> oxygen_translate("Rel","oxygen"),
 						"param_name" 	=> "rel",
 						"value" 		=> "",
 						"css" 			=> false,
@@ -111,30 +111,30 @@ $oxygen_vsb_components['link_text'] = new CT_Link_Text (
 					),
 					array(
 						"type" 			=> "font-family",
-						"heading" 		=> __("Font Family", "oxygen"),
+						"heading" 		=> oxygen_translate("Font Family", "oxygen"),
 						"css" 			=> false,
 					),
 					array(
 						"type" 				=> "colorpicker",
 						"param_name" 		=> "color",
-						"heading" 			=> __("Text Color", "oxygen"),
+						"heading" 			=> oxygen_translate("Text Color", "oxygen"),
 						"hide_wrapper_end" 	=> true,
 					),
 					array(
 						"type" 				=> "colorpicker",
 						"param_name" 		=> "hover_color",
-						"heading" 			=> __("Hover Color", "oxygen"),
+						"heading" 			=> oxygen_translate("Hover Color", "oxygen"),
 						"hide_wrapper_start"=> true,
 						"state_condition" 	=> "!=hover"
 					),
 					array(
 						"type" 			=> "slider-measurebox",
-						"heading" 		=> __("Font Size", "oxygen"),
+						"heading" 		=> oxygen_translate("Font Size", "oxygen"),
 						"param_name" 	=> "font-size",
 					),
 					array(
 						"type" 			=> "dropdown",
-						"heading" 		=> __("Font Weight", "oxygen"),
+						"heading" 		=> oxygen_translate("Font Weight", "oxygen"),
 						"param_name" 	=> "font-weight",
 						"value" 		=> array (
 											"" 		=> "&nbsp;",
@@ -151,8 +151,8 @@ $oxygen_vsb_components['link_text'] = new CT_Link_Text (
 					),
 					array(
 						"type" 			=> "checkbox",
-						"heading" 		=> __("Underline", "oxygen"),
-						"label" 		=> __("Underline link text", "oxygen"),
+						"heading" 		=> oxygen_translate("Underline", "oxygen"),
+						"label" 		=> oxygen_translate("Underline link text", "oxygen"),
 						"param_name" 	=> "text-decoration",
 						"value" 		=> "none",
 						"true_value" 	=> "underline",
@@ -161,7 +161,7 @@ $oxygen_vsb_components['link_text'] = new CT_Link_Text (
 					
 					array(
 						"type" 			=> "textfield",
-						"heading" 		=> __("Target"),
+						"heading" 		=> oxygen_translate("Target"),
 						"param_name" 	=> "target",
 						"value" 		=> "_self",
 						"hidden"		=> true,

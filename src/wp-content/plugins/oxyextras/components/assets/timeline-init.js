@@ -13,7 +13,7 @@ function toggleTimeLineClass(oxyTimeLineItem) {
             scrollPosition = 2;
         }
 
-       if ($(oxyTimeLineItem).offset().top < (window.pageYOffset + window.innerHeight/scrollPosition - $(oxyTimeLineItem).height()/2)) {
+       if ($(oxyTimeLineItem).find('.oxy-content-timeline_marker-inner').offset().top < (window.scrollY + window.innerHeight/scrollPosition - $(oxyTimeLineItem).find('.oxy-content-timeline_marker-inner').innerHeight()/2)) {
             $(oxyTimeLineItem).addClass("oxy-content-timeline_active");
         } else {
             $(oxyTimeLineItem).removeClass("oxy-content-timeline_active");
@@ -27,8 +27,8 @@ function toggleTimeLineClass(oxyTimeLineItem) {
         let firstItem = $(oxyTimeLineLine).hasClass('oxy-dynamic-list') ? $(oxyTimeLineLine).children('.ct-div-block:first-of-type').find('.oxy-content-timeline') : $(oxyTimeLineLine).children('.oxy-content-timeline:first-of-type');
         let lastItem =  $(oxyTimeLineLine).hasClass('oxy-dynamic-list') ? $(oxyTimeLineLine).children('.ct-div-block:last-of-type') : $(oxyTimeLineLine).children('.oxy-content-timeline:last-of-type');
             $(oxyTimeLineLine).find('.oxy-content-timeline_line').css({
-                "top": firstItem.innerHeight()/2 + 'px',
-                "bottom": lastItem.innerHeight()/2 + 'px',
+                "top": firstItem.find('.oxy-content-timeline_marker').offset().top + firstItem.find('.oxy-content-timeline_marker').innerHeight()/2 - firstItem.offset().top + 'px',
+                "bottom": ( lastItem.offset().top + lastItem.innerHeight() - lastItem.find('.oxy-content-timeline_marker').offset().top - lastItem.find('.oxy-content-timeline_marker').innerHeight()/2 ) + 'px',
                 "left": firstItem.find('.oxy-content-timeline_marker').offset().left + (firstItem.find('.oxy-content-timeline_marker').width()/2) - $(oxyTimeLineLine).offset().left + 'px',
                 "opacity": '1'
             });
@@ -44,14 +44,15 @@ function toggleTimeLineClass(oxyTimeLineItem) {
         } else {
             scrollPosition = 2
         }
+
+        let firstItem = $(oxyTimeLineLine).hasClass('oxy-dynamic-list') ? $(oxyTimeLineLine).children('.ct-div-block:first-of-type').find('.oxy-content-timeline') : $(oxyTimeLineLine).children('.oxy-content-timeline:first-of-type');
+        let lastItem =  $(oxyTimeLineLine).hasClass('oxy-dynamic-list') ? $(oxyTimeLineLine).children('.ct-div-block:last-of-type') : $(oxyTimeLineLine).children('.oxy-content-timeline:last-of-type');
         
         let timelineActive = $(oxyTimeLineLine).find('.oxy-content-timeline_line-active');
-        let firstItemHeight = $(oxyTimeLineLine).hasClass('oxy-dynamic-list') ? $(oxyTimeLineLine).children('.ct-div-block:first-of-type').innerHeight() : $(oxyTimeLineLine).children('.oxy-content-timeline:first-of-type').innerHeight();
-        let lastItemHeight = $(oxyTimeLineLine).hasClass('oxy-dynamic-list') ? $(oxyTimeLineLine).children('.ct-div-block:last-of-type').innerHeight() : $(oxyTimeLineLine).children('.oxy-content-timeline:last-of-type').innerHeight();
-        let firstItemTop = $(oxyTimeLineLine).offset().top + (firstItemHeight/2) - (window.innerHeight/scrollPosition);
-        let lastItemBottom = $(oxyTimeLineLine).offset().top + $(oxyTimeLineLine).outerHeight() - (lastItemHeight/2) - (window.innerHeight/scrollPosition);
+        let firstItemTop = firstItem.find('.oxy-content-timeline_marker').offset().top + firstItem.find('.oxy-content-timeline_marker').innerHeight()/2 - (window.innerHeight/scrollPosition);
+        let lastItemBottom = ( lastItem.find('.oxy-content-timeline_marker').offset().top + lastItem.find('.oxy-content-timeline_marker').innerHeight()/2 ) - (window.innerHeight/scrollPosition);
 
-        var scrolltop = window.pageYOffset;
+        var scrolltop = window.scrollY;
 
         var scaleValue = 1 / (lastItemBottom - firstItemTop);
         var startScale = scrolltop - firstItemTop;
@@ -75,13 +76,13 @@ function toggleTimeLineClass(oxyTimeLineItem) {
     $('.oxy-content-timeline_inner').each(function(i, oxyTimeLineItem){
 
         if ( $(oxyTimeLineItem).parents('.oxy-dynamic-list').length && !$(oxyTimeLineItem).parents('.oxy-dynamic-list[data-content-timeline]').length ) {
-            $(oxyTimeLineItem).parents('.oxy-dynamic-list').attr('data-content-timeline','active');
-            $(oxyTimeLineItem).parents('.oxy-dynamic-list[data-content-timeline="active"]').prepend('<span class="oxy-content-timeline_line"><span class="oxy-content-timeline_line-active"></span></span>');
+            $(oxyTimeLineItem).closest('.oxy-dynamic-list').attr('data-content-timeline','active');
+            $(oxyTimeLineItem).closest('.oxy-dynamic-list[data-content-timeline="active"]').prepend('<span class="oxy-content-timeline_line"><span class="oxy-content-timeline_line-active"></span></span>');
         }
 
         if ( !$(oxyTimeLineItem).parents('.oxy-dynamic-list').length && $(oxyTimeLineItem).parents('[data-content-timeline]').length && !$(oxyTimeLineItem).parents('[data-content-timeline="active"]').length ) {
-            $(oxyTimeLineItem).parents('[data-content-timeline]').attr('data-content-timeline','active');
-            $(oxyTimeLineItem).parents('[data-content-timeline="active"]').prepend('<span class="oxy-content-timeline_line"><span class="oxy-content-timeline_line-active"></span></span>');
+            $(oxyTimeLineItem).closest('[data-content-timeline]').attr('data-content-timeline','active');
+            $(oxyTimeLineItem).closest('[data-content-timeline="active"]').prepend('<span class="oxy-content-timeline_line"><span class="oxy-content-timeline_line-active"></span></span>');
         }
 
         if ( true === $(oxyTimeLineItem).data('scroll') ) {

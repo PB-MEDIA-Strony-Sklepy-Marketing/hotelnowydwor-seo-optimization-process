@@ -20,11 +20,11 @@
 
 			<div class='oxygen-admin-screen-home-section'>
 				<h2>Help &amp; Tutorials</h2>
-				<p>New to Oxygen? Watch our short <a href='https://oxygenbuilder.com/documentation/getting-started/getting-started-tutorial/' target="_blank">getting started video</a> to get up to speed.</p>
+				<p>New to Oxygen? Watch our short <a href='https://classic.oxygenbuilder.com/documentation/getting-started/getting-started-tutorial/' target="_blank">getting started video</a> to get up to speed.</p>
 
 				<ul>
 					<li>
-						<a class="oxygen-admin-screen-home-link" href='https://oxygenbuilder.com/documentation' target="_blank">Tutorials &amp; Documentation</a>
+						<a class="oxygen-admin-screen-home-link" href='https://classic.oxygenbuilder.com/documentation' target="_blank">Tutorials &amp; Documentation</a>
 					</li>
 					<li>
 						<a class="oxygen-admin-screen-home-link" href='https://www.youtube.com/watch?v=_3tKAwbqw5Q&list=PLKW1BFmB4NOuKzsEx3VIFSfMHXCm21DhN' target="_blank">Tutorial Series on YouTube</a>
@@ -74,10 +74,10 @@
 
 				<ul>
 					<li>
-						<a class="oxygen-admin-screen-home-link" href='https://oxygenbuilder.com/facebook' target="_blank">Facebook Group (HIGHLY recommended)</a>
+						<a class="oxygen-admin-screen-home-link" href='https://classic.oxygenbuilder.com/facebook' target="_blank">Facebook Group (HIGHLY recommended)</a>
 					</li>
 					<li>
-						<a class="oxygen-admin-screen-home-link" href='https://oxygenbuilder.com/support' target="_blank">Contact the Oxygen Support Team</a>
+						<a class="oxygen-admin-screen-home-link" href='https://classic.oxygenbuilder.com/support' target="_blank">Contact the Oxygen Support Team</a>
 					</li>
 				</ul>
 

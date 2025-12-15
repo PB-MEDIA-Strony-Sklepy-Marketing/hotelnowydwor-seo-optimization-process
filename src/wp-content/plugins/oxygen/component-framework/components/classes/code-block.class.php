@@ -294,16 +294,16 @@ $oxygen_vsb_components['code_block'] = new CT_Code_Block( array(
 					),
 					array(
 						"type" 			=> "checkbox",
-						"heading" 		=> __("Unwrap Code Block PHP"),
+						"heading" 		=> oxygen_translate("Unwrap Code Block PHP"),
 						"param_name" 	=> "unwrap",
 						"value" 		=> "false",
 						"true_value" 	=> "true",
 						"false_value" 	=> "false",
-						"description"	=> __("Unwrapping Code Block PHP will result in ID assigned styles not applying to the Code Block on the front-end.","oxygen")
+						"description"	=> oxygen_translate("Unwrapping Code Block PHP will result in ID assigned styles not applying to the Code Block on the front-end.","oxygen")
 					),
 					array(
 						"type" 			=> "tag",
-						"heading" 		=> __("Tag", "oxygen"),
+						"heading" 		=> oxygen_translate("Tag", "oxygen"),
 						"param_name" 	=> "tag",
 						"value" 		=> array (
 											"div" => "DIV",

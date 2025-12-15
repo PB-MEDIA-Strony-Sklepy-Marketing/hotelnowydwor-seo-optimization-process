@@ -193,7 +193,7 @@ $oxygen_vsb_components['inner_content'] = new CT_Inner_Content( array(
 			'params' 	=> array(
 					array(
 						"type" 			=> "tag",
-						"heading" 		=> __("Tag", "oxygen"),
+						"heading" 		=> oxygen_translate("Tag", "oxygen"),
 						"param_name" 	=> "tag",
 						"value" 		=> array (
 											"div" 		=> "div",

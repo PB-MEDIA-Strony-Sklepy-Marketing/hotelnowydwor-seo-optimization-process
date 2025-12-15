@@ -86,12 +86,12 @@ Class CT_Modal extends CT_Component {
         <div class='oxygen-control-row' ng-hide="!isShowTab('ct_modal','closing')">
             <div class='oxygen-control-wrapper'>
                 <div class='oxygen-control'>
-                    <a href="#" class="oxygen-ghost-button" ng-click="iframeScope.insertModalCloseButton()"><?php echo __("Insert Close Button", "oxygen"); ?></a>
+                    <a href="#" class="oxygen-ghost-button" ng-click="iframeScope.insertModalCloseButton()"><?php echo oxygen_translate("Insert Close Button", "oxygen"); ?></a>
                 </div>
             </div>
             <ul class="oxygen-control-label">
-                <li><?php echo __( "Elements with 'oxy-close-modal' class will act as a close button." ) ?></li>
-                <li><?php echo __( 'Close the popup with JS - use the <span class="code">oxyCloseModal()</span> function. <a id="oxyCloseModalDetailsButton" href="javascript:jQuery(\'#oxyCloseModalDetails\').css(\'opacity\', 1); jQuery(\'#oxyCloseModalDetailsButton\').hide();">Details</a>' ) ?></li>
+                <li><?php echo oxygen_translate( "Elements with 'oxy-close-modal' class will act as a close button." ) ?></li>
+                <li><?php echo oxygen_translate( 'Close the popup with JS - use the <span class="code">oxyCloseModal()</span> function. <a id="oxyCloseModalDetailsButton" href="javascript:jQuery(\'#oxyCloseModalDetails\').css(\'opacity\', 1); jQuery(\'#oxyCloseModalDetailsButton\').hide();">Details</a>' ) ?></li>
             </ul>
             <div id="oxyCloseModalDetails" class="oxygen-sidebar-code-editor-wrap">
                 <?php 
@@ -104,7 +104,7 @@ Class CT_Modal extends CT_Component {
 
         <div class='oxygen-control-row'  ng-hide="!isShowTab('ct_modal','modal_styles')">
             <div class='oxygen-control-wrapper oxygen-control-wrapper-center'>
-                <label class='oxygen-control-label'><?php _e("Modal Position","oxygen"); ?></label>
+                <label class='oxygen-control-label'><?php oxygen_translate_echo("Modal Position","oxygen"); ?></label>
                 <div class='oxygen-control'>
                     <div class='oxygen-icon-button-list modal-position'>
                         <?php $oxygen_toolbar->icon_button_list_button(
@@ -512,7 +512,7 @@ $oxygen_vsb_components['modal'] = new CT_Modal( array(
 		'tag' 		=> 'ct_modal',
 		'tabs'      => array(
             'trigger' => array(
-                'heading' => __( 'Trigger', 'oxygen' ),
+                'heading' => oxygen_translate( 'Trigger', 'oxygen' ),
                 'params' => array(
                     array(
                         "type" 			=> "dropdown",
@@ -545,7 +545,7 @@ $oxygen_vsb_components['modal'] = new CT_Modal( array(
 	                ),
 	                array(
 		                "type" 			=> "textfield",
-		                "heading" 		=> __("Number of page views"),
+		                "heading" 		=> oxygen_translate("Number of page views"),
 		                "param_name" 	=> "number_of_page_views",
 		                "value" 		=> "3",
 		                "css" 			=> false,
@@ -553,7 +553,7 @@ $oxygen_vsb_components['modal'] = new CT_Modal( array(
 	                ),
 	                array(
 		                "type" 			=> "textfield",
-		                "heading" 		=> __("Number of clicks"),
+		                "heading" 		=> oxygen_translate("Number of clicks"),
 		                "param_name" 	=> "number_of_clicks",
 		                "value" 		=> "3",
 		                "css" 			=> false,
@@ -561,7 +561,7 @@ $oxygen_vsb_components['modal'] = new CT_Modal( array(
 	                ),
                     array(
                         "type" 			=> "textfield",
-                        "heading" 		=> __("Percentage of page needed to scroll"),
+                        "heading" 		=> oxygen_translate("Percentage of page needed to scroll"),
                         "param_name" 	=> "trigger_scroll_amount",
                         "value" 		=> "50",
                         "css" 			=> false,
@@ -569,7 +569,7 @@ $oxygen_vsb_components['modal'] = new CT_Modal( array(
                     ),
 	                array(
 		                "type" 			=> "selector",
-		                "heading" 		=> __("Scroll to element"),
+		                "heading" 		=> oxygen_translate("Scroll to element"),
 		                "param_name" 	=> "scroll_to_selector",
 		                "value" 		=> "",
 		                "css" 			=> false,
@@ -577,7 +577,7 @@ $oxygen_vsb_components['modal'] = new CT_Modal( array(
 	                ),
                     array(
                         "type" 			=> "selector",
-                        "heading" 		=> __("Trigger selector"),
+                        "heading" 		=> oxygen_translate("Trigger selector"),
                         "param_name" 	=> "trigger_selector",
                         "value" 		=> "",
                         "css" 			=> false,
@@ -585,7 +585,7 @@ $oxygen_vsb_components['modal'] = new CT_Modal( array(
                     ),
                     array(
                         "type" 			=> "measurebox",
-                        "heading" 		=> __("Open Modal After:"),
+                        "heading" 		=> oxygen_translate("Open Modal After:"),
                         "param_name" 	=> "trigger_time",
                         "param_units"   => "seconds,milliseconds",
                         "value" 		=> "5",
@@ -594,7 +594,7 @@ $oxygen_vsb_components['modal'] = new CT_Modal( array(
                     ),
 	                array(
 		                "type" 			=> "measurebox",
-		                "heading" 		=> __("Time inactive:"),
+		                "heading" 		=> oxygen_translate("Time inactive:"),
 		                "param_name" 	=> "time_inactive",
 		                "param_units"   => "seconds,milliseconds",
 		                "value" 		=> "60",
@@ -626,7 +626,7 @@ $oxygen_vsb_components['modal'] = new CT_Modal( array(
                     ),
                     array(
                         "type" 			=> "measurebox",
-                        "heading" 		=> __("Show Again After:"),
+                        "heading" 		=> oxygen_translate("Show Again After:"),
                         "param_name" 	=> "open_again_after_days",
                         "param_units" 	=> "days",
                         "value" 		=> "3",
@@ -641,17 +641,17 @@ $oxygen_vsb_components['modal'] = new CT_Modal( array(
                 )
             ),
             'content_styles' => array(
-                'heading' => __( 'Content Styles', 'oxygen' ),
+                'heading' => oxygen_translate( 'Content Styles', 'oxygen' ),
                 'params' => array(
                     array(
                         "type" 			=> "flex-layout",
-                        "heading" 		=> __("Layout Child Elements", "oxygen"),
+                        "heading" 		=> oxygen_translate("Layout Child Elements", "oxygen"),
                         "param_name" 	=> "flex-direction",
                         "css" 			=> true,
                     ),
                     array(
                         "type" 			=> "checkbox",
-                        "heading" 		=> __("Allow multiline"),
+                        "heading" 		=> oxygen_translate("Allow multiline"),
                         "param_name" 	=> "flex-wrap",
                         "value" 		=> "",
                         "true_value" 	=> "wrap",
@@ -663,22 +663,22 @@ $oxygen_vsb_components['modal'] = new CT_Modal( array(
                     ),
                     array(
                         "type" 			=> "colorpicker",
-                        "heading" 		=> __("Text Color", "oxygen"),
+                        "heading" 		=> oxygen_translate("Text Color", "oxygen"),
                         "param_name" 	=> "color",
                     ),
                     array(
                         "type" 			=> "colorpicker",
-                        "heading" 		=> __("Background Color", "oxygen"),
+                        "heading" 		=> oxygen_translate("Background Color", "oxygen"),
                         "param_name" 	=> "background-color",
                     ),
                 )
             ),
             'modal_styles' => array(
-                'heading' => __( 'Modal Styles', 'oxygen' ),
+                'heading' => oxygen_translate( 'Modal Styles', 'oxygen' ),
                 'params' => array(
                     array(
                         "type" 			=> "measurebox",
-                        "heading" 		=> __("Width", "oxygen"),
+                        "heading" 		=> oxygen_translate("Width", "oxygen"),
                         "param_name" 	=> "width",
                         "param_units"   => "%,px,vw",
                         "value"         => "70"
@@ -691,29 +691,29 @@ $oxygen_vsb_components['modal'] = new CT_Modal( array(
                     ),
                     array(
                         "type" 			=> "colorpicker",
-                        "heading" 		=> __("Backdrop Color", "oxygen"),
+                        "heading" 		=> oxygen_translate("Backdrop Color", "oxygen"),
                         "param_name" 	=> "backdrop-color",
                         "value"         => "rgba(0,0,0,0.5)"
                     ),
                 )
             ),
             'closing' => array(
-                'heading' => __( 'Closing', 'oxygen' ),
+                'heading' => oxygen_translate( 'Closing', 'oxygen' ),
                 'params' => array(
                     array(
                         "type" 			=> "radio",
                         "heading" 		=> "Close Modal Automatically",
                         "param_name" 	=> "close_automatically",
                         "value" 		=> array(
-                            'yes'       => __("Yes"),
-                            'no'   	    => __("No")
+                            'yes'       => oxygen_translate("Yes"),
+                            'no'   	    => oxygen_translate("No")
                         ),
                         "default"       => 'no',
                         "css"			=> false,
                     ),
                     array(
                         "type" 			=> "measurebox",
-                        "heading" 		=> __("Close modal after:"),
+                        "heading" 		=> oxygen_translate("Close modal after:"),
                         "param_name" 	=> "close_after_time",
                         "param_units" 	=> "seconds,milliseconds",
                         "value" 		=> "10",
@@ -730,8 +730,8 @@ $oxygen_vsb_components['modal'] = new CT_Modal( array(
                         "heading" 		=> "Close Modal On Ajax Form Submit",
                         "param_name" 	=> "close_after_form_submit",
                         "value" 		=> array(
-                            'yes'       => __("Yes"),
-                            'no'   	    => __("No")
+                            'yes'       => oxygen_translate("Yes"),
+                            'no'   	    => oxygen_translate("No")
                         ),
                         "default"       => 'no',
                         "css"			=> false,
@@ -753,8 +753,8 @@ $oxygen_vsb_components['modal'] = new CT_Modal( array(
                         "heading" 		=> "Close Modal On Backdrop Click",
                         "param_name" 	=> "close_modal_on_backdrop_click",
                         "value" 		=> array(
-                            'yes'       => __("Yes"),
-                            'no'   	    => __("No")
+                            'yes'       => oxygen_translate("Yes"),
+                            'no'   	    => oxygen_translate("No")
                         ),
                         "default"       => 'yes',
                         "css"			=> false,
@@ -773,9 +773,9 @@ $oxygen_vsb_components['modal'] = new CT_Modal( array(
 				"heading" 		=> "In-editor behavior",
 				"param_name" 	=> "behavior",
 				"value" 		=> array(
-					1 	        => __("Inline"),
-					2   	    => __("Live preview"),
-					3   	    => __("Hidden")
+					1 	        => oxygen_translate("Inline"),
+					2   	    => oxygen_translate("Live preview"),
+					3   	    => oxygen_translate("Hidden")
 				),
 				"default"       => 1,
 				"css"			=> false,

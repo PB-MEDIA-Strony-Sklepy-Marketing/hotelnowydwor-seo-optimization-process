@@ -57,18 +57,18 @@ global $oxygen_vsb_components;
 $oxygen_vsb_components['tabs_content'] = new Oxy_Tabs_Content ( 
 
 		array( 
-			'name' 		=> __('Tabs Contents', 'oxygen'),
+			'name' 		=> oxygen_translate('Tabs Contents', 'oxygen'),
 			'tag' 		=> 'oxy_tabs_contents',
 			'params' 	=> array(
 					array(
 						"type" 			=> "flex-layout",
-						"heading" 		=> __("Layout Child Elements", "oxygen"),
+						"heading" 		=> oxygen_translate("Layout Child Elements", "oxygen"),
 						"param_name" 	=> "flex-direction",
 						"css" 			=> true,
 					),
 					array(
 						"type" 			=> "checkbox",
-						"heading" 		=> __("Allow multiline"),
+						"heading" 		=> oxygen_translate("Allow multiline"),
 						"param_name" 	=> "flex-wrap",
 						"value" 		=> "",
 						"true_value" 	=> "wrap",
@@ -80,13 +80,13 @@ $oxygen_vsb_components['tabs_content'] = new Oxy_Tabs_Content (
 					),
 					array(
 						"type" 			=> "measurebox",
-						"heading" 		=> __("Width"),
+						"heading" 		=> oxygen_translate("Width"),
 						"param_name" 	=> "width",
 						"value" 		=> "",
 					),
 					array(
 						"type" 			=> "colorpicker",
-						"heading" 		=> __("Background color"),
+						"heading" 		=> oxygen_translate("Background color"),
 						"param_name" 	=> "background-color",
 					),
 				),

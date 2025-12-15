@@ -99,7 +99,7 @@ function ct_svg_sets_callback() {
 		
 		if ( $file_type != "image/svg+xml" ) {
 			
-			_e("<b>Wrong file type</b>. Please make sure you upload '.svg' file", "component-theme");
+			oxygen_translate_echo("<b>Wrong file type</b>. Please make sure you upload '.svg' file", "component-theme");
 		}
 		else {
 			
@@ -148,7 +148,7 @@ function ct_svg_sets_callback() {
 				
 				// save SVG sets to DB
 				if( FALSE === $result ) {
-					_e("<b>Error</b>. Couldn't add the SVG icon set. Try increasing the 'max_allowed_packet' database setting or use smaller file.", "component-theme");
+					oxygen_translate_echo("<b>Error</b>. Couldn't add the SVG icon set. Try increasing the 'max_allowed_packet' database setting or use smaller file.", "component-theme");
 				}
 				else {
 					$svg_sets_names = get_option("ct_svg_sets_names", array());
@@ -159,7 +159,7 @@ function ct_svg_sets_callback() {
 				}
 			}
 			else {
-				_e("<b>Wrong file format</b>. The .svg file does not contain any symbol definitions", "component-theme");
+				oxygen_translate_echo("<b>Wrong file format</b>. The .svg file does not contain any symbol definitions", "component-theme");
 			}
 		}
 

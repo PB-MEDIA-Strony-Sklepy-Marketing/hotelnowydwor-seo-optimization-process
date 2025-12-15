@@ -52,7 +52,7 @@ function ct_export_import_callback() {
 
 		// check if empty
 		if ( empty( $import_json ) ) {
-			$import_errors[] = __("Empty Import");
+			$import_errors[] = oxygen_translate("Empty Import");
 		}
 		else {
 			// try to decode
@@ -129,10 +129,10 @@ function ct_export_import_callback() {
 					update_option("oxygen_vsb_element_presets", $element_presets, get_option("oxygen_options_autoload") );
 				}
 
-				$import_success[] = __("Import success", "component-theme");
+				$import_success[] = oxygen_translate("Import success", "component-theme");
 			}
 			else {
-				$import_errors[] = __("Wrong JSON Format", "component-theme");
+				$import_errors[] = oxygen_translate("Wrong JSON Format", "component-theme");
 			}
 		}
 	}

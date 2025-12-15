@@ -2,7 +2,7 @@
 	ng-show="isActiveName('ct_new_columns')&&iframeScope.isEmptyComponent()">
 
 	<div class='oxygen-control-wrapper'>
-		<label class='oxygen-control-label'><?php _e("Column Layout", "oxygen"); ?></label>
+		<label class='oxygen-control-label'><?php oxygen_translate_echo("Column Layout", "oxygen"); ?></label>
 
 		<div class='oxygen-control'>
 

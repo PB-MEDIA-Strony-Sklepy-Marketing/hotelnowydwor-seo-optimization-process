@@ -1636,7 +1636,15 @@ class ExtraMediaPlayer extends OxygenExtraElements {
     
     function output_js() {
 
-      wp_enqueue_script( 'extras-vime', plugin_dir_url(__FILE__) . 'assets/vime/@vime/core/dist/vime/vime.esm.js', '', '4.7.3' );
+      wp_enqueue_script( 'extras-vime', plugin_dir_url(__FILE__) . 'assets/vime/@vime/core/dist/vime/vime.esm.js', '', '4.7.3.1' );
+
+      wp_localize_script(
+		'extras-vime',
+		'xLightbox',
+		[
+			'vimeDir' => plugin_dir_url(__FILE__) . 'assets/vime/@vime/core/',
+		]
+	);
 
     }
 

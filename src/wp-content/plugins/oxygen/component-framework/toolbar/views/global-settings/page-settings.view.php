@@ -12,7 +12,7 @@
 	<div class="oxygen-flex-panel"
 		ng-hide="!isShowTab('settings','page')||hasOpenChildTabs('settings','page')">
 
-		<?php $this->settings_home_breadcrumbs(__("Page Settings","oxygen")); ?>
+		<?php $this->settings_home_breadcrumbs(oxygen_translate("Page Settings","oxygen")); ?>
 
 		<?php 
 		
@@ -25,7 +25,7 @@
 		
 		<div class="oxygen-control-row">
 			<div class='oxygen-control-wrapper'>
-				<label class='oxygen-control-label'><?php _e("Page Width","oxygen"); ?></label>
+				<label class='oxygen-control-label'><?php oxygen_translate_echo("Page Width","oxygen"); ?></label>
 				<div class='oxygen-measure-box'>
 					<input type="text" spellcheck="false"
 						placeholder="{{$parent.iframeScope.pageSettings['max-width']}}" 
@@ -51,7 +51,7 @@
 		
 		<div class="oxygen-control-row">
 			<div class='oxygen-control-wrapper'>
-				<label class='oxygen-control-label'><?php _e("Overlay Header","oxygen"); ?></label>
+				<label class='oxygen-control-label'><?php oxygen_translate_echo("Overlay Header","oxygen"); ?></label>
 				<div class="oxygen-select oxygen-select-box-wrapper">
 					<div class="oxygen-select-box">
 						<div class="oxygen-select-box-current"
@@ -67,7 +67,7 @@
 						<div class="oxygen-select-box-option" 
 							ng-click="$parent.iframeScope.pageSettingsMeta['overlay-header-above']='never';$parent.iframeScope.pageSettingsUpdate()"
 							ng-class="{'oxygen-select-box-option-active':$parent.iframeScope.pageSettingsMeta['overlay-header-above']=='never'}">
-							<?php _e("Never","oxygen"); ?>
+							<?php oxygen_translate_echo("Never","oxygen"); ?>
 						</div>
 						<div class="oxygen-select-box-option" 
 							ng-repeat="name in $parent.iframeScope.sortedMediaList(true)"
@@ -79,7 +79,7 @@
 						<div class="oxygen-select-box-option" 
 							ng-click="$parent.iframeScope.pageSettingsMeta['overlay-header-above']='always';$parent.iframeScope.pageSettingsUpdate()"
 							ng-class="{'oxygen-select-box-option-active':$parent.iframeScope.pageSettingsMeta['overlay-header-above']=='always'}">
-							<?php _e("Always","oxygen"); ?>
+							<?php oxygen_translate_echo("Always","oxygen"); ?>
 						</div>
 					</div>
 				</div>

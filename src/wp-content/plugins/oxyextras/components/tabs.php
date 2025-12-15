@@ -180,7 +180,7 @@ class ExtraTabs extends OxygenExtraElements {
                     foreach ( $group_values as $group_key => $group_value ) {
 
                          // Load sub field value.
-                         $tab_out = isset( $group_value[$tab_field] ) ? $group_value[$tab_field] : '';
+                         $tab_out = isset( $group_value[$tab_field] ) ? wp_kses_post( $group_value[$tab_field] ) : '';
             
                          $output .= '<li class="oxy-dynamic-tabs_tab-item" id="'. $unique_hash . $group_key .'-item"><button class="oxy-dynamic-tabs_tab">';
                          $output .= '<span class="oxy-dynamic-tabs_tab-text">' . $tab_out . '</span>';
@@ -192,7 +192,7 @@ class ExtraTabs extends OxygenExtraElements {
                     foreach ( $group_values as $group_key => $group_value ) {
 
                         // Load sub field value.
-                        $tab_content_out = isset( $group_value[$tab_content_field] ) ? $group_value[$tab_content_field] : '';
+                        $tab_content_out = isset( $group_value[$tab_content_field] ) ? wp_kses_post( $group_value[$tab_content_field] ) : '';
 
                         if ('true' === $maybe_wpautop) {
                             $tab_content_out = do_shortcode( wpautop( $tab_content_out ) );
@@ -231,7 +231,7 @@ class ExtraTabs extends OxygenExtraElements {
                         while( have_rows($repeater_field, $post_id) ) : the_row();
 
                             // Load sub field value.
-                            $tab_out = get_sub_field($tab_field);
+                            $tab_out = wp_kses_post( get_sub_field($tab_field) );
             
                             $output .= '<li class="oxy-dynamic-tabs_tab-item" id="'. $unique_hash . get_row_index() .'-item"><button class="oxy-dynamic-tabs_tab">';
                             $output .= '<span class="oxy-dynamic-tabs_tab-text">' . $tab_out . '</span>';
@@ -248,7 +248,7 @@ class ExtraTabs extends OxygenExtraElements {
                         while( have_rows($repeater_field, $post_id) ) : the_row();
 
                             // Load sub field value.
-                            $tab_content_out = get_sub_field($tab_content_field);
+                            $tab_content_out = wp_kses_post( get_sub_field($tab_content_field) );
 
                             $output .= '<div class="oxy-dynamic-tabs_panel" id="'. $unique_hash . '-' . get_row_index() . $hash_suffix .'"><div class="oxy-dynamic-tabs_panel-inner">';
                             $output .= $tab_content_out;

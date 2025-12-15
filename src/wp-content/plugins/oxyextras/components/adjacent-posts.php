@@ -92,7 +92,7 @@ class ExtraAdjPosts extends OxygenExtraElements {
                 <?php  echo $prev_label; 
                     if (isset( $options['title_display'] ) && $options["title_display"] === "show" ) {                  
                         echo '<' . $titles_tag .' class=adj-post_title>';                 
-                        echo apply_filters( 'the_title', $prev_post->post_title );
+                        echo apply_filters( 'the_title', $prev_post->post_title, $prev_post->ID );
                         echo '</' . $titles_tag .'>';  
                     } ?>
                 </div>    
@@ -105,7 +105,7 @@ class ExtraAdjPosts extends OxygenExtraElements {
                 <?php  echo $next_label; 
                     if (isset( $options['title_display'] ) && $options["title_display"] === "show" ) { 
                       echo '<' . $titles_tag .' class=adj-post_title>';
-                      echo apply_filters( 'the_title', $next_post->post_title );
+                      echo apply_filters( 'the_title', $next_post->post_title, $next_post->ID );
                       echo '</' . $titles_tag .'>';
                     } ?>
                 </div>     

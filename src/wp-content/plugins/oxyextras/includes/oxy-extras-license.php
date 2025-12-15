@@ -71,9 +71,10 @@ class OxyExtrasLicense {
 					</tbody>
 				</table>
 				<?php if ( $status !== false && $status == 'valid' ) { ?>
-					<span style="color:green;"><?php _e( 'active' ); ?></span>
+					
 					<?php wp_nonce_field( self::$prefix . 'nonce', self::$prefix . 'nonce' ); ?>
 					<input type="submit" class="button-secondary" name="<?php echo self::$prefix; ?>license_deactivate" value="<?php _e( 'Deactivate License' ); ?>"/>
+					<span style="color:green;display: inline-flex;align-items: center;justify-content: center;padding: 5px 10px;"><?php _e( 'Active' ); ?></span>
 					<?php
 				} else {
 					wp_nonce_field( self::$prefix . 'nonce', self::$prefix . 'nonce' );
@@ -199,6 +200,7 @@ class OxyExtrasLicense {
 					array(
 						'sl_activation' => 'false',
 						'message'       => urlencode( $message ),
+						'nonce'		=> wp_create_nonce( self::$prefix . 'license_nonce' )
 					),
 					$base_url
 				);
@@ -262,6 +264,7 @@ class OxyExtrasLicense {
 					array(
 						'sl_activation' => 'false',
 						'message'       => urlencode( $message ),
+						'nonce'		=> wp_create_nonce( self::$prefix . 'license_nonce' )
 					),
 					$base_url
 				);
@@ -288,7 +291,7 @@ class OxyExtrasLicense {
 	}
 
 	static function admin_notices() {
-		if ( isset( $_GET['sl_activation'] ) && ! empty( $_GET['message'] ) ) {
+		if ( isset( $_GET['sl_activation'] ) && ! empty( $_GET['message'] ) && isset( $_GET['nonce'] ) && wp_verify_nonce( $_GET['nonce'], self::$prefix . 'license_nonce' ) ) {
 
 			switch ( $_GET['sl_activation'] ) {
 
@@ -296,7 +299,7 @@ class OxyExtrasLicense {
 					$message = urldecode( $_GET['message'] );
 					?>
 					<div class="error">
-						<p><?php echo $message; ?></p>
+						<p><?php echo esc_html( $message ); ?></p>
 					</div>
 					<?php
 					break;

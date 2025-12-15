@@ -24,7 +24,7 @@ if ( class_exists( 'iWorks_OpenGraph' ) ) {
 
 class iWorks_OpenGraph {
 	private $youtube_meta_name = 'iworks_yt_thumbnails';
-	private $version           = '3.3.7';
+	private $version           = '3.3.8';
 	private $debug             = false;
 	private $locale            = null;
 

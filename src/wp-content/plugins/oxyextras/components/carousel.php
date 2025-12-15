@@ -3333,9 +3333,6 @@ class ExtraCarousel extends OxygenExtraElements {
             )
         )->setParam("description", __("Add the selector for the class you've added to the repeater div for the cells"));
         
-        
-        
-        
        
        
     }
@@ -3882,7 +3879,7 @@ class ExtraCarousel extends OxygenExtraElements {
         if ( ! function_exists('do_oxygen_elements') ) {
             wp_enqueue_script( 'flickity-init', plugin_dir_url( __FILE__ ) . 'assets/flickity/flickity-init.js', '', '2.3.1' );
         } else {
-            wp_enqueue_script( 'flickity-init-js', plugin_dir_url( __FILE__ ) . 'assets/flickity/flickity-init-4.js', '', '2.3.1' );
+            wp_enqueue_script( 'flickity-init-js', plugin_dir_url( __FILE__ ) . 'assets/flickity/flickity-init-4.js', '', '2.3.3' );
         }
     }
 

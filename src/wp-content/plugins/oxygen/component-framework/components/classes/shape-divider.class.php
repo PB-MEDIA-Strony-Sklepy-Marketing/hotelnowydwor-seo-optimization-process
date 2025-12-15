@@ -31,7 +31,7 @@ class Oxygen_Shape_Divider extends OxyEl
 
     // Define the element's name.
     function name() {
-        return __("Shape Divider","oxygen");
+        return oxygen_translate("Shape Divider","oxygen");
     }
 
     // Element options
@@ -59,7 +59,7 @@ class Oxygen_Shape_Divider extends OxyEl
                 <div id="oxygen-add-another-row" class="oxygen-add-section-element"
                     ng-click="iframeScope.addComponent('oxy-shape-divider')">
                     <img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/add-icons/shape-divider.svg' />
-                    <?php _e("Add Shape Divider","oxygen"); ?>
+                    <?php oxygen_translate_echo("Add Shape Divider","oxygen"); ?>
                 </div>
             </div>
         </div>
@@ -300,7 +300,7 @@ class Oxygen_Shape_Divider extends OxyEl
         $this->addOptionControl(
             array(
                 "type" => 'dropdown',
-                "name" => __("Divider Shape"),
+                "name" => oxygen_translate("Divider Shape"),
                 "slug" => 'svg_shape',
             )
         )->setValue(array(
@@ -343,7 +343,7 @@ class Oxygen_Shape_Divider extends OxyEl
         $this->addOptionControl(
             array(
                 "type" => 'textfield',
-                "name" => __("Custom Shape"),
+                "name" => oxygen_translate("Custom Shape"),
                 "slug" => 'custom_shape',
                 "base64" => true,
             )
@@ -354,7 +354,7 @@ class Oxygen_Shape_Divider extends OxyEl
             array(
                 array(
                     "control_type" => 'colorpicker',
-                    "name" => __("Color"),
+                    "name" => oxygen_translate("Color"),
                     "property" => "color",
                     "selector" => ".oxy_shape_divider"
                 )
@@ -365,7 +365,7 @@ class Oxygen_Shape_Divider extends OxyEl
         $this->addOptionControl(
             array(
                 "type" => 'buttons-list',
-                "name" => __("Position"),
+                "name" => oxygen_translate("Position"),
                 "slug" => 'svg_position',
             )
         )->setValue(array('Bottom', 'Top'))->rebuildElementOnChange();
@@ -374,7 +374,7 @@ class Oxygen_Shape_Divider extends OxyEl
         $this->addOptionControl(
             array(
                 "type" => 'buttons-list',
-                "name" => __("Flip Horizontally"),
+                "name" => oxygen_translate("Flip Horizontally"),
                 "slug" => 'svg_flip',
             )
         )->setValue(array('No', 'Yes'))->rebuildElementOnChange();
@@ -383,7 +383,7 @@ class Oxygen_Shape_Divider extends OxyEl
         $this->addStyleControls(
             array(
                 array(
-                    "name" => __("Height"),
+                    "name" => oxygen_translate("Height"),
                     "property" => "height",
                     "selector" => ".oxy_shape_divider svg",
                     "value" => "320"
@@ -395,7 +395,7 @@ class Oxygen_Shape_Divider extends OxyEl
         $this->addStyleControls(
             array(
                 array(
-                    "name" => __("Width"),
+                    "name" => oxygen_translate("Width"),
                     "property" => "width",
                     "selector" => ".oxy_shape_divider svg",
                     "value" => "100",
@@ -409,7 +409,7 @@ class Oxygen_Shape_Divider extends OxyEl
             array(
                 "type" => "checkbox", 
                 "slug" => "center_horizontally",
-                "name" => __("Center Horizontally")
+                "name" => oxygen_translate("Center Horizontally")
             ))->setValue("false");
 
 		$center_horizontally->setValueCSS( array(
@@ -436,7 +436,7 @@ class Oxygen_Shape_Divider extends OxyEl
             array(
                 array(
                     "control_type" => 'textfield',
-                    "name" => __("Z-Index"),
+                    "name" => oxygen_translate("Z-Index"),
                     "property" => "z-index",
                     "selector" => ".oxy_shape_divider"
                 )

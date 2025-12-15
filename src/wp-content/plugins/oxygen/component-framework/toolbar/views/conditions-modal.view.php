@@ -1,6 +1,6 @@
 <div ng-if="dialogForms['ifCondition']" id='ct-modal-if-conditions' class='ct-global-conditions-add-modal ct-global-conditions-choose-operator oxygen-data-dialog'>
     <h1>
-        <?php _e("Conditions", "oxygen"); ?>
+        <?php oxygen_translate_echo("Conditions", "oxygen"); ?>
         <svg class="oxygen-close-icon" ng-click="hideDialogWindow()"><use xlink:href="#oxy-icon-cross"></use></svg>
     </h1>
 
@@ -15,7 +15,7 @@
                             <div class="oxygen-select-box-current oxy-tooltip">
                                 <span ng-if="condition.name != 'ZZOXYVSBDYNAMIC'">{{condition.name}}</span>
                                 <span ng-if="condition.name == 'ZZOXYVSBDYNAMIC'">{{condition.oxycode}}</span>
-                                <span class="placeholder-text" ng-if="!condition.name"><?php _e("Choose Condition...","oxygen");?></span>
+                                <span class="placeholder-text" ng-if="!condition.name"><?php oxygen_translate_echo("Choose Condition...","oxygen");?></span>
                                 <div class="oxy-tooltip-text" ng-if="condition.name">
                                     <span ng-if="condition.name != 'ZZOXYVSBDYNAMIC'">{{condition.name}}</span>
                                     <span ng-if="condition.name == 'ZZOXYVSBDYNAMIC'">{{condition.oxycode}}</span>
@@ -34,7 +34,7 @@
                                         ng-if="item.name == 'ZZOXYVSBDYNAMIC'"
                                         ng-click="conditionsDialogOptions.selectedIndex = index"
                                         ctdynamicdata="" noshadow="1" backbutton=true data="iframeScope.dynamicShortcodesContentMode" callback="assignOxyCodeToCondition">
-                                        <?php _e("Dynamic Data","oxygen");?>
+                                        <?php oxygen_translate_echo("Dynamic Data","oxygen");?>
                                     </div>
 
                                     <div class="oxygen-select-box-option"
@@ -68,7 +68,7 @@
                         <div class="oxygen-select-box">
                             <div class="oxygen-select-box-current oxy-tooltip">
                                {{iframeScope.globalConditions[iframeScope.component.options[iframeScope.component.active.id]['model']['globalconditions'][index]['name']]['operators'][condition.operator]}}
-                               <span class="placeholder-text" ng-if="condition.operator === null">{{condition.operator}}<?php _e("==","oxygen");?></span>
+                               <span class="placeholder-text" ng-if="condition.operator === null">{{condition.operator}}<?php oxygen_translate_echo("==","oxygen");?></span>
                                <div class="oxy-tooltip-text"  ng-if="condition.operator !== null">{{iframeScope.globalConditions[iframeScope.component.options[iframeScope.component.active.id]['model']['globalconditions'][index]['name']]['operators'][condition.operator]}}</div>
                             </div>
                             <div class="oxygen-select-box-dropdown"></div>
@@ -117,7 +117,7 @@
                                     ctdynamicdata noshadow="1" backbutton=true 
                                     data="iframeScope.dynamicShortcodesContentMode" 
                                     callback="assignOxyCodeToConditionValue">
-                                    <?php _e("data","oxygen"); ?>
+                                    <?php oxygen_translate_echo("data","oxygen"); ?>
                                 </div>
 
                                 <span
@@ -126,7 +126,7 @@
                                 </span>
                                 
                                 <span class="placeholder-text" 
-                                    ng-if="condition.value && !iframeScope.globalConditions[iframeScope.component.options[iframeScope.component.active.id]['model']['globalconditions'][index]['name']]['values']['custom']===null"><?php _e("Value...","oxygen");?>
+                                    ng-if="condition.value && !iframeScope.globalConditions[iframeScope.component.options[iframeScope.component.active.id]['model']['globalconditions'][index]['name']]['values']['custom']===null"><?php oxygen_translate_echo("Value...","oxygen");?>
                                 </span>
 
                                 <div class="oxy-tooltip-text" 
@@ -166,13 +166,13 @@
         <div class='oxygen-condition-builder-add-condition' 
             ng-if="iframeScope.component.options[iframeScope.component.active.id]['model']['globalconditions'].length > 0">
             
-            <a ng-click="iframeScope.component.options[iframeScope.component.active.id]['model']['globalconditions'] = iframeScope.component.options[iframeScope.component.active.id]['model']['globalconditions'] || []; iframeScope.component.options[iframeScope.component.active.id]['model']['globalconditions'].push({name: '', operator: null, value: ''}); iframeScope.setOptionModel('globalconditions', iframeScope.component.options[iframeScope.component.active.id]['model']['globalconditions']); evalGlobalConditions(); evalGlobalConditionsInList()"><?php _e("Add Condition","oxygen");?></a>
+            <a ng-click="iframeScope.component.options[iframeScope.component.active.id]['model']['globalconditions'] = iframeScope.component.options[iframeScope.component.active.id]['model']['globalconditions'] || []; iframeScope.component.options[iframeScope.component.active.id]['model']['globalconditions'].push({name: '', operator: null, value: ''}); iframeScope.setOptionModel('globalconditions', iframeScope.component.options[iframeScope.component.active.id]['model']['globalconditions']); evalGlobalConditions(); evalGlobalConditionsInList()"><?php oxygen_translate_echo("Add Condition","oxygen");?></a>
         </div> 
 
         <div class="oxygen-add-button"
             ng-if="!iframeScope.component.options[iframeScope.component.active.id]['model']['globalconditions'].length"
             ng-click="iframeScope.component.options[iframeScope.component.active.id]['model']['globalconditions'] = iframeScope.component.options[iframeScope.component.active.id]['model']['globalconditions'] || []; iframeScope.component.options[iframeScope.component.active.id]['model']['globalconditions'].push({name: '', operator: null, value: ''}); iframeScope.setOptionModel('globalconditions', iframeScope.component.options[iframeScope.component.active.id]['model']['globalconditions']); evalGlobalConditions(); evalGlobalConditionsInList()">
             
-            <span><?php _e("Add your first condition","oxygen");?></span>
+            <span><?php oxygen_translate_echo("Add your first condition","oxygen");?></span>
         </div>
 </div>

@@ -21,7 +21,7 @@ $options = file_get_contents('php://input');
 $options = json_decode( $options, true );
 
 if ( ! $options ) {
-	_e("Can't get component options", "component-theme");
+	oxygen_translate_echo("Can't get component options", "component-theme");
 	die();
 };
 
@@ -39,7 +39,7 @@ $executed_shortcode = do_shortcode( $shortcode );
 
 
 if ( $executed_shortcode == $shortcode ) {
-	_e("Can't execute the shortcode. Make sure tag and parameters are correct.", "component-theme");
+	oxygen_translate_echo("Can't execute the shortcode. Make sure tag and parameters are correct.", "component-theme");
 }
 else {
 	echo $executed_shortcode;

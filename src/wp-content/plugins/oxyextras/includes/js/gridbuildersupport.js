@@ -36,4 +36,28 @@ function onAppended( content ) {
         doExtrasPopover(jQuery(content));
     }
 
+    /* copy to clipboard */
+    if (typeof doCopyToClipboard == 'function' && jQuery(content).has('.oxy-copy-to-clipboard')) {
+        doCopyToClipboard(jQuery(content));
+    }
+
+    /* social share */
+    if (typeof doExtrasSocialShare == 'function' && jQuery(content).has('.oxy-share-button')) {
+        doExtrasSocialShare(jQuery(content));
+    }
+    
+
+    content.forEach((container) => {
+
+        /* print */
+        if (typeof doExtrasSocialSharePrint == 'function' && jQuery(content).has('.oxy-share-button.print')) {
+            doExtrasSocialSharePrint(container);
+        }
+
+    })
+
+    
+
+    
+
 } 

@@ -10,13 +10,13 @@
 		?>
 
 		<?php $oxygen_toolbar->settings_breadcrumbs(	
-							__('Animate On Scroll','oxygen'),
-							__('Global Styles','oxygen'),
+							oxygen_translate('Animate On Scroll','oxygen'),
+							oxygen_translate('Global Styles','oxygen'),
 							'default-styles'); ?>
 			
 		<div class='oxygen-control-row'>
 			<div class='oxygen-control-wrapper' id='oxygen-typography-font-family'>
-				<label class='oxygen-control-label'><?php _e("Animation Type","oxygen"); ?></label>
+				<label class='oxygen-control-label'><?php oxygen_translate_echo("Animation Type","oxygen"); ?></label>
 				<div class='oxygen-control'>
 					<div class="oxygen-select oxygen-select-box-wrapper">
 						<div class="oxygen-select-box">
@@ -41,12 +41,12 @@
 		</div>
 
 		<div class='oxygen-control-row'>
-			<?php $oxygen_toolbar->global_slider_measure_box_with_wrapper('global',"['aos']['duration']",__('Animation Duration','oxygen'), 'ms', 50, 3000, null, 50); ?>
+			<?php $oxygen_toolbar->global_slider_measure_box_with_wrapper('global',"['aos']['duration']",oxygen_translate('Animation Duration','oxygen'), 'ms', 50, 3000, null, 50); ?>
 		</div>
 
 		<div class='oxygen-control-row'>
 			<div class='oxygen-control-wrapper'>
-				<label class='oxygen-control-label'><?php _e("Animation Anchor","oxygen"); ?></label>
+				<label class='oxygen-control-label'><?php oxygen_translate_echo("Animation Anchor","oxygen"); ?></label>
 				<div class='oxygen-control'>
 					<div class="oxygen-select oxygen-select-box-wrapper">
 						<div class="oxygen-select-box"
@@ -73,7 +73,7 @@
 
 		<div class='oxygen-control-row'>
 			<div class='oxygen-control-wrapper'>
-				<label class='oxygen-control-label'><?php _e("Animation Easing","oxygen"); ?></label>
+				<label class='oxygen-control-label'><?php oxygen_translate_echo("Animation Easing","oxygen"); ?></label>
 				<div class='oxygen-control'>
 					<div class="oxygen-select oxygen-select-box-wrapper">
 						<div class="oxygen-select-box"
@@ -99,26 +99,26 @@
 		</div>
 
 		<div class='oxygen-control-row'>
-			<?php $oxygen_toolbar->global_measure_box_with_wrapper('global', "['aos']['offset']", __('Animation Trigger Offset','oxygen'), 'px'); ?>
+			<?php $oxygen_toolbar->global_measure_box_with_wrapper('global', "['aos']['offset']", oxygen_translate('Animation Trigger Offset','oxygen'), 'px'); ?>
 		</div>
 
 		<div class='oxygen-control-row'>
-			<?php $oxygen_toolbar->global_measure_box_with_wrapper('global', "['aos']['delay']", __('Animation Delay','oxygen'), 'ms'); ?>
+			<?php $oxygen_toolbar->global_measure_box_with_wrapper('global', "['aos']['delay']", oxygen_translate('Animation Delay','oxygen'), 'ms'); ?>
 		</div>
 
 		<div class='oxygen-control-row'>
 	        <div class='oxygen-control-wrapper'>
-	            <label class='oxygen-control-label'><?php _e("Animate Only Once","oxygen"); ?></label>
+	            <label class='oxygen-control-label'><?php oxygen_translate_echo("Animate Only Once","oxygen"); ?></label>
 	            <div class='oxygen-control'>
 	                <div class='oxygen-button-list'>
-	                    <?php $oxygen_toolbar->global_button_list_button('global', "['aos']['once']", 'true', __('yes','oxygen')); ?>
-	                    <?php $oxygen_toolbar->global_button_list_button('global', "['aos']['once']", 'false', __('no','oxygen')); ?>
+	                    <?php $oxygen_toolbar->global_button_list_button('global', "['aos']['once']", 'true', oxygen_translate('yes','oxygen')); ?>
+	                    <?php $oxygen_toolbar->global_button_list_button('global', "['aos']['once']", 'false', oxygen_translate('no','oxygen')); ?>
 	                </div>
 	            </div>
 	        </div>
 	    </div>
 
-		<?php $oxygen_toolbar->global_media_queries_list_with_wrapper('global', "['aos']['disable']", __('Disable On','oxygen'), false, false, false); ?>
+		<?php $oxygen_toolbar->global_media_queries_list_with_wrapper('global', "['aos']['disable']", oxygen_translate('Disable On','oxygen'), false, false, false); ?>
 
 		<div class='oxygen-control-row'>
 			<div class='oxygen-control-wrapper'>
@@ -130,7 +130,7 @@
 							ng-model="iframeScope.globalSettings['aos']['refresh_on_page']">
 						<div class='oxygen-checkbox-checkbox'
 							ng-class="{'oxygen-checkbox-checkbox-active':iframeScope.globalSettings['aos']['refresh_on_page']=='true'}">
-							<?php _e("Refresh AOS On Page Load","oxygen") ?>
+							<?php oxygen_translate_echo("Refresh AOS On Page Load","oxygen") ?>
 						</div>
 					</label>
 				</div>

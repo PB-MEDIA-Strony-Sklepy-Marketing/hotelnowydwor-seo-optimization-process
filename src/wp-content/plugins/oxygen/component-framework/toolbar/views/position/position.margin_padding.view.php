@@ -2,7 +2,7 @@
 <div class="oxygen-control-row">
 	<div class='oxygen-control-wrapper oxygen-padding-controls'
 		ng-if="isActiveName('ct_section')">
-		<label class='oxygen-control-label'><?php _e("Padding", "component-theme"); ?></label>
+		<label class='oxygen-control-label'><?php oxygen_translate_echo("Padding", "component-theme"); ?></label>
 		
 		<div class='oxygen-control'>
 
@@ -14,7 +14,7 @@
 				<?php $this->measure_box('container-padding-left','',true,true,false,"show_indicator"); ?>
 				<div class="oxygen-flex-line-break"></div>
 				<div class="oxygen-apply-all-trigger">
-					<?php _e("apply all »", "oxygen"); ?>
+					<?php oxygen_translate_echo("apply all »", "oxygen"); ?>
 				</div>
 
 			</div>
@@ -32,7 +32,7 @@
 		<!-- .oxygen-control-wrapper -->
 		<div class='oxygen-control-wrapper oxygen-padding-controls oxygen-padding-centered'
 		ng-if="!isActiveName('ct_section')">
-		<label class='oxygen-control-label'><?php _e("Padding", "component-theme"); ?></label>
+		<label class='oxygen-control-label'><?php oxygen_translate_echo("Padding", "component-theme"); ?></label>
 		
 		<div class='oxygen-control'>
 
@@ -44,7 +44,7 @@
 				<?php $this->measure_box('padding-left','',true,true,"model,change,keypress","show_indicator"); ?>
 				<div class="oxygen-flex-line-break"></div>
 				<div class="oxygen-apply-all-trigger">
-					<?php _e("apply all »", "oxygen"); ?>
+					<?php oxygen_translate_echo("apply all »", "oxygen"); ?>
 				</div>
 
 			</div>
@@ -54,7 +54,7 @@
 	</div>
 	<!-- .oxygen-control-wrapper -->
 	<div class='oxygen-control-wrapper oxygen-margin-controls' ng-show='iframeScope.component.active.name != "ct_section"'>
-		<label class='oxygen-control-label oxygen-margins-label'><?php _e("Margin", "component-theme"); ?></label>
+		<label class='oxygen-control-label oxygen-margins-label'><?php oxygen_translate_echo("Margin", "component-theme"); ?></label>
 		
 		<div class='oxygen-control'>
 
@@ -65,7 +65,7 @@
 				<?php $this->measure_box('margin-left','',true,true,"model,change,keypress","show_indicator"); ?>
 				<div class="oxygen-flex-line-break"></div>
 				<div class="oxygen-apply-all-trigger">
-					<?php _e("apply all »", "oxygen"); ?>
+					<?php oxygen_translate_echo("apply all »", "oxygen"); ?>
 				</div>
 
 			</div>

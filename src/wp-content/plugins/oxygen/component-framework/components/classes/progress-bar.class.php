@@ -319,7 +319,7 @@ class Oxygen_VSB_Progress_Bar extends CT_Component{
                     ng-click="iframeScope.setOptionModel('progress_bar_right_text','85%')">
                     <img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/typography.svg' />
                     <img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/typography.svg' />
-                    <?php _e("Re-enable Deleted Text","oxygen"); ?>
+                    <?php oxygen_translate_echo("Re-enable Deleted Text","oxygen"); ?>
                 </div>
             </div>
         </div>
@@ -329,12 +329,12 @@ class Oxygen_VSB_Progress_Bar extends CT_Component{
 
 global $oxygen_vsb_components;
 $oxygen_vsb_components['progress_bar'] = new Oxygen_VSB_Progress_Bar( array(
-            'name'  => __('Progress Bar','oxygen'),
+            'name'  => oxygen_translate('Progress Bar','oxygen'),
             'tag'   => 'oxy_progress_bar',
             'params'=> array(
                 array(
                     "type"          => "slider-measurebox",
-                    "heading"       => __("Progress", "oxygen"),
+                    "heading"       => oxygen_translate("Progress", "oxygen"),
                     "param_name"    => "progress_bar_progress",
                     "param_untis"    => "%",
                     "value"         => "85",
@@ -349,23 +349,23 @@ $oxygen_vsb_components['progress_bar'] = new Oxygen_VSB_Progress_Bar( array(
             ), 
             'tabs'  => array(
                 'progress_bar' => array(
-                    'heading' => __('Progress Bar','oxygen'),
+                    'heading' => oxygen_translate('Progress Bar','oxygen'),
                     'params' => array(
                         array(
                             "type"          => "colorpicker",
-                            "heading"       => __("Bar Color"),
+                            "heading"       => oxygen_translate("Bar Color"),
                             "param_name"    => "progress_bar_bar_color",
                             "value"         => "#66aaff",
                         ),
                         array(
                             "type"          => "colorpicker",
-                            "heading"       => __("Background Color"),
+                            "heading"       => oxygen_translate("Background Color"),
                             "param_name"    => "progress_bar_background_color",
                             "value"         => "#000000",
                         ),
                         array(
                             "type"          => "slider-measurebox",
-                            "heading"       => __("Bar Padding", "oxygen"),
+                            "heading"       => oxygen_translate("Bar Padding", "oxygen"),
                             "param_name"    => "progress_bar_bar_padding",
                             "value"         => "40",
                             "css"           => false,
@@ -377,11 +377,11 @@ $oxygen_vsb_components['progress_bar'] = new Oxygen_VSB_Progress_Bar( array(
                         ),
                         array(
                             "type"          => "radio",
-                            "heading"       => __("Stripes", "oxygen"),
+                            "heading"       => oxygen_translate("Stripes", "oxygen"),
                             "param_name"    => "progress_bar_stripes",
                             "value"         => array(
-                                                 'true'     => __("true", "oxygen"),
-                                                 'false'    => __("false", "oxygen"),
+                                                 'true'     => oxygen_translate("true", "oxygen"),
+                                                 'false'    => oxygen_translate("false", "oxygen"),
                                             ),
                             "css"           => false,
                         ),
@@ -389,40 +389,40 @@ $oxygen_vsb_components['progress_bar'] = new Oxygen_VSB_Progress_Bar( array(
                 ),
 
                 'animation' => array(
-                    'heading' => __('Animation','oxygen'),
+                    'heading' => oxygen_translate('Animation','oxygen'),
                     'params' => array(
                        array(
                             "type"          => "radio",
-                            "heading"       => __("Animation Stripes", "oxygen"),
+                            "heading"       => oxygen_translate("Animation Stripes", "oxygen"),
                             "param_name"    => "progress_bar_animation_stripes",
                             "value"         => array(
-                                                 'true'     => __("true", "oxygen"),
-                                                 'false'    => __("false", "oxygen"),
+                                                 'true'     => oxygen_translate("true", "oxygen"),
+                                                 'false'    => oxygen_translate("false", "oxygen"),
                                             ),
                             "default"       => "false",
                             "css"           => false,
                         ),
                        array(
                             "type"          => "radio",
-                            "heading"       => __("Animate Width", "oxygen"),
+                            "heading"       => oxygen_translate("Animate Width", "oxygen"),
                             "param_name"    => "progress_bar_animate_width",
                             "value"         => array(
-                                                 'true'     => __("true", "oxygen"),
-                                                 'false'    => __("false", "oxygen"),
+                                                 'true'     => oxygen_translate("true", "oxygen"),
+                                                 'false'    => oxygen_translate("false", "oxygen"),
                                             ),
                             "default"       => "false",
                             "css"           => false,
                         ),
                         array(
                             "type"          => "textfield",
-                            "heading"       => __("Animation Stripes Duration","oxygen"),
+                            "heading"       => oxygen_translate("Animation Stripes Duration","oxygen"),
                             "param_name"    => "progress_bar_animation_stripes_duration",
                             "value"         => "1s",
                             "css"           => false
                         ),
                         array(
                             "type"          => "textfield",
-                            "heading"       => __("Animation Width Duration","oxygen"),
+                            "heading"       => oxygen_translate("Animation Width Duration","oxygen"),
                             "param_name"    => "progress_bar_animation_width_duration",
                             "value"         => "4s",
                             "css"           => false
@@ -431,10 +431,10 @@ $oxygen_vsb_components['progress_bar'] = new Oxygen_VSB_Progress_Bar( array(
                 ),
 
                 'typography' => array(
-                    'heading' => __('Typography','oxygen'),
+                    'heading' => oxygen_translate('Typography','oxygen'),
                     'tabs' => array(
                         'left_text_typography' => array(
-                            'heading' => __("Left Text","oxygen"),
+                            'heading' => oxygen_translate("Left Text","oxygen"),
                             'params' => array(
                                 array(
                                     "type"          => "typography",
@@ -458,7 +458,7 @@ $oxygen_vsb_components['progress_bar'] = new Oxygen_VSB_Progress_Bar( array(
                             )
                         ),
                         'right_text_typography' => array(
-                            'heading' => __("Right Text","oxygen"),
+                            'heading' => oxygen_translate("Right Text","oxygen"),
                             'params' => array(
                                 array(
                                     "type"          => "typography",

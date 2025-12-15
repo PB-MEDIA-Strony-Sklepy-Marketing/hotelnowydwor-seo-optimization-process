@@ -261,8 +261,8 @@ function oxygen_vsb_admin_notice() {
     if(get_transient('oxygen-vsb-enabled-shortcode-signing')) {
     	?>
 		<div class="updated notice is-dismissible">
-            <p><?php _e( 'Now that signature verification is enabled, you should re-sign all of your shortcodes.', 'component-theme' ); ?></p>
-            <p><a href="<?php echo add_query_arg('page', 'oxygen_vsb_sign_shortcodes', get_admin_url().'admin.php');?>"><?php _e( 're-sign all of your shortcodes', 'component-theme' ); ?></a></p>
+            <p><?php oxygen_translate_echo( 'Now that signature verification is enabled, you should re-sign all of your shortcodes.', 'component-theme' ); ?></p>
+            <p><a href="<?php echo add_query_arg('page', 'oxygen_vsb_sign_shortcodes', get_admin_url().'admin.php');?>"><?php oxygen_translate_echo( 're-sign all of your shortcodes', 'component-theme' ); ?></a></p>
         </div>
     	<?php
     	delete_transient( 'oxygen-vsb-enabled-shortcode-signing' );	
@@ -328,8 +328,8 @@ function oxygen_vsb_setup_wizard_content() {
 			<div class='oxygen-wizard-wrapper'>
 
 				<div class='oxygen-wizard-title'>
-					<h1><?php esc_html_e( 'Welcome to Oxygen.', 'component-theme' ); ?></h1>
-					<h1><?php esc_html_e( 'Please choose an installation type.', 'component-theme' ); ?></h1>
+					<h1><?php esc_htmloxygen_translate_echo( 'Welcome to Oxygen.', 'component-theme' ); ?></h1>
+					<h1><?php esc_htmloxygen_translate_echo( 'Please choose an installation type.', 'component-theme' ); ?></h1>
 				</div>
 
 				<div class='oxygen-wizard-content'>
@@ -337,9 +337,9 @@ function oxygen_vsb_setup_wizard_content() {
 					<div class='oxygen-wizard-install-types'>
 
 						<div class='oxygen-wizard-install-type'>
-							<h4><?php esc_html_e( 'Premade Website', 'component-theme' ); ?></h4>
-							<h2><?php esc_html_e( 'Recommended', 'component-theme' ); ?></h2>
-							<p><?php esc_html_e( 'Load a complete, premade website from our design library, then customize.', 'component-theme' ); ?></p>
+							<h4><?php esc_htmloxygen_translate_echo( 'Premade Website', 'component-theme' ); ?></h4>
+							<h2><?php esc_htmloxygen_translate_echo( 'Recommended', 'component-theme' ); ?></h2>
+							<p><?php esc_htmloxygen_translate_echo( 'Load a complete, premade website from our design library, then customize.', 'component-theme' ); ?></p>
 							<div class="oxygen-wizard-button-bar">
 							<?php
 								$browse_library = add_query_arg('page', 'ct_install_wiz', get_admin_url());
@@ -349,16 +349,16 @@ function oxygen_vsb_setup_wizard_content() {
 									$default_install = add_query_arg('default', 'atomic', $default_install);
 								}
 							?>
-								<a href="<?php echo $default_install;?>" class="oxygen-wizard-button"><?php esc_html_e( 'Default Install', 'component-theme' ); ?></a>
-								<a href="<?php echo $browse_library;?>" class="oxygen-wizard-button"><?php esc_html_e( 'Browse Library &raquo;', 'component-theme' ); ?></a>
+								<a href="<?php echo $default_install;?>" class="oxygen-wizard-button"><?php esc_htmloxygen_translate_echo( 'Default Install', 'component-theme' ); ?></a>
+								<a href="<?php echo $browse_library;?>" class="oxygen-wizard-button"><?php esc_htmloxygen_translate_echo( 'Browse Library &raquo;', 'component-theme' ); ?></a>
 							</div>
 						</div>
 
 						<div class='oxygen-wizard-install-type'>
-							<h4><?php esc_html_e( 'Blank Installation', 'component-theme' ); ?></h4>
-							<h2><?php esc_html_e( 'For Pro Designers', 'component-theme' ); ?></h2>
-							<p><?php esc_html_e( 'Start with a completely blank canvas and build something from scratch.', 'component-theme' ); ?></p>
-							<a href="<?php echo esc_url( admin_url() ); ?>" class="oxygen-wizard-button"><?php esc_html_e( 'Blank Install', 'component-theme' ); ?></a>
+							<h4><?php esc_htmloxygen_translate_echo( 'Blank Installation', 'component-theme' ); ?></h4>
+							<h2><?php esc_htmloxygen_translate_echo( 'For Pro Designers', 'component-theme' ); ?></h2>
+							<p><?php esc_htmloxygen_translate_echo( 'Start with a completely blank canvas and build something from scratch.', 'component-theme' ); ?></p>
+							<a href="<?php echo esc_url( admin_url() ); ?>" class="oxygen-wizard-button"><?php esc_htmloxygen_translate_echo( 'Blank Install', 'component-theme' ); ?></a>
 						</div>
 
 					</div>
@@ -541,7 +541,7 @@ function ct_is_show_builder() {
 		}
 		
 		if(!oxygen_vsb_current_user_can_access()) {
-			wp_die(__('You do not have sufficient permissions to edit the layout', 'oxygen'));
+			wp_die(oxygen_translate('You do not have sufficient permissions to edit the layout', 'oxygen'));
 		}
 
 		define("SHOW_CT_BUILDER", true);
@@ -575,7 +575,7 @@ add_action('init','ct_is_show_builder', 1 );
  */
 
 function ct_builder_wp_title( $title = array() ) {
- 	$title['title'] = __( 'Oxygen Visual Editor', 'component-theme' ).(isset($title['title'])?' - '.$title['title']:'');
+ 	$title['title'] = oxygen_translate( 'Oxygen Visual Editor', 'component-theme' ).(isset($title['title'])?' - '.$title['title']:'');
     return $title;
 }
 
@@ -730,15 +730,15 @@ function ct_oxygen_admin_menu() {
 				if (oxy_get_post_meta( $post->ID, 'oxygen_lock_post_edit_mode', true )=="true" && oxygen_vsb_get_user_edit_mode() == "edit_only") {
 					return;
 				}
-				$wp_admin_bar->add_menu( array( 'id' => 'oxygen_admin_bar_menu', 'title' => __( 'Oxygen', 'component-theme' ), 'href' => FALSE ) );
-				$wp_admin_bar->add_menu( array( 'id' => 'edit_post_template', 'parent' => 'oxygen_admin_bar_menu', 'title' => __( 'Edit with Oxygen', 'component-theme' ), 'href' => esc_url(ct_get_post_builder_link( $post->ID )).(($contains_inner_content)?'&ct_inner=true':'')) );
+				$wp_admin_bar->add_menu( array( 'id' => 'oxygen_admin_bar_menu', 'title' => oxygen_translate( 'Oxygen', 'component-theme' ), 'href' => FALSE ) );
+				$wp_admin_bar->add_menu( array( 'id' => 'edit_post_template', 'parent' => 'oxygen_admin_bar_menu', 'title' => oxygen_translate( 'Edit with Oxygen', 'component-theme' ), 'href' => esc_url(ct_get_post_builder_link( $post->ID )).(($contains_inner_content)?'&ct_inner=true':'')) );
 			}
 			else {
 				if (oxy_get_post_meta( $template->ID, 'oxygen_lock_post_edit_mode', true )=="true" && oxygen_vsb_get_user_edit_mode() == "edit_only") {
 					return;
 				}
-				$wp_admin_bar->add_menu( array( 'id' => 'oxygen_admin_bar_menu', 'title' => __( 'Oxygen', 'component-theme' ), 'href' => FALSE ) );
-				$wp_admin_bar->add_menu( array( 'id' => 'edit_template', 'parent' => 'oxygen_admin_bar_menu', 'title' => __( 'Edit '.$template->post_title.' Template', 'component-theme' ), 'href' => esc_url(get_edit_post_link( $template->ID )) ) );
+				$wp_admin_bar->add_menu( array( 'id' => 'oxygen_admin_bar_menu', 'title' => oxygen_translate( 'Oxygen', 'component-theme' ), 'href' => FALSE ) );
+				$wp_admin_bar->add_menu( array( 'id' => 'edit_template', 'parent' => 'oxygen_admin_bar_menu', 'title' => oxygen_translate( 'Edit '.$template->post_title.' Template', 'component-theme' ), 'href' => esc_url(get_edit_post_link( $template->ID )) ) );
 			}
 		}
 	}
@@ -747,8 +747,8 @@ function ct_oxygen_admin_menu() {
 			if (oxy_get_post_meta( $post->ID, 'oxygen_lock_post_edit_mode', true )=="true" && oxygen_vsb_get_user_edit_mode() == "edit_only") {
 				return;
 			}
-			$wp_admin_bar->add_menu( array( 'id' => 'oxygen_admin_bar_menu', 'title' => __( 'Oxygen', 'component-theme' ), 'href' => FALSE ) );
-			$wp_admin_bar->add_menu( array( 'id' => 'edit_post_template', 'parent' => 'oxygen_admin_bar_menu', 'title' => __( 'Edit with Oxygen', 'component-theme' ), 'href' => esc_url(ct_get_post_builder_link( $post->ID ))) );
+			$wp_admin_bar->add_menu( array( 'id' => 'oxygen_admin_bar_menu', 'title' => oxygen_translate( 'Oxygen', 'component-theme' ), 'href' => FALSE ) );
+			$wp_admin_bar->add_menu( array( 'id' => 'edit_post_template', 'parent' => 'oxygen_admin_bar_menu', 'title' => oxygen_translate( 'Edit with Oxygen', 'component-theme' ), 'href' => esc_url(ct_get_post_builder_link( $post->ID ))) );
 		}
 	}
 
@@ -992,10 +992,10 @@ function ct_enqueue_scripts() {
 	    );
 
 	    $colorpicker_l10n = array(
-	        'clear' => __( 'Clear' ),
-	        'defaultString' => __( 'Default' ),
-	        'pick' => __( 'Select Color' ),
-	        'current' => __( 'Current Color' ),
+	        'clear' => oxygen_translate( 'Clear' ),
+	        'defaultString' => oxygen_translate( 'Default' ),
+	        'pick' => oxygen_translate( 'Select Color' ),
+	        'current' => oxygen_translate( 'Current Color' ),
 	    );
 	    wp_localize_script( 'ct-color-picker', 'wpColorPickerL10n', $colorpicker_l10n );
 
@@ -4076,9 +4076,9 @@ function ct_chrome_modal() {
 	if ( defined("SHOW_CT_BUILDER") )  {
 		$dismissed = get_option("ct_chrome_modal", false );
 
-		$warningMessage = __("<h2><span class='ct-icon-warning'></span> Warning: we recommend Google Chrome when designing pages</h2><p>The designs you create using Oxygen will work properly in all modern browsers including but not limited to Chrome, Firefox, Safari, and Internet Explorer/Edge.</p><p>But for the best, most stable experience when using Oxygen to design pages, we recommend using Google Chrome.</p><p>We've done most of our testing with Chrome and expect that you will encounter minor bugs in the builder when using Firefox or Safari. Please report those to us by e-mailing at support@oxygenapp.com.</p><p>We have no intention of making the builder work well in Internet Explorer.</p><p>Again, this message only applies to the builder itself. The pages you create with Oxygen will render correctly in all modern browsers.</p><p>Best Regards,<br />The Oxygen Team</p>", 'component-theme' );
+		$warningMessage = oxygen_translate("<h2><span class='ct-icon-warning'></span> Warning: we recommend Google Chrome when designing pages</h2><p>The designs you create using Oxygen will work properly in all modern browsers including but not limited to Chrome, Firefox, Safari, and Internet Explorer/Edge.</p><p>But for the best, most stable experience when using Oxygen to design pages, we recommend using Google Chrome.</p><p>We've done most of our testing with Chrome and expect that you will encounter minor bugs in the builder when using Firefox or Safari. Please report those to us by e-mailing at support@oxygenapp.com.</p><p>We have no intention of making the builder work well in Internet Explorer.</p><p>Again, this message only applies to the builder itself. The pages you create with Oxygen will render correctly in all modern browsers.</p><p>Best Regards,<br />The Oxygen Team</p>", 'component-theme' );
 
-		$hideMessage = __("hide this notice", 'component-theme' );
+		$hideMessage = oxygen_translate("hide this notice", 'component-theme' );
 
 		if(!$dismissed) {
 
@@ -4936,7 +4936,7 @@ function oxy_get_global_colors($return_defaults = false) {
 					// the only default Color Set
 					array(
 						"id" => 0,
-						"name" => __("Global Colors","oxygen")
+						"name" => oxygen_translate("Global Colors","oxygen")
 					),
 				)
 			);
@@ -5654,6 +5654,26 @@ function ct_oxygen_template_name($template) {
 	return "oxygen-is-not-a-theme";
 }
 add_filter("template", "ct_oxygen_template_name");
+
+
+/**
+ * Force wp_is_block_theme() to be false
+ *
+ * @since 4.9.3
+ * @author Ilya K.
+ */
+
+ function oxygen_vsb_force_non_block_theme_path($path, $file)
+ {
+	 $file = ltrim((string) $file, '/');
+	 if ('templates/index.html' === $file || 'block-templates/index.html' === $file) {
+		 return '';
+	 }
+	 return $path;
+ }
+ if (get_option('oxygen_vsb_force_non_block_theme', true)) {
+	 add_filter('theme_file_path', 'oxygen_vsb_force_non_block_theme_path', 10, 2);
+ }
 
 
 /**

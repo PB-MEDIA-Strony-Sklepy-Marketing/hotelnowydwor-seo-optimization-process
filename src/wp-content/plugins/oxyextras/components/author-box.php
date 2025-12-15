@@ -62,7 +62,7 @@ class ExtraAuthorBox extends OxygenExtraElements {
             $user_description = get_the_author_meta( 'user_description', $post->post_author );
 
             // Get author's website URL 
-            $user_website = get_the_author_meta('url', $post->post_author);
+            $user_website = esc_url( get_the_author_meta('url', $post->post_author) );
 
             // Get link to the author archive page
             $user_posts = get_author_posts_url( get_the_author_meta( 'ID' , $post->post_author));

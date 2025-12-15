@@ -1,14 +1,14 @@
 <?php if (!isset($prefix)) $prefix = ""; ?>
 <?php global $oxygen_toolbar; ?>
 <div class='oxygen-control-row'>
-	<?php $oxygen_toolbar->colorpicker_with_wrapper($prefix."background-color", __("Background Color", "oxygen")); ?>
+	<?php $oxygen_toolbar->colorpicker_with_wrapper($prefix."background-color", oxygen_translate("Background Color", "oxygen")); ?>
 </div>
 <div class='oxygen-control-row'>
 	<div class='oxygen-control-wrapper'>
 		<div class="oxy-style-indicator"
 			ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('<?php echo $prefix; ?>background-image')&&!IDHasOption('<?php echo $prefix; ?>background-image'),'oxygen-has-id-value':iframeScope.IDHasOption('<?php echo $prefix; ?>background-image')}"
 		></div>
-		<label class='oxygen-control-label'><?php _e("Background Image","oxygen"); ?></label>
+		<label class='oxygen-control-label'><?php oxygen_translate_echo("Background Image","oxygen"); ?></label>
 		<div class='oxygen-control'>
 			<div class="oxygen-file-input">
 				<input type="text" spellcheck="false" 
@@ -22,7 +22,7 @@
 					data-mediatitle="Select Image" 
 					data-mediabutton="Select Image" 
 					data-mediaproperty="<?php echo $prefix; ?>background-image" 
-					data-mediatype="mediaUrl"><?php _e("browse","oxygen"); ?></div>
+					data-mediatype="mediaUrl"><?php oxygen_translate_echo("browse","oxygen"); ?></div>
 
 				<div ng-if="iframeScope.currentClass === false" class="oxygen-dynamic-data-browse" ctdynamicdata data="iframeScope.dynamicShortcodesImageMode" callback="iframeScope.insertShortcodeToBackground">data</div>
 			</div>
@@ -31,7 +31,7 @@
 </div>
 
 <div class='oxygen-control-row'>
-	<?php $oxygen_toolbar->colorpicker_with_wrapper($prefix."overlay-color", __("Image Overlay Color", "oxygen")); ?>
+	<?php $oxygen_toolbar->colorpicker_with_wrapper($prefix."overlay-color", oxygen_translate("Image Overlay Color", "oxygen")); ?>
 </div>
 <!-- background-size -->
 <div class='oxygen-control-row'>
@@ -39,7 +39,7 @@
 		<div class="oxy-style-indicator"
 			ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('<?php echo $prefix; ?>background-size')&&!IDHasOption('<?php echo $prefix; ?>background-size'),'oxygen-has-id-value':iframeScope.IDHasOption('<?php echo $prefix; ?>background-size')}"
 		></div>
-		<label class='oxygen-control-label'><?php _e("Background Size", "oxygen"); ?></label>
+		<label class='oxygen-control-label'><?php oxygen_translate_echo("Background Size", "oxygen"); ?></label>
 		<div class='oxygen-control'>
 			<div class='oxygen-button-list'>
 
@@ -54,8 +54,8 @@
 </div>
 
 <div class="oxygen-control-row" ng-show="iframeScope.component.options[iframeScope.component.active.id]['model']['<?php echo $prefix; ?>background-size'] == 'manual'">
-	<?php $oxygen_toolbar->measure_box_with_wrapper($prefix."background-size-width", __("Width", "oxygen"), 'px,%,em'); ?>
-	<?php $oxygen_toolbar->measure_box_with_wrapper($prefix."background-size-height", __("Height", "oxygen"), 'px,%,em'); ?>
+	<?php $oxygen_toolbar->measure_box_with_wrapper($prefix."background-size-width", oxygen_translate("Width", "oxygen"), 'px,%,em'); ?>
+	<?php $oxygen_toolbar->measure_box_with_wrapper($prefix."background-size-height", oxygen_translate("Height", "oxygen"), 'px,%,em'); ?>
 </div>
 
 <div class='oxygen-control-row'>
@@ -63,7 +63,7 @@
 		<div class="oxy-style-indicator"
 			ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('<?php echo $prefix; ?>background-repeat')&&!IDHasOption('<?php echo $prefix; ?>background-repeat'),'oxygen-has-id-value':iframeScope.IDHasOption('<?php echo $prefix; ?>background-repeat')}"
 		></div>
-		<label class='oxygen-control-label'><?php _e("Background Repeat", "oxygen"); ?></label>
+		<label class='oxygen-control-label'><?php oxygen_translate_echo("Background Repeat", "oxygen"); ?></label>
 		<div class='oxygen-control'>
 			<div class='oxygen-button-list'>
 
@@ -82,7 +82,7 @@
 		<div class="oxy-style-indicator"
 			ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('<?php echo $prefix; ?>background-attachment')&&!IDHasOption('<?php echo $prefix; ?>background-attachment'),'oxygen-has-id-value':iframeScope.IDHasOption('<?php echo $prefix; ?>background-attachment')}"
 		></div>
-		<label class='oxygen-control-label'><?php _e("Background Attachment (Parallax)", "oxygen"); ?></label>
+		<label class='oxygen-control-label'><?php oxygen_translate_echo("Background Attachment (Parallax)", "oxygen"); ?></label>
 		<div class='oxygen-control'>
 			<div class='oxygen-button-list'>
 
@@ -95,8 +95,8 @@
 </div>
 
 <div class="oxygen-control-row">
-	<?php $oxygen_toolbar->measure_box_with_wrapper($prefix."background-position-left", __("Left", "oxygen"), 'px,%,em'); ?>
-	<?php $oxygen_toolbar->measure_box_with_wrapper($prefix."background-position-top", __("Top", "oxygen"), 'px,%,em'); ?>
+	<?php $oxygen_toolbar->measure_box_with_wrapper($prefix."background-position-left", oxygen_translate("Left", "oxygen"), 'px,%,em'); ?>
+	<?php $oxygen_toolbar->measure_box_with_wrapper($prefix."background-position-top", oxygen_translate("Top", "oxygen"), 'px,%,em'); ?>
 </div>
 
 <div class='oxygen-control-row'>
@@ -104,7 +104,7 @@
 		<div class="oxy-style-indicator"
 			ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('<?php echo $prefix; ?>background-clip')&&!IDHasOption('<?php echo $prefix; ?>background-clip'),'oxygen-has-id-value':iframeScope.IDHasOption('<?php echo $prefix; ?>background-clip')}"
 		></div>
-		<label class='oxygen-control-label'><?php _e("Background Clip", "oxygen"); ?></label>
+		<label class='oxygen-control-label'><?php oxygen_translate_echo("Background Clip", "oxygen"); ?></label>
 		<div class='oxygen-control'>
 			<div class='oxygen-button-list'>
 
@@ -123,7 +123,7 @@
 			<div class="oxy-style-indicator"
 				ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('<?php echo $prefix; ?>background-blend-mode')&&!IDHasOption('<?php echo $prefix; ?>background-blend-mode'),'oxygen-has-id-value':iframeScope.IDHasOption('<?php echo $prefix; ?>background-blend-mode')}"
 			></div>
-			<label class='oxygen-control-label'><?php _e("Background Blend Mode","oxygen"); ?></label>
+			<label class='oxygen-control-label'><?php oxygen_translate_echo("Background Blend Mode","oxygen"); ?></label>
 			<div class='oxygen-control'>
 				<div class="oxygen-select oxygen-select-box-wrapper">
 					<div class="oxygen-select-box"
@@ -147,7 +147,7 @@
 <div class='oxygen-control-row'
 	ng-show="isActiveName('ct_section')">
 	<div class='oxygen-control-wrapper'>
-		<label class='oxygen-control-label'><?php _e("Video Background URL (.mp4 / .webm)","oxygen"); ?></label>
+		<label class='oxygen-control-label'><?php oxygen_translate_echo("Video Background URL (.mp4 / .webm)","oxygen"); ?></label>
 		<div class='oxygen-control oxygen-special-property'>
 			<div class="oxygen-file-input">
 				<input type="text" spellcheck="false" 
@@ -161,7 +161,7 @@
 					data-mediabutton="Select Video" 
 					data-mediaproperty="video_background" 
 					data-mediacontent="video"
-					data-mediatype="videoUrl"><?php _e("browse","oxygen"); ?></div>
+					data-mediatype="videoUrl"><?php oxygen_translate_echo("browse","oxygen"); ?></div>
 			</div>
 		</div>
 	</div>
@@ -170,7 +170,7 @@
 <div class="oxygen-control-row"
 	ng-show="isActiveName('ct_section')">
 	<div class='oxygen-control-wrapper'>
-		<label class='oxygen-control-label'><?php _e("Hide Video Below","oxygen") ?></label>
+		<label class='oxygen-control-label'><?php oxygen_translate_echo("Hide Video Below","oxygen") ?></label>
 		<div class='oxygen-control oxygen-special-property'>
 			<?php $oxygen_toolbar->media_queries_list("video_background_hide") ?>
 		</div>
@@ -180,7 +180,7 @@
 <div class="oxygen-control-row"
 	ng-show="isActiveName('ct_section')">
 	<div class='oxygen-control-wrapper'>
-		<label class='oxygen-control-label'><?php _e("Video Overlay","oxygen") ?></label>
+		<label class='oxygen-control-label'><?php oxygen_translate_echo("Video Overlay","oxygen") ?></label>
 		<div class='oxygen-control oxygen-special-property'>
 			<?php $oxygen_toolbar->colorpicker("video_background_overlay"); ?>
 		</div>
@@ -193,7 +193,7 @@
 	ng-click="switchTab('advanced', 'background-gradient')"
 	ng-class="{'ct-active' : isShowTab('advanced','background-gradient')}">
 		<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/background.svg' />
-		<?php _e('Gradient', 'oxygen'); ?>
+		<?php oxygen_translate_echo('Gradient', 'oxygen'); ?>
 		<span class="oxygen-tab-indicator"
 			ng-show="iframeScope.isTabHasOptions('background')"></span>
 		<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/dropdown-arrow.svg' />

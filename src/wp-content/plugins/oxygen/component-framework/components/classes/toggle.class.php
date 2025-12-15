@@ -276,18 +276,18 @@ Class Oxy_Toggle extends CT_Component {
 global $oxygen_vsb_components;
 $oxygen_vsb_components['toggle'] = new Oxy_Toggle ( 
 		array( 
-			'name' 		=> __('Toggle', 'oxygen'),
+			'name' 		=> oxygen_translate('Toggle', 'oxygen'),
 			'tag' 		=> 'oxy_toggle',
 			'params' 	=> array(
 					array(
 						"type" 			=> "colorpicker",
-						"heading" 		=> __("Icon color"),
+						"heading" 		=> oxygen_translate("Icon color"),
 						"param_name" 	=> "toggle_icon_color",
 						"css" 			=> false
 					),
 					array(
 						"type" 			=> "slider-measurebox",
-						"heading" 		=> __("Icon size","oxygen"),
+						"heading" 		=> oxygen_translate("Icon size","oxygen"),
 						"param_name" 	=> "toggle_icon_size",
 						"min"			=> "8",
 						"max"			=> "72",
@@ -301,19 +301,19 @@ $oxygen_vsb_components['toggle'] = new Oxy_Toggle (
 					),
 					array(
                         "type"          => "radio",
-                        "heading"       => __("Toggle Initial State", "oxygen"),
+                        "heading"       => oxygen_translate("Toggle Initial State", "oxygen"),
                         "param_name"    => "toggle_init_state",
                         "value"         => array(
-                                            'open'    => __("open", "oxygen"),
-                                            'closed'   => __("closed", "oxygen"),
+                                            'open'    => oxygen_translate("open", "oxygen"),
+                                            'closed'   => oxygen_translate("closed", "oxygen"),
                                         ),
                         "css"           => false,
                     ),
                     array(
 						"type" 			=> "textfield",
-						"heading" 		=> __("Toggle Target","oxygen"),
+						"heading" 		=> oxygen_translate("Toggle Target","oxygen"),
 						"param_name" 	=> "toggle_target",
-						"placeholder" 	=> __("next element","oxygen"),
+						"placeholder" 	=> oxygen_translate("next element","oxygen"),
 						"css" 			=> false
 					),
 				)

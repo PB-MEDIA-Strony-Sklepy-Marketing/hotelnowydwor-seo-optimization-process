@@ -45,7 +45,7 @@ function ct_oxygen_enqueue_admin_home_page_css() {
 
 function ct_oxygen_home_page_view() {
 	if ( !oxygen_vsb_current_user_can_access() )  {
-        wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
+        wp_die( oxygen_translate( 'You do not have sufficient permissions to access this page.' ) );
     }
 
     include(plugin_dir_path(__FILE__)."oxy-admin-screen-home.php");
@@ -82,7 +82,7 @@ function ct_oxygen_enqueue_install_wiz_page_css() {
 
 function ct_install_wiz_callback() {
 	if ( !oxygen_vsb_current_user_can_access() )  {
-        wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
+        wp_die( oxygen_translate( 'You do not have sufficient permissions to access this page.' ) );
     }
 
     include(plugin_dir_path(__FILE__)."oxy-admin-screen-install-wiz.php");
@@ -507,6 +507,9 @@ function oxygen_vsb_register_settings() {
    add_option( 'oxygen_vsb_load_aos_in_head', false );
    register_setting( 'oxygen_vsb_options_group', 'oxygen_vsb_load_aos_in_head' );
 
+   add_option( 'oxygen_vsb_force_non_block_theme', false );
+   register_setting( 'oxygen_vsb_options_group', 'oxygen_vsb_force_non_block_theme' );
+
    add_option( 'oxygen_vsb_enable_signature_validation', false );
    register_setting( 'oxygen_vsb_options_group_security', 'oxygen_vsb_enable_signature_validation', 'oxygen_vsb_process_signature_validation_toggle' );
 
@@ -843,14 +846,14 @@ function oxygen_vsb_options_library_manager() {
 	    <?php do_settings_sections( 'oxygen_vsb_options_group_library' ); ?>
 	      	<div>
 	      		<input type="checkbox" id="oxygen_vsb_enable_default_designsets" name="oxygen_vsb_enable_default_designsets" value="true" <?php checked(get_option('oxygen_vsb_enable_default_designsets'), "true"); ?>>
-	      		<label for="oxygen_vsb_enable_default_designsets"><?php _e("Enable Default Design Sets","oxygen"); ?></label>
+	      		<label for="oxygen_vsb_enable_default_designsets"><?php oxygen_translate_echo("Enable Default Design Sets","oxygen"); ?></label>
 	      	</div>
 	      	<?php
 	      		$oxygen_vsb_enable_3rdp_designsets = get_option('oxygen_vsb_enable_3rdp_designsets');
 	      	?>
 	      	<div>
 	      		<input type="checkbox" id="oxygen_vsb_enable_3rdp_designsets" name="oxygen_vsb_enable_3rdp_designsets" value="true" <?php checked($oxygen_vsb_enable_3rdp_designsets, "true"); ?>>
-	      		<label for="oxygen_vsb_enable_3rdp_designsets"><?php _e("Enable 3rd Party Design Sets","oxygen"); ?></label>
+	      		<label for="oxygen_vsb_enable_3rdp_designsets"><?php oxygen_translate_echo("Enable 3rd Party Design Sets","oxygen"); ?></label>
 	      		
 
 	  		<?php 
@@ -894,7 +897,7 @@ function oxygen_vsb_options_library_manager() {
 			?>
 	      	</div>
 	      	<div>
-	      		<input type="checkbox" id="oxygen_vsb_enable_connection" name="oxygen_vsb_enable_connection" value="true" <?php checked(get_option('oxygen_vsb_enable_connection'), "true"); ?>><label for="oxygen_vsb_enable_connection"> <?php _e("Make this WordPress Install a Design Set","oxygen"); ?></label>
+	      		<input type="checkbox" id="oxygen_vsb_enable_connection" name="oxygen_vsb_enable_connection" value="true" <?php checked(get_option('oxygen_vsb_enable_connection'), "true"); ?>><label for="oxygen_vsb_enable_connection"> <?php oxygen_translate_echo("Make this WordPress Install a Design Set","oxygen"); ?></label>
 	      		<div id="oxygen_vsb_connection_panel">
 	      			<?php do_action('oxygen_vsb_connection_panel'); ?>
 	      		</div>
@@ -928,32 +931,36 @@ function oxygen_vsb_options_general_page() {
 				  <td><input type="number" id="oxygen_vsb_preview_dropdown_limit" name="oxygen_vsb_preview_dropdown_limit" value="<?php echo esc_attr(get_option('oxygen_vsb_preview_dropdown_limit')); ?>"></td>
 			  </tr>
 			  <tr valign="top">
-				  <th scope="row"><label for="oxygen_vsb_preview_dropdown_exclude_non_public"><?php _e("Exclude Non-Public Post Types From Preview","oxygen"); ?></label></th>
+				  <th scope="row"><label for="oxygen_vsb_preview_dropdown_exclude_non_public"><?php oxygen_translate_echo("Exclude Non-Public Post Types From Preview","oxygen"); ?></label></th>
 				  <td><input type="checkbox" id="oxygen_vsb_preview_dropdown_exclude_non_public" name="oxygen_vsb_preview_dropdown_exclude_non_public" value="true" <?php checked(get_option('oxygen_vsb_preview_dropdown_exclude_non_public'), "true"); ?>></td>
 			  </tr>
 			  <tr valign="top">
-				  <th scope="row"><label for="oxygen_vsb_enable_selector_detector"><?php _e("Enable Selector Detector","oxygen"); ?></label></th>
+				  <th scope="row"><label for="oxygen_vsb_enable_selector_detector"><?php oxygen_translate_echo("Enable Selector Detector","oxygen"); ?></label></th>
 				  <td><input type="checkbox" id="oxygen_vsb_enable_selector_detector" name="oxygen_vsb_enable_selector_detector" value="true" <?php checked(get_option('oxygen_vsb_enable_selector_detector'), "true"); ?>></td>
 			  </tr>
 			  <tr valign="top">
-				  <th scope="row"><label for="oxygen_vsb_google_maps_api_key"><?php _e("Google Maps API key","oxygen"); ?></label></th>
+				  <th scope="row"><label for="oxygen_vsb_google_maps_api_key"><?php oxygen_translate_echo("Google Maps API key","oxygen"); ?></label></th>
 				  <td><input type="text" id="oxygen_vsb_google_maps_api_key" name="oxygen_vsb_google_maps_api_key" value="<?php echo esc_attr(get_option('oxygen_vsb_google_maps_api_key')); ?>"></td>
 			  </tr>
               <tr valign="top">
-                  <th scope="row"><label for="oxygen_vsb_show_all_acf_fields"><?php _e("Show all ACF fields in the Dynamic Data Dialog","oxygen"); ?></label></th>
+                  <th scope="row"><label for="oxygen_vsb_show_all_acf_fields"><?php oxygen_translate_echo("Show all ACF fields in the Dynamic Data Dialog","oxygen"); ?></label></th>
                   <td><input type="checkbox" id="oxygen_vsb_show_all_acf_fields" name="oxygen_vsb_show_all_acf_fields" value="true" <?php checked(get_option('oxygen_vsb_show_all_acf_fields'), "true"); ?>></td>
               </tr>
               <tr valign="top">
-                  <th scope="row"><label for="oxygen_vsb_enable_google_fonts_cache"><?php _e("Cache list of Google Fonts","oxygen"); ?></label></th>
+                  <th scope="row"><label for="oxygen_vsb_enable_google_fonts_cache"><?php oxygen_translate_echo("Cache list of Google Fonts","oxygen"); ?></label></th>
                   <td><input type="checkbox" id="oxygen_vsb_enable_google_fonts_cache" name="oxygen_vsb_enable_google_fonts_cache" value="true" <?php checked(get_option('oxygen_vsb_enable_google_fonts_cache'), "true"); ?>></td>
               </tr>
                <tr valign="top">
-                  <th scope="row"><label for="oxygen_vsb_enable_ie_layout_improvements"><?php _e("Enable Layout Improvements for IE 10+","oxygen"); ?></label></th>
+                  <th scope="row"><label for="oxygen_vsb_enable_ie_layout_improvements"><?php oxygen_translate_echo("Enable Layout Improvements for IE 10+","oxygen"); ?></label></th>
                   <td><input type="checkbox" id="oxygen_vsb_enable_ie_layout_improvements" name="oxygen_vsb_enable_ie_layout_improvements" value="true" <?php checked(get_option('oxygen_vsb_enable_ie_layout_improvements'), "true"); ?>></td>
               </tr>
 			  <tr valign="top">
-                  <th scope="row"><label for="oxygen_vsb_load_aos_in_head"><?php _e("Load AOS styles in the head of page","oxygen"); ?></label></th>
+                  <th scope="row"><label for="oxygen_vsb_load_aos_in_head"><?php oxygen_translate_echo("Load AOS styles in the head of page","oxygen"); ?></label></th>
                   <td><input type="checkbox" id="oxygen_vsb_load_aos_in_head" name="oxygen_vsb_load_aos_in_head" value="true" <?php checked(get_option('oxygen_vsb_load_aos_in_head'), "true"); ?>></td>
+              </tr>
+			  <tr valign="top">
+                  <th scope="row"><label for="oxygen_vsb_force_non_block_theme"><?php oxygen_translate_echo("Force Non Block Theme Behavior","oxygen"); ?></label></th>
+                  <td><input type="checkbox" id="oxygen_vsb_force_non_block_theme" name="oxygen_vsb_force_non_block_theme" value="true" <?php checked(get_option('oxygen_vsb_force_non_block_theme'), "true"); ?>></td>
               </tr>
 		  </table>
 
@@ -1013,29 +1020,29 @@ function oxygen_vsb_options_bloat_eliminator_page() {
 			<?php do_settings_sections( 'oxygen_vsb_options_group_bloat_eliminator' ); ?>
 	        <table>
 	            <tr valign="top">
-	                <th scope="row"><label for="oxygen_vsb_disable_emojis"><?php _e("Disable WP Emojis","oxygen"); ?></label></th>
+	                <th scope="row"><label for="oxygen_vsb_disable_emojis"><?php oxygen_translate_echo("Disable WP Emojis","oxygen"); ?></label></th>
 	                <td><input type="checkbox" id="oxygen_vsb_disable_emojis" name="oxygen_vsb_disable_emojis" value="true" <?php checked(get_option('oxygen_vsb_disable_emojis'), "true"); ?>></td>
-	                <td><label for="oxygen_vsb_disable_emojis"><?php _e("Disables built-in WordPress JavaScript for rendering Emojis."); ?></label></td>
+	                <td><label for="oxygen_vsb_disable_emojis"><?php oxygen_translate_echo("Disables built-in WordPress JavaScript for rendering Emojis."); ?></label></td>
 	            </tr>
 	            <tr valign="top">
-	                <th scope="row"><label for="oxygen_vsb_disable_jquery_migrate"><?php _e("Disable jQuery Migrate","oxygen"); ?></label></th>
+	                <th scope="row"><label for="oxygen_vsb_disable_jquery_migrate"><?php oxygen_translate_echo("Disable jQuery Migrate","oxygen"); ?></label></th>
 	                <td><input type="checkbox" id="oxygen_vsb_disable_jquery_migrate" name="oxygen_vsb_disable_jquery_migrate" value="true" <?php checked(get_option('oxygen_vsb_disable_jquery_migrate'), "true"); ?>></td>
-	                <td><label for="oxygen_vsb_disable_jquery_migrate"><?php _e("Disables the ability to run deprecated jQuery code on the current jQuery version."); ?></label></td>
+	                <td><label for="oxygen_vsb_disable_jquery_migrate"><?php oxygen_translate_echo("Disables the ability to run deprecated jQuery code on the current jQuery version."); ?></label></td>
 	            </tr>
 	            <tr valign="top">
-	                <th scope="row"><label for="oxygen_vsb_disable_embeds"><?php _e("Disable Embeds","oxygen"); ?></label></th>
+	                <th scope="row"><label for="oxygen_vsb_disable_embeds"><?php oxygen_translate_echo("Disable Embeds","oxygen"); ?></label></th>
 	                <td><input type="checkbox" id="oxygen_vsb_disable_embeds" name="oxygen_vsb_disable_embeds" value="true" <?php checked(get_option('oxygen_vsb_disable_embeds'), "true"); ?>></td>
-	                <td><label for="oxygen_vsb_disable_embeds"><?php _e("Disables the automatic embedding of some content (YouTube videos, Tweets, etc.,) when pasting the URL into your blog posts."); ?></label></td>
+	                <td><label for="oxygen_vsb_disable_embeds"><?php oxygen_translate_echo("Disables the automatic embedding of some content (YouTube videos, Tweets, etc.,) when pasting the URL into your blog posts."); ?></label></td>
 	            </tr>
 	            <tr valign="top">
-	                <th scope="row"><label for="oxygen_vsb_disable_google_fonts"><?php _e("Disable Google Fonts","oxygen"); ?></label></th>
+	                <th scope="row"><label for="oxygen_vsb_disable_google_fonts"><?php oxygen_translate_echo("Disable Google Fonts","oxygen"); ?></label></th>
 	                <td><input type="checkbox" id="oxygen_vsb_disable_google_fonts" name="oxygen_vsb_disable_google_fonts" value="true" <?php checked(get_option('oxygen_vsb_disable_google_fonts'), "true"); ?>></td>
-	                <td><label for="oxygen_vsb_disable_google_fonts"><?php _e("Disables Google Fonts for your entire site."); ?></label></td>
+	                <td><label for="oxygen_vsb_disable_google_fonts"><?php oxygen_translate_echo("Disables Google Fonts for your entire site."); ?></label></td>
 	            </tr>
 	            <tr valign="top">
-	                <th scope="row"><label for="oxygen_vsb_use_css_for_google_fonts"><?php _e("Disable Webfont.js","oxygen"); ?></label></th>
+	                <th scope="row"><label for="oxygen_vsb_use_css_for_google_fonts"><?php oxygen_translate_echo("Disable Webfont.js","oxygen"); ?></label></th>
 	                <td><input type="checkbox" id="oxygen_vsb_use_css_for_google_fonts" name="oxygen_vsb_use_css_for_google_fonts" value="true" <?php checked(get_option('oxygen_vsb_use_css_for_google_fonts'), "true"); ?>></td>
-	                <td><label for="oxygen_vsb_use_css_for_google_fonts"><?php _e("Use CSS for Google Fonts instead of Webfont.js"); ?></label></td>
+	                <td><label for="oxygen_vsb_use_css_for_google_fonts"><?php oxygen_translate_echo("Use CSS for Google Fonts instead of Webfont.js"); ?></label></td>
 	            </tr>
 	        </table>
 
@@ -1060,7 +1067,7 @@ function oxygen_vsb_options_revisions() {
 	       
 			<table>
 				<tr valign="top">
-					<th scope="row"><label for="oxygen_vsb_number_of_latest_revisions"><?php _e("Maximum number of latest revisions", "oxygen"); ?></label></th>
+					<th scope="row"><label for="oxygen_vsb_number_of_latest_revisions"><?php oxygen_translate_echo("Maximum number of latest revisions", "oxygen"); ?></label></th>
 					<td>
 						<input type="text" 
 							id="oxygen_vsb_number_of_latest_revisions" 
@@ -1069,7 +1076,7 @@ function oxygen_vsb_options_revisions() {
 					</td>
 				</tr>
 				<tr valign="top">
-					<th scope="row"><label for="oxygen_vsb_number_of_daily_revisions"><?php _e("Maximum number of daily revisions", "oxygen"); ?></label></th>
+					<th scope="row"><label for="oxygen_vsb_number_of_daily_revisions"><?php oxygen_translate_echo("Maximum number of daily revisions", "oxygen"); ?></label></th>
 					<td>
 						<input type="text" 
 							id="oxygen_vsb_number_of_daily_revisions" 
@@ -1084,7 +1091,7 @@ function oxygen_vsb_options_revisions() {
 
 		<h2>Delete ALL Revisions</h2>
 
-		<p><?php _e("This can not be undone. Type “delete” in the textbox below to confirm.", "oxygen"); ?></p>
+		<p><?php oxygen_translate_echo("This can not be undone. Type “delete” in the textbox below to confirm.", "oxygen"); ?></p>
 
 		<input type='text' name='confirmation' id="delete-all-revisions-confirmation" placeholder='delete'></input><br/><br/>
 
@@ -1184,7 +1191,7 @@ function oxygen_vsb_options_client_control_page() {
 	<h2>Role Manager</h2>
 	<?php do_action('oxygen_vsb_before_settings_page');?>
 	<p>
-		<strong>Important Security Warning:</strong> Oxygen's Code Block element can execute any PHP code. A malicious user could use this to do literally anything to the site. Therefore, do not grant Oxygen access to untrusted users. <a target="_blank" href="https://oxygenbuilder.com/documentation/other/client-control/#security">Click here to learn more.</a>
+		<strong>Important Security Warning:</strong> Oxygen's Code Block element can execute any PHP code. A malicious user could use this to do literally anything to the site. Therefore, do not grant Oxygen access to untrusted users. <a target="_blank" href="https://classic.oxygenbuilder.com/documentation/other/client-control/#security">Click here to learn more.</a>
 	</p>
 
 	<form method="post" action="options.php">
@@ -1240,7 +1247,7 @@ function oxygen_vsb_options_client_control_page() {
 
 		<div id="oxygen_user_access_table">
 			<div id="oxygen_user_access_placeholder">
-					<a href="#" class="oxygen_user_access_remove_user" title="<?php _e("Remove Access Rule","oxygen"); ?>"></a>
+					<a href="#" class="oxygen_user_access_remove_user" title="<?php oxygen_translate_echo("Remove Access Rule","oxygen"); ?>"></a>
 					Grant
 					<select name="oxygen_user_access_user_select" class="oxygen_user_access_user_select">
 					<option value=""></option>
@@ -1300,7 +1307,7 @@ function oxygen_vsb_options_client_control_page() {
 			</div>
 			<?php foreach ($users_access_list as $user_id => $user_with_access) : ?>
 			<div class="oxygen-user-access-settings-row">
-				<a href="#" class="oxygen_user_access_remove_user" title="<?php _e("Remove Access Rule","oxygen"); ?>"></a>
+				<a href="#" class="oxygen_user_access_remove_user" title="<?php oxygen_translate_echo("Remove Access Rule","oxygen"); ?>"></a>
 				Grant
 				<select name="oxygen_user_access_user_select" class="oxygen_user_access_user_select">
 				<?php foreach($registered_users as $registered_user) : 
@@ -1342,7 +1349,7 @@ function oxygen_vsb_options_client_control_page() {
 		</div>
 		<table>
 			<tr>
-				<a id="oxygen_user_access_add_user" href="#"><?php _e("Add User", "oxygen"); ?></a>
+				<a id="oxygen_user_access_add_user" href="#"><?php oxygen_translate_echo("Add User", "oxygen"); ?></a>
 			</tr>
 		</table>
 
@@ -1383,12 +1390,12 @@ function oxygen_vsb_options_security_manager_page() {
 	<div class="oxygen-vsb-settings-container">
 		<h2>Shortcode Signing</h2>
 		<div class="oxygen-vsb-settings-info-div">
-			<a class="oxygen-vsb-settings-info-button" href="https://oxygenbuilder.com/documentation/other/security/" target="_blank">
+			<a class="oxygen-vsb-settings-info-button" href="https://classic.oxygenbuilder.com/documentation/other/security/" target="_blank">
 				<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="info-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
 				class="svg-inline--fa fa-info-circle fa-w-16 fa-2x" width="20px">
 					<path fill="currentColor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z" class=""></path>
 				</svg>&nbsp;
-				<?php _e("Learn about Shortcode signing", "oxygen");?>
+				<?php oxygen_translate_echo("Learn about Shortcode signing", "oxygen");?>
 			</a>
 		</div>
 		
@@ -1399,11 +1406,11 @@ function oxygen_vsb_options_security_manager_page() {
 			 
 			  <tr valign="top">
 				  <td><input type="checkbox" id="oxygen_vsb_enable_signature_validation" name="oxygen_vsb_enable_signature_validation" value="true" <?php checked(get_option('oxygen_vsb_enable_signature_validation'), "true"); ?>></td>
-				  <td><label for="oxygen_vsb_enable_signature_validation"><?php _e("Check Oxygen's shortcodes for a valid signature before executing.","oxygen"); ?> </label></td>
+				  <td><label for="oxygen_vsb_enable_signature_validation"><?php oxygen_translate_echo("Check Oxygen's shortcodes for a valid signature before executing.","oxygen"); ?> </label></td>
 			  </tr>
 			  <tr valign="top">
 				  <td><input type="checkbox" id="oxygen_vsb_enable_signature_frontend_errors" name="oxygen_vsb_enable_signature_frontend_errors" value="true" <?php checked(get_option('oxygen_vsb_enable_signature_frontend_errors'), "true"); ?>></td>
-				  <td><label for="oxygen_vsb_enable_signature_frontend_errors"><?php _e("Show invalid shortcode signature warnings on the front end.","oxygen"); ?> </label></td>
+				  <td><label for="oxygen_vsb_enable_signature_frontend_errors"><?php oxygen_translate_echo("Show invalid shortcode signature warnings on the front end.","oxygen"); ?> </label></td>
 			  </tr>
 
 		  </table>
@@ -1439,7 +1446,7 @@ function ct_cache_page_callback() {
 			<?php wp_nonce_field( 'oxygen_vsb_regenerate_css' ); ?>
 
 			<p>
-				<strong><?php _e('Post Types to regenerate:', 'oxygen');?></strong>
+				<strong><?php oxygen_translate_echo('Post Types to regenerate:', 'oxygen');?></strong>
 			</p>
 			<table>
 			<?php 
@@ -1481,7 +1488,7 @@ function ct_cache_page_callback() {
 			?>
 			</table>
 			<p>
-				<strong><?php _e('Posts that have:', 'oxygen');?></strong>
+				<strong><?php oxygen_translate_echo('Posts that have:', 'oxygen');?></strong>
 			</p>
 			<table>
 				<tr>
@@ -1522,7 +1529,7 @@ function ct_cache_page_callback() {
 
 		<h2>Danger Zone - Advanced Options</h2>
 
-		<p><?php _e("<strong>WARNING!</strong> - CSS caching should remain enabled for most sites. These settings should not be modified unless you're advised to do so by Oxygen support staff, or you fully understand the risks associated with doing so."); ?></p>
+		<p><?php oxygen_translate_echo("<strong>WARNING!</strong> - CSS caching should remain enabled for most sites. These settings should not be modified unless you're advised to do so by Oxygen support staff, or you fully understand the risks associated with doing so."); ?></p>
 
 		<form method="post" action="options.php">
 			<?php settings_fields( 'oxygen_vsb_options_group_cache' ); ?>
@@ -1530,7 +1537,7 @@ function ct_cache_page_callback() {
 			<table>
 				<tr valign="top">
 					<td id="oxy-cache-setting" class="oxy-disable-admin-button">
-						<b><label for="oxygen_vsb_universal_css_cache"><?php _e("Enable CSS Caching","oxygen"); ?></label></b>
+						<b><label for="oxygen_vsb_universal_css_cache"><?php oxygen_translate_echo("Enable CSS Caching","oxygen"); ?></label></b>
 						<input type="checkbox" id="oxygen_vsb_universal_css_cache" name="oxygen_vsb_universal_css_cache" value="true" <?php checked(get_option('oxygen_vsb_universal_css_cache'), "true"); ?>>
 					</td>
 					<td>
@@ -1561,7 +1568,7 @@ function oxygen_vsb_regenerate_css_page() {
 
 	?>
 
-	<h2><?php _e("Regenerate CSS", "oxygen"); ?></h2>
+	<h2><?php oxygen_translate_echo("Regenerate CSS", "oxygen"); ?></h2>
 
 	<?php
 
@@ -1674,7 +1681,7 @@ function ct_license_page_callback() {
 	
 	<div class="oxygen-vsb-settings-container">
 
-		<h2><?php _e("License Keys", "component-theme"); ?></h2>
+		<h2><?php oxygen_translate_echo("License Keys", "component-theme"); ?></h2>
 	
 		<?php 
 		
@@ -1715,14 +1722,14 @@ function oxygen_vsb_sign_shortcodes_page() {
 	?>
 	
 	<p>
-		<strong><?php _e('Please backup your site before using this tool.', 'oxygen');?></strong>
+		<strong><?php oxygen_translate_echo('Please backup your site before using this tool.', 'oxygen');?></strong>
 	</p>
 	<p>
-		<label for="site_backup_confirmation"><input type="checkbox" value="1" id="site_backup_confirmation"> <?php _e('I have made a complete backup of my site.', 'oxygen');?></label>
+		<label for="site_backup_confirmation"><input type="checkbox" value="1" id="site_backup_confirmation"> <?php oxygen_translate_echo('I have made a complete backup of my site.', 'oxygen');?></label>
 	</p>
 
 	<p>
-		<strong><?php _e('Select the post types.', 'oxygen');?></strong>
+		<strong><?php oxygen_translate_echo('Select the post types.', 'oxygen');?></strong>
 	</p>
 	<table>
 	<?php 
@@ -1847,7 +1854,7 @@ function oxygen_vsb_sign_shortcodes_page() {
 
 			$('#start-signing-process').on('click', function() {
 				if(!$('#site_backup_confirmation').prop('checked')) {
-					alert('<?php _e('Please back up your site and then check the box.', 'oxygen');?>');
+					alert('<?php oxygen_translate_echo('Please back up your site and then check the box.', 'oxygen');?>');
 					return;
 				}
 
@@ -1877,12 +1884,12 @@ function edit_with_oxygen_buttons_for_edit_mode() {
 	$post_locked = oxy_get_post_meta( $post->ID, 'oxygen_lock_post_edit_mode', true );
 	if ($post_locked=="true") { ?>
 		
-		<a class="oxygen-edit-mode-button oxygen-edit-mode-button-disabled" href="#" title="<?php _e("Editing is locked for this post.", "oxygen"); ?>">
+		<a class="oxygen-edit-mode-button oxygen-edit-mode-button-disabled" href="#" title="<?php oxygen_translate_echo("Editing is locked for this post.", "oxygen"); ?>">
 			<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/Oxygen-O.png'/>
 		</a>
 		<?php if (isset($screen->id)&&($screen->id=="post"||$screen->id=="page"||$screen->id=="ct_template")) {?>
-		<a class="oxygen-edit-mode-button-non-gutenberg page-title-action oxygen-edit-mode-button-disabled" href="#" title="<?php _e("Editing is locked for this post.", "oxygen"); ?>">
-			<?php _e("Edit with Oxygen","oxygen"); ?>
+		<a class="oxygen-edit-mode-button-non-gutenberg page-title-action oxygen-edit-mode-button-disabled" href="#" title="<?php oxygen_translate_echo("Editing is locked for this post.", "oxygen"); ?>">
+			<?php oxygen_translate_echo("Edit with Oxygen","oxygen"); ?>
 		</a>
 		<?php }
 
@@ -1899,9 +1906,9 @@ function edit_with_oxygen_buttons_for_edit_mode() {
 	if (is_oxygen_edit_post_locked()||$template_locked) { 
 		
 		if ($template_locked) {
-			$text = __("Editing is locked for template.", "oxygen");
+			$text = oxygen_translate("Editing is locked for template.", "oxygen");
 		} else {
-			$text = __("Oxygen is open in another tab or by another user.", "oxygen");
+			$text = oxygen_translate("Oxygen is open in another tab or by another user.", "oxygen");
 		}
 		
 		?>
@@ -1911,7 +1918,7 @@ function edit_with_oxygen_buttons_for_edit_mode() {
 		</a>
 		<?php if (isset($screen->id)&&($screen->id=="post"||$screen->id=="page"||$screen->id=="ct_template")) {?>
 		<a class="oxygen-edit-mode-button-non-gutenberg page-title-action oxygen-edit-mode-button-disabled" href="#" title="<?php echo $text; ?>">
-			<?php _e("Edit with Oxygen","oxygen"); ?>
+			<?php oxygen_translate_echo("Edit with Oxygen","oxygen"); ?>
 		</a>
 		<?php }
 		

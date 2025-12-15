@@ -107,7 +107,7 @@ $oxygen_vsb_components['video'] = new CT_Video (
 			'params' 	=> array(
 					array(
 						"type" 			=> "textfield",
-						"heading" 		=> __("YouTube / Vimeo URL", "oxygen"),
+						"heading" 		=> oxygen_translate("YouTube / Vimeo URL", "oxygen"),
 						"param_name" 	=> "src",
 						"value" 		=> "https://www.youtube.com/watch?v=7yae8GvpPVo",
 						"css"			=> false,
@@ -121,12 +121,12 @@ $oxygen_vsb_components['video'] = new CT_Video (
 					),
 					array(
 						"type" 			=> "radio",
-						"heading" 		=> __("Video Aspect Ratio", "oxygen"),
+						"heading" 		=> oxygen_translate("Video Aspect Ratio", "oxygen"),
 						"param_name" 	=> "video-padding-bottom",
 						"value" 		=> array(
-											'75%' 	=> __("4:3 (standard)", "oxygen"),
-											'56.25%' 	=> __("16:9 (standard widescreen)", "oxygen"),
-											'41.84%' 	=> __("21:9 (Cinematic widescreen)", "oxygen")
+											'75%' 	=> oxygen_translate("4:3 (standard)", "oxygen"),
+											'56.25%' 	=> oxygen_translate("16:9 (standard widescreen)", "oxygen"),
+											'41.84%' 	=> oxygen_translate("21:9 (Cinematic widescreen)", "oxygen")
 										),
 						"default"		=> '56.25%',
 						"css"			=> false,
@@ -134,18 +134,18 @@ $oxygen_vsb_components['video'] = new CT_Video (
 					),
 					array(
 						"type" 			=> "checkbox",
-						"heading" 		=> __("Embed Iframe", "oxygen"),
+						"heading" 		=> oxygen_translate("Embed Iframe", "oxygen"),
 						"param_name" 	=> "use-custom",
 						"value" 		=> "0",
 						"true_value" 	=> "1",
 						"false_value" 	=> "0",
-						"label" 		=> __("Manually Paste Iframe Code", "oxygen"),
+						"label" 		=> oxygen_translate("Manually Paste Iframe Code", "oxygen"),
 						"css" 			=> false,
 					),
 
 					array(
 						"type" 			=> "textarea",
-						"heading" 		=> __("Custom Code Here"),
+						"heading" 		=> oxygen_translate("Custom Code Here"),
 						"param_name" 	=> "custom-code",
 						"value" 		=> "",
 						"css" 			=> false,
@@ -154,7 +154,7 @@ $oxygen_vsb_components['video'] = new CT_Video (
 
 					array(
 						"type" 			=> "checkbox",
-						"label" 		=> __("Lazy Load", "oxygen"),
+						"label" 		=> oxygen_translate("Lazy Load", "oxygen"),
 						"param_name" 	=> "lazy",
 						"value" 		=> "",
 						"true_value" 	=> "lazy",

@@ -193,6 +193,8 @@ class ExtraContentTimeline extends OxygenExtraElements {
             "right" => "Right"
          ))->whiteList();
 
+        
+
 
 
         /**
@@ -351,7 +353,18 @@ class ExtraContentTimeline extends OxygenExtraElements {
 
         
 
-
+        $marker_content_section->addStyleControl(
+            array(
+                "control_type" => 'buttons-list',
+                'name' => __('Marker vertical align'),
+                "property" => '--timeline-marker-align',
+                "default" => ''
+            )
+        )->setValue(array( 
+            "flex-start" => "Flex start", 
+            "center" => "Center",
+            "flex-end" => "Flex end", 
+         ))->whiteList();
         
         $marker_content_section->addOptionControl(
             array(
@@ -607,6 +620,7 @@ class ExtraContentTimeline extends OxygenExtraElements {
                 --timeline-marker-scale: 1;
                 --timeline-flex-layout: row;
                 --timeline-meta-align: left;
+                --timeline-marker-align: center;
                 --timeline-marker-background: #ddd;
                 --timeline-marker-color: #fff;
                 --timeline-icon-size: 16px;
@@ -672,7 +686,7 @@ class ExtraContentTimeline extends OxygenExtraElements {
             
             .oxy-content-timeline_inner {
                 display: flex;
-                align-items: center;
+                align-items: var(--timeline-marker-align);
                 position: relative;
                 flex-direction: var(--timeline-flex-layout);
             }
@@ -871,7 +885,7 @@ class ExtraContentTimeline extends OxygenExtraElements {
 
 
     function output_js() {
-        wp_enqueue_script( 'timeline-js', plugin_dir_url(__FILE__) . 'assets/timeline-init.js', '', '1.0.1' );
+        wp_enqueue_script( 'timeline-js', plugin_dir_url(__FILE__) . 'assets/timeline-init.js', '', '1.0.3' );
     }
 
 

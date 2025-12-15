@@ -46,17 +46,42 @@ function oxygen_init_toc($) {
               let headingsArray = headingSelector.split(',');            
               let contentHeadingSelector = headingsArray.map(i => contentSelector + ' ' + i);
               let contentHeadingSelectors = $(contentHeadingSelector.join(", "));
+
+                let tocIDNumbers = tocID.replace(/[^0-9]/g,'');
+
+                let currentIDs = [];
             
-              let tocIDNumbers = tocID.replace(/[^0-9]/g,'');
+                $.each(contentHeadingSelectors , function(index, val) { 
+
+                    if (!val.hasAttribute("id")) {
+
+                        if ( 'text' !== inner.data('autoid-type') ) {
+                         
+                            $(val).attr('id', inner.data('prefix') + tocIDNumbers + '-' + index);
+
+                        } else {
+                            
+                            let headingText = val.innerText.toLowerCase().replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '').replace(/ +/g, '-');
             
-              $.each(contentHeadingSelectors , function(index, val) { 
-                
-                if (!val.hasAttribute("id")) {
-                      // Add unique ID to headings
-                      $(val).attr('id', inner.data('prefix') + tocIDNumbers + '-' + index);
-                } 
-                   
-            });     
+                            if ( !currentIDs.includes(headingText) ) {
+                                val.setAttribute('id', headingText );
+                                currentIDs.push(headingText);
+                              } else {
+
+                                let newID = headingText + '-' + (currentIDs.filter((v) => (
+                                    v === headingText)).length
+                                );
+                                val.setAttribute('id', newID);
+                                currentIDs.push(headingText)
+
+                              }
+                            
+            
+                        }
+
+                    }
+                    
+                });     
             
         }
         

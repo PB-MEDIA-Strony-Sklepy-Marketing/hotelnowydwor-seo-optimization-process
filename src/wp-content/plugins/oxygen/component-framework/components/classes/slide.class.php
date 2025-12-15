@@ -62,7 +62,7 @@ Class CT_Slide extends CT_Component {
 
 		$outputContent = ob_get_clean();
 
-		$outputContent = apply_filters('oxygen_vsb_after_component_render', $outputContent, array('name'=>__('Slider','oxygen')), $name);
+		$outputContent = apply_filters('oxygen_vsb_after_component_render', $outputContent, array('name'=>oxygen_translate('Slider','oxygen')), $name);
 
         return $outputContent;
 	}
@@ -72,18 +72,18 @@ Class CT_Slide extends CT_Component {
 // Create Slide instance
 global $oxygen_vsb_components;
 $oxygen_vsb_components['slide'] = new CT_Slide( array( 
-			'name' 		=> __('Slide', 'oxygen'),
+			'name' 		=> oxygen_translate('Slide', 'oxygen'),
 			'tag' 		=> 'ct_slide',
 			'params' 	=> array(
 					array(
 						"type" 			=> "flex-layout",
-						"heading" 		=> __("Layout Child Elements", "oxygen"),
+						"heading" 		=> oxygen_translate("Layout Child Elements", "oxygen"),
 						"param_name" 	=> "flex-direction",
 						"css" 			=> true,
 					),
 					array(
 						"type" 			=> "checkbox",
-						"heading" 		=> __("Allow multiline"),
+						"heading" 		=> oxygen_translate("Allow multiline"),
 						"param_name" 	=> "flex-wrap",
 						"value" 		=> "nowrap",
 						"true_value" 	=> "wrap",
@@ -95,13 +95,13 @@ $oxygen_vsb_components['slide'] = new CT_Slide( array(
 					),
 					array(
 						"type" 			=> "measurebox",
-						"heading" 		=> __("Width"),
+						"heading" 		=> oxygen_translate("Width"),
 						"param_name" 	=> "width",
 						"value" 		=> "",
 					),
 					array(
 						"type" 			=> "colorpicker",
-						"heading" 		=> __("Background color"),
+						"heading" 		=> oxygen_translate("Background color"),
 						"param_name" 	=> "background-color",
 					),
 				),

@@ -787,7 +787,7 @@ class Oxygen_VSB_Pricing_Box extends CT_Component{
                     ng-click="iframeScope.reEnablePricingBoxText()">
                     <img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/typography.svg' />
                     <img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/typography.svg' />
-                    <?php _e("Re-enable Deleted Text","oxygen"); ?>
+                    <?php oxygen_translate_echo("Re-enable Deleted Text","oxygen"); ?>
                 </div>
             </div>
         </div>
@@ -797,30 +797,30 @@ class Oxygen_VSB_Pricing_Box extends CT_Component{
 
 global $oxygen_vsb_components;
 $oxygen_vsb_components['pricing_box'] = new Oxygen_VSB_Pricing_Box( array(
-            'name'  => __('Pricing Box','oxygen'),
+            'name'  => oxygen_translate('Pricing Box','oxygen'),
             'tag'   => 'oxy_pricing_box',
             'params'=> array(
                     array(
                         "type"          => "textfield",
-                        "heading"       => __("Price Amount","oxygen"),
+                        "heading"       => oxygen_translate("Price Amount","oxygen"),
                         "param_name"    => "pricing_box_price_amount_main",
                         "value"         => "59",
                     ),
                     array(
                         "type"          => "textfield",
-                        "heading"       => __("Price Decimal","oxygen"),
+                        "heading"       => oxygen_translate("Price Decimal","oxygen"),
                         "param_name"    => "pricing_box_price_amount_decimal",
                         "value"         => "99",
                     ),
                     array(
                         "type"          => "textfield",
-                        "heading"       => __("Currency Symbol","oxygen"),
+                        "heading"       => oxygen_translate("Currency Symbol","oxygen"),
                         "param_name"    => "pricing_box_price_amount_currency",
                         "value"         => "$",
                     ),
                     array(
                         "type"          => "textfield",
-                        "heading"       => __("Term","oxygen"),
+                        "heading"       => oxygen_translate("Term","oxygen"),
                         "param_name"    => "pricing_box_price_amount_term",
                         "value"         => "monthly",
                     ),
@@ -828,76 +828,76 @@ $oxygen_vsb_components['pricing_box'] = new Oxygen_VSB_Pricing_Box( array(
             ),
             'tabs'  => array(
                 'global_padding_alignment' => array(
-                    'heading' => __('Padding & Alignment','oxygen'),
+                    'heading' => oxygen_translate('Padding & Alignment','oxygen'),
                     'params' => array(
                         
                         array(
                             "type"          => "padding",
-                            "heading"       => __("Section Padding", "oxygen"),
+                            "heading"       => oxygen_translate("Section Padding", "oxygen"),
                             "param_name"    => "pricing_box_global_padding",
                         ),
 
                         array(
                             "type"          => "radio",
-                            "heading"       => __("Global Alignment", "oxygen"),
+                            "heading"       => oxygen_translate("Global Alignment", "oxygen"),
                             "param_name"    => "pricing_box_global_alignment",
                             "value"         => array(
-                                                 'left'     => __("left", "oxygen"),
-                                                 'center'   => __("center", "oxygen"),
-                                                 'right'    => __("right", "oxygen"),
+                                                 'left'     => oxygen_translate("left", "oxygen"),
+                                                 'center'   => oxygen_translate("center", "oxygen"),
+                                                 'right'    => oxygen_translate("right", "oxygen"),
                                             ),
                             "default"       => "center"
                         ),
                     ),
                 ),
                 'graphic' => array(
-                    'heading' => __('Graphic','oxygen'),
+                    'heading' => oxygen_translate('Graphic','oxygen'),
                     'params' => array(
                         array(
                             "type"          => "radio",
-                            "heading"       => __("Include Image", "oxygen"),
+                            "heading"       => oxygen_translate("Include Image", "oxygen"),
                             "param_name"    => "pricing_box_include_graphic",
                             "value"         => array(
-                                                 'yes'      => __("yes", "oxygen"),
-                                                 'no'       => __("no", "oxygen"),
+                                                 'yes'      => oxygen_translate("yes", "oxygen"),
+                                                 'no'       => oxygen_translate("no", "oxygen"),
                                             ),
                             "default"       => 'no'
                         ),
                         array(
                             "type"          => "colorpicker",
-                            "heading"       => __("Background", "oxygen"),
+                            "heading"       => oxygen_translate("Background", "oxygen"),
                             "param_name"    => "pricing_box_graphic_background",
                             "value"         => "",
                         ),
                         array(
                             "type"          => "radio",
-                            "heading"       => __("Graphic Alignment", "oxygen"),
+                            "heading"       => oxygen_translate("Graphic Alignment", "oxygen"),
                             "param_name"    => "pricing_box_graphic_alignment",
                             "value"         => array(
-                                                 'left'     => __("left", "oxygen"),
-                                                 'center'   => __("center", "oxygen"),
-                                                 'right'    => __("right", "oxygen"),
+                                                 'left'     => oxygen_translate("left", "oxygen"),
+                                                 'center'   => oxygen_translate("center", "oxygen"),
+                                                 'right'    => oxygen_translate("right", "oxygen"),
                                             ),
                             "default"       => ""
                         ),
                     ),
                     'tabs' => array(
                         'graphic_padding' => array(
-                            'heading' => __('Padding','oxygen'),
+                            'heading' => oxygen_translate('Padding','oxygen'),
                             'params' => array(
                                 array(
                                     "type"          => "padding",
-                                    "heading"       => __("Padding", "oxygen"),
+                                    "heading"       => oxygen_translate("Padding", "oxygen"),
                                     "param_name"    => "pricing_box_graphic_padding",
                                 ),
                             )
                         ),
                         'graphic_border' => array(
-                            'heading' => __('Borders','oxygen'),
+                            'heading' => oxygen_translate('Borders','oxygen'),
                             'params' => array(
                                 array(
                                     "type"          => "border",
-                                    "heading"       => __("Borders", "oxygen"),
+                                    "heading"       => oxygen_translate("Borders", "oxygen"),
                                     "param_name"    => "pricing_box_graphic",    
                                 )
                             )
@@ -906,52 +906,52 @@ $oxygen_vsb_components['pricing_box'] = new Oxygen_VSB_Pricing_Box( array(
                 ),
 
                 'title' => array(
-                    'heading' => __('Title','oxygen'),
+                    'heading' => oxygen_translate('Title','oxygen'),
                     'params' => array(
                         array(
                             "type"          => "colorpicker",
-                            "heading"       => __("Background", "oxygen"),
+                            "heading"       => oxygen_translate("Background", "oxygen"),
                             "param_name"    => "pricing_box_title_background",
                             "value"         => "",
                         ),
                         array(
                             "type"          => "radio",
-                            "heading"       => __("Alignment", "oxygen"),
+                            "heading"       => oxygen_translate("Alignment", "oxygen"),
                             "param_name"    => "pricing_box_title_alignment",
                             "value"         => array(
-                                                 'left'     => __("left", "oxygen"),
-                                                 'center'   => __("center", "oxygen"),
-                                                 'right'    => __("right", "oxygen"),
+                                                 'left'     => oxygen_translate("left", "oxygen"),
+                                                 'center'   => oxygen_translate("center", "oxygen"),
+                                                 'right'    => oxygen_translate("right", "oxygen"),
                                             ),
                             "default"       => ""
                         ),
                     ),
                     'tabs' => array(
                         'title_padding' => array(
-                            'heading' => __('Padding','oxygen'),
+                            'heading' => oxygen_translate('Padding','oxygen'),
                             'params' => array(
                                 array(
                                     "type"          => "padding",
-                                    "heading"       => __("Padding", "oxygen"),
+                                    "heading"       => oxygen_translate("Padding", "oxygen"),
                                     "param_name"    => "pricing_box_title_padding",
                                 ),
                             )
                         ),
                         'title_border' => array(
-                            'heading' => __('Borders','oxygen'),
+                            'heading' => oxygen_translate('Borders','oxygen'),
                             'params' => array(
                                 array(
                                     "type"          => "border",
-                                    "heading"       => __("Borders", "oxygen"),
+                                    "heading"       => oxygen_translate("Borders", "oxygen"),
                                     "param_name"    => "pricing_box_title",    
                                 )
                             )
                         ),
                         'title_typography_tab' => array(
-                            'heading' => __('Typography','oxygen'),
+                            'heading' => oxygen_translate('Typography','oxygen'),
                             'tabs' => array(
                                 'title_typography' => array(
-                                    'heading' => __("Title Typography","oxygen"),
+                                    'heading' => oxygen_translate("Title Typography","oxygen"),
                                     'params' => array(
                                         array(
                                             "type"          => "typography",
@@ -974,7 +974,7 @@ $oxygen_vsb_components['pricing_box'] = new Oxygen_VSB_Pricing_Box( array(
                                     )
                                 ),
                                 'subtitle_typography' => array(
-                                    'heading' => __("Subtitle Typography","oxygen"),
+                                    'heading' => oxygen_translate("Subtitle Typography","oxygen"),
                                     'params' => array(
                                         array(
                                             "type"          => "typography",
@@ -1002,37 +1002,37 @@ $oxygen_vsb_components['pricing_box'] = new Oxygen_VSB_Pricing_Box( array(
                 ),
 
                 'price' => array(
-                    'heading' => __('Price','oxygen'),
+                    'heading' => oxygen_translate('Price','oxygen'),
                     'params' => array(
                         array(
                             "type"          => "colorpicker",
-                            "heading"       => __("Background", "oxygen"),
+                            "heading"       => oxygen_translate("Background", "oxygen"),
                             "param_name"    => "pricing_box_price_background",
                             "value"         => "",
                         ),
                         array(
                             "type"          => "radio",
-                            "heading"       => __("Alignment", "oxygen"),
+                            "heading"       => oxygen_translate("Alignment", "oxygen"),
                             "param_name"    => "pricing_box_price_alignment",
                             "value"         => array(
-                                                 'left'     => __("left", "oxygen"),
-                                                 'center'   => __("center", "oxygen"),
-                                                 'right'    => __("right", "oxygen"),
+                                                 'left'     => oxygen_translate("left", "oxygen"),
+                                                 'center'   => oxygen_translate("center", "oxygen"),
+                                                 'right'    => oxygen_translate("right", "oxygen"),
                                             ),
                             "default"       => ""
                         ),
                         array(
                             "type"          => "radio",
-                            "heading"       => __("Layout", "oxygen"),
+                            "heading"       => oxygen_translate("Layout", "oxygen"),
                             "param_name"    => "pricing_box_price_layout",
                             "value"         => array(
-                                                 'horizontal'   => __("horizontal", "oxygen"),
-                                                 'vertical'     => __("vertical", "oxygen"),
+                                                 'horizontal'   => oxygen_translate("horizontal", "oxygen"),
+                                                 'vertical'     => oxygen_translate("vertical", "oxygen"),
                                             ),
                         ),
                         array(
                             "type"          => "slider-measurebox",
-                            "heading"       => __("Price Sale Space Below", "oxygen"),
+                            "heading"       => oxygen_translate("Price Sale Space Below", "oxygen"),
                             "param_name"    => "pricing_box_price_sale_space_below",
                             "value"         => "20",
                         ),
@@ -1044,30 +1044,30 @@ $oxygen_vsb_components['pricing_box'] = new Oxygen_VSB_Pricing_Box( array(
                     ),
                     'tabs' => array(
                         'price_padding' => array(
-                            'heading' => __('Padding','oxygen'),
+                            'heading' => oxygen_translate('Padding','oxygen'),
                             'params' => array(
                                 array(
                                     "type"          => "padding",
-                                    "heading"       => __("Padding", "oxygen"),
+                                    "heading"       => oxygen_translate("Padding", "oxygen"),
                                     "param_name"    => "pricing_box_price_padding",
                                 ),
                             )
                         ),
                         'price_border' => array(
-                            'heading' => __('Borders','oxygen'),
+                            'heading' => oxygen_translate('Borders','oxygen'),
                             'params' => array(
                                 array(
                                     "type"          => "border",
-                                    "heading"       => __("Borders", "oxygen"),
+                                    "heading"       => oxygen_translate("Borders", "oxygen"),
                                     "param_name"    => "pricing_box_price",    
                                 )
                             )
                         ),
                         'price_typography' => array(
-                            'heading' => __('Typography','oxygen'),
+                            'heading' => oxygen_translate('Typography','oxygen'),
                             'tabs' => array(
                                 'price_amount_currency_typography' => array(
-                                    'heading' => __("Amount Currency","oxygen"),
+                                    'heading' => oxygen_translate("Amount Currency","oxygen"),
                                     'params' => array(
                                         array(
                                             "type"          => "typography",
@@ -1090,7 +1090,7 @@ $oxygen_vsb_components['pricing_box'] = new Oxygen_VSB_Pricing_Box( array(
                                     )
                                 ),
                                 'price_amount_main_typography' => array(
-                                    'heading' => __("Amount Main","oxygen"),
+                                    'heading' => oxygen_translate("Amount Main","oxygen"),
                                     'params' => array(
                                         array(
                                             "type"          => "typography",
@@ -1113,7 +1113,7 @@ $oxygen_vsb_components['pricing_box'] = new Oxygen_VSB_Pricing_Box( array(
                                     )
                                 ),
                                 'price_amount_decimal_typography' => array(
-                                    'heading' => __("Amount Decimal","oxygen"),
+                                    'heading' => oxygen_translate("Amount Decimal","oxygen"),
                                     'params' => array(
                                         array(
                                             "type"          => "typography",
@@ -1136,7 +1136,7 @@ $oxygen_vsb_components['pricing_box'] = new Oxygen_VSB_Pricing_Box( array(
                                     )
                                 ),
                                 'price_amount_term_typography' => array(
-                                    'heading' => __("Term","oxygen"),
+                                    'heading' => oxygen_translate("Term","oxygen"),
                                     'params' => array(
                                         array(
                                             "type"          => "typography",
@@ -1159,7 +1159,7 @@ $oxygen_vsb_components['pricing_box'] = new Oxygen_VSB_Pricing_Box( array(
                                     )
                                 ),
                                 'price_sale_typography' => array(
-                                    'heading' => __("Sale","oxygen"),
+                                    'heading' => oxygen_translate("Sale","oxygen"),
                                     'params' => array(
                                         array(
                                             "type"          => "typography",
@@ -1187,58 +1187,58 @@ $oxygen_vsb_components['pricing_box'] = new Oxygen_VSB_Pricing_Box( array(
                 ),
 
                 'content' => array(
-                    'heading' => __('Features','oxygen'),
+                    'heading' => oxygen_translate('Features','oxygen'),
                     'params' => array(
                         array(
                             "type"          => "radio",
-                            "heading"       => __("Include Features", "oxygen"),
+                            "heading"       => oxygen_translate("Include Features", "oxygen"),
                             "param_name"    => "pricing_box_include_features",
                             "value"         => array(
-                                                 'yes'      => __("yes", "oxygen"),
-                                                 'no'       => __("no", "oxygen"),
+                                                 'yes'      => oxygen_translate("yes", "oxygen"),
+                                                 'no'       => oxygen_translate("no", "oxygen"),
                                             ),
                         ),
                         array(
                             "type"          => "colorpicker",
-                            "heading"       => __("Background", "oxygen"),
+                            "heading"       => oxygen_translate("Background", "oxygen"),
                             "param_name"    => "pricing_box_content_background",
                             "value"         => "",
                         ),
                         array(
                             "type"          => "radio",
-                            "heading"       => __("Alignment", "oxygen"),
+                            "heading"       => oxygen_translate("Alignment", "oxygen"),
                             "param_name"    => "pricing_box_content_alignment",
                             "value"         => array(
-                                                 'left'     => __("left", "oxygen"),
-                                                 'center'   => __("center", "oxygen"),
-                                                 'right'    => __("right", "oxygen"),
+                                                 'left'     => oxygen_translate("left", "oxygen"),
+                                                 'center'   => oxygen_translate("center", "oxygen"),
+                                                 'right'    => oxygen_translate("right", "oxygen"),
                                             ),
                             "default"       => ""
                         ),
                     ),
                     'tabs' => array(
                         'content_padding' => array(
-                            'heading' => __('Padding','oxygen'),
+                            'heading' => oxygen_translate('Padding','oxygen'),
                             'params' => array(
                                 array(
                                     "type"          => "padding",
-                                    "heading"       => __("Padding", "oxygen"),
+                                    "heading"       => oxygen_translate("Padding", "oxygen"),
                                     "param_name"    => "pricing_box_content_padding",
                                 ),
                             )
                         ),
                         'content_border' => array(
-                            'heading' => __('Borders','oxygen'),
+                            'heading' => oxygen_translate('Borders','oxygen'),
                             'params' => array(
                                 array(
                                     "type"          => "border",
-                                    "heading"       => __("Borders", "oxygen"),
+                                    "heading"       => oxygen_translate("Borders", "oxygen"),
                                     "param_name"    => "pricing_box_content",    
                                 )
                             )
                         ),
                         'content_typography' => array(
-                            'heading' => __("Typography","oxygen"),
+                            'heading' => oxygen_translate("Typography","oxygen"),
                             'params' => array(
                                 array(
                                     "type"          => "typography",
@@ -1264,43 +1264,43 @@ $oxygen_vsb_components['pricing_box'] = new Oxygen_VSB_Pricing_Box( array(
                 ),
 
                 'cta' => array(
-                    'heading' => __('Call To Action','oxygen'),
+                    'heading' => oxygen_translate('Call To Action','oxygen'),
                     'params' => array(
                         array(
                             "type"          => "colorpicker",
-                            "heading"       => __("Background", "oxygen"),
+                            "heading"       => oxygen_translate("Background", "oxygen"),
                             "param_name"    => "pricing_box_cta_background",
                             "value"         => "",
                         ),
                         array(
                             "type"          => "radio",
-                            "heading"       => __("Alignment", "oxygen"),
+                            "heading"       => oxygen_translate("Alignment", "oxygen"),
                             "param_name"    => "pricing_box_cta_alignment",
                             "value"         => array(
-                                                 'left'     => __("left", "oxygen"),
-                                                 'center'   => __("center", "oxygen"),
-                                                 'right'    => __("right", "oxygen"),
+                                                 'left'     => oxygen_translate("left", "oxygen"),
+                                                 'center'   => oxygen_translate("center", "oxygen"),
+                                                 'right'    => oxygen_translate("right", "oxygen"),
                                             ),
                             "default"       => ""
                         ),
                     ),
                     'tabs' => array(
                         'cta_padding' => array(
-                            'heading' => __('Padding','oxygen'),
+                            'heading' => oxygen_translate('Padding','oxygen'),
                             'params' => array(
                                 array(
                                     "type"          => "padding",
-                                    "heading"       => __("Padding", "oxygen"),
+                                    "heading"       => oxygen_translate("Padding", "oxygen"),
                                     "param_name"    => "pricing_box_cta_padding",
                                 ),
                             )
                         ),
                         'cta_border' => array(
-                            'heading' => __('Borders','oxygen'),
+                            'heading' => oxygen_translate('Borders','oxygen'),
                             'params' => array(
                                 array(
                                     "type"          => "border",
-                                    "heading"       => __("Borders", "oxygen"),
+                                    "heading"       => oxygen_translate("Borders", "oxygen"),
                                     "param_name"    => "pricing_box_cta",    
                                 )
                             )

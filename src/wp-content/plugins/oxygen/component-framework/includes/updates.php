@@ -53,9 +53,9 @@ function shortcodes_to_json_notice() {
 
 	?>
     <div class="notice notice-warning">
-        <p><?php _e( 'Oxygen is now using JSON instead of WordPress shortcodes to store your designs.', 'oxygen' );
+        <p><?php oxygen_translate_echo( 'Oxygen is now using JSON instead of WordPress shortcodes to store your designs.', 'oxygen' );
          		echo ' <a href="'.get_admin_url().'admin.php?page=oxygen_vsb_sign_shortcodes">';
-         		_e( 'Please sign shortcodes to convert them to new format right away.', 'oxygen' ); 
+         		oxygen_translate_echo( 'Please sign shortcodes to convert them to new format right away.', 'oxygen' ); 
          		echo "</a>";
          	?>
         </p>
@@ -115,9 +115,9 @@ add_action("admin_init", "oxygen_vsb_update_4_8_3_migration_notice");
 function oxygen_meta_migration_notice() {
     ?>
     <div class="notice notice-warning is-dismissible">
-        <p><?php _e( 'Oxygen 4.8.3+ requires a migration of your Oxygen meta keys, and some keys have not yet migrated automatically. If this notice remains after 5 to 10 minutes and your site is experiencing issues, ', 'oxygen' );
+        <p><?php oxygen_translate_echo( 'Oxygen 4.8.3+ requires a migration of your Oxygen meta keys, and some keys have not yet migrated automatically. If this notice remains after 5 to 10 minutes and your site is experiencing issues, ', 'oxygen' );
          		echo '<a href="'.get_admin_url().'admin.php?page=oxygen_vsb_settings&tab=tools">';
-         		_e( 'please click here to re-run the migration manually.', 'oxygen' ); 
+         		oxygen_translate_echo( 'please click here to re-run the migration manually.', 'oxygen' ); 
          		echo "</a>";
          	?>
         </p>

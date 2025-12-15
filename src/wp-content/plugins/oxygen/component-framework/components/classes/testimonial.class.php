@@ -464,7 +464,7 @@ class Oxygen_VSB_Testimonial extends CT_Component {
                     ng-click="iframeScope.setOptionModel('testimonial_author_info','Jarvis Web Solutions Ltd.')">
                     <img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/typography.svg' />
                     <img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/typography.svg' />
-                    <?php _e("Re-enable Deleted Text","oxygen"); ?>
+                    <?php oxygen_translate_echo("Re-enable Deleted Text","oxygen"); ?>
                 </div>
             </div>
         </div>
@@ -474,23 +474,23 @@ class Oxygen_VSB_Testimonial extends CT_Component {
 
 global $oxygen_vsb_components;
 $oxygen_vsb_components['testimonial'] = new Oxygen_VSB_Testimonial( array(
-            'name'  => __('Testimonial','oxygen'),
+            'name'  => oxygen_translate('Testimonial','oxygen'),
             'tag'   => 'oxy_testimonial',
             'tabs'  => array(
                 'image' => array(
-                    'heading' => __('Image','oxygen'),
+                    'heading' => oxygen_translate('Image','oxygen'),
                     'params' => array(
                         
                         array(
                             "type"          => "mediaurl",
-                            "heading"       => __("Image URL", "oxygen"),
+                            "heading"       => oxygen_translate("Image URL", "oxygen"),
                             "param_name"    => "testimonial_photo",
                             "value"         => "http://via.placeholder.com/125x125",
                             "css"           => false
                         ),
                         array(
                             "type"          => "slider-measurebox",
-                            "heading"       => __("Image Size", "oxygen"),
+                            "heading"       => oxygen_translate("Image Size", "oxygen"),
                             "param_name"    => "testimonial_image_size",
                             "value"         => "125",
                             "min"           => "50",
@@ -504,7 +504,7 @@ $oxygen_vsb_components['testimonial'] = new Oxygen_VSB_Testimonial( array(
                         ),
                         array(
                             "type"          => "slider-measurebox",
-                            "heading"       => __("Image Spacing", "oxygen"),
+                            "heading"       => oxygen_translate("Image Spacing", "oxygen"),
                             "param_name"    => "testimonial_image_spacing",
                             "value"         => "20",
                             "css"           => false
@@ -516,11 +516,11 @@ $oxygen_vsb_components['testimonial'] = new Oxygen_VSB_Testimonial( array(
                         ),
                         array(
                             "type"          => "radio",
-                            "heading"       => __("Image Position", "oxygen"),
+                            "heading"       => oxygen_translate("Image Position", "oxygen"),
                             "param_name"    => "testimonial_image_position",
                             "value"         => array(
-                                                'top'           => __("before", "oxygen"),
-                                                'bottom'        => __("after", "oxygen"),
+                                                'top'           => oxygen_translate("before", "oxygen"),
+                                                'bottom'        => oxygen_translate("after", "oxygen"),
                                             ),
                             "css"           => false,
                         ),
@@ -529,45 +529,45 @@ $oxygen_vsb_components['testimonial'] = new Oxygen_VSB_Testimonial( array(
                 ),
 
                 'layout' => array(
-                    'heading' => __('Layout','oxygen'),
+                    'heading' => oxygen_translate('Layout','oxygen'),
                     'params' => array(
                     
                          array(
                             "type"          => "radio",
-                            "heading"       => __("Layout", "oxygen"),
+                            "heading"       => oxygen_translate("Layout", "oxygen"),
                             "param_name"    => "testimonial_layout",
                             "value"         => array(
-                                                 'horizontal' => __("horizontal", "oxygen"),
-                                                 'vertical'   => __("vertical", "oxygen"),
+                                                 'horizontal' => oxygen_translate("horizontal", "oxygen"),
+                                                 'vertical'   => oxygen_translate("vertical", "oxygen"),
                                             ),
                             "css"           => false,
                         ),
                         array(
                             "type"          => "medialist",
-                            "heading"       => __("Vertical Layout Below","oxygen"),
+                            "heading"       => oxygen_translate("Vertical Layout Below","oxygen"),
                             "value"         => "",
                             "param_name"    => "testimonial_vertical_layout_below",
                             "css"           => false
                         ),
                         array(
                             "type"          => "radio",
-                            "heading"       => __("Content Alignment", "oxygen"),
+                            "heading"       => oxygen_translate("Content Alignment", "oxygen"),
                             "param_name"    => "testimonial_content_alignment",
                             "value"         => array(
-                                                 'left'     => __("left", "oxygen"),
-                                                 'center'   => __("center", "oxygen"),
-                                                 'right'    => __("right", "oxygen"),
+                                                 'left'     => oxygen_translate("left", "oxygen"),
+                                                 'center'   => oxygen_translate("center", "oxygen"),
+                                                 'right'    => oxygen_translate("right", "oxygen"),
                                             ),
                             "css"           => false,
                         ),
                         array(
                             "type"          => "radio",
-                            "heading"       => __("Mobile Content Alignment", "oxygen"),
+                            "heading"       => oxygen_translate("Mobile Content Alignment", "oxygen"),
                             "param_name"    => "testimonial_mobile_content_alignment",
                             "value"         => array(
-                                                 'left'     => __("left", "oxygen"),
-                                                 'center'   => __("center", "oxygen"),
-                                                 'right'    => __("right", "oxygen"),
+                                                 'left'     => oxygen_translate("left", "oxygen"),
+                                                 'center'   => oxygen_translate("center", "oxygen"),
+                                                 'right'    => oxygen_translate("right", "oxygen"),
                                             ),
                             "css"           => false,
                         ),
@@ -575,11 +575,11 @@ $oxygen_vsb_components['testimonial'] = new Oxygen_VSB_Testimonial( array(
                 ),
 
                 'typography' => array(
-                    'heading' => __('Typography','oxygen'),
+                    'heading' => oxygen_translate('Typography','oxygen'),
 
                     'tabs' => array(
                         'testimonial_text' => array(
-                            'heading' => __("Text","oxygen"),
+                            'heading' => oxygen_translate("Text","oxygen"),
                             'params' => array(
                                 array(
                                     "type"          => "typography",
@@ -603,7 +603,7 @@ $oxygen_vsb_components['testimonial'] = new Oxygen_VSB_Testimonial( array(
                             )
                         ),
                         'testimonial_author' => array(
-                            'heading' => __("Author","oxygen"),
+                            'heading' => oxygen_translate("Author","oxygen"),
                             'params' => array(
                                 array(
                                     "type"          => "typography",
@@ -627,7 +627,7 @@ $oxygen_vsb_components['testimonial'] = new Oxygen_VSB_Testimonial( array(
                             )
                         ),
                         'testimonial_author_info' => array(
-                            'heading' => __("Author Info","oxygen"),
+                            'heading' => oxygen_translate("Author Info","oxygen"),
                             'params' => array(
                                 array(
                                     "type"          => "typography",
@@ -657,12 +657,12 @@ $oxygen_vsb_components['testimonial'] = new Oxygen_VSB_Testimonial( array(
                 ),
 
                 'spacing' => array(
-                    'heading' => __('Spacing','oxygen'),
+                    'heading' => oxygen_translate('Spacing','oxygen'),
                     'params' => array(
                         
                         array(
                             "type"          => "slider-measurebox",
-                            "heading"       => __("Text Space Below", "oxygen"),
+                            "heading"       => oxygen_translate("Text Space Below", "oxygen"),
                             "param_name"    => "testimonial_text_space_below",
                             "value"         => "8",
                             "css"           => false,
@@ -675,7 +675,7 @@ $oxygen_vsb_components['testimonial'] = new Oxygen_VSB_Testimonial( array(
 
                         array(
                             "type"          => "slider-measurebox",
-                            "heading"       => __("Author Space Below", "oxygen"),
+                            "heading"       => oxygen_translate("Author Space Below", "oxygen"),
                             "param_name"    => "testimonial_author_space_below",
                             "value"         => "",
                             "css"           => false,
@@ -688,7 +688,7 @@ $oxygen_vsb_components['testimonial'] = new Oxygen_VSB_Testimonial( array(
 
                         array(
                             "type"          => "slider-measurebox",
-                            "heading"       => __("Author Info Space Below", "oxygen"),
+                            "heading"       => oxygen_translate("Author Info Space Below", "oxygen"),
                             "param_name"    => "testimonial_author_info_space_below",
                             "value"         => "",
                             "css"           => false,

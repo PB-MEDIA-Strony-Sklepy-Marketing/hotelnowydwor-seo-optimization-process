@@ -66,7 +66,7 @@ Class CT_New_Columns extends CT_Component {
 		<div ng-show="isActiveName('<?php echo $this->options['tag']; ?>')&&!iframeScope.isEmptyComponent()">
 			<div class="oxygen-control-row">
 				<div class='oxygen-control-wrapper'>
-					<label class='oxygen-control-label'><?php _e("Stack Columns Vertically","oxygen"); ?></label>
+					<label class='oxygen-control-label'><?php oxygen_translate_echo("Stack Columns Vertically","oxygen"); ?></label>
 					<div class='oxygen-control oxygen-special-property not-available-for-media not-available-for-classes'>
 
 						<div class="oxygen-select oxygen-select-box-wrapper">
@@ -86,7 +86,7 @@ Class CT_New_Columns extends CT_Component {
 								<div class="oxygen-select-box-option" 
 									ng-click="iframeScope.setOptionModel('stack-columns-vertically','never')"
 									ng-class="{'oxygen-select-box-option-active':iframeScope.getOption('stack-columns-vertically')=='never'}">
-									<?php _e("Never","oxygen"); ?>
+									<?php oxygen_translate_echo("Never","oxygen"); ?>
 								</div>
 							</div>
 						</div>
@@ -97,7 +97,7 @@ Class CT_New_Columns extends CT_Component {
 
 			<div class="oxygen-control-row">
 				<div class='oxygen-control-wrapper'>
-					<label class='oxygen-control-label'><?php _e("Reverse Column Order","oxygen"); ?></label>
+					<label class='oxygen-control-label'><?php oxygen_translate_echo("Reverse Column Order","oxygen"); ?></label>
 					<div class='oxygen-control oxygen-special-property not-available-for-media not-available-for-classes'>
 
 						<div class="oxygen-select oxygen-select-box-wrapper">
@@ -110,7 +110,7 @@ Class CT_New_Columns extends CT_Component {
 								<div class="oxygen-select-box-option" 
 									ng-click="iframeScope.setOptionModel('reverse-column-order','always')"
 									ng-class="{'oxygen-select-box-option-active':iframeScope.getOption('reverse-column-order')=='always'}">
-									<?php _e("Always","oxygen"); ?>
+									<?php oxygen_translate_echo("Always","oxygen"); ?>
 								</div>
 								<div class="oxygen-select-box-option" 
 									ng-repeat="name in iframeScope.sortedMediaList()"
@@ -122,7 +122,7 @@ Class CT_New_Columns extends CT_Component {
 								<div class="oxygen-select-box-option" 
 									ng-click="iframeScope.setOptionModel('reverse-column-order','never')"
 									ng-class="{'oxygen-select-box-option-active':iframeScope.getOption('reverse-column-order')=='never'}">
-									<?php _e("Never","oxygen"); ?>
+									<?php oxygen_translate_echo("Never","oxygen"); ?>
 								</div>
 							</div>
 						</div>
@@ -133,7 +133,7 @@ Class CT_New_Columns extends CT_Component {
 
 			<div class="oxygen-control-row">
 				<div class='oxygen-control-wrapper'>
-					<label class='oxygen-control-label'><?php _e("Set Column Width to 50%","oxygen"); ?></label>
+					<label class='oxygen-control-label'><?php oxygen_translate_echo("Set Column Width to 50%","oxygen"); ?></label>
 					<div class='oxygen-control oxygen-special-property not-available-for-media not-available-for-classes'>
 
 						<div class="oxygen-select oxygen-select-box-wrapper">
@@ -153,7 +153,7 @@ Class CT_New_Columns extends CT_Component {
 								<div class="oxygen-select-box-option" 
 									ng-click="iframeScope.setOptionModel('set-columns-width-50','never')"
 									ng-class="{'oxygen-select-box-option-active':iframeScope.getOption('set-columns-width-50')=='never'}">
-									<?php _e("Never","oxygen"); ?>
+									<?php oxygen_translate_echo("Never","oxygen"); ?>
 								</div>
 							</div>
 						</div>
@@ -179,14 +179,14 @@ $oxygen_vsb_components['new_columns'] = new CT_New_Columns (
 			'params' 	=> array(
 					array(
 						"type" 			=> "colorpicker",
-						"heading" 		=> __("Background color", "oxygen"),
+						"heading" 		=> oxygen_translate("Background color", "oxygen"),
 						"param_name" 	=> "background-color",
 						"ng_show" 		=> "!iframeScope.isEmptyComponent()"
 					),
 					// we might add this in future
 					/*array(
 						"type" 			=> "slider-measurebox",
-						"heading" 		=> __("Column Spacing", "oxygen"),
+						"heading" 		=> oxygen_translate("Column Spacing", "oxygen"),
 						"param_name" 	=> "gutter",
 						"value" 		=> "0",
 						"param_units" 	=> "px",

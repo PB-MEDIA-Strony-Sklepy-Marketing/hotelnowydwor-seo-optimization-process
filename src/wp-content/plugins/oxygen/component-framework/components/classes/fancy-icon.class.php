@@ -75,14 +75,14 @@ Class CT_Fancy_Icon extends CT_Component {
 			<div class="oxygen-control-row">
 
 				<div class="oxygen-control-wrapper">
-					<label class="oxygen-control-label"><?php _e("Icon Set", "oxygen"); ?></label>
+					<label class="oxygen-control-label"><?php oxygen_translate_echo("Icon Set", "oxygen"); ?></label>
 					<div class="oxygen-select oxygen-select-box-wrapper oxygen-special-property not-available-for-media not-available-for-classes">
 						<div class="oxygen-select-box">
 							<div class="oxygen-select-box-current">{{iframeScope.currentSVGSet}}</div>
 							<div class="oxygen-select-box-dropdown"></div>
 						</div>
 						<div class="oxygen-select-box-options">
-							<div class="oxygen-select-box-option" title="<?php _e("Use this set", "component-theme"); ?>"
+							<div class="oxygen-select-box-option" title="<?php oxygen_translate_echo("Use this set", "component-theme"); ?>"
 								ng-repeat="(name,set) in iframeScope.SVGSets" 
 								ng-click="iframeScope.setCurrentSVGSet(name);">
 								{{name}}
@@ -94,12 +94,12 @@ Class CT_Fancy_Icon extends CT_Component {
 
 			<div class="oxygen-control-row">
 				<div class="oxygen-control-wrapper">
-					<label class="oxygen-control-label"><?php _e("Icon", "oxygen"); ?></label>
+					<label class="oxygen-control-label"><?php oxygen_translate_echo("Icon", "oxygen"); ?></label>
 					<div class="oxygen-control">
 						<div class="oxygen-icon-chooser">
 
 							<div class="oxygen-input">
-								<input type="text" placeholder="<?php _e("Start typing to search...","oxygen"); ?>"
+								<input type="text" placeholder="<?php oxygen_translate_echo("Start typing to search...","oxygen"); ?>"
 									ng-model="iframeScope.iconFilter.title"
 									ng-model-options="{debounce: 500}">
 							</div>
@@ -201,7 +201,7 @@ global $oxygen_vsb_components;
 $oxygen_vsb_components['fancy_icon'] = new CT_Fancy_Icon ( 
 
 		array( 
-			'name' 		=> __("Icon", "oxygen"),
+			'name' 		=> oxygen_translate("Icon", "oxygen"),
 			'tag' 		=> 'ct_fancy_icon',
 			'params' 	=> array(
 					array(
@@ -213,12 +213,12 @@ $oxygen_vsb_components['fancy_icon'] = new CT_Fancy_Icon (
 					),
 					array(
 						"type" 			=> "radio",
-						"heading" 		=> __("Icon Style", "oxygen"),
+						"heading" 		=> oxygen_translate("Icon Style", "oxygen"),
 						"param_name" 	=> "icon-style",
 						"value" 		=> array(
-											1 	=> __("Outline", "oxygen"),
-											2 	=> __("Solid", "oxygen"),
-											3 	=> __("None", "oxygen"),
+											1 	=> oxygen_translate("Outline", "oxygen"),
+											2 	=> oxygen_translate("Solid", "oxygen"),
+											3 	=> oxygen_translate("None", "oxygen"),
 										),
 						"default" 		=> 3,
 						"line_breaks"	=> true,
@@ -226,14 +226,14 @@ $oxygen_vsb_components['fancy_icon'] = new CT_Fancy_Icon (
 					),
 					array(
 						"type" 			=> "colorpicker",
-						"heading" 		=> __("Color"),
+						"heading" 		=> oxygen_translate("Color"),
 						"param_name" 	=> "icon-color",
 						"value" 		=> "#333333",
 						"css" 			=> false
 					),
 					array(
 						"type" 			=> "colorpicker",
-						"heading" 		=> __("Background Color","oxygen"),
+						"heading" 		=> oxygen_translate("Background Color","oxygen"),
 						"param_name" 	=> "icon-background-color",
 						"value" 		=> "#f4f4f4",
 						"condition"		=> "icon-style=2",
@@ -241,7 +241,7 @@ $oxygen_vsb_components['fancy_icon'] = new CT_Fancy_Icon (
 					),
 					array(
 						"type" 			=> "slider-measurebox",
-						"heading" 		=> __("Icon size","oxygen"),
+						"heading" 		=> oxygen_translate("Icon size","oxygen"),
 						"param_name" 	=> "icon-size",
 						"value" 		=> 55,
 						"min"			=> "10",
@@ -257,7 +257,7 @@ $oxygen_vsb_components['fancy_icon'] = new CT_Fancy_Icon (
 					),
 					array(
 						"type" 			=> "slider-measurebox",
-						"heading" 		=> __("Space around icon","oxygen"),
+						"heading" 		=> oxygen_translate("Space around icon","oxygen"),
 						"param_name" 	=> "icon-padding",
 						"value" 		=> 20,
 						"min"			=> "10",

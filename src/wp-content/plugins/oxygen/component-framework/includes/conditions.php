@@ -185,7 +185,7 @@ Class OxygenConditions {
 	function register_condition($tag, $values=array('options'=>array()), $operators=array(), $callback = null, $category = null ) {
 		
 		if (empty($tag) || '' == trim($tag)) {
-			$message = __( 'Invalid condition name: Empty name given.' );
+			$message = oxygen_translate( 'Invalid condition name: Empty name given.' );
 			trigger_error($message);
 			return;
 		}
@@ -487,7 +487,9 @@ Class OxygenConditions {
 			}
 		}
 
-		$finalTerms = array_map('utf8_encode', $finalTerms);
+		$finalTerms = array_map(function($term) {
+			return mb_convert_encoding($term, 'UTF-8', 'ISO-8859-1');
+		}, $finalTerms);
 
 		$this->register_condition(
 			'Taxonomy Term', 
@@ -495,7 +497,7 @@ Class OxygenConditions {
 				'options' => $finalTerms, 
 				'keys' => true, 
 				'ajax' => true, 
-				'placeholder' => __('Search term...', 'oxygen'), 
+				'placeholder' => oxygen_translate('Search term...', 'oxygen'), 
 				'callback' => 'load_conditions_terms'), 
 			$this->condition_operators['simple'], 
 			'taxonomy_term_callback', 
@@ -527,7 +529,9 @@ Class OxygenConditions {
 			}
 		}
 
-		$finalTerms = array_map('utf8_encode', $finalTerms);
+		$finalTerms = array_map(function($term) {
+			return mb_convert_encoding($term, 'UTF-8', 'ISO-8859-1');
+		}, $finalTerms);
 
 		// Echo JSON
 	  	header('Content-Type: application/json');
@@ -766,7 +770,7 @@ Class OxygenConditions {
 
 		$this->register_condition(
 			'Post Category', 
-			array('options' => $categories_clean, 'ajax' => true, 'placeholder' => __('Search category...', 'oxygen'), 'callback' => 'load_conditions_categories' ), 
+			array('options' => $categories_clean, 'ajax' => true, 'placeholder' => oxygen_translate('Search category...', 'oxygen'), 'callback' => 'load_conditions_categories' ), 
 			$this->condition_operators['simple'], 
 			'category_callback',
 			'Post');
@@ -846,7 +850,7 @@ Class OxygenConditions {
 			array(
 				'options' => $tags_clean, 
 				'ajax' => true, 
-				'placeholder' => __('Search tag...', 'oxygen'),
+				'placeholder' => oxygen_translate('Search tag...', 'oxygen'),
 				'callback' => 'load_conditions_tags'),
 			$this->condition_operators['simple'], 
 			'tag_callback',

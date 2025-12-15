@@ -1,12 +1,12 @@
 					
 					<?php $this->settings_breadcrumbs(	
-							__('Sections & Columns','oxygen'),
-							__('Global Styles','oxygen'),
+							oxygen_translate('Sections & Columns','oxygen'),
+							oxygen_translate('Global Styles','oxygen'),
 							'default-styles'); ?>
 
 					<div class="oxygen-control-row">
 						<div class='oxygen-control-wrapper'>
-							<label class='oxygen-control-label'><?php _e("Section Container Padding","oxygen"); ?></label>
+							<label class='oxygen-control-label'><?php oxygen_translate_echo("Section Container Padding","oxygen"); ?></label>
 							<div class='oxygen-control'>
 								<div class='oxygen-four-sides-measure-box'>
 									<div 
@@ -47,7 +47,7 @@
 									</div>
 									<div class="oxygen-flex-line-break"></div>
 									<div class="oxygen-apply-all-trigger">
-										<?php _e("apply all »", "oxygen"); ?>
+										<?php oxygen_translate_echo("apply all »", "oxygen"); ?>
 									</div>
 								</div>
 								<!-- .oxygen-four-sides-measure-box -->
@@ -58,7 +58,7 @@
 
 					<div class="oxygen-control-row">
 						<div class='oxygen-control-wrapper'>
-							<label class='oxygen-control-label'><?php _e("Columns Padding","oxygen"); ?></label>
+							<label class='oxygen-control-label'><?php oxygen_translate_echo("Columns Padding","oxygen"); ?></label>
 							<div class='oxygen-control'>
 								<div class='oxygen-four-sides-measure-box'>
 									<div 
@@ -103,7 +103,7 @@
 									</div>
 									<div class="oxygen-flex-line-break"></div>
 									<div class="oxygen-apply-all-trigger">
-										<?php _e("apply all »", "oxygen"); ?>
+										<?php oxygen_translate_echo("apply all »", "oxygen"); ?>
 									</div>
 								</div>
 								<!-- .oxygen-four-sides-measure-box -->

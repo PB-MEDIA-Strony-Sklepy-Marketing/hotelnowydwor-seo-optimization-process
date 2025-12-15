@@ -204,7 +204,7 @@ function oxygen_check_addons_versions() {
 function oxygen_osd_addon_wrong_version() {
 	
 	$classes = 'notice notice-error';
-	$message = __( 'Your Oxygen Selector Detector version is not supported. Minimal required Selector Detector version is:', 'oxygen' );
+	$message = oxygen_translate( 'Your Oxygen Selector Detector version is not supported. Minimal required Selector Detector version is:', 'oxygen' );
 
 	printf( '<div class="%1$s"><p>%2$s <b>%3$s</b></p></div>', $classes, $message, REQUIRED_OSD_VERSION ); 
 }
@@ -316,7 +316,7 @@ function oxygen_vsb_themes_screen_notice() {
 	?>
     <div class="notice notice-warning oxy-notice">
         <p><?php printf(
-                    __( 'You\'re using <a href="%s">Oxygen</a> to design your site, which entirely disables the WordPress theme system. The active theme is never loaded, and has no impact on your site\'s performance or appearance.', 'oxygen' ),
+                    oxygen_translate( 'You\'re using <a href="%s">Oxygen</a> to design your site, which entirely disables the WordPress theme system. The active theme is never loaded, and has no impact on your site\'s performance or appearance.', 'oxygen' ),
                 	menu_page_url('ct_dashboard_page', false)
                 ); ?></p>
     </div>
@@ -357,7 +357,7 @@ function oxygen_add_posts_quick_action_link($actions, $post, $return_type = "fil
     }
     
     $edit_link_href = '';
-    $edit_link_text = __("Edit with Oxygen", "oxygen");
+    $edit_link_text = oxygen_translate("Edit with Oxygen", "oxygen");
     
     if ($post_type == "ct_template") {
         $template_type = oxy_get_post_meta($post_ID, 'ct_template_type', true);
@@ -471,7 +471,7 @@ function oxygen_add_posts_quick_action_link($actions, $post, $return_type = "fil
                 return $actions;
             }
             $edit_link_href = ct_get_post_builder_link($edit_template);
-            $edit_link_text = __("Edit Template", "oxygen");
+            $edit_link_text = oxygen_translate("Edit Template", "oxygen");
         }
     }
     

@@ -12,11 +12,11 @@
     	$oxygen_toolbar->codemirror_theme_chooser(); ?>
 	<a href="#" class="oxygen-code-editor-apply"
 		ng-click="iframeScope.applyComponentJS()">
-		<?php _e("Apply Code", "oxygen"); ?>
+		<?php oxygen_translate_echo("Apply Code", "oxygen"); ?>
 	</a>
 	<a href="#" class="oxygen-code-editor-expand"
-		data-collapse="<?php _e("Collapse Editor", "oxygen"); ?>" data-expand="<?php _e("Expand Editor", "oxygen"); ?>"
+		data-collapse="<?php oxygen_translate_echo("Collapse Editor", "oxygen"); ?>" data-expand="<?php oxygen_translate_echo("Expand Editor", "oxygen"); ?>"
 		ng-click="toggleSidebar()">
-		<?php _e("Expand Editor", "oxygen"); ?>
+		<?php oxygen_translate_echo("Expand Editor", "oxygen"); ?>
 	</a>
 </div>

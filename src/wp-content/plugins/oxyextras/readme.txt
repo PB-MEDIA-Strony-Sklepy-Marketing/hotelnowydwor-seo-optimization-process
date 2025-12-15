@@ -22,37 +22,38 @@ Current Components:
 6. Carousel Builder
 7. Cart Counter
 8. Circular Progress
-9. Content Switcher
-10. Content Timeline
-11. Copyright Year
-12. Countdown Timer
-13. Counter
-14. Dynamic Tabs
-15. Extras Login Form
-16. Fluent Form
-17. Gutenberg Reusable Block
-18. Header Search
-19. Horizontal Slide Menu
-20. Hotspots / Popovers
-21. Infinite Scroller
-22. Interactive Cursor
-23. Lightbox
-24. Lottie Animation
-25. Mega Menu / Dropdown
-26. Mini Cart
-27. Off Canvas
-28. Post Modified Date
-29. Post Terms
-30. Preloader
-31. Pro Accordion
-32. Pro Media Player
-33. Read More / Less
-34. Reading Progress Bar
-35. Reading Time
-36. Slide Menu
-37. Social Share
-38. Table of Contents
-39. Toggle Switch
+9. Copy to Clipboard
+10. Content Switcher
+11. Content Timeline
+12. Copyright Year
+13. Countdown Timer
+14. Counter
+15. Dynamic Tabs
+16. Extras Login Form
+17. Fluent Form
+18. Gutenberg Reusable Block
+19. Header Search
+20. Horizontal Slide Menu
+21. Hotspots / Popovers
+22. Infinite Scroller
+23. Interactive Cursor
+24. Lightbox
+25. Lottie Animation
+26. Mega Menu / Dropdown
+27. Mini Cart
+28. Off Canvas
+29. Post Modified Date
+30. Post Terms
+31. Preloader
+32. Pro Accordion
+33. Pro Media Player
+34. Read More / Less
+35. Reading Progress Bar
+36. Reading Time
+37. Slide Menu
+38. Social Share
+39. Table of Contents
+40. Toggle Switch
 
 == Installation ==
 
@@ -69,10 +70,36 @@ Current Components:
 Valid license key should be entered for the plugin to function and to receive automatic updates.
 
 == Changelog ==
+
+= 1.4.7 ( May 23, 2024 ) =
+* [Copy to Clipboard] - New element for enabling users to copy text or dynamic data.
+* [Social Share] - Added 'print' option for enabling users to print the page (or a specific area of the page).
+* [Content Timeline] - Now supports changing the marker's vertical positioning (previously always centered).
+* [OffCanvas] - Added focus trapping.
+* [OffCanvas] - Fixed PHP warning if 'State on page load' setting is unset and has no value.
+* [General] - Improved keyboard navigation across a number of elements.
+
+= 1.4.6 ( Mar 27, 2024 ) =
+* [Pro Accordion] - Added an option to open the first accordion item when being used inside a repeater.
+* [Carousel Builder] - Sync functionality can now be used with carousels inside repeaters.
+* [Gutenberg Reusable Block] - Fixed deprecation notice.
+
+= 1.4.5 ( Mar 13, 2024 ) =
+* [General] - Security improvement.
+
+= 1.4.4 ( Mar 12, 2024 ) =
+* [Table of Contents] - Added option to use heading text as heading IDs inside content.
+* [Slide Menu] - Added option to auto close menu if hashlink menu item clicked.
+* [Content Timeline] - Now supports being inside nested repeaters.
+* [Social Share Buttons] - Changed defaults to use the X icon.
+* [Carousel Builder] - Fixed issue with the carousel's preview mode showing an error in builder if the autoplay setting has no value.
+* [Reading time] - Fixed issue where default words per minute value wasn't being used inside repeater when inside builder.
+* [General] - Security patch.
+
 = 1.4.3 ( May 31, 2022 ) =
 * [General] - Small update to all icons to better match Oxygen v4 UI.
 * [Carousel Builder] - Prevent Repeater divs wrapping onto multiple lines inside the builder.
-* [Read More] - Added seperate control for "transparent" gradient color.
+* [Read More] - Added separate control for "transparent" gradient color.
 
 = 1.4.2 ( May 07, 2022 ) =
 * [Pro Media Player] Fixed SVG controls in the media player not showing up.

@@ -24,7 +24,7 @@
 		</div>
 		<div class='oxygen-icon-button-list-option-label'>
 			<?php if (!isset($param['vertical_text']) || !$param['vertical_text']) { 
-				_e("Vertical");
+				oxygen_translate_echo("Vertical");
 			} else {
 				echo $param['vertical_text'];
 			} ?>
@@ -44,7 +44,7 @@
 			</div>
 			<div class='oxygen-icon-button-list-option-label'>
 				<?php if (!isset($param['horizontal_text']) || !$param['horizontal_text']) { 
-					_e("Horizontal");
+					oxygen_translate_echo("Horizontal");
 				} else {
 					echo $param['horizontal_text'];
 				} ?>
@@ -65,7 +65,7 @@
 			</div>
 			<div class='oxygen-icon-button-list-option-label'>
 				<?php if (!isset($param['grid_text']) || !$param['grid_text']) { 
-					_e("Grid");
+					oxygen_translate_echo("Grid");
 				} else {
 					echo $param['grid_text'];
 				} ?>
@@ -75,7 +75,7 @@
 </div>
 
 <div ng-show="isActiveName('oxy_posts_grid')||(isActiveName('oxy_dynamic_list')&&isShowTab('dynamicList','grid_layout'))">
-	<?php $oxygen_toolbar->checkbox('display', __("Enable Grid", "oxygen"), 'grid', "") ?>
+	<?php $oxygen_toolbar->checkbox('display', oxygen_translate("Enable Grid", "oxygen"), 'grid', "") ?>
 </div>
 
 </div> <!-- control -->

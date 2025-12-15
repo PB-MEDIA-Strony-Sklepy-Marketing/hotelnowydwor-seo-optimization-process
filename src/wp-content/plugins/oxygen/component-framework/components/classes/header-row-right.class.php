@@ -53,7 +53,7 @@ Class Oxy_Header_Builder_Row_Right extends CT_Component {
 // Create inctance
 global $oxygen_vsb_components;
 $oxygen_vsb_components['header_row_right'] = new Oxy_Header_Builder_Row_Right( array( 
-			'name' 		=> __('Row Right', 'oxygen'),
+			'name' 		=> oxygen_translate('Row Right', 'oxygen'),
 			'tag' 		=> 'oxy_header_right',
 			'params' 	=> array(),
 			'advanced' 	=> array(

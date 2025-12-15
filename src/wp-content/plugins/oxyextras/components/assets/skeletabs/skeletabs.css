@@ -44,9 +44,7 @@
 .oxy-dynamic-tabs_tab {
     background: #f6f6f8;
 }
-.oxy-dynamic-tabs_tab:focus {
-    outline: 0;
-}
+
 .oxy-dynamic-tabs_tab:disabled {
     color: #ccc;
     background: transparent;

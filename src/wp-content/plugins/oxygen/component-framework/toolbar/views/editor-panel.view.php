@@ -3,86 +3,86 @@
 		ng-if="isActiveActionTab('contentEditing')">
 		
 		<div class="oxygen-button-list-button"
-			ng-edit-role='justifyleft' ct-edit-button title="<?php _e( 'Align Left', 'oxygen' ); ?>">
+			ng-edit-role='justifyleft' ct-edit-button title="<?php oxygen_translate_echo( 'Align Left', 'oxygen' ); ?>">
 			<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/toolbar-icons/icons_top-bar-text-align-left.svg">
 		</div>
 
 		<div class="oxygen-button-list-button"
-			ng-edit-role='justifycenter' ct-edit-button title="<?php _e( 'Align Center', 'oxygen' ); ?>">
+			ng-edit-role='justifycenter' ct-edit-button title="<?php oxygen_translate_echo( 'Align Center', 'oxygen' ); ?>">
 			<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/toolbar-icons/icons_top-bar-text-align-center.svg">
 		</div>
 
 		<div class="oxygen-button-list-button"
-			ng-edit-role='justifyright' ct-edit-button title="<?php _e( 'Align Right', 'oxygen' ); ?>">
+			ng-edit-role='justifyright' ct-edit-button title="<?php oxygen_translate_echo( 'Align Right', 'oxygen' ); ?>">
 			<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/toolbar-icons/icons_top-bar-text-align-right.svg">
 		</div>
 
 		<div class="oxygen-button-list-button"
-			ng-edit-role='justifyfull' ct-edit-button title="<?php _e( 'Justify', 'oxygen' ); ?>">
+			ng-edit-role='justifyfull' ct-edit-button title="<?php oxygen_translate_echo( 'Justify', 'oxygen' ); ?>">
 			<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/toolbar-icons/icons_top-bar-text-align-justify.svg">
 		</div>
 
 		<div class="oxygen-button-list-button"
-			ng-edit-role='bold' ct-edit-button title="<?php _e( 'Bold', 'oxygen' ); ?>">
+			ng-edit-role='bold' ct-edit-button title="<?php oxygen_translate_echo( 'Bold', 'oxygen' ); ?>">
 			<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/toolbar-icons/icons__bold-icon.svg">
 		</div>
 
 		<div class="oxygen-button-list-button"
-			ng-edit-role='italic' ct-edit-button title="<?php _e( 'Italic', 'oxygen' ); ?>">
+			ng-edit-role='italic' ct-edit-button title="<?php oxygen_translate_echo( 'Italic', 'oxygen' ); ?>">
 			<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/toolbar-icons/icons_top-bar-text_style_italic_icon.svg">
 		</div>
 
 		<div class="oxygen-button-list-button"
-			ng-edit-role='underline' ct-edit-button title="<?php _e( 'Underline', 'oxygen' ); ?>">
+			ng-edit-role='underline' ct-edit-button title="<?php oxygen_translate_echo( 'Underline', 'oxygen' ); ?>">
 			<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/toolbar-icons/icons_top-bar-text_style_underline_icon.svg">
 		</div>
 
 		<div class="oxygen-button-list-button"
-			ng-edit-role='strikethrough ' ct-edit-button title="<?php _e( 'Strike', 'oxygen' ); ?>">
+			ng-edit-role='strikethrough ' ct-edit-button title="<?php oxygen_translate_echo( 'Strike', 'oxygen' ); ?>">
 			<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/toolbar-icons/icons_top-bar-text_style_strike_icon.svg">
 		</div>
 
 		<div class="oxygen-button-list-button"
-			ng-edit-role='link' ct-edit-button title="<?php _e( 'Link', 'oxygen' ); ?>">
+			ng-edit-role='link' ct-edit-button title="<?php oxygen_translate_echo( 'Link', 'oxygen' ); ?>">
 			<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/toolbar-icons/icons__link-icon.svg">
 		</div>
 
 		<div class="oxygen-button-list-button"
-			ng-edit-role='undo' ct-edit-button title="<?php _e( 'Undo', 'oxygen' ); ?>">
+			ng-edit-role='undo' ct-edit-button title="<?php oxygen_translate_echo( 'Undo', 'oxygen' ); ?>">
 			<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/toolbar-icons/icons__undo-icon.svg">
 		</div>
 
 		<div class="oxygen-button-list-button"
-			ng-edit-role='redo' ct-edit-button title="<?php _e( 'Redo', 'oxygen' ); ?>">
+			ng-edit-role='redo' ct-edit-button title="<?php oxygen_translate_echo( 'Redo', 'oxygen' ); ?>">
 			<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/toolbar-icons/icons__redo-icon.svg">
 		</div>
 
 		<div class="oxygen-button-list-button oxygen-clear-format-button"
-			ng-edit-role='removeFormat' ct-edit-button title="<?php _e( 'Remove Format', 'oxygen' ); ?>">
+			ng-edit-role='removeFormat' ct-edit-button title="<?php oxygen_translate_echo( 'Remove Format', 'oxygen' ); ?>">
 			<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/toolbar-icons/icons__clearformat-icon.svg">
 		</div>
 
-		<div class="oxygen-button-list-button oxygen-wrap-span-button" title="<?php _e('Wrap with Span component', 'oxygen'); ?>"
+		<div class="oxygen-button-list-button oxygen-wrap-span-button" title="<?php oxygen_translate_echo('Wrap with Span component', 'oxygen'); ?>"
 			ng-show="iframeScope.component.active.name != 'ct_span'"
 			ng-hide="builtinContentEditing"
 			ng-mousedown="iframeScope.wrapWithSpan()">
 			<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/toolbar-icons/icons__span-icon.svg">
 		</div>
 
-		<div class="oxygen-button-list-button oxygen-formatting-done" title="<?php _e('Done Editing', 'oxygen'); ?>"
+		<div class="oxygen-button-list-button oxygen-formatting-done" title="<?php oxygen_translate_echo('Done Editing', 'oxygen'); ?>"
 			ng-mousedown="disableContentEdit()">
-			<?php _e("Done", "oxygen"); ?>
+			<?php oxygen_translate_echo("Done", "oxygen"); ?>
 		</div>
 
 		<?php global $oxygen_meta_keys ?>
 
 		<div class='oxygen-button-list-button oxygen-insert-data oxygen-toolbar-button' 
-			title="<?php _e('Insert Data shortcode', 'oxygen'); ?>"
+			title="<?php oxygen_translate_echo('Insert Data shortcode', 'oxygen'); ?>"
 			ng-show="iframeScope.component.active.name != 'ct_span'"
 			ng-hide="builtinContentEditing"
 			ctdynamicdata data="iframeScope.dynamicShortcodesContentMode" callback="iframeScope.insertAtCursor">
 			<img class="oxygen-button-two-images" src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/toolbar-icons/insert-data.svg' />
-			<span><?php _e("Insert Data", "oxygen"); ?></span>
+			<span><?php oxygen_translate_echo("Insert Data", "oxygen"); ?></span>
 		</div>
 
 	</div>

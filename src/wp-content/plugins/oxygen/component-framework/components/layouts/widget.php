@@ -42,5 +42,5 @@
 		wp_print_styles( $wp_styles->queue );
 	}
 	else {
-		printf( __("<b>Error!</b><br/> No '%s' widget registered in this installation", "component-theme"), $options['class_name'] );
+		printf( oxygen_translate("<b>Error!</b><br/> No '%s' widget registered in this installation", "component-theme"), $options['class_name'] );
 	}

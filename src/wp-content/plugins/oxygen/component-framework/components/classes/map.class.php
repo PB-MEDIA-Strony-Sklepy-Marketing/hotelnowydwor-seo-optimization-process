@@ -51,12 +51,12 @@ Class Oxy_Google_Maps extends CT_Component {
 // Create Google Maps instance
 global $oxygen_vsb_components;
 $oxygen_vsb_components['google_maps'] = new Oxy_Google_Maps( array( 
-		'name' 		=> __('Google Maps','oxygen'),
+		'name' 		=> oxygen_translate('Google Maps','oxygen'),
 		'tag' 		=> 'oxy_map',
 		'params' 	=> array(
 			array(
 				"type" 			=> "textfield",
-				"heading" 		=> __("Address","oxygen"),
+				"heading" 		=> oxygen_translate("Address","oxygen"),
 				"param_name" 	=> "map_address",
 				"value" 		=> "",
 				"css" 			=> false,
@@ -64,7 +64,7 @@ $oxygen_vsb_components['google_maps'] = new Oxy_Google_Maps( array(
 			),
 			array(
 				"type" 			=> "slider-measurebox",
-				"heading" 		=> __("Zoom", "oxygen"),
+				"heading" 		=> oxygen_translate("Zoom", "oxygen"),
 				"param_name" 	=> "map_zoom",
 				"value" 		=> "14",
 				"min"			=> "1",
@@ -73,7 +73,7 @@ $oxygen_vsb_components['google_maps'] = new Oxy_Google_Maps( array(
 			),
 			array(
 				"type" 			=> "measurebox",
-				"heading" 		=> __("Height", "oxygen"),
+				"heading" 		=> oxygen_translate("Height", "oxygen"),
 				"param_name" 	=> "height",
 				"value" 		=> "",
 			),

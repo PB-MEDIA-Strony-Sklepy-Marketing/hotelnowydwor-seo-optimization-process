@@ -68,7 +68,14 @@ class ExtraAccordion extends OxygenExtraElements {
         $acf_post_id = isset( $options['acf_post_id'] ) ? esc_attr($options['acf_post_id']) : "";
         
         $maybe_repeater = isset( $options['maybe_repeater'] ) ? esc_attr($options['maybe_repeater']) : "";
+        $first_open_repeater = 'false';
         $maybe_wpautop = isset( $options['maybe_wpautop'] ) ? esc_attr($options['maybe_wpautop']) : "";
+
+        if ( isset( $options['first_open_repeater'] ) ) {
+           if ( 'open' === esc_attr($options['first_open_repeater']) && 'true' === $maybe_repeater ) {
+            $first_open_repeater = 'true';
+           }
+        }
         
         if ('options' === esc_attr($options['acf_post_id'])) {
             $post_id = "options";
@@ -133,7 +140,7 @@ class ExtraAccordion extends OxygenExtraElements {
         
         $builder_clicks = (defined('OXY_ELEMENTS_API_AJAX') && OXY_ELEMENTS_API_AJAX) ? 'onclick="extrasOpenAccordion.call(this)" ' : '';
         
-        $output = '<'.$list_tag.' class="oxy-pro-accordion_inner" data-icon="'.$toggle_expanded.'" data-expand="'.$expand_speed.'" data-repeater="'. $maybe_repeater .'" data-acf="'.$acf_inital.'" data-type="'.$accordion_type.'"'.$disable_sibling_togggle.'>';
+        $output = '<'.$list_tag.' class="oxy-pro-accordion_inner" data-icon="'.$toggle_expanded.'" data-expand="'.$expand_speed.'" data-repeater="'. $maybe_repeater .'" data-repeater-first="' . $first_open_repeater . '" data-acf="'.$acf_inital.'" data-type="'.$accordion_type.'"'.$disable_sibling_togggle.'>';
         
         $showbuilderAccordion = false;
 
@@ -211,9 +218,9 @@ class ExtraAccordion extends OxygenExtraElements {
                     foreach ( $group_values as $group_key => $group_value ) {
 
                         // Load sub field value.
-                        $title_out = isset( $group_value[$title_field] ) ? $group_value[$title_field] : '';
-                        $subtitle_out = isset( $group_value[$subtitle_field] ) ? $group_value[$subtitle_field] : '';
-                        $content_out = isset( $group_value[$content_field] ) ? $group_value[$content_field] : '';
+                        $title_out = isset( $group_value[$title_field] ) ? wp_kses_post( $group_value[$title_field] ) : '';
+                        $subtitle_out = isset( $group_value[$subtitle_field] ) ? wp_kses_post( $group_value[$subtitle_field] ) : '';
+                        $content_out = isset( $group_value[$content_field] ) ? wp_kses_post( $group_value[$content_field] ) : '';
 
                         if ('true' === $maybe_wpautop) {
                             $content_out = do_shortcode( wpautop( $content_out ) );
@@ -269,9 +276,9 @@ class ExtraAccordion extends OxygenExtraElements {
                     while( have_rows($repeater_field, $post_id) ) : the_row();
 
                         // Load sub field value.
-                        $title_out = get_sub_field($title_field);
-                        $subtitle_out = get_sub_field($subtitle_field);
-                        $content_out = get_sub_field($content_field);
+                        $title_out = wp_kses_post( get_sub_field($title_field) );
+                        $subtitle_out = wp_kses_post( get_sub_field($subtitle_field) );
+                        $content_out = wp_kses_post( get_sub_field($content_field) );
 
                         $output .= '<'.$item_tag.' class="oxy-pro-accordion_item"'.$question_schema.'><button '.$builder_clicks.' id="header' . esc_attr($options['selector']) .'-'. get_row_index() .'" class="oxy-pro-accordion_header" aria-controls="body' . esc_attr($options['selector']) .'-'. get_row_index() .'" aria-expanded=false>';
 
@@ -1636,6 +1643,21 @@ class ExtraAccordion extends OxygenExtraElements {
             )
         )->setDefaultValue('disable')
          ->setParam("description", __("Enable if using items inside of a repeater to create one large accordion"));
+
+
+         $advanced_section->addOptionControl(
+            array(
+                'type' => 'buttons-list',
+                'name' => __('First item open'),
+                'slug' => 'first_open_repeater',
+                'condition' => 'maybe_repeater=true'
+            )
+            
+        )->setValue(array( 
+            "open" => "True",
+            "closed" => "False",
+            )
+        )->setDefaultValue('closed'); 
         
         
         $advanced_section->addOptionControl(
@@ -1690,8 +1712,7 @@ class ExtraAccordion extends OxygenExtraElements {
             jQuery(document).ready(oxygen_init_accordion);
             function oxygen_init_accordion($) {
                 
-                // check if supports touch, otherwise it's click:
-                let touchEvent = 'ontouchend' in window ? 'click' : 'click';  
+                let touchEvent = 'click';  
 
                 let extrasAccordion = function ( container ) {
                     
@@ -1701,6 +1722,7 @@ class ExtraAccordion extends OxygenExtraElements {
                     var disable_sibling = $accordion.find('.oxy-pro-accordion_inner').data('disablesibling');
 
                     if ( 'manual' === $(this).find('.oxy-pro-accordion_inner').data('type') ) {
+
                         
                         var $accordion_header = $accordion.find('.oxy-pro-accordion_header');
                         var $accordion_item = $accordion.find('.oxy-pro-accordion_item');
@@ -1708,10 +1730,21 @@ class ExtraAccordion extends OxygenExtraElements {
                         var $speed = $accordion.find('.oxy-pro-accordion_inner').data('expand');
                         var mediaPlayer = $accordion.parent().children('.oxy-pro-accordion').find('.oxy-pro-media-player vime-player');
                         var accordionID = '#' + $accordion.attr('id');
+
+                        var repeaterFirst = $accordion.find('.oxy-pro-accordion_inner').data('repeater-first')
+
+                        
                         
                         if (true === $accordion.find('.oxy-pro-accordion_inner').data('repeater')) {
                             $accordion.closest('.oxy-dynamic-list').children('.ct-div-block').attr('data-counter', 'true');
                             $accordion.attr('data-counter', 'false');
+
+                            if ( repeaterFirst ) {
+
+                                $accordion.closest('.oxy-dynamic-list > .ct-div-block:first-child').find('.oxy-pro-accordion_item').addClass('active')
+                                $accordion.closest('.oxy-dynamic-list > .ct-div-block:first-child').find('.oxy-pro-accordion_item').attr('data-init', 'open')
+                                $accordion.closest('.oxy-dynamic-list > .ct-div-block:first-child').find('.oxy-pro-accordion_header').attr('aria-expanded', 'true')
+                            }
                         }
                         
                         $accordion_header.on(touchEvent, function() {
@@ -1796,8 +1829,47 @@ class ExtraAccordion extends OxygenExtraElements {
                         
                         
                     }
+
+
+                    var $accordionHeaders = $accordion.find('.oxy-pro-accordion_header');
+                    var $accordionItems = $accordion.find('.oxy-pro-accordion_item');
+
+                    $accordionHeaders.each(function( index, accordionHeader ) {
+
+                        $accordion_header = $(accordionHeader);
+
+                        $accordion_header.on( "keydown", (e) => {
+
+                            if ('ArrowDown' === e.code ) {
+                                e.preventDefault()
+
+                                if ( $accordionItems[(index + 1)] ) {
+                                    $($accordionItems[(index + 1)]).find('.oxy-pro-accordion_header').focus()
+                                } else {
+                                    $($accordionItems[0]).find('.oxy-pro-accordion_header').focus()
+                                }
+
+                            } else if ( 'ArrowUp' === e.code ) {
+                                e.preventDefault()
+                                if ( $accordionItems[(index - 1)] ) {
+                                    $($accordionItems[(index - 1)]).find('.oxy-pro-accordion_header').focus()
+                                } else {
+                                    $($accordionItems[$accordionItems.length - 1]).find('.oxy-pro-accordion_header').focus()
+                                }
+                            } else if ( 'Home' === e.code ) {
+                                e.preventDefault()
+                                $($accordionItems[0]).find('.oxy-pro-accordion_header').focus()
+
+                            } else if ( 'End' === e.code ) {
+                                e.preventDefault()
+                                $($accordionItems[$accordionItems.length - 1]).find('.oxy-pro-accordion_header').focus()
+                            }
+                        } );
+                    })
                     
                 });
+
+                
 
                 }
                 

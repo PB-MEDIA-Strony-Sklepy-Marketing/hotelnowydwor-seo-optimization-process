@@ -62,6 +62,6 @@
 		}
 	}
 	else {
-		_e('No code found', 'component-theme');
+		oxygen_translate_echo('No code found', 'component-theme');
 	}
 ?>

@@ -182,9 +182,9 @@ class Oxygen_VSB_Comments_List extends CT_Component {
     static function util_title() {
 
         if (get_comments_number() == 1) {
-            return sprintf(__('One comment on &#8220;%s&#8221;'), get_the_title());
+            return sprintf(oxygen_translate('One comment on &#8220;%s&#8221;'), get_the_title());
         } else {
-            return number_format_i18n(get_comments_number()).sprintf(__(' comments on &#8220;%s&#8221;'), get_the_title());
+            return number_format_i18n(get_comments_number()).sprintf(oxygen_translate(' comments on &#8220;%s&#8221;'), get_the_title());
         }
 
     }
@@ -212,7 +212,7 @@ class Oxygen_VSB_Comments_List extends CT_Component {
                 ng-click="switchTab('commentsList', 'templates')" 
                 ng-show="!hasOpenTabs('commentsList')">
                     <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/code.svg">
-                    <?php _e("Templates", "oxygen"); ?>
+                    <?php oxygen_translate_echo("Templates", "oxygen"); ?>
                     <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
             </div>
 
@@ -224,22 +224,22 @@ class Oxygen_VSB_Comments_List extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="tabs.commentsList=[]"><?php _e("Comments List","oxygen"); ?></div>
+                        ng-click="tabs.commentsList=[]"><?php oxygen_translate_echo("Comments List","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Templates","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Templates","oxygen"); ?></div>
                 </div>
 
                 <div class="oxygen-sidebar-advanced-subtab" 
                     ng-click="switchTab('commentsList', 'templatePHP');expandSidebar();">
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/phphtml.svg">
-                        <?php _e("Template PHP", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Template PHP", "oxygen"); ?>
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                 </div>
 
                 <div class="oxygen-sidebar-advanced-subtab" 
                     ng-click="switchTab('commentsList', 'templateCSS');expandSidebar();">
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/css.svg">
-                        <?php _e("Template CSS", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Template CSS", "oxygen"); ?>
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                 </div>
 
@@ -254,9 +254,9 @@ class Oxygen_VSB_Comments_List extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('commentsList', 'templates')"><?php _e("Templates","oxygen"); ?></div>
+                        ng-click="switchTab('commentsList', 'templates')"><?php oxygen_translate_echo("Templates","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("PHP","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("PHP","oxygen"); ?></div>
                 </div>
 
                 <div class="oxygen-sidebar-code-editor-wrap">
@@ -272,12 +272,12 @@ class Oxygen_VSB_Comments_List extends CT_Component {
                         $oxygen_toolbar->codemirror_theme_chooser(); ?>
                     <a href="#" class="oxygen-code-editor-apply"
                         ng-click="iframeScope.renderComponentWithAJAX('oxy_render_comments_list')">
-                        <?php _e("Apply Code", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Apply Code", "oxygen"); ?>
                     </a>
                     <a href="#" class="oxygen-code-editor-expand"
-                        data-collapse="<?php _e("Collapse Editor", "oxygen"); ?>" data-expand="<?php _e("Expand Editor", "oxygen"); ?>"
+                        data-collapse="<?php oxygen_translate_echo("Collapse Editor", "oxygen"); ?>" data-expand="<?php oxygen_translate_echo("Expand Editor", "oxygen"); ?>"
                         ng-click="toggleSidebar()">
-                        <?php _e("Expand Editor", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Expand Editor", "oxygen"); ?>
                     </a>
                 </div>
 
@@ -292,9 +292,9 @@ class Oxygen_VSB_Comments_List extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('commentsList', 'templates')"><?php _e("Templates","oxygen"); ?></div>
+                        ng-click="switchTab('commentsList', 'templates')"><?php oxygen_translate_echo("Templates","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("CSS","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("CSS","oxygen"); ?></div>
                 </div>
 
                 <div class="oxygen-sidebar-code-editor-wrap">
@@ -310,12 +310,12 @@ class Oxygen_VSB_Comments_List extends CT_Component {
                         $oxygen_toolbar->codemirror_theme_chooser(); ?>
                     <a href="#" class="oxygen-code-editor-apply"
                         ng-click="iframeScope.renderComponentWithAJAX('oxy_render_comments_list')">
-                        <?php _e("Apply Code", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Apply Code", "oxygen"); ?>
                     </a>
                     <a href="#" class="oxygen-code-editor-expand"
-                        data-collapse="<?php _e("Collapse Editor", "oxygen"); ?>" data-expand="<?php _e("Expand Editor", "oxygen"); ?>"
+                        data-collapse="<?php oxygen_translate_echo("Collapse Editor", "oxygen"); ?>" data-expand="<?php oxygen_translate_echo("Expand Editor", "oxygen"); ?>"
                         ng-click="toggleSidebar()">
-                        <?php _e("Expand Editor", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Expand Editor", "oxygen"); ?>
                     </a>
                 </div>
 
@@ -357,7 +357,7 @@ class Oxygen_VSB_Comments_List extends CT_Component {
 // Create component instance
 global $oxygen_vsb_components;
 $oxygen_vsb_components['comments_list'] = new Oxygen_VSB_Comments_List( array(
-            'name'  => __('Comments List','oxygen'),
+            'name'  => oxygen_translate('Comments List','oxygen'),
             'tag'   => 'oxy_comments',
             'advanced'  => array(
                 "positioning" => array(

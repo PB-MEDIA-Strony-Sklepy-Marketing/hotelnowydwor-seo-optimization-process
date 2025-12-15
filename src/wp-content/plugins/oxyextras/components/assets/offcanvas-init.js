@@ -2,6 +2,7 @@ jQuery(document).ready(oxygen_init_offcanvas);
 function oxygen_init_offcanvas($) {
     
     let touchEvent = 'click';
+    let previousFocus = false;
 
     'use strict';
 
@@ -50,6 +51,35 @@ function oxygen_init_offcanvas($) {
                 }
             });
         }
+
+        if ( true === offCanvas.data('focus-trap') ) {
+
+            const keyboardfocusableElements = offCanvas.find(
+                'a[href], button, input, textarea, select, details, [tabindex]'
+              );
+
+              if (keyboardfocusableElements.length) {
+                 
+                keyboardfocusableElements[keyboardfocusableElements.length - 1].addEventListener('keydown', (e) => {
+
+                    if (!e.shiftKey && e.key === 'Tab') {
+                        e.preventDefault()
+                        keyboardfocusableElements[0].focus()
+                    }
+
+                })
+
+                keyboardfocusableElements[0].addEventListener('keydown', (e) => {
+
+                    if (e.shiftKey && e.key === 'Tab') {
+                        e.preventDefault()
+                        keyboardfocusableElements[keyboardfocusableElements.length - 1].focus()
+                    }
+
+                })
+
+              }
+        }
         
         function doOffCanvas(triggerSelector) { 
             
@@ -76,7 +106,11 @@ function oxygen_init_offcanvas($) {
                 if (true === burgerSync) {
                     $(triggerSelector).not('#' + $(this).attr('ID')).children('.hamburger').toggleClass('is-active');
                 }   
-                
+
+                if ( !e.target.closest('.oxy-off-canvas') ) {
+                    previousFocus = e.target.closest(triggerSelector);
+                }
+
                 doOffCanvas(triggerSelector);
                 
             });
@@ -232,7 +266,6 @@ function oxygen_init_offcanvas($) {
                 
                 $(offCanvas).parent('.oxy-off-canvas').trigger('extras_offcanvas:close');
                 if (otherOffcanvas) {
-                    console.log('closing');
                     $(otherOffcanvas).children('.offcanvas-inner').attr('aria-hidden','true');
                     $(otherOffcanvas).children('.offcanvas-inner').removeAttr('inert');
                     $(otherOffcanvas).removeClass('oxy-off-canvas-toggled');
@@ -243,6 +276,19 @@ function oxygen_init_offcanvas($) {
                 mediaPlayer.each(function() {
                     $(this)[0].pause(); // turn off any pro media players
                 });
+
+                setTimeout(function() {
+
+                    if (!!previousFocus) {
+
+                        if ( $(previousFocus).find('.hamburger') ) {
+                            $(previousFocus).find('.hamburger').focus();
+                        } else {
+                            $(previousFocus).focus();
+                        }
+                    }
+                    
+                }, 0);
         }
         
         function closeBurger() {

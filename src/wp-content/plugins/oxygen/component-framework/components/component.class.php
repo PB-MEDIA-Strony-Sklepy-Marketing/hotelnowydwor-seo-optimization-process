@@ -529,22 +529,22 @@ Class CT_Component {
 			$this->options['advanced'] = array_merge_recursive(
 												array(
 													"background" => array(
-														"heading" 	=> __("Background", "component-theme"),
+														"heading" 	=> oxygen_translate("Background", "component-theme"),
 													),
 													"positioning" => array(
-														"heading" 	=> __("Position", "component-theme"),
+														"heading" 	=> oxygen_translate("Position", "component-theme"),
 													),
 													"typography" => array(
-														"heading" 	=> __("Typography", "component-theme")
+														"heading" 	=> oxygen_translate("Typography", "component-theme")
 													),
 													"border" => array(
-														"heading" 	=> __("Border", "component-theme")
+														"heading" 	=> oxygen_translate("Border", "component-theme")
 													),
 													"effects" => array(
-														"heading" 	=> __("Effects", "component-theme")
+														"heading" 	=> oxygen_translate("Effects", "component-theme")
 													),
 													"custom-css" => array(
-														"heading" 	=> __("Custom CSS", "component-theme")
+														"heading" 	=> oxygen_translate("Custom CSS", "component-theme")
 													),
 												),
 												$options['advanced']
@@ -1006,7 +1006,7 @@ Class CT_Component {
 				if ( $param['type'] == 'content' ) : 
 					?>
 					<div class="oxygen-control-row" <?php echo $ng_show; ?>>
-						<?php $oxygen_toolbar->textarea($param['param_name'],  __("Content","oxygen")); ?>
+						<?php $oxygen_toolbar->textarea($param['param_name'],  oxygen_translate("Content","oxygen")); ?>
 					</div>
 					<?php
 				elseif ( $param['type'] == 'font-family' ) : 
@@ -1045,7 +1045,7 @@ Class CT_Component {
 								$default = self::get_width($value); ?>
 						
 								<div class='oxygen-control-row'>
-							 	 <?php $oxygen_toolbar->slider_measure_box_with_wrapper($prefix.'font-size', __("Font Size", "oxygen"),'px,em,%', 8, 72, $default['value']); ?>
+							 	 <?php $oxygen_toolbar->slider_measure_box_with_wrapper($prefix.'font-size', oxygen_translate("Font Size", "oxygen"),'px,em,%', 8, 72, $default['value']); ?>
 							 	</div>
 						
 							<?php }
@@ -1057,7 +1057,7 @@ Class CT_Component {
 										<div class="oxy-style-indicator"
 											ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('<?php echo $prefix.$key; ?>')&&!IDHasOption('<?php echo $prefix.$key; ?>'),'oxygen-has-id-value':iframeScope.IDHasOption('<?php echo $prefix.$key; ?>')}">
 										</div>
-										<label class='oxygen-control-label'><?php _e("Text Transform","oxygen"); ?></label>
+										<label class='oxygen-control-label'><?php oxygen_translate_echo("Text Transform","oxygen"); ?></label>
 										<div class='oxygen-control'>
 											<div class='oxygen-button-list'>
 												<?php $oxygen_toolbar->button_list_button($prefix.'text-transform','none'); ?>
@@ -1074,7 +1074,7 @@ Class CT_Component {
 							if ($key=='color') { ?>
 						
 								<div class="oxygen-control-row">
-									<?php $oxygen_toolbar->colorpicker_with_wrapper($prefix."color", __("Color", "oxygen"), 'oxygen-typography-font-color'); ?>
+									<?php $oxygen_toolbar->colorpicker_with_wrapper($prefix."color", oxygen_translate("Color", "oxygen"), 'oxygen-typography-font-color'); ?>
 								</div>
 						
 							<?php }
@@ -1094,7 +1094,7 @@ Class CT_Component {
 										<div class="oxy-style-indicator"
 											ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('<?php echo $prefix.$key; ?>')&&!IDHasOption('<?php echo $prefix.$key; ?>'),'oxygen-has-id-value':iframeScope.IDHasOption('<?php echo $prefix.$key; ?>')}">
 										</div>
-										<label class='oxygen-control-label'><?php _e("Text Align","oxygen"); ?></label>
+										<label class='oxygen-control-label'><?php oxygen_translate_echo("Text Align","oxygen"); ?></label>
 										<div class='oxygen-control oxygen-control-text-align'>
 											<div class='oxygen-icon-button-list'>
 
@@ -1117,7 +1117,7 @@ Class CT_Component {
 										<div class="oxy-style-indicator"
 											ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('<?php echo $prefix.$key; ?>')&&!IDHasOption('<?php echo $prefix.$key; ?>'),'oxygen-has-id-value':iframeScope.IDHasOption('<?php echo $prefix.$key; ?>')}">
 										</div>
-				                        <label class='oxygen-control-label'><?php _e("Line Height", "oxygen"); ?></label>
+				                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Line Height", "oxygen"); ?></label>
 									 	<div class='oxygen-input'
 											ng-class="{'oxygen-option-default':iframeScope.isInherited(iframeScope.component.active.id, '<?php echo esc_attr( $prefix.'line-height' ); ?>')}">
 											<input type="text" spellcheck="false"
@@ -1130,7 +1130,7 @@ Class CT_Component {
 
 							if ($key=='letter-spacing') { ?>
 						
-									<?php $oxygen_toolbar->measure_box_with_wrapper($prefix.'letter-spacing',__('Letter Spacing','oxygen')); ?>
+									<?php $oxygen_toolbar->measure_box_with_wrapper($prefix.'letter-spacing',oxygen_translate('Letter Spacing','oxygen')); ?>
 								</div>
 						
 							<?php }
@@ -1143,7 +1143,7 @@ Class CT_Component {
 										<div class="oxy-style-indicator"
 											ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('<?php echo $prefix.$key; ?>')&&!IDHasOption('<?php echo $prefix.$key; ?>'),'oxygen-has-id-value':iframeScope.IDHasOption('<?php echo $prefix.$key; ?>')}">
 										</div>
-										<label class='oxygen-control-label'><?php _e("Text Decoration"); ?></label>
+										<label class='oxygen-control-label'><?php oxygen_translate_echo("Text Decoration"); ?></label>
 										<div class='oxygen-control'>
 											<div class='oxygen-button-list'>
 
@@ -1164,7 +1164,7 @@ Class CT_Component {
 										<div class="oxy-style-indicator"
 											ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('<?php echo $prefix.$key; ?>')&&!IDHasOption('<?php echo $prefix.$key; ?>'),'oxygen-has-id-value':iframeScope.IDHasOption('<?php echo $prefix.$key; ?>')}">
 										</div>
-										<label class='oxygen-control-label'><?php _e("Font Style"); ?></label>
+										<label class='oxygen-control-label'><?php oxygen_translate_echo("Font Style"); ?></label>
 										<div class='oxygen-control'>
 											<div class='oxygen-button-list'>
 
@@ -1185,7 +1185,7 @@ Class CT_Component {
 										<div class="oxy-style-indicator"
 											ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('<?php echo $prefix.$key; ?>')&&!IDHasOption('<?php echo $prefix.$key; ?>'),'oxygen-has-id-value':iframeScope.IDHasOption('<?php echo $prefix.$key; ?>')}">
 										</div>
-										<label class='oxygen-control-label'><?php _e("Font Smoothing","oxygen"); ?></label>
+										<label class='oxygen-control-label'><?php oxygen_translate_echo("Font Smoothing","oxygen"); ?></label>
 										<div class='oxygen-control'>
 											<div class='oxygen-button-list'>
 												<?php $oxygen_toolbar->button_list_button($prefix.'-webkit-font-smoothing','initial'); ?>
@@ -1205,7 +1205,7 @@ Class CT_Component {
 
 						<div class='oxygen-control-row'>
 							<div class='oxygen-control-wrapper'>
-								<label class='oxygen-control-label'><?php _e("Currently Editing Border","oxygen"); ?></label>
+								<label class='oxygen-control-label'><?php oxygen_translate_echo("Currently Editing Border","oxygen"); ?></label>
 								<div class='oxygen-control'>
 									<div class="oxygen-select oxygen-select-box-wrapper">
 										<div class="oxygen-select-box"
@@ -1218,27 +1218,27 @@ Class CT_Component {
 											<div class="oxygen-select-box-option"
 												ng-click="currentBorder='all'"
 												ng-class="{'oxygen-select-box-option-active':currentBorder=='all'}">
-												<?php _e("all borders", "component-theme"); ?>
+												<?php oxygen_translate_echo("all borders", "component-theme"); ?>
 											</div>
 											<div class="oxygen-select-box-option"
 												ng-click="currentBorder='top'"
 												ng-class="{'oxygen-select-box-option-active':currentBorder=='top'}">
-												<?php _e("top", "component-theme"); ?>
+												<?php oxygen_translate_echo("top", "component-theme"); ?>
 											</div>
 											<div class="oxygen-select-box-option"
 												ng-click="currentBorder='right'"
 												ng-class="{'oxygen-select-box-option-active':currentBorder=='right'}">
-												<?php _e("right", "component-theme"); ?>
+												<?php oxygen_translate_echo("right", "component-theme"); ?>
 											</div>
 											<div class="oxygen-select-box-option"
 												ng-click="currentBorder='bottom'"
 												ng-class="{'oxygen-select-box-option-active':currentBorder=='bottom'}">
-												<?php _e("bottom", "component-theme"); ?>
+												<?php oxygen_translate_echo("bottom", "component-theme"); ?>
 											</div>
 											<div class="oxygen-select-box-option"
 												ng-click="currentBorder='left'"
 												ng-class="{'oxygen-select-box-option-active':currentBorder=='left'}">
-												<?php _e("left", "component-theme"); ?>
+												<?php oxygen_translate_echo("left", "component-theme"); ?>
 											</div>
 
 										</div>
@@ -1249,14 +1249,14 @@ Class CT_Component {
 						</div>
 						<!-- color and size -->
 						<div class='oxygen-control-row'>
-							<?php $oxygen_toolbar->colorpicker_with_wrapper($prefix."border-all-color",__("Border Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='all'"); ?>
-							<?php $oxygen_toolbar->colorpicker_with_wrapper($prefix."border-top-color",__("Border Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='top'"); ?>
-							<?php $oxygen_toolbar->colorpicker_with_wrapper($prefix."border-left-color",__("Border Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='left'"); ?>
-							<?php $oxygen_toolbar->colorpicker_with_wrapper($prefix."border-bottom-color",__("Border Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='bottom'"); ?>
-							<?php $oxygen_toolbar->colorpicker_with_wrapper($prefix."border-right-color",__("Border Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='right'"); ?>
+							<?php $oxygen_toolbar->colorpicker_with_wrapper($prefix."border-all-color",oxygen_translate("Border Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='all'"); ?>
+							<?php $oxygen_toolbar->colorpicker_with_wrapper($prefix."border-top-color",oxygen_translate("Border Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='top'"); ?>
+							<?php $oxygen_toolbar->colorpicker_with_wrapper($prefix."border-left-color",oxygen_translate("Border Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='left'"); ?>
+							<?php $oxygen_toolbar->colorpicker_with_wrapper($prefix."border-bottom-color",oxygen_translate("Border Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='bottom'"); ?>
+							<?php $oxygen_toolbar->colorpicker_with_wrapper($prefix."border-right-color",oxygen_translate("Border Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='right'"); ?>
 						</div>
 						<div class='oxygen-control-row'>
-							<?php $oxygen_toolbar->measure_box_with_wrapper($prefix."border-'+currentBorder+'-width", __("Border Width", "oxygen"), 'px,em'); ?>
+							<?php $oxygen_toolbar->measure_box_with_wrapper($prefix."border-'+currentBorder+'-width", oxygen_translate("Border Width", "oxygen"), 'px,em'); ?>
 						</div>
 						<!-- border style -->
 						<div class='oxygen-control-row'>
@@ -1264,7 +1264,7 @@ Class CT_Component {
 								<div class="oxy-style-indicator"
 									ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('<?php echo $prefix."border-'+currentBorder+'-style"; ?>')&&!IDHasOption('<?php echo $prefix."border-'+currentBorder+'-style"; ?>'),'oxygen-has-id-value':iframeScope.IDHasOption('<?php echo $prefix."border-'+currentBorder+'-style"; ?>')}">
 								</div>
-								<label class='oxygen-control-label'><?php _e("Border Style","oxygen"); ?></label>
+								<label class='oxygen-control-label'><?php oxygen_translate_echo("Border Style","oxygen"); ?></label>
 								<div class='oxygen-control'>
 									<div class='oxygen-button-list'>
 
@@ -1280,7 +1280,7 @@ Class CT_Component {
 						<div class='oxygen-control-row' style='margin-bottom: 20px;'>
 							<a href='#' id='oxygen-control-borders-unset-button'
 								ng-click="iframeScope.unsetAllBorders('<?php echo $prefix; ?>')">
-								<?php _e("unset all borders","oxygen"); ?></a>
+								<?php oxygen_translate_echo("unset all borders","oxygen"); ?></a>
 						</div>
 
 				<?php elseif ( $param['type'] == 'border-radius' ) : ?>
@@ -1293,7 +1293,7 @@ Class CT_Component {
 							<div class="oxy-style-indicator"
 								ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('<?php echo $prefix."border-radius"; ?>')&&!IDHasOption('<?php echo $prefix."border-radius"; ?>'),'oxygen-has-id-value':iframeScope.IDHasOption('<?php echo $prefix."border-radius"; ?>')}">
 							</div>
-							<label class='oxygen-control-label'><?php _e("Border Radius","oxygen"); ?></label>
+							<label class='oxygen-control-label'><?php oxygen_translate_echo("Border Radius","oxygen"); ?></label>
 
 							<div class="oxygen-control">
 								<?php $oxygen_toolbar->measure_box($prefix."border-radius", 'px,%,em'); ?>
@@ -1301,7 +1301,7 @@ Class CT_Component {
 						
 							<a href='#' id='oxygen-control-borders-radius-individual'
 								ng-click="editIndividualRadii=true">
-								<?php _e("edit individual radius", "oxygen"); ?> &raquo;</a>
+								<?php oxygen_translate_echo("edit individual radius", "oxygen"); ?> &raquo;</a>
 						</div>
 
 					</div>
@@ -1310,8 +1310,8 @@ Class CT_Component {
 					<div class='oxygen-control-row'
 						ng-show="editIndividualRadii">
 
-						<?php $oxygen_toolbar->measure_box_with_wrapper($prefix."border-top-left-radius", __("Top Left"), 'px,%,em'); ?>
-						<?php $oxygen_toolbar->measure_box_with_wrapper($prefix."border-top-right-radius", __("Top Right"), 'px,%,em'); ?>
+						<?php $oxygen_toolbar->measure_box_with_wrapper($prefix."border-top-left-radius", oxygen_translate("Top Left"), 'px,%,em'); ?>
+						<?php $oxygen_toolbar->measure_box_with_wrapper($prefix."border-top-right-radius", oxygen_translate("Top Right"), 'px,%,em'); ?>
 
 					</div>
 
@@ -1322,7 +1322,7 @@ Class CT_Component {
 							<div class="oxy-style-indicator"
 								ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('<?php echo $prefix."border-bottom-left-radius"; ?>')&&!IDHasOption('<?php echo $prefix."border-bottom-left-radius"; ?>'),'oxygen-has-id-value':iframeScope.IDHasOption('<?php echo $prefix."border-bottom-left-radius"; ?>')}">
 							</div>
-							<label class='oxygen-control-label'><?php _e("Bottom Left","oxygen"); ?></label>
+							<label class='oxygen-control-label'><?php oxygen_translate_echo("Bottom Left","oxygen"); ?></label>
 							
 							<div class="oxygen-control">
 								<?php $oxygen_toolbar->measure_box($prefix."border-bottom-left-radius", 'px,%,em'); ?>
@@ -1330,10 +1330,10 @@ Class CT_Component {
 
 							<a href='#' id='oxygen-control-borders-radius-individual'
 								ng-click="editIndividualRadii=false">
-								<?php _e("edit all radii", "oxygen"); ?> &raquo;</a>
+								<?php oxygen_translate_echo("edit all radii", "oxygen"); ?> &raquo;</a>
 						</div>
 
-						<?php $oxygen_toolbar->measure_box_with_wrapper($prefix."border-bottom-right-radius", __("Bottom Right"), 'px,%,em'); ?>
+						<?php $oxygen_toolbar->measure_box_with_wrapper($prefix."border-bottom-right-radius", oxygen_translate("Bottom Right"), 'px,%,em'); ?>
 
 					</div>
 
@@ -1508,7 +1508,7 @@ Class CT_Component {
 								<div class='oxygen-input'
 									ng-show="iframeScope.getOption('useCustomTag')=='true'">
 									<input type="text" value="" spellcheck="false"
-										placeholder="<?php _e("custom tag","oxygen"); ?>" 
+										placeholder="<?php oxygen_translate_echo("custom tag","oxygen"); ?>" 
 										<?php self::ng_attributes($param['param_name'],'model',$options); ?>
 										ng-change="iframeScope.setOption(iframeScope.component.active.id,'<?php echo isset($options['tag'])?esc_attr($options['tag']):''; ?>','<?php echo isset($param['param_name'])?esc_attr($param['param_name']):''; ?>'<?php echo isset($shortcode_arg)?$shortcode_arg:''; ?>);iframeScope.changeTag(<?php if ($tag=='ct_shortcode') echo "'shortcode'"; else if (isset($options['data_type']) && $options['data_type']===true) echo "'data'"; else if (isset($param['rebuild']) && $param['rebuild']===true) echo "'rebuild'"; ?>); iframeScope.validateCustomTag('<?php echo $param['param_name']; ?>')">
 								</div>
@@ -1520,7 +1520,7 @@ Class CT_Component {
 										<?php self::ng_attributes('useCustomTag','model,change',$options); ?>>
 									<div class='oxygen-checkbox-checkbox'
 										ng-class="{'oxygen-checkbox-checkbox-active':iframeScope.getOption('useCustomTag')=='true'}">
-										<?php _e("Use custom tag","oxygen"); ?>
+										<?php oxygen_translate_echo("Use custom tag","oxygen"); ?>
 									</div>
 								</label>								
 								
@@ -1683,7 +1683,7 @@ Class CT_Component {
 									<?php $oxygen_toolbar->measure_box($param['param_name'].'-bottom','px,%,em',true,true,false,true); ?>
 									<?php $oxygen_toolbar->measure_box($param['param_name'].'-left','px,%,em',true,true,false,true); ?>
 									<div class="oxygen-flex-line-break"></div>
-									<div class="oxygen-apply-all-trigger"><?php _e("apply all »", "oxygen"); ?></div>
+									<div class="oxygen-apply-all-trigger"><?php oxygen_translate_echo("apply all »", "oxygen"); ?></div>
 								</div>
 
 								<?php break;
@@ -1696,7 +1696,7 @@ Class CT_Component {
 									<?php $oxygen_toolbar->measure_box($prefix.'margin-bottom',$param['param_units'],true,true,false,true); ?>
 									<?php $oxygen_toolbar->measure_box($prefix.'margin-left',$param['param_units'],true,true,false,true); ?>
 									<div class="oxygen-flex-line-break"></div>
-									<div class="oxygen-apply-all-trigger"><?php _e("apply all »", "oxygen"); ?></div>
+									<div class="oxygen-apply-all-trigger"><?php oxygen_translate_echo("apply all »", "oxygen"); ?></div>
 								</div>
 
 								<?php break;
@@ -1709,7 +1709,7 @@ Class CT_Component {
 									<?php $oxygen_toolbar->measure_box($prefix.'padding-bottom',$param['param_units'],true,true,false,true); ?>
 									<?php $oxygen_toolbar->measure_box($prefix.'padding-left',$param['param_units'],true,true,false,true); ?>
 									<div class="oxygen-flex-line-break"></div>
-									<div class="oxygen-apply-all-trigger"><?php _e("apply all »", "oxygen"); ?></div>
+									<div class="oxygen-apply-all-trigger"><?php oxygen_translate_echo("apply all »", "oxygen"); ?></div>
 								</div>
 
 								<?php break;
@@ -1722,7 +1722,7 @@ Class CT_Component {
 									<?php $oxygen_toolbar->measure_box($param['param_name'].'-bottom','px,%,em',true,true,false,true); ?>
 									<?php $oxygen_toolbar->measure_box($param['param_name'].'-left','px,%,em',true,true,false,true); ?>
 									<div class="oxygen-flex-line-break"></div>
-									<div class="oxygen-apply-all-trigger"><?php _e("apply all »", "oxygen"); ?></div>
+									<div class="oxygen-apply-all-trigger"><?php oxygen_translate_echo("apply all »", "oxygen"); ?></div>
 								</div>
 
 								<?php break;
@@ -1737,13 +1737,13 @@ Class CT_Component {
 							case 'outline' : ?>
 								
 								<div class='oxygen-control-row'>
-									<?php $oxygen_toolbar->colorpicker_with_wrapper($prefix."outline-color",__("Color","oxygen"),"oxygen-typography-font-color"); ?>
-									<?php $oxygen_toolbar->measure_box_with_wrapper($prefix."outline-width", __("Width", "oxygen"), 'px,em'); ?>
+									<?php $oxygen_toolbar->colorpicker_with_wrapper($prefix."outline-color",oxygen_translate("Color","oxygen"),"oxygen-typography-font-color"); ?>
+									<?php $oxygen_toolbar->measure_box_with_wrapper($prefix."outline-width", oxygen_translate("Width", "oxygen"), 'px,em'); ?>
 								</div>
 								<!-- outline style -->
 								<div class='oxygen-control-row'>
 									<div class='oxygen-control-wrapper oxy-indicator-underline'>
-										<label class='oxygen-control-label'><?php _e("Style","oxygen"); ?></label>
+										<label class='oxygen-control-label'><?php oxygen_translate_echo("Style","oxygen"); ?></label>
 										<div class='oxygen-control'>
 											<div class='oxygen-button-list'>
 												<?php $oxygen_toolbar->button_list_button($prefix."outline-style",'none'); ?>
@@ -1779,7 +1779,7 @@ Class CT_Component {
 										<div class="oxygen-select-box-dropdown"></div>
 									</div>
 									<div class="oxygen-select-box-options">
-										<div class="oxygen-select-box-option" title="<?php _e("Use this set", "component-theme"); ?>"
+										<div class="oxygen-select-box-option" title="<?php oxygen_translate_echo("Use this set", "component-theme"); ?>"
 											ng-repeat="(name,set) in iframeScope.SVGSets" 
 											ng-click="iframeScope.setCurrentSVGSet(name);">
 											{{name}}
@@ -1791,7 +1791,7 @@ Class CT_Component {
 									<div class="oxygen-icon-chooser">
 
 										<div class="oxygen-input">
-											<input type="text" placeholder="<?php _e("Start typing to search...","oxygen"); ?>"
+											<input type="text" placeholder="<?php oxygen_translate_echo("Start typing to search...","oxygen"); ?>"
 												ng-model="iframeScope.iconFilter.title">
 										</div>
 
@@ -1869,7 +1869,7 @@ Class CT_Component {
 
 							default : ?>
 
-								<span><?php printf( __( 'Wrong parameter type: %s', 'component-theme' ), $param['type'] ); ?></span>
+								<span><?php printf( oxygen_translate( 'Wrong parameter type: %s', 'component-theme' ), $param['type'] ); ?></span>
 								<?php break;
 						} ?>
 					</div><!-- .oxygen-control -->

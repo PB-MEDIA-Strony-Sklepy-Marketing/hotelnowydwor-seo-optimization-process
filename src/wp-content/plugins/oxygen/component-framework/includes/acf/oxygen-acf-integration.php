@@ -32,7 +32,7 @@ class oxygen_acf_integration {
 	function download_protected_file( $attachment_id ) {
 	    global $wpdb;
 	    if( !is_user_logged_in() ) {
-	        _e( 'Only logged in users are allowed to download this file', 'oxygen-acf' );
+	        oxygen_translate_echo( 'Only logged in users are allowed to download this file', 'oxygen-acf' );
 	        exit;
         }
 	    // Use the standard WP attachment url instead of outputting the file directly
@@ -94,9 +94,9 @@ class oxygen_acf_integration {
 		$all_options = array_reduce( $fields, array( $this, "add_button" ), array() );
 
 		if( count( $all_options ) > 0 ) {
-		    array_unshift( $all_options, array('name' => __( 'Select the ACF field', 'oxygen-acf' ), 'type' => 'heading') );
+		    array_unshift( $all_options, array('name' => oxygen_translate( 'Select the ACF field', 'oxygen-acf' ), 'type' => 'heading') );
             $acf_content = array(
-                'name'      => __( 'Advanced Custom Field', 'oxygen-acf' ),
+                'name'      => oxygen_translate( 'Advanced Custom Field', 'oxygen-acf' ),
                 'mode'       => 'content',
                 // Available modes: 'content', 'custom-field', 'link' and 'image'
                 'position'   => 'Post',
@@ -115,7 +115,7 @@ class oxygen_acf_integration {
             // Dynamic Data modal modes "custom-field", "link" and "image" are expected to return an URL
 
             $acf_image = array(
-                'name' => __( 'Advanced Custom Field', 'oxygen-acf' ),
+                'name' => oxygen_translate( 'Advanced Custom Field', 'oxygen-acf' ),
                 'mode' => 'image',
                 // Available modes: 'content', 'custom-field', 'link' and 'image'
                 'position' => 'Post',
@@ -128,7 +128,7 @@ class oxygen_acf_integration {
             $dynamic_data[] = $acf_image;
 
             $acf_link = array(
-                'name' => __( 'Advanced Custom Field', 'oxygen-acf' ),
+                'name' => oxygen_translate( 'Advanced Custom Field', 'oxygen-acf' ),
                 'mode' => 'link',
                 // Available modes: 'content', 'custom-field', 'link' and 'image'
                 'position' => 'Post',
@@ -141,7 +141,7 @@ class oxygen_acf_integration {
             $dynamic_data[] = $acf_link;
 
             $acf_custom_field = array(
-                'name' => __( 'Advanced Custom Field', 'oxygen-acf' ),
+                'name' => oxygen_translate( 'Advanced Custom Field', 'oxygen-acf' ),
                 'mode' => 'custom-field',
                 // Available modes: 'content', 'custom-field', 'link' and 'image'
                 'position' => 'Post',
@@ -158,7 +158,7 @@ class oxygen_acf_integration {
         
         if( count( $options_for_image_id ) > 0 ) { 
             $acf_image_id_field = array(
-                'name' => __( 'Advanced Custom Field', 'oxygen' ),
+                'name' => oxygen_translate( 'Advanced Custom Field', 'oxygen' ),
                 'mode' => 'image-id',
                 'position' => 'Post',
                 'data' => 'acf_image_id',
@@ -179,39 +179,39 @@ class oxygen_acf_integration {
         switch( $option['type'] ) {
             case 'image':
                 $properties[] = array(
-                    'name'     => __( 'Please select what you want to insert', 'oxygen-acf' ),
+                    'name'     => oxygen_translate( 'Please select what you want to insert', 'oxygen-acf' ),
                     'data'      => 'insert_type',
                     'type'      => 'select',
                     'options'   => array(
-                        __( 'Image element', 'oxygen-acf' ) =>'image_element',
-                        __( 'Image URL', 'oxygen-acf' ) => 'image_url',
-                        __( 'Image Title', 'oxygen-acf' ) => 'image_title',
-                        __( 'Image Caption', 'oxygen-acf' ) => 'image_caption'
+                        oxygen_translate( 'Image element', 'oxygen-acf' ) =>'image_element',
+                        oxygen_translate( 'Image URL', 'oxygen-acf' ) => 'image_url',
+                        oxygen_translate( 'Image Title', 'oxygen-acf' ) => 'image_title',
+                        oxygen_translate( 'Image Caption', 'oxygen-acf' ) => 'image_caption'
                     ),
                     'nullval'   => 'image_element'
                 );
                 $properties[] = array(
-                    'name'=> __( 'Size', 'oxygen-acf' ),
+                    'name'=> oxygen_translate( 'Size', 'oxygen-acf' ),
                     'data'=> 'size',
                     'type'=> 'select',
                     'options'=> array(
-                        __( 'Thumbnail', 'oxygen-acf' ) => 'thumbnail',
-                        __( 'Medium', 'oxygen-acf' ) => 'medium',
-                        __( 'Medium Large', 'oxygen-acf' ) => 'medium_large',
-                        __( 'Large', 'oxygen-acf' ) => 'large',
-                        __( 'Original', 'oxygen-acf' ) => 'full'
+                        oxygen_translate( 'Thumbnail', 'oxygen-acf' ) => 'thumbnail',
+                        oxygen_translate( 'Medium', 'oxygen-acf' ) => 'medium',
+                        oxygen_translate( 'Medium Large', 'oxygen-acf' ) => 'medium_large',
+                        oxygen_translate( 'Large', 'oxygen-acf' ) => 'large',
+                        oxygen_translate( 'Original', 'oxygen-acf' ) => 'full'
                     ),
                     'nullval' => 'medium',
                     'change'=> 'scope.dynamicDataModel.width = ""; scope.dynamicDataModel.height = ""',
                     'show_condition' => "dynamicDataModel.insert_type == 'image_element'"
                 );
                 $properties[] = array(
-                    'name' => __( 'or', 'oxygen-acf' ),
+                    'name' => oxygen_translate( 'or', 'oxygen-acf' ),
                     'type' => 'label',
                     'show_condition' => 'dynamicDataModel.insert_type == \'image_element\''
                 );
                 $properties[] = array(
-                    'name' => __( 'Width', 'oxygen-acf' ),
+                    'name' => oxygen_translate( 'Width', 'oxygen-acf' ),
                     'data' => 'width',
                     'type' => 'text',
                     'helper'=> true,
@@ -219,7 +219,7 @@ class oxygen_acf_integration {
                     'show_condition' => "dynamicDataModel.insert_type == 'image_element'"
                 );
                 $properties[] = array(
-                    'name' => __( 'Height', 'oxygen-acf' ),
+                    'name' => oxygen_translate( 'Height', 'oxygen-acf' ),
                     'data' => 'height',
                     'type' => 'text',
                     'helper' => true,
@@ -233,7 +233,7 @@ class oxygen_acf_integration {
             case 'email':
             case 'password':
                 $properties[] = array(
-                    'name' => __( 'Include prepend and append text (if configured)', 'oxygen-acf' ),
+                    'name' => oxygen_translate( 'Include prepend and append text (if configured)', 'oxygen-acf' ),
                     'data' => 'include_prepend_append',
                     'type' => 'checkbox',
                     'value' => 'yes'
@@ -243,7 +243,7 @@ class oxygen_acf_integration {
             case 'checkbox':
                 if( isset($option[ 'multiple' ]) && $option[ 'multiple' ] != 0 ) {
                     $properties[] = array(
-                        'name' => __('Separator (for multiple options fields)', 'oxygen-acf'),
+                        'name' => oxygen_translate('Separator (for multiple options fields)', 'oxygen-acf'),
                         'data' => 'separator',
                         'type' => 'text'
                     );
@@ -253,12 +253,12 @@ class oxygen_acf_integration {
             case 'button_group':
                 if( $option[ 'return_format' ] == 'array' ) {
                     $properties[] = array(
-                        'name' => __('Display (for fields configured as Return Format = Both)', 'oxygen-acf'),
+                        'name' => oxygen_translate('Display (for fields configured as Return Format = Both)', 'oxygen-acf'),
                         'data' => 'display',
                         'type' => 'select',
                         'options' => array(
-                            __('Label', 'oxygen-acf') => 'label',
-                            __('Value', 'oxygen-acf') => 'value'
+                            oxygen_translate('Label', 'oxygen-acf') => 'label',
+                            oxygen_translate('Value', 'oxygen-acf') => 'value'
                         ),
                         'nullval' => 'value',
                     );
@@ -266,7 +266,7 @@ class oxygen_acf_integration {
                 break;
             case 'true_false':
                 $properties[] = array(
-                    'name' => __( 'If set, output custom on/off text instead of true/false', 'oxygen-acf' ),
+                    'name' => oxygen_translate( 'If set, output custom on/off text instead of true/false', 'oxygen-acf' ),
                     'data' => 'output_custom_onoff',
                     'type' => 'checkbox',
                     'value' => 'yes'
@@ -274,30 +274,30 @@ class oxygen_acf_integration {
                 break;
             case 'file':
                 $properties[] = array(
-                    'name' => __( 'Output type', 'oxygen-acf' ),
+                    'name' => oxygen_translate( 'Output type', 'oxygen-acf' ),
                     'data' => 'output_type',
                     'type' => 'select',
                     'options'=> array(
-                        __( 'Url', 'oxygen-acf' ) => 'url',
-                        __( 'Attachment ID', 'oxygen-acf' ) => 'attachment_id'
+                        oxygen_translate( 'Url', 'oxygen-acf' ) => 'url',
+                        oxygen_translate( 'Attachment ID', 'oxygen-acf' ) => 'attachment_id'
                     ),
                     'nullval' => 'url'
                 );
                 $properties[] = array(
-                    'name' => __( 'Link', 'oxygen-acf' ),
+                    'name' => oxygen_translate( 'Link', 'oxygen-acf' ),
                     'data' => 'file_link',
                     'type' => 'checkbox',
                     'value' => 'yes',
                     'show_condition' => 'dynamicDataModel.output_type == \'url\''
                 );
                 $properties[] = array(
-                    'name' => __( 'Link text (file name will be used if left empty)', 'oxygen-acf' ),
+                    'name' => oxygen_translate( 'Link text (file name will be used if left empty)', 'oxygen-acf' ),
                     'data' => 'link_text',
                     'type' => 'text',
                     'show_condition' => 'dynamicDataModel.file_link == \'yes\''
                 );
                 $properties[] = array(
-                    'name' => __( 'Prevent file downloads from logged-out users', 'oxygen-acf' ),
+                    'name' => oxygen_translate( 'Prevent file downloads from logged-out users', 'oxygen-acf' ),
                     'data' => 'protect_file',
                     'type' => 'checkbox',
                     'value' => 'yes',
@@ -306,26 +306,26 @@ class oxygen_acf_integration {
                 break;
             case 'page_link':
                 $properties[] = array(
-                    'name' => __( 'Separator (if multiple links are provided)', 'oxygen-acf' ),
+                    'name' => oxygen_translate( 'Separator (if multiple links are provided)', 'oxygen-acf' ),
                     'data' => 'separator',
                     'type' => 'text'
                 );
             // no break
             case 'url':
                 $properties[] = array(
-                    'name' => __( 'Link', 'oxygen-acf' ),
+                    'name' => oxygen_translate( 'Link', 'oxygen-acf' ),
                     'data' => 'url_link',
                     'type' => 'checkbox',
                     'value' => 'yes'
                 );
                 $properties[] = array(
-                    'name' => __( 'Link text (URL will be used if left empty)', 'oxygen-acf' ),
+                    'name' => oxygen_translate( 'Link text (URL will be used if left empty)', 'oxygen-acf' ),
                     'data' => 'link_text',
                     'type' => 'text',
                     'show_condition' => 'dynamicDataModel.url_link == \'yes\''
                 );
                 $properties[] = array(
-                    'name' => __( 'Open in new Tab', 'oxygen-acf' ),
+                    'name' => oxygen_translate( 'Open in new Tab', 'oxygen-acf' ),
                     'data' => 'new_tab',
                     'type' => 'checkbox',
                     'value' => 'yes',
@@ -334,26 +334,26 @@ class oxygen_acf_integration {
                 break;
             case "link":
                 $properties[] = array(
-                    'name' => __( 'Link', 'oxygen-acf' ),
+                    'name' => oxygen_translate( 'Link', 'oxygen-acf' ),
                     'data' => 'link_link',
                     'type' => 'checkbox',
                     'value' => 'yes'
                 );
                 $properties[] = array(
-                    'name' => __( 'Link text (URL will be used if left empty)', 'oxygen-acf' ),
+                    'name' => oxygen_translate( 'Link text (URL will be used if left empty)', 'oxygen-acf' ),
                     'data' => 'link_text',
                     'type' => 'text',
                     'show_condition' => 'dynamicDataModel.link_link == \'yes\''
                 );
                 $properties[] = array(
-                    'name' => __('Open in new Tab', 'oxygen-acf' ),
+                    'name' => oxygen_translate('Open in new Tab', 'oxygen-acf' ),
                     'data' => 'new_tab',
                     'type' => 'checkbox',
                     'value' => 'yes',
                     'show_condition' => 'dynamicDataModel.link_link == \'yes\''
                 );
                 $properties[] = array(
-                    'name' => __( 'Force link text and target values if already set in the Edit Post page', 'oxygen-acf' ),
+                    'name' => oxygen_translate( 'Force link text and target values if already set in the Edit Post page', 'oxygen-acf' ),
                     'data' => 'force_values',
                     'type' => 'checkbox',
                     'value' => 'yes',
@@ -362,27 +362,27 @@ class oxygen_acf_integration {
                 break;
             case 'gallery':
                 $properties[] = array(
-                    'name' => __( 'Output type', 'oxygen-acf' ),
+                    'name' => oxygen_translate( 'Output type', 'oxygen-acf' ),
                     'data' => 'output_type',
                     'type' => 'select',
                     'options'=> array(
-                        __( 'Images ID list', 'oxygen-acf' ) => 'images_id_list',
-                        __( 'WordPress Gallery', 'oxygen-acf' ) => 'wp_gallery'
+                        oxygen_translate( 'Images ID list', 'oxygen-acf' ) => 'images_id_list',
+                        oxygen_translate( 'WordPress Gallery', 'oxygen-acf' ) => 'wp_gallery'
                     ),
                     'nullval' => 'wp_gallery'
                 );
                 $properties[] = array(
-                    'name' => __( 'Separator', 'oxygen-acf' ),
+                    'name' => oxygen_translate( 'Separator', 'oxygen-acf' ),
                     'data' => 'separator',
                     'type' => 'text',
                     'show_condition' => 'dynamicDataModel.output_type == \'images_id_list\''
                 );
                 break;
             case 'date_time_picker':
-                $label = __( 'PHP Date Format. Defaults to Y-m-d H:i:s', 'oxygen-acf' );
+                $label = oxygen_translate( 'PHP Date Format. Defaults to Y-m-d H:i:s', 'oxygen-acf' );
             // no break
             case 'date_picker':
-                if( !isset( $label ) ) $label = __( 'PHP Date Format. Defaults to Y-m-d', 'oxygen-acf' );
+                if( !isset( $label ) ) $label = oxygen_translate( 'PHP Date Format. Defaults to Y-m-d', 'oxygen-acf' );
                 $properties[] = array(
                     'name' => $label,
                     'data' => 'format',
@@ -392,36 +392,36 @@ class oxygen_acf_integration {
             case 'relationship':
             case 'post_object':
                 $properties[] = array(
-                    'name' => __( 'Separator (if multiple post objects are provided)', 'oxygen-acf' ),
+                    'name' => oxygen_translate( 'Separator (if multiple post objects are provided)', 'oxygen-acf' ),
                     'data' => 'separator',
                     'type' => 'text'
                 );
                 $properties[] = array(
-                    'name'     => __( 'Please select what you want to insert', 'oxygen-acf' ),
+                    'name'     => oxygen_translate( 'Please select what you want to insert', 'oxygen-acf' ),
                     'data'      => 'insert_type',
                     'type'      => 'select',
                     'options'   => array(
-                        __( 'Post Object ID', 'oxygen-acf' ) => 'post_id',
-                        __( 'Post URL', 'oxygen-acf' ) => 'post_url'
+                        oxygen_translate( 'Post Object ID', 'oxygen-acf' ) => 'post_id',
+                        oxygen_translate( 'Post URL', 'oxygen-acf' ) => 'post_url'
                     ),
                     'nullval'   => 'post_id',
                     'change' => 'scope.dynamicDataModel.post_link = false'
                 );
                 $properties[] = array(
-                    'name' => __( 'Link', 'oxygen-acf' ),
+                    'name' => oxygen_translate( 'Link', 'oxygen-acf' ),
                     'data' => 'post_link',
                     'type' => 'checkbox',
                     'value' => 'yes',
                     'show_condition' => 'dynamicDataModel.insert_type == \'post_url\''
                 );
                 $properties[] = array(
-                    'name' => __( 'Link text (URL will be used if left empty)', 'oxygen-acf' ),
+                    'name' => oxygen_translate( 'Link text (URL will be used if left empty)', 'oxygen-acf' ),
                     'data' => 'link_text',
                     'type' => 'text',
                     'show_condition' => 'dynamicDataModel.post_link == \'yes\''
                 );
                 $properties[] = array(
-                    'name' => __( 'Open in new Tab', 'oxygen-acf' ),
+                    'name' => oxygen_translate( 'Open in new Tab', 'oxygen-acf' ),
                     'data' => 'new_tab',
                     'type' => 'checkbox',
                     'value' => 'yes',
@@ -430,36 +430,36 @@ class oxygen_acf_integration {
                 break;
             case 'taxonomy':
                 $properties[] = array(
-                    'name' => __( 'Separator (if multiple terms are provided)', 'oxygen-acf' ),
+                    'name' => oxygen_translate( 'Separator (if multiple terms are provided)', 'oxygen-acf' ),
                     'data' => 'separator',
                     'type' => 'text'
                 );
                 $properties[] = array(
-                    'name'     => __( 'Please select what you want to insert', 'oxygen-acf' ),
+                    'name'     => oxygen_translate( 'Please select what you want to insert', 'oxygen-acf' ),
                     'data'      => 'insert_type',
                     'type'      => 'select',
                     'options'   => array(
-                        __( 'Term ID', 'oxygen-acf' ) => 'term_id',
-                        __( 'Term URL', 'oxygen-acf' ) => 'term_url'
+                        oxygen_translate( 'Term ID', 'oxygen-acf' ) => 'term_id',
+                        oxygen_translate( 'Term URL', 'oxygen-acf' ) => 'term_url'
                     ),
                     'nullval'   => 'term_id',
                     'change' => 'scope.dynamicDataModel.taxonomy_link = false'
                 );
                 $properties[] = array(
-                    'name' => __( 'Link', 'oxygen-acf' ),
+                    'name' => oxygen_translate( 'Link', 'oxygen-acf' ),
                     'data' => 'taxonomy_link',
                     'type' => 'checkbox',
                     'value' => 'yes',
                     'show_condition' => 'dynamicDataModel.insert_type == \'term_url\''
                 );
                 $properties[] = array(
-                    'name' => __( 'Link text (URL will be used if left empty)', 'oxygen-acf' ),
+                    'name' => oxygen_translate( 'Link text (URL will be used if left empty)', 'oxygen-acf' ),
                     'data' => 'link_text',
                     'type' => 'text',
                     'show_condition' => 'dynamicDataModel.taxonomy_link == \'yes\''
                 );
                 $properties[] = array(
-                    'name' => __( 'Open in new Tab', 'oxygen-acf' ),
+                    'name' => oxygen_translate( 'Open in new Tab', 'oxygen-acf' ),
                     'data' => 'new_tab',
                     'type' => 'checkbox',
                     'value' => 'yes',
@@ -497,32 +497,32 @@ class oxygen_acf_integration {
         switch( $option['type'] ) {
             case 'image':
                 $properties[] = array(
-                    'name' => __('Size', 'oxygen-acf'),
+                    'name' => oxygen_translate('Size', 'oxygen-acf'),
                     'data' => 'size',
                     'type' => 'select',
                     'options' => array(
-                        __('Thumbnail', 'oxygen-acf') => 'thumbnail',
-                        __('Medium', 'oxygen-acf') => 'medium',
-                        __('Medium Large', 'oxygen-acf') => 'medium_large',
-                        __('Large', 'oxygen-acf') => 'large',
-                        __('Original', 'oxygen-acf') => 'full'
+                        oxygen_translate('Thumbnail', 'oxygen-acf') => 'thumbnail',
+                        oxygen_translate('Medium', 'oxygen-acf') => 'medium',
+                        oxygen_translate('Medium Large', 'oxygen-acf') => 'medium_large',
+                        oxygen_translate('Large', 'oxygen-acf') => 'large',
+                        oxygen_translate('Original', 'oxygen-acf') => 'full'
                     ),
                     'nullval' => 'medium',
                     'change' => 'scope.dynamicDataModel.width = ""; scope.dynamicDataModel.height = ""'
                 );
                 $properties[] = array(
-                    'name' => __('or', 'oxygen-acf'),
+                    'name' => oxygen_translate('or', 'oxygen-acf'),
                     'type' => 'label'
                 );
                 $properties[] = array(
-                    'name' => __('Width', 'oxygen-acf'),
+                    'name' => oxygen_translate('Width', 'oxygen-acf'),
                     'data' => 'width',
                     'type' => 'text',
                     'helper' => true,
                     'change' => "scope.dynamicDataModel.size = scope.dynamicDataModel.width+'x'+scope.dynamicDataModel.height"
                 );
                 $properties[] = array(
-                    'name' => __('Height', 'oxygen-acf'),
+                    'name' => oxygen_translate('Height', 'oxygen-acf'),
                     'data' => 'height',
                     'type' => 'text',
                     'helper' => true,
@@ -674,7 +674,7 @@ class oxygen_acf_integration {
                 break;
 			case 'google_map':
 				if( empty( $this->options['google_maps_key'] ) ) {
-					$output = __( 'No Google Maps Key set', 'oxygen-acf' );
+					$output = oxygen_translate( 'No Google Maps Key set', 'oxygen-acf' );
 				}else{
 					$output = '<div class="acf-map" id="map_' . sanitize_text_field( $field['ID'] ) . '">';
 					$output .= '<div class="marker" data-lat="' . sanitize_text_field( $field['value']['lat'] ) .'" data-lng="' . sanitize_text_field( $field['value']['lng'] ) . '"></div>';
@@ -710,7 +710,10 @@ class oxygen_acf_integration {
                 } else {
                     // Field is configured as "Return Value" = "Image URL" in ACF
                     $url = str_replace(home_url(), '', $field['value']);
-                    $image_attachment = $wpdb->get_row($wpdb->prepare("SELECT * FROM $wpdb->posts WHERE guid LIKE '%%%s';", $url ),ARRAY_A );
+                    $image_attachment = $wpdb->get_row($wpdb->prepare(
+                        "SELECT ID, post_title, post_excerpt FROM $wpdb->posts WHERE guid LIKE %s LIMIT 1;", 
+                        '%' . $wpdb->esc_like($url) . '%' 
+                    ), ARRAY_A );
                     $image_id = $image_attachment['ID'];
                     $image_url = wp_get_attachment_image_src( $image_id, $image_size )[0];
                 }
@@ -879,7 +882,10 @@ class oxygen_acf_integration {
                         return "";
                     }                    
 
-                    $image_attachment = $wpdb->get_row($wpdb->prepare("SELECT * FROM $wpdb->posts WHERE guid LIKE '%%%s';", $url ),ARRAY_A );
+                    $image_attachment = $wpdb->get_row($wpdb->prepare(
+                        "SELECT ID, post_title, post_excerpt FROM $wpdb->posts WHERE guid LIKE %s LIMIT 1;", 
+                        '%' . $wpdb->esc_like($url) . '%' 
+                    ), ARRAY_A );
                     $image_id = $image_attachment['ID'];
                     $image_url = wp_get_attachment_image_src( $image_id, $image_size )[0] ?? null;
                 }
@@ -940,7 +946,10 @@ class oxygen_acf_integration {
                 } else {
                     // Field is configured as "Return Value" = "Image URL" in ACF
                     $url = wp_make_link_relative( $field['value'] );
-                    $image_attachment = $wpdb->get_row($wpdb->prepare("SELECT * FROM $wpdb->posts WHERE guid LIKE '%%%s';", $url ),ARRAY_A );
+                    $image_attachment = $wpdb->get_row($wpdb->prepare(
+                        "SELECT ID, post_title, post_excerpt FROM $wpdb->posts WHERE guid LIKE %s LIMIT 1;", 
+                        '%' . $wpdb->esc_like($url) . '%' 
+                    ), ARRAY_A );
                     $image_id = $image_attachment['ID'];
                 }
                 $output = $image_id;

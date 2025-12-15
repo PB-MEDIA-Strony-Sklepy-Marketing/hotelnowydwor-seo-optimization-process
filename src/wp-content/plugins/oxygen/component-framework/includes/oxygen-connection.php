@@ -158,7 +158,7 @@ Class OXY_VSB_Connection {
 
 		add_meta_box(
 			'ct_connection_metabox',
-			__( 'Oxygen - Design Set Options', 'component-theme' ),
+			oxygen_translate( 'Oxygen - Design Set Options', 'component-theme' ),
 			array($this, 'ct_connection_page_category_box_callback'),
 			array('page', 'ct_template', 'oxy_user_library'),
 			'normal',
@@ -331,7 +331,7 @@ Class OXY_VSB_Connection {
 			<div class="oxygen-metabox-screenshot-inputs">
 				<div class="oxygen-metabox-control-group">
 					<label for="ct_connection_template_screenshot_url">
-					<?php _e("Specify Your Custom Screenshot URL", "oxygen"); ?>
+					<?php oxygen_translate_echo("Specify Your Custom Screenshot URL", "oxygen"); ?>
 					<input type="text" name="oxy_custom_screenshot" class="oxygen-vsb-metabox-input" id="oxy_custom_screenshot" value="<?php echo esc_attr($oxy_custom_screenshot);?>" /></label>
 				</div>
 			</div>
@@ -595,7 +595,7 @@ Class OXY_VSB_Connection {
 				<ul style=" list-style: initial; margin-left: 25px; margin-top: 11px;">
 					<li>Create elements at <a href="<?php echo get_admin_url().'edit.php?post_type=oxy_user_library';?>">Oxygen &gt; Block Library</a>.</li>
 					<li>Find your elements in Oxygen at <i>+Add &gt; Library &gt; Sandbox</i>.</li>
-					<li><a href="https://oxygenbuilder.com/documentation/design-library/user-design-library/" target="_blank">Watch the full tutorial with more details »</a></li>
+					<li><a href="https://classic.oxygenbuilder.com/documentation/design-library/user-design-library/" target="_blank">Watch the full tutorial with more details »</a></li>
 				</ul>
 			</div>
 

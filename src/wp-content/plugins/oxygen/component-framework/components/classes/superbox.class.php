@@ -409,7 +409,7 @@ class Oxygen_VSB_SuperBox extends CT_Component{
             
             <div class="oxygen-control-row">
                 <div class='oxygen-control-wrapper'>
-                    <label class='oxygen-control-label'><?php _e("Superbox Editing Mode","oxygen"); ?></label>
+                    <label class='oxygen-control-label'><?php oxygen_translate_echo("Superbox Editing Mode","oxygen"); ?></label>
                     <div class='oxygen-control'>
                             <div class="oxygen-select oxygen-select-box-wrapper">
                                 <div class="oxygen-select-box">
@@ -418,15 +418,15 @@ class Oxygen_VSB_SuperBox extends CT_Component{
                                 </div>
                                 <div class="oxygen-select-box-options">
                                     <div class="oxygen-select-box-option" 
-                                        ng-click="iframeScope.setOptionModel('superbox_editing_mode','primary_only')"><?php _e("Show Primary Only","oxygen"); ?></div>
+                                        ng-click="iframeScope.setOptionModel('superbox_editing_mode','primary_only')"><?php oxygen_translate_echo("Show Primary Only","oxygen"); ?></div>
                                     <div class="oxygen-select-box-option" 
-                                        ng-click="iframeScope.setOptionModel('superbox_editing_mode','secondary_only')"><?php _e("Show Secondary Only","oxygen") ?></div>
+                                        ng-click="iframeScope.setOptionModel('superbox_editing_mode','secondary_only')"><?php oxygen_translate_echo("Show Secondary Only","oxygen") ?></div>
                                     <div class="oxygen-select-box-option" 
-                                        ng-click="iframeScope.setOptionModel('superbox_editing_mode','as_hovered')"><?php _e("As If Hovered","oxygen")?></div>
+                                        ng-click="iframeScope.setOptionModel('superbox_editing_mode','as_hovered')"><?php oxygen_translate_echo("As If Hovered","oxygen")?></div>
                                     <div class="oxygen-select-box-option" 
-                                        ng-click="iframeScope.setOptionModel('superbox_editing_mode','as_not_hovered')"><?php _e("As If Not Hovered","oxygen") ?></div>
+                                        ng-click="iframeScope.setOptionModel('superbox_editing_mode','as_not_hovered')"><?php oxygen_translate_echo("As If Not Hovered","oxygen") ?></div>
                                     <div class="oxygen-select-box-option" 
-                                        ng-click="iframeScope.setOptionModel('superbox_editing_mode','live')"><?php _e("Live","oxygen") ?></div>
+                                        ng-click="iframeScope.setOptionModel('superbox_editing_mode','live')"><?php oxygen_translate_echo("Live","oxygen") ?></div>
                                 </div>
                             </div>
                     </div>
@@ -439,47 +439,47 @@ class Oxygen_VSB_SuperBox extends CT_Component{
 
 global $oxygen_vsb_components;
 $oxygen_vsb_components['superbox'] = new Oxygen_VSB_SuperBox( array(
-            'name'  => __('Superbox','oxygen'),
+            'name'  => oxygen_translate('Superbox','oxygen'),
             'tag'   => 'oxy_superbox',
             'params'=> array(
                 array(
                         "type"          => "textfield",
-                        "heading"       => __("Animation Speed","oxygen"),
+                        "heading"       => oxygen_translate("Animation Speed","oxygen"),
                         "param_name"    => "superbox_transition_duration",
                         "value"         => "0.5s",
                     ),
             ), 
             'tabs'  => array(
                 'superbox_primary' => array(
-                    'heading' => __('Primary','oxygen'),
+                    'heading' => oxygen_translate('Primary','oxygen'),
                     'params' => array(
                         array(
                             "type"          => "radio",
-                            "heading"       => __("Slide To", "oxygen"),
+                            "heading"       => oxygen_translate("Slide To", "oxygen"),
                             "param_name"    => "superbox_primary_slide_inorout",
                             "value"         => array(
-                                                 'in'    => __("in to view", "oxygen"),
-                                                 'out'   => __("out of view", "oxygen"),
+                                                 'in'    => oxygen_translate("in to view", "oxygen"),
+                                                 'out'   => oxygen_translate("out of view", "oxygen"),
                                             ),
                             "default"       => "",
                             "css"           => false,
                         ),
                         array(
                             "type"          => "radio",
-                            "heading"       => __("Slide Direction", "oxygen"),
+                            "heading"       => oxygen_translate("Slide Direction", "oxygen"),
                             "param_name"    => "superbox_primary_slide_direction",
                             "value"         => array(
-                                                 'top'      => __("top", "oxygen"),
-                                                 'left'     => __("left", "oxygen"),
-                                                 'right'    => __("right", "oxygen"),
-                                                 'bottom'   => __("bottom", "oxygen"),
+                                                 'top'      => oxygen_translate("top", "oxygen"),
+                                                 'left'     => oxygen_translate("left", "oxygen"),
+                                                 'right'    => oxygen_translate("right", "oxygen"),
+                                                 'bottom'   => oxygen_translate("bottom", "oxygen"),
                                             ),
                             "default"       => "",
                             "css"           => false,
                         ),
                         array(
                             "type"          => "slider-measurebox",
-                            "heading"       => __("Initial Opacity", "oxygen"),
+                            "heading"       => oxygen_translate("Initial Opacity", "oxygen"),
                             "param_name"    => "superbox_primary_opacity_start",
                             "value"         => "",
                             "param_units"   => " ",
@@ -490,7 +490,7 @@ $oxygen_vsb_components['superbox'] = new Oxygen_VSB_SuperBox( array(
                         ),
                         array(
                             "type"          => "slider-measurebox",
-                            "heading"       => __("Opacity on Hover", "oxygen"),
+                            "heading"       => oxygen_translate("Opacity on Hover", "oxygen"),
                             "param_name"    => "superbox_primary_opacity_finish",
                             "value"         => "",
                             "param_units"   => " ",
@@ -501,7 +501,7 @@ $oxygen_vsb_components['superbox'] = new Oxygen_VSB_SuperBox( array(
                         ),
                         array(
                             "type"          => "slider-measurebox",
-                            "heading"       => __("Initial Scale", "oxygen"),
+                            "heading"       => oxygen_translate("Initial Scale", "oxygen"),
                             "param_name"    => "superbox_primary_scale_start",
                             "value"         => "",
                             "param_units"   => " ",
@@ -511,7 +511,7 @@ $oxygen_vsb_components['superbox'] = new Oxygen_VSB_SuperBox( array(
                         ),
                         array(
                             "type"          => "slider-measurebox",
-                            "heading"       => __("Scale on Hover", "oxygen"),
+                            "heading"       => oxygen_translate("Scale on Hover", "oxygen"),
                             "param_name"    => "superbox_primary_scale_finish",
                             "value"         => "",
                             "param_units"   => " ",
@@ -521,7 +521,7 @@ $oxygen_vsb_components['superbox'] = new Oxygen_VSB_SuperBox( array(
                         ),
                         array(
                             "type"          => "measurebox",
-                            "heading"       => __("Override Initial Slide Position","oxygen"),
+                            "heading"       => oxygen_translate("Override Initial Slide Position","oxygen"),
                             "param_name"    => "superbox_primary_slide_distance",
                             "value"         => "",
                             "param_units"   => "px"
@@ -534,35 +534,35 @@ $oxygen_vsb_components['superbox'] = new Oxygen_VSB_SuperBox( array(
                     ),
                 ),
                 'superbox_secondary' => array(
-                    'heading' => __('Secondary','oxygen'),
+                    'heading' => oxygen_translate('Secondary','oxygen'),
                     'params' => array(
                         array(
                             "type"          => "radio",
-                            "heading"       => __("Slide To", "oxygen"),
+                            "heading"       => oxygen_translate("Slide To", "oxygen"),
                             "param_name"    => "superbox_secondary_slide_inorout",
                             "value"         => array(
-                                                 'in'    => __("in to view", "oxygen"),
-                                                 'out'   => __("out of view", "oxygen"),
+                                                 'in'    => oxygen_translate("in to view", "oxygen"),
+                                                 'out'   => oxygen_translate("out of view", "oxygen"),
                                             ),
                             "default"       => "",
                             "css"           => false,
                         ),
                         array(
                             "type"          => "radio",
-                            "heading"       => __("Slide Direction", "oxygen"),
+                            "heading"       => oxygen_translate("Slide Direction", "oxygen"),
                             "param_name"    => "superbox_secondary_slide_direction",
                             "value"         => array(
-                                                 'top'      => __("top", "oxygen"),
-                                                 'left'     => __("left", "oxygen"),
-                                                 'right'    => __("right", "oxygen"),
-                                                 'bottom'   => __("bottom", "oxygen"),
+                                                 'top'      => oxygen_translate("top", "oxygen"),
+                                                 'left'     => oxygen_translate("left", "oxygen"),
+                                                 'right'    => oxygen_translate("right", "oxygen"),
+                                                 'bottom'   => oxygen_translate("bottom", "oxygen"),
                                             ),
                             "default"       => "",
                             "css"           => false,
                         ),
                         array(
                             "type"          => "slider-measurebox",
-                            "heading"       => __("Initial Opacity", "oxygen"),
+                            "heading"       => oxygen_translate("Initial Opacity", "oxygen"),
                             "param_name"    => "superbox_secondary_opacity_start",
                             "value"         => "",
                             "param_units"   => " ",
@@ -573,7 +573,7 @@ $oxygen_vsb_components['superbox'] = new Oxygen_VSB_SuperBox( array(
                         ),
                         array(
                             "type"          => "slider-measurebox",
-                            "heading"       => __("Opacity on Hover", "oxygen"),
+                            "heading"       => oxygen_translate("Opacity on Hover", "oxygen"),
                             "param_name"    => "superbox_secondary_opacity_finish",
                             "value"         => "",
                             "param_units"   => " ",
@@ -584,7 +584,7 @@ $oxygen_vsb_components['superbox'] = new Oxygen_VSB_SuperBox( array(
                         ),
                         array(
                             "type"          => "slider-measurebox",
-                            "heading"       => __("Initial Scale", "oxygen"),
+                            "heading"       => oxygen_translate("Initial Scale", "oxygen"),
                             "param_name"    => "superbox_secondary_scale_start",
                             "value"         => "",
                             "param_units"   => " ",
@@ -594,7 +594,7 @@ $oxygen_vsb_components['superbox'] = new Oxygen_VSB_SuperBox( array(
                         ),
                         array(
                             "type"          => "slider-measurebox",
-                            "heading"       => __("Scale on Hover", "oxygen"),
+                            "heading"       => oxygen_translate("Scale on Hover", "oxygen"),
                             "param_name"    => "superbox_secondary_scale_finish",
                             "value"         => "",
                             "param_units"   => " ",
@@ -604,7 +604,7 @@ $oxygen_vsb_components['superbox'] = new Oxygen_VSB_SuperBox( array(
                         ),
                         array(
                             "type"          => "measurebox",
-                            "heading"       => __("Override Initial Slide Position","oxygen"),
+                            "heading"       => oxygen_translate("Override Initial Slide Position","oxygen"),
                             "param_name"    => "superbox_secondary_slide_distance",
                             "value"         => "",
                             "param_units"   => "px"

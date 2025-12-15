@@ -73,7 +73,7 @@ Class CT_Toolset_View extends CT_Component {
 			data-searchid="<?php echo strtolower( preg_replace('/\s+/', '_', sanitize_text_field( $this->options['name'] ) ) ) ?>"
              ng-click="iframeScope.addComponent('ct_toolset_view');">
             <img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/add-icons/dynamicdata.svg' />
-            <?php _e("Toolset View","oxygen"); ?>
+            <?php oxygen_translate_echo("Toolset View","oxygen"); ?>
         </div>
 
 	<?php }
@@ -127,12 +127,12 @@ $oxygen_vsb_components['toolset_view'] = new CT_Toolset_View ( array(
 								"param_name" 	=> "view",
 								"value" 		=> $views_array,
 								"type" 			=> "view_dropdown",
-								"heading" 		=> __("Toolset View","oxygen"),
+								"heading" 		=> oxygen_translate("Toolset View","oxygen"),
                                 "css" 			=> false,
 							),
 							array(
 								"type" 			=> "tag",
-								"heading" 		=> __("Tag"),
+								"heading" 		=> oxygen_translate("Tag"),
 								"param_name" 	=> "tag",
 								"value" 		=> array (
 													"div" => "DIV",

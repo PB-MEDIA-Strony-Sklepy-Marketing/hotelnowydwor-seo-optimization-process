@@ -36,7 +36,7 @@ class ExtraProLogin extends OxygenExtraElements {
         $label_remember = isset( $options['label_remember'] ) ? esc_attr($options['label_remember']) : '';
         $label_login = esc_attr($options['label_login']);
         $redirect_url = isset( $options['redirect_url'] ) ? esc_url($options['redirect_url']) : get_home_url();
-        $redirect = esc_attr($options['redirect']) === 'false' ? ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] : $redirect_url;
+        $redirect = esc_attr($options['redirect']) === 'false' ? ( is_ssl() ? 'https://' : 'http://' ) . sanitize_text_field( $_SERVER['HTTP_HOST'] ) . sanitize_text_field( $_SERVER['REQUEST_URI'] ) : $redirect_url;
         
         
         $args = array(

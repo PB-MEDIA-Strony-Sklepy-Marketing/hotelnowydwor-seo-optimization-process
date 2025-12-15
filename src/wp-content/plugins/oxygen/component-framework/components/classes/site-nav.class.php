@@ -7,7 +7,7 @@ class SiteNav extends OxyEl
 
     function name()
     {
-        return __('Site Navigation');
+        return oxygen_translate('Site Navigation');
     }
 
     function enableFullPresets()
@@ -155,7 +155,7 @@ class SiteNav extends OxyEl
         $this->addOptionControl(
             array(
                 "type" => 'textfield',
-                "name" => __("Navigation Title"),
+                "name" => oxygen_translate("Navigation Title"),
                 "slug" => 'navigation_title',
                 "default" => "Main"
             )
@@ -165,16 +165,16 @@ class SiteNav extends OxyEl
         $this->addOptionControl(
             array(
                 "type" => 'dropdown',
-                "name" => __("WordPress Menu"),
+                "name" => oxygen_translate("WordPress Menu"),
                 "slug" => 'wordpress_menu',
             )
         )->setValue($menusRefined)->rebuildElementOnChange();
 
-        $mobile_settings = $this->addControlsection("mobile_settings", __("Mobile Settings"), "assets/icon.png", $this);
+        $mobile_settings = $this->addControlsection("mobile_settings", oxygen_translate("Mobile Settings"), "assets/icon.png", $this);
 
         $mobile_menu_below = $mobile_settings->addOptionControl(
             array(
-                "name" => __('Switch To Mobile Menu At', 'oxygen'),
+                "name" => oxygen_translate('Switch To Mobile Menu At', 'oxygen'),
                 "slug" => 'show_mobile_menu_below',
                 "type" => 'medialist',
             )
@@ -185,7 +185,7 @@ class SiteNav extends OxyEl
         $mobile_settings->addOptionControl(
             array(
                 "type" => "buttons-list",
-                "name" => __("Mobile Menu Position"),
+                "name" => oxygen_translate("Mobile Menu Position"),
                 "slug" => "mobile_menu_position",
                 "default" => "left",
                 "condition" => "show_mobile_menu_below!=never"
@@ -203,11 +203,11 @@ class SiteNav extends OxyEl
         )->whitelist();
 
         // Color controls
-        $general_styles = $this->addControlsection("general_styles", __("General Styles"), "assets/icon.png", $this);
+        $general_styles = $this->addControlsection("general_styles", oxygen_translate("General Styles"), "assets/icon.png", $this);
 
         $general_styles->addOptionControl(
             array(
-                "name" => __("Colors"),
+                "name" => oxygen_translate("Colors"),
                 "slug" => "layout_colors_label",
                 "type" => "label"
             )
@@ -215,7 +215,7 @@ class SiteNav extends OxyEl
 
         $general_styles->addStyleControl(
             array(
-                "name" => __('Primary Color'),
+                "name" => oxygen_translate('Primary Color'),
                 "selector" => "",
                 "property" => '--oxynav-brand-color',
                 "control_type" => "colorpicker",
@@ -224,7 +224,7 @@ class SiteNav extends OxyEl
 
         $general_styles->addStyleControl(
             array(
-                "name" => __('Neutral Color'),
+                "name" => oxygen_translate('Neutral Color'),
                 "selector" => "",
                 "property" => '--oxynav-neutral-color',
                 "control_type" => "colorpicker",
@@ -233,7 +233,7 @@ class SiteNav extends OxyEl
 
         $general_styles->addStyleControl(
             array(
-                "name" => __('Active / Hover Color'),
+                "name" => oxygen_translate('Active / Hover Color'),
                 "selector" => "",
                 "property" => '--oxynav-activehover-color',
                 "control_type" => "colorpicker",
@@ -242,7 +242,7 @@ class SiteNav extends OxyEl
 
         $general_styles->addStyleControl(
             array(
-                "name" => __('Background Color'),
+                "name" => oxygen_translate('Background Color'),
                 "selector" => "",
                 "property" => '--oxynav-background-color',
                 "control_type" => "colorpicker"
@@ -251,7 +251,7 @@ class SiteNav extends OxyEl
 
         $general_styles->addOptionControl(
             array(
-                "name" => __("Radius & Spacing"),
+                "name" => oxygen_translate("Radius & Spacing"),
                 "slug" => "layout_radiusspacing_label",
                 "type" => "label"
             )
@@ -259,7 +259,7 @@ class SiteNav extends OxyEl
 
         $general_styles->addStyleControl(
             array(
-                "name" => __('Border Radius'),
+                "name" => oxygen_translate('Border Radius'),
                 "selector" => "",
                 "property" => '--oxynav-border-radius',
                 "control_type" => "measurebox",
@@ -269,7 +269,7 @@ class SiteNav extends OxyEl
 
         $general_styles->addStyleControl(
             array(
-                "name" => __('Spacing'),
+                "name" => oxygen_translate('Spacing'),
                 "selector" => "",
                 "property" => '--oxynav-other-spacing',
                 "control_type" => "measurebox",
@@ -279,7 +279,7 @@ class SiteNav extends OxyEl
 
         $general_styles->addOptionControl(
             array(
-                "name" => __("Add Space Between Items"),
+                "name" => oxygen_translate("Add Space Between Items"),
                 "slug" => "add_space_between_items",
                 "type" => "checkbox"
             )
@@ -296,7 +296,7 @@ class SiteNav extends OxyEl
 
         $general_styles->addOptionControl(
             array(
-                "name" => __("Other Options"),
+                "name" => oxygen_translate("Other Options"),
                 "slug" => "layout_otheroptions_label",
                 "type" => "label"
             )
@@ -304,7 +304,7 @@ class SiteNav extends OxyEl
 
         $general_styles->addOptionControl(
             array(
-                "name" => __("Use Transparent Background For Top Level Items"),
+                "name" => oxygen_translate("Use Transparent Background For Top Level Items"),
                 "slug" => "transparent_background_on_top_level",
                 "type" => "checkbox"
             )
@@ -321,7 +321,7 @@ class SiteNav extends OxyEl
 
         $general_styles->addOptionControl(
             array(
-                "name" => __("Disable 'Current' Menu Item Underline"),
+                "name" => oxygen_translate("Disable 'Current' Menu Item Underline"),
                 "slug" => "disable_current_menu_item_styles",
                 "type" => "checkbox",
                 "default" => "false"
@@ -338,11 +338,11 @@ class SiteNav extends OxyEl
             )
         )->whitelist();
 
-        $general_animation_styles = $general_styles->addControlsection("general_styles_animation", __("Animation"), "assets/icon.png", $this);
+        $general_animation_styles = $general_styles->addControlsection("general_styles_animation", oxygen_translate("Animation"), "assets/icon.png", $this);
 
         $general_animation_styles->addOptionControl(
             array(
-                "name" => __('Style', 'oxygen'),
+                "name" => oxygen_translate('Style', 'oxygen'),
                 "slug" => 'animation_style',
                 "type" => 'dropdown',
                 "default" => "None"
@@ -382,7 +382,7 @@ class SiteNav extends OxyEl
 
         $general_animation_styles->addStyleControl(
             array(
-                "name" => __('Duration', 'oxygen'),
+                "name" => oxygen_translate('Duration', 'oxygen'),
                 "slug" => 'animation_duration',
                 "type" => 'measurebox',
                 "unit" => 's',
@@ -394,7 +394,7 @@ class SiteNav extends OxyEl
 
         $general_animation_styles->addStyleControl(
             array(
-                "name" => __('Timing Function'),
+                "name" => oxygen_translate('Timing Function'),
                 "slug" => 'animation_timing_function',
                 "type" => 'text',
                 "default" => "cubic-bezier(.84,.05,.31,.93)",
@@ -403,12 +403,12 @@ class SiteNav extends OxyEl
             )
         )->whitelist();
 
-        $cta_styles = $this->addControlSection('cta_styles', __('CTA Styles'), 'assets/icon.png', $this);
+        $cta_styles = $this->addControlSection('cta_styles', oxygen_translate('CTA Styles'), 'assets/icon.png', $this);
 
         $use_cta = $cta_styles->addOptionControl(
             array(
                 "type" => 'checkbox',
-                "name" => __('Style Last Item(s) As CTA'),
+                "name" => oxygen_translate('Style Last Item(s) As CTA'),
                 "slug" => 'style_last_item_as_cta',
                 "default" => "false"
             )
@@ -418,7 +418,7 @@ class SiteNav extends OxyEl
 
         $cta_styles->addOptionControl(
             array(
-                "name" => __("How Many CTAs?"),
+                "name" => oxygen_translate("How Many CTAs?"),
                 "slug" => "how_many_ctas",
                 "type" => "buttons-list",
                 "condition" => "style_last_item_as_cta=true",
@@ -433,7 +433,7 @@ class SiteNav extends OxyEl
 
         $cta_style = $cta_styles->addOptionControl(
             array(
-                "name" => __("CTA Style"),
+                "name" => oxygen_translate("CTA Style"),
                 "slug" => "cta_style",
                 "type" => "buttons-list",
                 "condition" => "style_last_item_as_cta=true&&how_many_ctas=2",
@@ -448,7 +448,7 @@ class SiteNav extends OxyEl
 
         $cta_style = $cta_styles->addOptionControl(
             array(
-                "name" => __("CTA Style"),
+                "name" => oxygen_translate("CTA Style"),
                 "slug" => "cta_style",
                 "type" => "buttons-list",
                 "condition" => "style_last_item_as_cta=true&&how_many_ctas=1",
@@ -580,7 +580,7 @@ class SiteNav extends OxyEl
 
         $cta_styles->addOptionControl(
             array(
-                "name" => __("Colors"),
+                "name" => oxygen_translate("Colors"),
                 "slug" => "layout_colors_label",
                 "type" => "label",
                 "condition" => "style_last_item_as_cta=true"
@@ -590,7 +590,7 @@ class SiteNav extends OxyEl
         $cta_styles->addStyleControl(
             array(
                 "control_type" => 'colorpicker',
-                "name" => __('Background'),
+                "name" => oxygen_translate('Background'),
                 "slug" => 'cta_bg_color',
                 "selector" => " > ul:not(.open) > li.menu-item[data-cta='true']:nth-last-child(1),  > ul:not(.open) > li.menu-item[data-cta='true']:nth-last-child(2)",
                 "property" => "background-color",
@@ -601,7 +601,7 @@ class SiteNav extends OxyEl
         $cta_styles->addStyleControl(
             array(
                 "control_type" => 'colorpicker',
-                "name" => __('Color'),
+                "name" => oxygen_translate('Color'),
                 "slug" => 'cta_color',
                 "selector" => "
                     > ul:not(.open) > li.menu-item[data-cta='true']:nth-last-child(1),
@@ -617,7 +617,7 @@ class SiteNav extends OxyEl
 
         $cta_styles->addOptionControl(
             array(
-                "name" => __("Colors On Hover"),
+                "name" => oxygen_translate("Colors On Hover"),
                 "slug" => "layout_colors_label",
                 "type" => "label",
                 "condition" => "style_last_item_as_cta=true"
@@ -627,7 +627,7 @@ class SiteNav extends OxyEl
         $cta_styles->addStyleControl(
             array(
                 "control_type" => 'colorpicker',
-                "name" => __('Background'),
+                "name" => oxygen_translate('Background'),
                 "slug" => 'cta_bg_color_hover',
                 "selector" => " > ul:not(.open) > li.menu-item[data-cta='true']:hover",
                 "property" => "background-color",
@@ -638,7 +638,7 @@ class SiteNav extends OxyEl
         $cta_styles->addStyleControl(
             array(
                 "control_type" => 'colorpicker',
-                "name" => __('Color'),
+                "name" => oxygen_translate('Color'),
                 "slug" => 'cta_color_hover',
                 "selector" => "
                      > ul:not(.open) > li.menu-item[data-cta='true']:hover,
@@ -649,75 +649,75 @@ class SiteNav extends OxyEl
             )
         )->whitelist();
 
-        $typographySection = $this->addControlSection("typography_settings", __("Typography"), "assets/icon.png", $this);
+        $typographySection = $this->addControlSection("typography_settings", oxygen_translate("Typography"), "assets/icon.png", $this);
 
-        $allTypographySection = $typographySection->addControlSection("all_typography_settings", __("All Typography"), "assets/icon.png", $this);
+        $allTypographySection = $typographySection->addControlSection("all_typography_settings", oxygen_translate("All Typography"), "assets/icon.png", $this);
 
         $allTypographySection->addPreset(
             'typography',
             'all_one_typography',
-            __('All Typography'),
+            oxygen_translate('All Typography'),
             'a'
         )->whiteList();
 
-        $levelOneTypographySection = $typographySection->addControlSection("l1_typography_settings", __("Main"), "assets/icon.png", $this);
+        $levelOneTypographySection = $typographySection->addControlSection("l1_typography_settings", oxygen_translate("Main"), "assets/icon.png", $this);
 
         $levelOneTypographySection->addPreset(
             'typography',
             'level_one_typography',
-            __('Level One Typography'),
+            oxygen_translate('Level One Typography'),
             '> ul > li > a,
             > ul > li > a::after,
             > ul > li > button'
         )->whiteList();
 
-        $levelTwoTypographySection = $typographySection->addControlSection("l2_typography_settings", __("Sub-Menu"), "assets/icon.png", $this);
+        $levelTwoTypographySection = $typographySection->addControlSection("l2_typography_settings", oxygen_translate("Sub-Menu"), "assets/icon.png", $this);
 
         $levelTwoTypographySection->addPreset(
             'typography',
             'level_two_typography',
-            __('Level Two Typography'),
+            oxygen_translate('Level Two Typography'),
             '> ul > li > ul > li > a,
             > ul > li > ul > li > a::after,
             > ul > li > ul > li > button'
         )->whiteList();
 
-        $levelThreeTypographySection = $typographySection->addControlSection("l3_typography_settings", __("Sub Sub-Menu"), "assets/icon.png", $this);
+        $levelThreeTypographySection = $typographySection->addControlSection("l3_typography_settings", oxygen_translate("Sub Sub-Menu"), "assets/icon.png", $this);
 
         $levelThreeTypographySection->addPreset(
             'typography',
             'level_three_typography',
-            __('Level Three Typography'),
+            oxygen_translate('Level Three Typography'),
             '> ul > li > ul > li > ul > li > a,
             > ul > li > ul > li > ul > li > a::after,
             > ul > li > ul > li > ul > li > button'
         )->whiteList();
 
-        $descriptionTypographySection = $typographySection->addControlSection("desc_typography_settings", __("Description"), "assets/icon.png", $this);
+        $descriptionTypographySection = $typographySection->addControlSection("desc_typography_settings", oxygen_translate("Description"), "assets/icon.png", $this);
 
         $descriptionTypographySection->addPreset(
             'typography',
             'desc_typography',
-            __('Description Typography'),
+            oxygen_translate('Description Typography'),
             '> ul > li > a::after,
             > ul > li > ul > li > a::after,
             > ul > li > ul > li > ul > li > a::after'
         )->whiteList();
 
-        $iconSection = $this->addControlSection("icon_settings", __("Icons"), "assets/icon.png", $this);
+        $iconSection = $this->addControlSection("icon_settings", oxygen_translate("Icons"), "assets/icon.png", $this);
 
-        $linkIconSection = $iconSection->addControlSection("link_icon_settings", __("Link Icons"), "assets/icon.png", $this);
+        $linkIconSection = $iconSection->addControlSection("link_icon_settings", oxygen_translate("Link Icons"), "assets/icon.png", $this);
 
-        $dropdownIconSection = $iconSection->addControlSection("dropdown_icon_settings", __("Dropdown Icon"), "assets/icon.png", $this);
+        $dropdownIconSection = $iconSection->addControlSection("dropdown_icon_settings", oxygen_translate("Dropdown Icon"), "assets/icon.png", $this);
 
-        $mobileOpenIconSection = $iconSection->addControlSection("mobile_open_icon_settings", __("Mobile Open Icon"), "assets/icon.png", $this);
+        $mobileOpenIconSection = $iconSection->addControlSection("mobile_open_icon_settings", oxygen_translate("Mobile Open Icon"), "assets/icon.png", $this);
 
-        $mobileCloseIconSection = $iconSection->addControlSection("mobile_close_icon_settings", __("Mobile Close Icon"), "assets/icon.png", $this);
+        $mobileCloseIconSection = $iconSection->addControlSection("mobile_close_icon_settings", oxygen_translate("Mobile Close Icon"), "assets/icon.png", $this);
 
         $linkIconSection->addStyleControl(
             array(
                 "control_type" => "slider-measurebox",
-                "name" => __("Icon Size"),
+                "name" => oxygen_translate("Icon Size"),
                 "slug" => "link_icon_size",
                 "selector" => " li > img",
                 "property" => "width"
@@ -727,7 +727,7 @@ class SiteNav extends OxyEl
         $linkIconSection->addOptionControl(
             array(
                 "type" => "checkbox",
-                "name" => __("Invert On Sub-Menus & CTAs"),
+                "name" => oxygen_translate("Invert On Sub-Menus & CTAs"),
                 "slug" => "link_icon_invert",
                 "default" => "false"
             )
@@ -744,7 +744,7 @@ class SiteNav extends OxyEl
         $dropdownIconSection->addOptionControl(
             array(
                 "type" => 'icon_finder',
-                "name" => __('Dropdown Icon'),
+                "name" => oxygen_translate('Dropdown Icon'),
                 "slug" => 'dropdown_icon',
                 "default" => 'FontAwesomeicon-chevron-down'
             )
@@ -753,7 +753,7 @@ class SiteNav extends OxyEl
         $dropdownIconSection->addStyleControl(
             array(
                 "control_type" => 'slider-measurebox',
-                "name" => __('Icon Size'),
+                "name" => oxygen_translate('Icon Size'),
                 "slug" => 'dropdown_icon_size',
                 "selector" => " button:not(.oxy-site-navigation__mobile-open-button):not(.oxy-site-navigation__mobile-close-button) > svg",
                 "property" => 'width'
@@ -763,7 +763,7 @@ class SiteNav extends OxyEl
         $dropdownIconSection->addStyleControl(
             array(
                 "control_type" => 'colorpicker',
-                "name" => __('Color'),
+                "name" => oxygen_translate('Color'),
                 "slug" => 'dropdown_icon_color',
                 "selector" => " button:not(.oxy-site-navigation__mobile-open-button):not(.oxy-site-navigation__mobile-close-button) > svg",
                 "property" => 'fill'
@@ -773,7 +773,7 @@ class SiteNav extends OxyEl
         $mobileOpenIconSection->addOptionControl(
             array(
                 "type" => 'dropdown',
-                "name" => __('Icon Type'),
+                "name" => oxygen_translate('Icon Type'),
                 "slug" => 'mobile_open_icon_type',
                 "default" => 'svg'
             )
@@ -787,7 +787,7 @@ class SiteNav extends OxyEl
         $mobileOpenIconSection->addOptionControl(
             array(
                 "type" => 'dropdown',
-                "name" => __('Animation Type'),
+                "name" => oxygen_translate('Animation Type'),
                 "slug" => 'mobile_open_icon_animation_type',
                 "default" => 'none',
                 "condition" => "mobile_open_icon_type=css"
@@ -805,7 +805,7 @@ class SiteNav extends OxyEl
         $mobileOpenIconSection->addOptionControl(
             array(
                 "type" => 'icon_finder',
-                "name" => __('Mobile Open Icon'),
+                "name" => oxygen_translate('Mobile Open Icon'),
                 "slug" => 'mobile_open_icon',
                 "default" => 'FontAwesomeicon-bars',
                 "condition" => "mobile_open_icon_type=svg"
@@ -815,7 +815,7 @@ class SiteNav extends OxyEl
         $mobileOpenIconSection->addStyleControl(
             array(
                 "control_type" => 'slider-measurebox',
-                "name" => __('Icon Size'),
+                "name" => oxygen_translate('Icon Size'),
                 "slug" => 'mobile_open_icon_size',
                 "selector" => " button.oxy-site-navigation__mobile-open-button > svg, .oxy-site-navigation__mobile-open-button .oxy-site-navigation__css-icon",
                 "property" => 'width'
@@ -825,7 +825,7 @@ class SiteNav extends OxyEl
         $mobileOpenIconSection->addStyleControl(
             array(
                 "control_type" => 'colorpicker',
-                "name" => __('Color'),
+                "name" => oxygen_translate('Color'),
                 "slug" => 'mobile_open_icon_color',
                 "selector" => " button.oxy-site-navigation__mobile-open-button > svg",
                 "property" => 'fill',
@@ -836,7 +836,7 @@ class SiteNav extends OxyEl
         $mobileOpenIconSection->addStyleControl(
             array(
                 "control_type" => 'colorpicker',
-                "name" => __('Color'),
+                "name" => oxygen_translate('Color'),
                 "slug" => 'mobile_open_icon_color',
                 "selector" => " .oxy-site-navigation__mobile-open-button .oxy-site-navigation__css-icon",
                 "property" => 'color',
@@ -847,7 +847,7 @@ class SiteNav extends OxyEl
         $mobileCloseIconSection->addOptionControl(
             array(
                 "type" => 'dropdown',
-                "name" => __('Icon Type'),
+                "name" => oxygen_translate('Icon Type'),
                 "slug" => 'mobile_close_icon_type',
                 "default" => 'svg'
             )
@@ -861,7 +861,7 @@ class SiteNav extends OxyEl
         $mobileCloseIconSection->addOptionControl(
             array(
                 "type" => 'icon_finder',
-                "name" => __('Mobile Close Icon'),
+                "name" => oxygen_translate('Mobile Close Icon'),
                 "slug" => 'mobile_close_icon',
                 "default" => 'FontAwesomeicon-close',
                 "condition" => "mobile_close_icon_type=svg"
@@ -871,7 +871,7 @@ class SiteNav extends OxyEl
         $mobileCloseIconSection->addStyleControl(
             array(
                 "control_type" => 'slider-measurebox',
-                "name" => __('Icon Size'),
+                "name" => oxygen_translate('Icon Size'),
                 "slug" => 'mobile_close_icon_size',
                 "selector" => " button.oxy-site-navigation__mobile-close-button > svg, .oxy-site-navigation__mobile-close-button .oxy-site-navigation__css-icon",
                 "property" => 'width'
@@ -881,7 +881,7 @@ class SiteNav extends OxyEl
         $mobileCloseIconSection->addStyleControl(
             array(
                 "control_type" => 'colorpicker',
-                "name" => __('Color'),
+                "name" => oxygen_translate('Color'),
                 "slug" => 'mobile_close_icon_color',
                 "selector" => " button.oxy-site-navigation__mobile-close-button > svg",
                 "property" => 'fill',
@@ -892,7 +892,7 @@ class SiteNav extends OxyEl
         $mobileCloseIconSection->addStyleControl(
             array(
                 "control_type" => 'colorpicker',
-                "name" => __('Color'),
+                "name" => oxygen_translate('Color'),
                 "slug" => 'mobile_close_icon_color',
                 "selector" => " .oxy-site-navigation__mobile-close-button .oxy-site-navigation__css-icon",
                 "property" => 'color',

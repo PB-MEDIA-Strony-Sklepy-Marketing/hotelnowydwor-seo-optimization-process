@@ -20,7 +20,7 @@ Class OxygenMainPluginUpdater {
 		$this->prefix 		= $args["prefix"];
 		$this->plugin_name 	= $args["plugin_name"]; // should be exact as EDD item name
 		$this->priority 	= $args["priority"];
-		$this->license_text = (isset($args["license_text"])) ? $args["license_text"] : __('Enter your license key to get updates', 'component-theme');
+		$this->license_text = (isset($args["license_text"])) ? $args["license_text"] : oxygen_translate('Enter your license key to get updates', 'component-theme');
 
 		add_action( 'admin_init', array( $this, 'init'), 0 );
 		add_action( 'admin_init', array( $this, 'activate_license' ) );
@@ -87,14 +87,14 @@ Class OxygenMainPluginUpdater {
 					<tbody>
 						<tr valign="top">
 							<td>
-								<input id="<?php echo $this->prefix; ?>license_key" name="<?php echo $this->prefix; ?>license_key" type="<?php echo $type; ?>" class="regular-text" value="<?php esc_attr_e( $license ); ?>" />
+								<input id="<?php echo $this->prefix; ?>license_key" name="<?php echo $this->prefix; ?>license_key" type="<?php echo $type; ?>" class="regular-text" value="<?php esc_attroxygen_translate_echo( $license ); ?>" />
 								<label for="<?php echo $this->prefix; ?>license_key"><?php echo $status; ?></label>
 								<p class="description"><?php echo $this->license_text ?></p>
 							</td>
 						</tr>
 					</tbody>
 				</table>	
-				<?php submit_button( __("Save Oxygen License","oxygen"), "primary", $this->prefix."submit_license" ); ?>
+				<?php submit_button( oxygen_translate("Save Oxygen License","oxygen"), "primary", $this->prefix."submit_license" ); ?>
 			
 			</form>
 		</div>

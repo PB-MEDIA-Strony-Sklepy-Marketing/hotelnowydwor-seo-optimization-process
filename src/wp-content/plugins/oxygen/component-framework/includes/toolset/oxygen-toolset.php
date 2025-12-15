@@ -84,9 +84,9 @@ class oxygen_toolset {
         $options_for_url_and_images = array_reduce( $fields, array( $this, "add_button_for_url_or_image" ), array() );
 
         if( count( $all_options ) > 0 ) {
-            array_unshift($all_options, array('name' => __('Select the Toolset Types field', 'oxygen-toolset'), 'type' => 'heading'));
+            array_unshift($all_options, array('name' => oxygen_translate('Select the Toolset Types field', 'oxygen-toolset'), 'type' => 'heading'));
             $types_content = array(
-                'name' => __('Toolset Types Field', 'oxygen-toolset'),
+                'name' => oxygen_translate('Toolset Types Field', 'oxygen-toolset'),
                 'mode' => 'content',
                 // Available modes: 'content', 'custom-field', 'link' and 'image'
                 'position' => 'Post',
@@ -99,7 +99,7 @@ class oxygen_toolset {
             $dynamic_data[] = $types_content;
 
             $types_content_meta = array(
-                'name' => __('Toolset Types Field', 'oxygen-toolset'),
+                'name' => oxygen_translate('Toolset Types Field', 'oxygen-toolset'),
                 'mode' => 'custom-field',
                 // Available modes: 'content', 'custom-field', 'link' and 'image'
                 'position' => 'Post',
@@ -114,7 +114,7 @@ class oxygen_toolset {
 
         if( count( $options_for_url_and_images ) > 0 ) {
             $types_content_url = array(
-                'name'      => __( 'Toolset Types Field', 'oxygen-toolset' ),
+                'name'      => oxygen_translate( 'Toolset Types Field', 'oxygen-toolset' ),
                 'mode'       => 'link',
                 // Available modes: 'content', 'custom-field', 'link' and 'image'
                 'position'   => 'Post',
@@ -127,7 +127,7 @@ class oxygen_toolset {
             $dynamic_data[]   = $types_content_url;
 
             $types_content_image = array(
-                'name'      => __( 'Toolset Types Field', 'oxygen-toolset' ),
+                'name'      => oxygen_translate( 'Toolset Types Field', 'oxygen-toolset' ),
                 'mode'       => 'image',
                 // Available modes: 'content', 'custom-field', 'link' and 'image'
                 'position'   => 'Post',
@@ -156,19 +156,19 @@ class oxygen_toolset {
         if( !in_array( $option['parameters']['metaType'], array('checkbox', 'checkboxes') ) ) {
             // All multiple instances fields allow to specify an index or a separator
             $properties[] = array(
-                'name' => __( 'This field has multiple instances', 'oxygen-toolset' ),
+                'name' => oxygen_translate( 'This field has multiple instances', 'oxygen-toolset' ),
                 'data' => 'is_multiple',
                 'type' => 'checkbox',
                 'value' => 'yes'
             );
             $properties[] = array(
-                'name' => __( 'Index of the element to show (zero-based)', 'oxygen-toolset' ),
+                'name' => oxygen_translate( 'Index of the element to show (zero-based)', 'oxygen-toolset' ),
                 'data' => 'index',
                 'type' => 'text',
                 'show_condition' => 'dynamicDataModel.is_multiple == \'yes\''
             );
             $properties[] = array(
-                'name' => __( 'Or, specify a separator to show all the values', 'oxygen-toolset' ),
+                'name' => oxygen_translate( 'Or, specify a separator to show all the values', 'oxygen-toolset' ),
                 'data' => 'separator',
                 'type' => 'text',
                 'show_condition' => 'dynamicDataModel.is_multiple == \'yes\''
@@ -217,57 +217,57 @@ class oxygen_toolset {
 	        case 'checkboxes':
 	            $properties = array();
                 $properties[] = array(
-                    'name'     => __( 'Output mode', 'oxygen-toolset' ),
+                    'name'     => oxygen_translate( 'Output mode', 'oxygen-toolset' ),
                     'data'      => 'output',
                     'type'      => 'select',
-                    'options'   => array( __( 'Raw', 'oxygen-toolset' ) => 'raw', __( 'Normal', 'oxygen-toolset' ) => 'normal' )
+                    'options'   => array( oxygen_translate( 'Raw', 'oxygen-toolset' ) => 'raw', oxygen_translate( 'Normal', 'oxygen-toolset' ) => 'normal' )
                 );
                 $properties[] = array(
-                    'name' => __( 'Separator', 'oxygen-toolset' ),
+                    'name' => oxygen_translate( 'Separator', 'oxygen-toolset' ),
                     'data' => 'separator',
                     'type' => 'text'
                 );
                 $properties[] = array(
-                    'name' => __( 'Optional zero-based index number. To display the checked valued of the nth checkbox in the group.', 'oxygen-toolset' ),
+                    'name' => oxygen_translate( 'Optional zero-based index number. To display the checked valued of the nth checkbox in the group.', 'oxygen-toolset' ),
                     'data' => 'option',
                     'type' => 'text'
                 );
                 $properties[] = array(
-                    'name'     => __( 'State. This is only valid if an index number is specified.', 'oxygen-toolset' ),
+                    'name'     => oxygen_translate( 'State. This is only valid if an index number is specified.', 'oxygen-toolset' ),
                     'data'      => 'output',
                     'type'      => 'select',
-                    'options'   => array( __( 'Unchecked', 'oxygen-toolset' ) => 'unchecked', __( 'Checked', 'oxygen-toolset' ) => 'checked' )
+                    'options'   => array( oxygen_translate( 'Unchecked', 'oxygen-toolset' ) => 'unchecked', oxygen_translate( 'Checked', 'oxygen-toolset' ) => 'checked' )
                 );
 	            break;
             case 'checkbox':
             $properties = array();
             $properties[] = array(
-                'name'     => __( 'Output mode', 'oxygen-toolset' ),
+                'name'     => oxygen_translate( 'Output mode', 'oxygen-toolset' ),
                 'data'      => 'output',
                 'type'      => 'select',
-                'options'   => array( __( 'Raw', 'oxygen-toolset' ) => 'raw', __( 'Normal', 'oxygen-toolset' ) => 'normal' )
+                'options'   => array( oxygen_translate( 'Raw', 'oxygen-toolset' ) => 'raw', oxygen_translate( 'Normal', 'oxygen-toolset' ) => 'normal' )
             );
             $properties[] = array(
-                'name'     => __( 'State.', 'oxygen-toolset' ),
+                'name'     => oxygen_translate( 'State.', 'oxygen-toolset' ),
                 'data'      => 'output',
                 'type'      => 'select',
-                'options'   => array( __( 'Unchecked', 'oxygen-toolset' ) => 'unchecked', __( 'Checked', 'oxygen-toolset' ) => 'checked' )
+                'options'   => array( oxygen_translate( 'Unchecked', 'oxygen-toolset' ) => 'unchecked', oxygen_translate( 'Checked', 'oxygen-toolset' ) => 'checked' )
             );
             break;
             case 'radio':
                 $properties = array();
                 $properties[] = array(
-                    'name'     => __( 'Output mode', 'oxygen-toolset' ),
+                    'name'     => oxygen_translate( 'Output mode', 'oxygen-toolset' ),
                     'data'      => 'output',
                     'type'      => 'select',
-                    'options'   => array( __( 'Raw', 'oxygen-toolset' ) => 'raw', __( 'Normal', 'oxygen-toolset' ) => 'normal' )
+                    'options'   => array( oxygen_translate( 'Raw', 'oxygen-toolset' ) => 'raw', oxygen_translate( 'Normal', 'oxygen-toolset' ) => 'normal' )
                 );
                 break;
             case 'date':
                 array_pop( $properties );
                 $properties[2]['options']['Custom'] = "";
                 $properties[] = array(
-                    'name' => __( 'Custom format (Any valid WordPress date format). Backslash escaping is not safe because of technical reasons. Please use % for escaping instead, it will be handled as \. If you need to output %, use %%. ', 'oxygen-toolset' ),
+                    'name' => oxygen_translate( 'Custom format (Any valid WordPress date format). Backslash escaping is not safe because of technical reasons. Please use % for escaping instead, it will be handled as \. If you need to output %, use %%. ', 'oxygen-toolset' ),
                     'data' => 'format',
                     'type' => 'text',
                     'show_condition' => 'dynamicDataModel.format != \'F j, Y\' && dynamicDataModel.format != \'F j, Y g:i a\' && dynamicDataModel.format != \'d/m/y\''
@@ -277,29 +277,29 @@ class oxygen_toolset {
                 // Image fields are the biggest issue, we have to override all the properties for this one too
                 $properties = array();
                 $properties[] = array(
-                    'name'     => __( 'Size. Width and Height will be ignored if size is set.', 'oxygen-toolset' ),
+                    'name'     => oxygen_translate( 'Size. Width and Height will be ignored if size is set.', 'oxygen-toolset' ),
                     'data'      => 'size',
                     'type'      => 'select',
-                    'options'   => array( __( 'Full', 'oxygen-toolset' ) => 'full', __( 'Large', 'oxygen-toolset' ) => 'large', __( 'Medium', 'oxygen-toolset' ) => 'medium', __( 'Thumbnail', 'oxygen-toolset' ) => 'thumbnail' ),
+                    'options'   => array( oxygen_translate( 'Full', 'oxygen-toolset' ) => 'full', oxygen_translate( 'Large', 'oxygen-toolset' ) => 'large', oxygen_translate( 'Medium', 'oxygen-toolset' ) => 'medium', oxygen_translate( 'Thumbnail', 'oxygen-toolset' ) => 'thumbnail' ),
                     'change'    => 'scope.dynamicDataModel.width = ""; scope.dynamicDataModel.height = ""'
                 );
                 $properties[] = array(
-                    'name' => __( 'Width', 'oxygen-toolset' ),
+                    'name' => oxygen_translate( 'Width', 'oxygen-toolset' ),
                     'data' => 'width',
                     'type' => 'text',
                     'change' => "scope.dynamicDataModel.size = scope.dynamicDataModel.width+'x'+scope.dynamicDataModel.height; scope.dynamicDataModel.size=''"
                 );
                 $properties[] = array(
-                    'name' => __( 'Height', 'oxygen-toolset' ),
+                    'name' => oxygen_translate( 'Height', 'oxygen-toolset' ),
                     'data' => 'height',
                     'type' => 'text',
                     'change' => "scope.dynamicDataModel.size = scope.dynamicDataModel.width+'x'+scope.dynamicDataModel.height; scope.dynamicDataModel.size=''"
                 );
                 $properties[] = array(
-                    'name' => __( 'Output IMG tag or raw image URL', 'oxygen-toolset' ),
+                    'name' => oxygen_translate( 'Output IMG tag or raw image URL', 'oxygen-toolset' ),
                     'data' => 'url',
                     'type' => 'select',
-                    'options'   => array( __( 'Image URL', 'oxygen-toolset' ) => 'true', __( 'IMG Tag', 'oxygen-toolset' ) => 'false' )
+                    'options'   => array( oxygen_translate( 'Image URL', 'oxygen-toolset' ) => 'true', oxygen_translate( 'IMG Tag', 'oxygen-toolset' ) => 'false' )
                 );
 
                 break;

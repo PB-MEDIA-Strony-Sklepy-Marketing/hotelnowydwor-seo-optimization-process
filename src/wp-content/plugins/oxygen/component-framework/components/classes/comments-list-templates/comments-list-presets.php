@@ -2,7 +2,7 @@
 	'oxy_comments' => array(
     	
     	array(
-	        "name" => __("Default","oxygen"),
+	        "name" => oxygen_translate("Default","oxygen"),
 	        "slug" => "default",
 	        "options" => array(
 	        	"original" => array(
@@ -13,7 +13,7 @@
 	    ),
 
 		array(
-	        "name" => __("Grey Highlight","oxygen"),
+	        "name" => oxygen_translate("Grey Highlight","oxygen"),
 	        "slug" => "grey-highlight",
 	        "options" => array(
 	        	"original" => array(
@@ -24,7 +24,7 @@
 	    ),
 
 		array(
-	        "name" => __("White Blocks","oxygen"),
+	        "name" => oxygen_translate("White Blocks","oxygen"),
 	        "slug" => "white-blocks",
 	        "options" => array(
 	        	"original" => array(

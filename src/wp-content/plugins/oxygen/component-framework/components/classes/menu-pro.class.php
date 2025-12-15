@@ -5,7 +5,7 @@ class OxyProMenu extends OxyEl {
     var $js_added = false;
 
     function name() {
-        return __('Pro Menu');
+        return oxygen_translate('Pro Menu');
     }
 
     function enableFullPresets() {
@@ -175,7 +175,7 @@ class OxyProMenu extends OxyEl {
         ob_start(); ?>
 
                 <div class='oxygen-control-wrapper'>
-                    <label class='oxygen-control-label'><?php _e("Menu","oxygen"); ?></label>
+                    <label class='oxygen-control-label'><?php oxygen_translate_echo("Menu","oxygen"); ?></label>
                     <div class='oxygen-control'>
                         <div class="oxygen-select oxygen-select-box-wrapper">
                             <div class="oxygen-select-box">
@@ -202,7 +202,7 @@ class OxyProMenu extends OxyEl {
 
         $mobile_menu_below = $this->addOptionControl(
             array(
-                "name" => __('Mobile Menu / Toggle Below', 'oxygen'),
+                "name" => oxygen_translate('Mobile Menu / Toggle Below', 'oxygen'),
                 "slug" => 'show_mobile_menu_below',
                 "type" => 'medialist',
             )
@@ -214,7 +214,7 @@ class OxyProMenu extends OxyEl {
          * Desktop Section
          */
 
-        $desktop_section = $this->addControlSection("desktop", __("Desktop Menu"), "assets/icon.png", $this);
+        $desktop_section = $this->addControlSection("desktop", oxygen_translate("Desktop Menu"), "assets/icon.png", $this);
         $selector = ".oxy-pro-menu-list .menu-item a";
         
         /**
@@ -228,7 +228,7 @@ class OxyProMenu extends OxyEl {
 
         $typographySection = $desktop_section->addControlsSection(
             $slug,
-            __("Typography"),
+            oxygen_translate("Typography"),
             "assets/icon.png",
             $this
         );
@@ -247,7 +247,7 @@ class OxyProMenu extends OxyEl {
             $slug
         );
 
-        $orientation = $desktop_section->addControl("buttons-list", "orientation", __("Orientation") );
+        $orientation = $desktop_section->addControl("buttons-list", "orientation", oxygen_translate("Orientation") );
         $orientation->setValue( array("Horizontal","Vertical") );
         $orientation->setValueCSS( array(
             "Horizontal"  => "
@@ -286,21 +286,21 @@ class OxyProMenu extends OxyEl {
          * Spacing sub-section
          */ 
 
-        $spacing_section = $desktop_section->addControlSection("spacing", __("Spacing, Align, Border"), "assets/icon.png", $this);
+        $spacing_section = $desktop_section->addControlSection("spacing", oxygen_translate("Spacing, Align, Border"), "assets/icon.png", $this);
         $spacing_section->addPreset(
             "padding",
             "menu_item_padding",
-            __("Item Padding"),
+            oxygen_translate("Item Padding"),
             ".oxy-pro-menu-list .menu-item a"
         )->whiteList();
         $spacing_section->addPreset(
             "margin",
             "menu_item_margin",
-            __("Item Margin"),
+            oxygen_translate("Item Margin"),
             ".oxy-pro-menu-list > .menu-item"
         )->whiteList();
 
-        $desktop_item_text_align = $spacing_section->addControl("buttons-list", "desktop_item_text_align", __("Item Text Align") );
+        $desktop_item_text_align = $spacing_section->addControl("buttons-list", "desktop_item_text_align", oxygen_translate("Item Text Align") );
         $desktop_item_text_align->setValue( array("Left","Center", "Right") );
         $desktop_item_text_align->setValueCSS( array(
             "Left" => "
@@ -338,7 +338,7 @@ class OxyProMenu extends OxyEl {
 
         $spacing_section->addStyleControl(
             array( 
-                "name" => __('Item Border Radius'),
+                "name" => oxygen_translate('Item Border Radius'),
                 "selector" => ".oxy-pro-menu-list > .menu-item > a",
                 "property" => 'border-radius',
                 "control_type" => "measurebox",
@@ -350,7 +350,7 @@ class OxyProMenu extends OxyEl {
          * Hover & Active sub-section
          */ 
 
-        $hover_n_active_section = $desktop_section->addControlSection("hover_n_active", __("Hover & Active"), "assets/icon.png", $this);
+        $hover_n_active_section = $desktop_section->addControlSection("hover_n_active", oxygen_translate("Hover & Active"), "assets/icon.png", $this);
         $hover_selector  = ".oxy-pro-menu-list .menu-item.menu-item.menu-item.menu-item a:hover, .oxy-pro-menu-list .menu-item.menu-item.menu-item.menu-item a:focus-within";
         $active_selector = ".oxy-pro-menu-list .menu-item.current-menu-item.current-menu-item a";
         
@@ -359,28 +359,28 @@ class OxyProMenu extends OxyEl {
 
                 // Hover
                 array(
-                    "name" => __('Hover Text Color'),
+                    "name" => oxygen_translate('Hover Text Color'),
                     "selector" => $hover_selector,
                     "property" => 'color',
                     // for backward compatibility
                     "slug" => "oxy-pro-menu_slug_oxypromenulistmenuitemmenuitemmenuitemmenuitemahover_color",
                 ),
                 array(
-                    "name" => __('Hover Background Color'),
+                    "name" => oxygen_translate('Hover Background Color'),
                     "selector" => $hover_selector,
                     "property" => 'background-color',
                     // for backward compatibility
                     "slug" => "oxy-pro-menu_slug_oxypromenulistmenuitemmenuitemmenuitemmenuitemahover_background_color",
                 ),
                 array(
-                    "name" => __('Hover Border Top'),
+                    "name" => oxygen_translate('Hover Border Top'),
                     "selector" => $hover_selector.",.oxy-pro-menu-list .menu-item a",
                     "property" => 'border-top-width',
                     // for backward compatibility
                     "slug" => "oxy-pro-menu_slug_oxypromenulistmenuitemmenuitemmenuitemmenuitemahoveroxypromenulistmenuitema_border_top_width",
                 ),
                 array(
-                    "name" => __('Hover Border Bottom'),
+                    "name" => oxygen_translate('Hover Border Bottom'),
                     "selector" => $hover_selector.",.oxy-pro-menu-list .menu-item a",
                     "property" => 'border-bottom-width',
                     "slug" => "oxy-pro-menu_slug_oxypromenulistmenuitemmenuitemmenuitemmenuitemahoveroxypromenulistmenuitema_border_bottom_width",
@@ -388,22 +388,22 @@ class OxyProMenu extends OxyEl {
 
                 // Active
                 array(
-                    "name" => __('Active Text Color'),
+                    "name" => oxygen_translate('Active Text Color'),
                     "selector" => $active_selector,
                     "property" => 'color',
                 ),
                 array(
-                    "name" => __('Active Background Color'),
+                    "name" => oxygen_translate('Active Background Color'),
                     "selector" => $active_selector,
                     "property" => 'background-color',
                 ),
                 array(
-                    "name" => __('Active Border Top'),
+                    "name" => oxygen_translate('Active Border Top'),
                     "selector" => $active_selector.",.oxy-pro-menu-list .menu-item a",
                     "property" => 'border-top-width',
                 ),
                 array(
-                    "name" => __('Active Border Bottom'),
+                    "name" => oxygen_translate('Active Border Bottom'),
                     "selector" => $active_selector.",.oxy-pro-menu-list .menu-item a",
                     "property" => 'border-bottom-width',
                 ),
@@ -415,7 +415,7 @@ class OxyProMenu extends OxyEl {
 
         $transition = $hover_n_active_section->addStyleControl(
             array(
-                "name" => __('Transition Duration'),
+                "name" => oxygen_translate('Transition Duration'),
                 "selector" => $selector,
                 "property" => 'transition-duration',
                 "control_type" => 'slider-measurebox',
@@ -430,12 +430,12 @@ class OxyProMenu extends OxyEl {
          * Dropdowns
          */
 
-        $dropdowns_section = $this->addControlSection("dropdowns", __("Desktop Dropdowns"), "assets/icon.png", $this);
+        $dropdowns_section = $this->addControlSection("dropdowns", oxygen_translate("Desktop Dropdowns"), "assets/icon.png", $this);
         
         $dropdowns_section->addOptionControl(
             array(
                 "type" => 'checkbox',
-                "name" => __('Enable Dropdown','oxygen'),
+                "name" => oxygen_translate('Enable Dropdown','oxygen'),
                 "slug" => 'show_dropdown',
                 "value" => 'true'
             )
@@ -446,7 +446,7 @@ class OxyProMenu extends OxyEl {
          */
 
         $dropdowns_section->boxShadowSection(
-            __("Box Shadow"),
+            oxygen_translate("Box Shadow"),
             ".oxy-pro-menu-container:not(.oxy-pro-menu-open-container):not(.oxy-pro-menu-off-canvas-container) .sub-menu",
             $this,
             false,//section param not used
@@ -459,7 +459,7 @@ class OxyProMenu extends OxyEl {
         
         $dropdowns_section->addStyleControl(
             array( 
-                "name" => __('Dropdown Border Radius'),
+                "name" => oxygen_translate('Dropdown Border Radius'),
                 "selector" => ".sub-menu",
                 "property" => 'border-radius',
                 "slug" => "dropdown-border-radius",
@@ -492,13 +492,13 @@ class OxyProMenu extends OxyEl {
          * Icon sub-section
          */
 
-        $dropdown_icon = $dropdowns_section->addControlSection("dropdown_icon", __("Dropdown Icon"), "assets/icon.png", $this);
+        $dropdown_icon = $dropdowns_section->addControlSection("dropdown_icon", oxygen_translate("Dropdown Icon"), "assets/icon.png", $this);
         $icon_selector = ".oxy-pro-menu-show-dropdown .oxy-pro-menu-list .menu-item-has-children > a svg";
 
         $show_dropdown_icon = $dropdown_icon->addOptionControl(
             array(
                 "type" => 'checkbox',
-                "name" => __('Show Dropdown Icon','oxygen'),
+                "name" => oxygen_translate('Show Dropdown Icon','oxygen'),
                 "slug" => 'show_dropdown_icon',
                 "default" => 'true'
             )
@@ -515,7 +515,7 @@ class OxyProMenu extends OxyEl {
         $dropdown_icon->addOptionControl(
             array(
                 "type" => 'icon_finder',
-                "name" => __('Icon'),
+                "name" => oxygen_translate('Icon'),
                 "condition" => 'show_dropdown_icon=true',
                 "slug" => 'dropdown_icon',
                 "default" => 'FontAwesomeicon-arrow-circle-o-down'
@@ -534,13 +534,13 @@ class OxyProMenu extends OxyEl {
         $dropdown_icon->addStyleControls(
             array(
                 array(
-                    "name" => __('Color'),
+                    "name" => oxygen_translate('Color'),
                     "selector" => $icon_selector,
                     "property" => 'color',
                     "condition" => 'show_dropdown_icon=true',
                 ),
                 array(
-                    "name" => __('Size'),
+                    "name" => oxygen_translate('Size'),
                     "selector" => $icon_selector,
                     "property" => 'font-size',
                     "condition" => 'show_dropdown_icon=true',
@@ -551,14 +551,14 @@ class OxyProMenu extends OxyEl {
         $dropdown_icon->addPreset(
             "margin",
             "dropdown_icon_item_margin",
-            __("Icon Margin"),
+            oxygen_translate("Icon Margin"),
             $icon_selector
         )->whiteList();
 
         $dropdown_icon->addStyleControls(
             array(
                 array(
-                    "name" => __('Icons Space'),
+                    "name" => oxygen_translate('Icons Space'),
                     "selector" => ".oxy-pro-menu-show-dropdown .oxy-pro-menu-list .menu-item-has-children > a div",
                     "property" => 'margin-left',
                     "control_type" => 'slider-measurebox',
@@ -571,7 +571,7 @@ class OxyProMenu extends OxyEl {
 
         $dropdown_icon->addStyleControl(
             array(
-                "name" => __('Rotation'),
+                "name" => oxygen_translate('Rotation'),
                 "selector" => $icon_selector,
                 "property" => 'transform:rotate',
                 "control_type" => 'slider-measurebox',
@@ -583,7 +583,7 @@ class OxyProMenu extends OxyEl {
 
         $dropdown_icon->addStyleControl(
             array(
-                "name" => __('Open Rotation'),
+                "name" => oxygen_translate('Open Rotation'),
                 "selector" => ".oxy-pro-menu-show-dropdown .oxy-pro-menu-list .menu-item-has-children:hover > a svg",
                 "property" => 'transform:rotate',
                 "control_type" => 'slider-measurebox',
@@ -597,7 +597,7 @@ class OxyProMenu extends OxyEl {
             array(
                 "type" => 'measurebox',
                 "selector" => $icon_selector,
-                "name" => __('Icon Transition Duration'),
+                "name" => oxygen_translate('Icon Transition Duration'),
                 "default" => "0.4",
                 "property" => 'transition-duration',
                 "control_type" => 'slider-measurebox',
@@ -610,7 +610,7 @@ class OxyProMenu extends OxyEl {
          * Dropdown Colors sub-section
          */
 
-        $dropdown_colors_section = $dropdowns_section->addControlSection("dropdown_colors_desktop", __("Dropdown Colors"), "assets/icon.png", $this);
+        $dropdown_colors_section = $dropdowns_section->addControlSection("dropdown_colors_desktop", oxygen_translate("Dropdown Colors"), "assets/icon.png", $this);
         $selector = ".oxy-pro-menu-container:not(.oxy-pro-menu-open-container):not(.oxy-pro-menu-off-canvas-container) .sub-menu .menu-item a";
 
         $dropdown_colors_section->addStyleControls(
@@ -618,13 +618,13 @@ class OxyProMenu extends OxyEl {
 
                 // Background
                 array(
-                    "name" => __('Background Color'),
+                    "name" => oxygen_translate('Background Color'),
                     "selector" => $selector,
                     "property" => 'background-color',
                     "condition" => 'show_dropdown=true',
                 ),
                 array(
-                    "name" => __('Hover Background Color'),
+                    "name" => oxygen_translate('Hover Background Color'),
                     "selector" => $selector.":hover,".$selector.":focus-within",
                     "property" => 'background-color',
                     "condition" => 'show_dropdown=true',
@@ -634,13 +634,13 @@ class OxyProMenu extends OxyEl {
 
                 // Link
                 array(
-                    "name" => __('Link Color'),
+                    "name" => oxygen_translate('Link Color'),
                     "selector" => $selector,
                     "property" => 'color',
                     "condition" => 'show_dropdown=true',
                 ),
                 array(
-                    "name" => __('Hover Text Color'),
+                    "name" => oxygen_translate('Hover Text Color'),
                     "selector" => $selector.":hover,".$selector.":focus-within",
                     "property" => 'color',
                     "condition" => 'show_dropdown=true',
@@ -655,24 +655,24 @@ class OxyProMenu extends OxyEl {
          * Dropdown Child Links sub-section
          */
 
-        $dropdown_child_links_section = $dropdowns_section->addControlSection("dropdown_child_links_desktop", __("Dropdown Child Links"), "assets/icon.png", $this);
+        $dropdown_child_links_section = $dropdowns_section->addControlSection("dropdown_child_links_desktop", oxygen_translate("Dropdown Child Links"), "assets/icon.png", $this);
         $selector = ".oxy-pro-menu-container:not(.oxy-pro-menu-open-container):not(.oxy-pro-menu-off-canvas-container) .sub-menu .menu-item a";
 
         $dropdown_child_links_section->addPreset(
             "padding",
             "dropdown_child_item_padding",
-            __("Link Padding"),
+            oxygen_translate("Link Padding"),
             $selector
         )->whiteList();
 
         $dropdown_child_links_section->addPreset(
             "typography",
             "dropdown_child_item_typography",
-            __("Typography"),
+            oxygen_translate("Typography"),
             ".oxy-pro-menu-container:not(.oxy-pro-menu-open-container):not(.oxy-pro-menu-off-canvas-container) .sub-menu .menu-item, .oxy-pro-menu-container:not(.oxy-pro-menu-open-container):not(.oxy-pro-menu-off-canvas-container) .sub-menu .menu-item a"
         )->whiteList();
 
-        $html = $this->animations_dropdown('menu_dropdown_animation',__("Animation Type","oxygen"));
+        $html = $this->animations_dropdown('menu_dropdown_animation',oxygen_translate("Animation Type","oxygen"));
         $animation_type = $dropdowns_section->addCustomControl($html, 'menu_dropdown_animation');
         $animation_type->setParam('param_name', 'menu_dropdown_animation');
         $animation_type->setDefaultValue('fade-up');
@@ -680,7 +680,7 @@ class OxyProMenu extends OxyEl {
 
         $dropdowns_section->addOptionControl(
             array(
-                "name" => __('Animation Duration'),
+                "name" => oxygen_translate('Animation Duration'),
                 "slug" => 'menu_dropdown_animation_duration',
                 "type" => 'slider-measurebox',
                 "default" => '0.4',
@@ -695,19 +695,19 @@ class OxyProMenu extends OxyEl {
          * Mobile menu
          */
 
-        $mobile_menu = $this->addControlSection("mobile_menu", __("Mobile Menu"), "assets/icon.png", $this);
+        $mobile_menu = $this->addControlSection("mobile_menu", oxygen_translate("Mobile Menu"), "assets/icon.png", $this);
 
         /**
          * Menu Open Icon sub-section
          */
 
-        $mobile_menu_open_icon = $mobile_menu->addControlSection("mobile_menu_open_icon", __("Open Icon Layout"), "assets/icon.png", $this);
+        $mobile_menu_open_icon = $mobile_menu->addControlSection("mobile_menu_open_icon", oxygen_translate("Open Icon Layout"), "assets/icon.png", $this);
         $icon_selector = ".oxy-pro-menu-mobile-open-icon";
 
         $mobile_menu_open_icon->addOptionControl(
             array(
                 "type" => 'icon_finder',
-                "name" => __('Icon'),
+                "name" => oxygen_translate('Icon'),
                 "slug" => 'mobile_menu_open_icon',
                 "default" => 'FontAwesomeicon-ellipsis-v',
             )
@@ -716,7 +716,7 @@ class OxyProMenu extends OxyEl {
         $mobile_menu_open_icon->addOptionControl(
             array(
                 "type" => 'textfield',
-                "name" => __('Icon Text'),
+                "name" => oxygen_translate('Icon Text'),
                 "slug" => 'mobile_menu_open_icon_text',
                 "default" => 'Menu',
             )
@@ -726,7 +726,7 @@ class OxyProMenu extends OxyEl {
             array(
 
                 array(
-                    "name" => __('Icon Size'),
+                    "name" => oxygen_translate('Icon Size'),
                     "selector" => $icon_selector." svg",
                     "property" => 'width|height',
                     "control_type" => 'slider-measurebox',
@@ -734,31 +734,31 @@ class OxyProMenu extends OxyEl {
                     "default" => '30',
                 ),
                 array(
-                    "name" => __('Margin Above/Below'),
+                    "name" => oxygen_translate('Margin Above/Below'),
                     "selector" => $icon_selector."",
                     "property" => 'margin-top|margin-bottom',
                     "control_type" => 'slider-measurebox',
                     "unit" => 'px',
                 ),
                 array(
-                    "name" => __('Icon Margin Right'),
+                    "name" => oxygen_translate('Icon Margin Right'),
                     "selector" => $icon_selector." svg",
                     "property" => 'margin-right',
                     "control_type" => 'slider-measurebox',
                     "unit" => 'px',
                 ),
                 array(
-                    "name" => __('Icon Color'),
+                    "name" => oxygen_translate('Icon Color'),
                     "selector" => $icon_selector." svg",
                     "property" => 'color',
                 ),
                 array(
-                    "name" => __('Icon Hover Color'),
+                    "name" => oxygen_translate('Icon Hover Color'),
                     "selector" => $icon_selector.":hover svg",
                     "property" => 'color',
                 ),
                 array(
-                    "name" => __('Padding'),
+                    "name" => oxygen_translate('Padding'),
                     "selector" => $icon_selector."",
                     "property" => 'padding-top|padding-right|padding-bottom|padding-left',
                     "control_type" => 'slider-measurebox',
@@ -766,17 +766,17 @@ class OxyProMenu extends OxyEl {
                     "default" => '15',
                 ),
                 array(
-                    "name" => __('Padding Color'),
+                    "name" => oxygen_translate('Padding Color'),
                     "selector" => $icon_selector."",
                     "property" => 'background-color',
                 ),
                 array(
-                    "name" => __('Padding Hover Color'),
+                    "name" => oxygen_translate('Padding Hover Color'),
                     "selector" => $icon_selector.":hover",
                     "property" => 'background-color',
                 ),
                 array( 
-                    "name" => __('Padding Border Radius'),
+                    "name" => oxygen_translate('Padding Border Radius'),
                     "selector" => $icon_selector,
                     "property" => 'border-radius',
                     "control_type" => "measurebox",
@@ -787,7 +787,7 @@ class OxyProMenu extends OxyEl {
 
         $mobile_menu_open_icon->addStyleControl(
             array(
-                "name" => __('Icon Transition Duration'),
+                "name" => oxygen_translate('Icon Transition Duration'),
                 "selector" => "$icon_selector, $icon_selector svg",
                 "property" => 'transition-duration',
                 "control_type" => 'slider-measurebox',
@@ -797,7 +797,7 @@ class OxyProMenu extends OxyEl {
         ->setUnits('s','s')
         ->setRange('0','2','0.1');
 
-        $mobile_menu->typographySection(__("Open Icon Typography"), 
+        $mobile_menu->typographySection(oxygen_translate("Open Icon Typography"), 
             $icon_selector, 
             $this
         );
@@ -807,13 +807,13 @@ class OxyProMenu extends OxyEl {
          * Menu Close Icon sub-section
          */
 
-        $mobile_menu_close_icon = $mobile_menu->addControlSection("mobile_menu_close_icon", __("Close Icon Layout"), "assets/icon.png", $this);
+        $mobile_menu_close_icon = $mobile_menu->addControlSection("mobile_menu_close_icon", oxygen_translate("Close Icon Layout"), "assets/icon.png", $this);
         $icon_selector = ".oxy-pro-menu-mobile-close-icon";
 
         $mobile_menu_close_icon->addOptionControl(
             array(
                 "type" => 'icon_finder',
-                "name" => __('Icon'),
+                "name" => oxygen_translate('Icon'),
                 "slug" => 'mobile_menu_close_icon',
                 "default" => 'FontAwesomeicon-close',
             )
@@ -822,7 +822,7 @@ class OxyProMenu extends OxyEl {
         $mobile_menu_close_icon->addOptionControl(
             array(
                 "type" => 'textfield',
-                "name" => __('Icon Text'),
+                "name" => oxygen_translate('Icon Text'),
                 "slug" => 'mobile_menu_close_icon_text',
                 "default" => 'close',
             )
@@ -832,20 +832,20 @@ class OxyProMenu extends OxyEl {
             array(
 
                 array(
-                    "name" => __('Icon Position Top'),
+                    "name" => oxygen_translate('Icon Position Top'),
                     "selector" => $icon_selector,
                     "property" => 'top',
                     "default" => '20'
                 ),
                 array(
-                    "name" => __('Icon Position Left'),
+                    "name" => oxygen_translate('Icon Position Left'),
                     "selector" => $icon_selector,
                     "property" => 'left',
                     "default" => '20'
                 ),
 
                 array(
-                    "name" => __('Icon Size'),
+                    "name" => oxygen_translate('Icon Size'),
                     "selector" => $icon_selector." svg",
                     "property" => 'width|height',
                     "control_type" => 'slider-measurebox',
@@ -853,48 +853,48 @@ class OxyProMenu extends OxyEl {
                     "default" => '24'
                 ),
                 array(
-                    "name" => __('Margin Above/Below'),
+                    "name" => oxygen_translate('Margin Above/Below'),
                     "selector" => $icon_selector."",
                     "property" => 'margin-top|margin-bottom',
                     "control_type" => 'slider-measurebox',
                     "unit" => 'px'
                 ),
                 array(
-                    "name" => __('Icon Margin Right'),
+                    "name" => oxygen_translate('Icon Margin Right'),
                     "selector" => $icon_selector." svg",
                     "property" => 'margin-right',
                     "control_type" => 'slider-measurebox',
                     "unit" => 'px',
                 ),
                 array(
-                    "name" => __('Icon Color'),
+                    "name" => oxygen_translate('Icon Color'),
                     "selector" => $icon_selector." svg",
                     "property" => 'color',
                 ),
                 array(
-                    "name" => __('Icon Hover Color'),
+                    "name" => oxygen_translate('Icon Hover Color'),
                     "selector" => $icon_selector.":hover svg",
                     "property" => 'color',
                 ),
                 array(
-                    "name" => __('Padding'),
+                    "name" => oxygen_translate('Padding'),
                     "selector" => $icon_selector,
                     "control_type" => 'slider-measurebox',
                     "property" => 'padding-top|padding-right|padding-bottom|padding-left',
                     "unit" => 'px'
                 ),
                 array(
-                    "name" => __('Padding Color'),
+                    "name" => oxygen_translate('Padding Color'),
                     "selector" => $icon_selector."",
                     "property" => 'background-color',
                 ),
                 array(
-                    "name" => __('Padding Hover Color'),
+                    "name" => oxygen_translate('Padding Hover Color'),
                     "selector" => $icon_selector.":hover",
                     "property" => 'background-color',
                 ),
                 array( 
-                    "name" => __('Padding Border Radius'),
+                    "name" => oxygen_translate('Padding Border Radius'),
                     "selector" => $icon_selector,
                     "property" => 'border-radius',
                     "control_type" => "measurebox",
@@ -905,7 +905,7 @@ class OxyProMenu extends OxyEl {
 
         $mobile_menu_close_icon->addStyleControl(
             array(
-                "name" => __('Icon Transition Duration'),
+                "name" => oxygen_translate('Icon Transition Duration'),
                 "selector" => "$icon_selector, $icon_selector svg",
                 "property" => 'transition-duration',
                 "control_type" => 'slider-measurebox',
@@ -915,7 +915,7 @@ class OxyProMenu extends OxyEl {
         ->setUnits('s','s')
         ->setRange('0','2', '0.1');
 
-        $mobile_menu->typographySection(__("Close Icon Typography"), 
+        $mobile_menu->typographySection(oxygen_translate("Close Icon Typography"), 
             $icon_selector, 
             $this
         );
@@ -925,11 +925,11 @@ class OxyProMenu extends OxyEl {
          * General Mobile Menu styles sub-section
          */
 
-        $mobile_menu_styles = $mobile_menu->addControlSection("mobile_menu_styles", __("Menu Styles"), "assets/icon.png", $this);
+        $mobile_menu_styles = $mobile_menu->addControlSection("mobile_menu_styles", oxygen_translate("Menu Styles"), "assets/icon.png", $this);
 
         $mobile_menu_styles->addStyleControl(
             array(
-                "name" => __('Items Min Width'),
+                "name" => oxygen_translate('Items Min Width'),
                 "slug" => 'slug_oxypromenuoffcanvascontaineroxypromenulistmenuitemoxypromenuopencontaineroxypromenulistmenuitem_min_width', /* for backward compat with 3.2 */
                 "selector" => ".oxy-pro-menu-off-canvas-container > div:first-child,
                                .oxy-pro-menu-open-container > div:first-child",
@@ -941,21 +941,21 @@ class OxyProMenu extends OxyEl {
         $mobile_menu_styles->addOptionControl(
             array(
                 "type" => 'checkbox',
-                "name" => __('Off Canvas','oxygen'),
+                "name" => oxygen_translate('Off Canvas','oxygen'),
                 "slug" => 'off_canvas'
             )
         )->rebuildElementOnChange();
 
         $mobile_menu_styles->addStyleControl(
             array(
-                "name" => __('Off Canvas Width'),
+                "name" => oxygen_translate('Off Canvas Width'),
                 "selector" => ".oxy-pro-menu-off-canvas-container",
                 "property" => 'width',
                 "default" => ''
             )
         )->setCondition("off_canvas=true");
 
-        $off_canvas_alignment = $mobile_menu_styles->addControl("buttons-list", "off_canvas_alignment", __("Off Canvas Alignment") );
+        $off_canvas_alignment = $mobile_menu_styles->addControl("buttons-list", "off_canvas_alignment", oxygen_translate("Off Canvas Alignment") );
         $off_canvas_alignment->setCondition("off_canvas=true");
         $off_canvas_alignment->setValue( array("left","right") );
         $off_canvas_alignment->setValueCSS( array(
@@ -977,7 +977,7 @@ class OxyProMenu extends OxyEl {
         ) );
 
 
-        $html = $this->animations_dropdown('menu_off_canvas_animation',__("Off Canvas Animation","oxygen"));
+        $html = $this->animations_dropdown('menu_off_canvas_animation',oxygen_translate("Off Canvas Animation","oxygen"));
         $off_canvas_animation = $mobile_menu_styles->addCustomControl($html, 'menu_off_canvas_animation');
         $off_canvas_animation->setCondition("off_canvas=true");
         $off_canvas_animation->rebuildElementOnChange();
@@ -985,7 +985,7 @@ class OxyProMenu extends OxyEl {
         $transition_duration = $mobile_menu_styles->addOptionControl(
             array(
                 "type" => 'slider-measurebox',
-                "name" => __('Animation Duration','oxygen'),
+                "name" => oxygen_translate('Animation Duration','oxygen'),
                 "slug" => 'off_canvas_transition_duration',
                 "default" => "0.4"
             )
@@ -1001,18 +1001,18 @@ class OxyProMenu extends OxyEl {
         $mobile_menu_styles->addStyleControls(
             array(
                 array(
-                    "name" => __('Background Color'),
+                    "name" => oxygen_translate('Background Color'),
                     "selector" => ".oxy-pro-menu-container.oxy-pro-menu-off-canvas-container, .oxy-pro-menu-container.oxy-pro-menu-open-container",
                     "property" => 'background-color',
                     "default" => '#ffffff'
                 ),
                 array(
-                    "name" => __('Link Text Color'),
+                    "name" => oxygen_translate('Link Text Color'),
                     "selector" => $selector,
                     "property" => 'color',
                 ),
                 array(
-                    "name" => __('Link Text Hover Color'),
+                    "name" => oxygen_translate('Link Text Hover Color'),
                     "selector" => $hover_selector,
                     // use previous slug for backward compat
                     "slug" => 'oxy-pro-menu_slug_oxypromenucontaineroxypromenuopencontainermenuitemaoxypromenucontaineroxypromenuoffcanvascontainermenuitemahover_color',
@@ -1024,18 +1024,18 @@ class OxyProMenu extends OxyEl {
         $mobile_menu_styles->addPreset(
             "padding",
             "mobile_menu_item_padding",
-            __("Link Padding"),
+            oxygen_translate("Link Padding"),
             $selector
         )->whiteList();
 
         $mobile_menu_styles->addPreset(
             "padding",
             "mobile_menu_container_padding",
-            __("Container Padding"),
+            oxygen_translate("Container Padding"),
             ".oxy-pro-menu-container.oxy-pro-menu-open-container,.oxy-pro-menu-container.oxy-pro-menu-off-canvas-container"
         )->whiteList();
 
-        $mobile_item_text_align = $mobile_menu_styles->addControl("buttons-list", "mobile_item_text_align", __("Item Text Align") );
+        $mobile_item_text_align = $mobile_menu_styles->addControl("buttons-list", "mobile_item_text_align", oxygen_translate("Item Text Align") );
         $mobile_item_text_align->setValue( array("Left","Center", "Right") );
         $mobile_item_text_align->setValueCSS( array(
             "Left" => "
@@ -1076,7 +1076,7 @@ class OxyProMenu extends OxyEl {
 
         $typographySection = $mobile_menu->addControlsSection(
             $slug,
-            __("Typography"),
+            oxygen_translate("Typography"),
             "assets/icon.png",
             $this
         );
@@ -1100,7 +1100,7 @@ class OxyProMenu extends OxyEl {
          * Mobile Menu background and gradient
          */
 
-        $mobile_menu_background = $mobile_menu->addControlSection("mobile_menu_background", __("Background"), "assets/icon.png", $this);
+        $mobile_menu_background = $mobile_menu->addControlSection("mobile_menu_background", oxygen_translate("Background"), "assets/icon.png", $this);
 
         $mobile_menu_background->addPreset(
             "background",
@@ -1113,12 +1113,12 @@ class OxyProMenu extends OxyEl {
          * Mobile Menu Dropdowns sub-section
          */
 
-        $mobile_dropdowns = $this->addControlSection("mobile_dropdowns", __("Mobile Dropdowns"), "assets/icon.png", $this);
+        $mobile_dropdowns = $this->addControlSection("mobile_dropdowns", oxygen_translate("Mobile Dropdowns"), "assets/icon.png", $this);
 
         $show_dropdowns_on_mobile = $mobile_dropdowns->addOptionControl(
             array(
                 "type" => 'buttons-list',
-                "name" => __('Include Dropdown Links In Responsive Menu','oxygen'),
+                "name" => oxygen_translate('Include Dropdown Links In Responsive Menu','oxygen'),
                 "slug" => 'show_dropdown_links_on_mobile',
                 "value" => array('hide','show in line','toggle'),
                 "default" => 'toggle',
@@ -1136,7 +1136,7 @@ class OxyProMenu extends OxyEl {
         $animation_duration = $mobile_dropdowns->addOptionControl(
             array(
                 "type" => 'slider-measurebox',
-                "name" => __('Animation Duration'),
+                "name" => oxygen_translate('Animation Duration'),
                 "value" => 0.4,
                 "slug" => 'dropdown_links_on_mobile_animation_duration',
                 "condition" => 'show_dropdown_links_on_mobile=toggle',
@@ -1149,7 +1149,7 @@ class OxyProMenu extends OxyEl {
         $entire_parent = $mobile_dropdowns->addOptionControl(
             array(
                 "type" => 'checkbox',
-                "name" => __('Entire Parent Toggles Dropdown'),
+                "name" => oxygen_translate('Entire Parent Toggles Dropdown'),
                 "slug" => 'entire_parent_toggles_dropdown',
                 "condition" => 'show_dropdown_links_on_mobile=toggle',
                 "default" => 'true'
@@ -1159,7 +1159,7 @@ class OxyProMenu extends OxyEl {
         $selector = ".oxy-pro-menu-dropdown-links-visible-on-mobile.oxy-pro-menu-off-canvas-container .menu-item-has-children > a, .oxy-pro-menu-dropdown-links-visible-on-mobile.oxy-pro-menu-open-container .menu-item-has-children > a";
         $dropdown_icon_size = $mobile_dropdowns->addStyleControl(
                 array(
-                    "name" => __('Dropdown Icon Size'),
+                    "name" => oxygen_translate('Dropdown Icon Size'),
                     "slug" => "dropdown_icon_size",
                     "selector" => ".oxy-pro-menu-off-canvas-container .oxy-pro-menu-list .menu-item-has-children > a svg, .oxy-pro-menu-open-container .oxy-pro-menu-list .menu-item-has-children > a svg",
                     "control_type" => 'slider-measurebox',
@@ -1175,7 +1175,7 @@ class OxyProMenu extends OxyEl {
 
         $mobile_dropdowns->addStyleControl(
             array(
-                "name" => __('Dropdown Background Color'),
+                "name" => oxygen_translate('Dropdown Background Color'),
                 "selector" => $selector,
                 "value" => 'rgba(0,0,0,0.2)',
                 "property" => 'background-color',
@@ -1186,13 +1186,13 @@ class OxyProMenu extends OxyEl {
         $mobile_dropdowns->addStyleControls(
             array(
                 array(
-                    "name" => __('Dropdown Border-Top'),
+                    "name" => oxygen_translate('Dropdown Border-Top'),
                     "control_type" => 'heading',
                     "property" => '',
                     "condition" => 'show_dropdown_links_on_mobile=toggle',
                     ),
                 array(
-                    "name" => __('Width'),
+                    "name" => oxygen_translate('Width'),
                     "selector" => $selector,
                     "property" => 'border-top-width',
                     "control_type" => 'measurebox',
@@ -1200,13 +1200,13 @@ class OxyProMenu extends OxyEl {
                     "condition" => 'show_dropdown_links_on_mobile=toggle',
                 ),
                 array(
-                    "name" => __('Color'),
+                    "name" => oxygen_translate('Color'),
                     "selector" => $selector,
                     "property" => 'border-top-color',
                     "condition" => 'show_dropdown_links_on_mobile=toggle',
                 ),
                 array(
-                    "name" => __('Style'),
+                    "name" => oxygen_translate('Style'),
                     "selector" => $selector,
                     "property" => 'border-top-style',
                     "control_type" => 'buttons-list',

@@ -4,6 +4,7 @@ class ExtraSocial extends OxygenExtraElements {
     
     var $css_added = false;
     var $js_added = false;
+    var $print_js_added = false;
 
 	function name() {
         return 'Social Share Buttons';
@@ -43,6 +44,7 @@ class ExtraSocial extends OxygenExtraElements {
         $pinterest_icon = esc_attr($options['pinterest_icon']);
         $xing_icon = esc_attr($options['xing_icon']);
         $line_icon = esc_attr($options['line_icon']);
+        $print_icon = esc_attr($options['print_icon']);
 
         global $oxygen_svg_icons_to_load;
         $oxygen_svg_icons_to_load[] = $twitter_icon;
@@ -54,6 +56,7 @@ class ExtraSocial extends OxygenExtraElements {
         $oxygen_svg_icons_to_load[] = $pinterest_icon;
         $oxygen_svg_icons_to_load[] = $xing_icon;
         $oxygen_svg_icons_to_load[] = $line_icon;
+        $oxygen_svg_icons_to_load[] = $print_icon;
         
         // Button Text
         
@@ -67,6 +70,11 @@ class ExtraSocial extends OxygenExtraElements {
         $pinterest_text = esc_attr($options['pinterest_text']);
         $xing_text = esc_attr($options['xing_text']);
         $line_text = esc_attr($options['line_text']);
+        $print_text = esc_attr($options['print_text']);
+        $print_selector = isset( $options['print_selector'] ) ? esc_attr( $options['print_selector'] ) : 'body';
+
+        $print_color_adjust = isset( $options['print_color_adjust'] ) ? esc_attr( $options['print_color_adjust'] ) : 'exact';
+        $remove_share_buttons = isset( $options['remove_share_buttons'] ) ? esc_attr( $options['remove_share_buttons'] ) : 'disable';
         
         
         
@@ -249,6 +257,8 @@ class ExtraSocial extends OxygenExtraElements {
              
         }
 
+         // Line
+
         if ( $options['line_display'] !== 'hide' ) {
 
             ?> <a class="oxy-share-button line" target="_blank" aria-label="<?php echo $line_text; ?>" href="<?php echo $line_url; ?>" rel="noopener noreferrer nofollow">
@@ -268,12 +278,34 @@ class ExtraSocial extends OxygenExtraElements {
 
         }
 
-       echo '<div class="oxy-social-share-buttons_data" data-behaviour="'. $behaviour .'"></div>';
+
+         // Print
+        
+         if ( $options['print_display'] !== 'hide' ) {
+            
+            ?> <button class="oxy-share-button print" target="_blank" aria-label="<?php echo $print_text; ?>" data-print-exact="<?php echo $print_color_adjust; ?>" data-print-selector="<?php echo $print_selector; ?>" >
+           <?php if ( esc_attr($options['social_display']) != 'text' ) { ?>
+               <span class="oxy-share-icon"><svg id="print<?php echo esc_attr($options['selector']); ?>-share-icon"><use xlink:href="#<?php echo $print_icon; ?>"></use></svg></span>
+            <?php } ?>
+           <?php if ( esc_attr($options['social_display']) != 'icon' ) { ?>
+               <span class="oxy-share-name"><?php echo $print_text; ?></span>
+          <?php } ?>
+           </button> <?php
+            
+       }
+
+       echo '<div class="oxy-social-share-buttons_data" data-hide-print="' . $remove_share_buttons . '" data-behaviour="'. $behaviour .'"></div>';
 
         // Only load each JS file once
         if ($this->js_added !== true && ('popup' === $behaviour)) {
             if (!defined('OXY_ELEMENTS_API_AJAX') || !OXY_ELEMENTS_API_AJAX) {
                 add_action( 'wp_footer', array( $this, 'output_js' ) );
+            }
+        }
+
+        if ($this->print_js_added !== true && ( $options['print_display'] !== 'hide') ) {
+            if (!defined('OXY_ELEMENTS_API_AJAX') || !OXY_ELEMENTS_API_AJAX) {
+                add_action( 'wp_footer', array( $this, 'output_print_js' ) );
             }
         }
 
@@ -387,7 +419,7 @@ class ExtraSocial extends OxygenExtraElements {
                 "type" => 'textfield',
                 "name" => __('Button Text'),
                 "slug" => 'twitter_text',
-                "default" => 'Twitter',
+                "default" => 'X',
                 "condition" => 'twitter_display=display',
                 "base64" => true
             )
@@ -408,7 +440,7 @@ class ExtraSocial extends OxygenExtraElements {
                 "type" => 'icon_finder',
                 "name" => __('Icon'),
                 "slug" => 'twitter_icon',
-                "value" => 'FontAwesomeicon-twitter',
+                "value" => 'FontAwesomeicon-x-twitter',
                 "condition" => 'twitter_display=display',
             )
         )->rebuildElementOnChange();
@@ -594,6 +626,45 @@ class ExtraSocial extends OxygenExtraElements {
                 "default" => '',
             )
         );
+
+        $email_button = '.oxy-share-button.email';
+
+            $email_section->addStyleControls(
+                array(
+                    array(
+                        "name" => __('Background Color'),
+                        "selector" => $email_button,
+                        "property" => 'background-color',
+                        "default" => '#111',
+                        "condition" => 'brand=brand'
+                    ),
+                    array(
+                        "name" => __('Text / Icon Color'),
+                        "selector" => $email_button,
+                        "property" => 'color',
+                        "default" => '#fff',
+                        "condition" => 'brand=brand'
+                    )
+                )
+            );
+            
+            
+            $email_section->addStyleControls(
+                array(
+                    array(
+                        "name" => __('Background Color (hover)'),
+                        "selector" => $email_button.":hover",
+                        "property" => 'background-color',
+                        "condition" => 'brand=brand'
+                    ),
+                    array(
+                        "name" => __('Text / Icon Color (hover)'),
+                        "selector" => $email_button.":hover",
+                        "property" => 'color',
+                        "condition" => 'brand=brand'
+                    )
+                )
+            );
         
         
          /**
@@ -860,6 +931,131 @@ class ExtraSocial extends OxygenExtraElements {
                   "default" => '',
               )
           );
+
+
+          /**
+          * Print
+          */
+        
+          $print_section = $display_section->addControlSection("print_section", __("Print"), "assets/icon.png", $this);
+        
+        
+          $print_section->addOptionControl(
+              array(
+                  'type' => 'buttons-list',
+                  'name' => 'Print Button',
+                  'slug' => 'print_display')
+  
+              )->setValue(array( "display" => "Display", "hide" => "Remove" ))
+               ->setDefaultValue('hide')->rebuildElementOnChange();
+
+            $print_section->addOptionControl(
+                array(
+                    "type" => 'textfield',
+                    "name" => __('Button text'),
+                    "slug" => 'print_text',
+                    "default" => 'Print',
+                    "condition" => 'print_display=display',
+                    "base64" => true
+                )
+            )->rebuildElementOnChange();
+
+            $print_section->addOptionControl(
+                array(
+                    "type" => 'icon_finder',
+                    "name" => __('Icon'),
+                    "slug" => 'print_icon',
+                    "value" => 'FontAwesomeicon-print',
+                    "condition" => 'print_display=display',
+                )
+            )->rebuildElementOnChange();
+
+            $print_section->addOptionControl(
+                array(
+                    "type" => 'textfield',
+                    "name" => __('Selector of content area to print'),
+                    "slug" => 'print_selector',
+                    "default" => 'body',
+                    "condition" => 'print_display=display',
+                    "base64" => true
+                )
+            );
+
+            $print_section->addOptionControl(
+                array(
+                    "type" => 'buttons-list',
+                    "name" => __('Print color adjust'),
+                    "slug" => 'print_color_adjust',
+                    "default" => 'Exact',
+                    "condition" => 'print_display=display',
+                )
+            )->setValue(array( 
+                "exact" => "Exact", 
+                "economy" => "Economy" 
+            ));
+
+            $print_section->addOptionControl(
+                array(
+                    "type" => 'buttons-list',
+                    "name" => __('Remove share buttons from print'),
+                    "slug" => 'remove_share_buttons',
+                    "default" => 'Disable',
+                    "condition" => 'print_display=display',
+                )
+            )->setValue(array( 
+                "enable" => "Enable", 
+                "disable" => "Disable" 
+            ));
+
+
+            $print_section->addStyleControl(
+                array( 
+                    "name" => __('Order (flex)'),
+                    "selector" => '.oxy-share-button.print',
+                    "property" => 'order',
+                    "control_type" => "textfield",
+                    "default" => '',
+                )
+            );
+
+            $print_button = '.oxy-share-button.print';
+
+            $print_section->addStyleControls(
+                array(
+                    array(
+                        "name" => __('Background Color'),
+                        "selector" => $print_button,
+                        "property" => 'background-color',
+                        "default" => '#111',
+                        "condition" => 'brand=brand'
+                    ),
+                    array(
+                        "name" => __('Text / Icon Color'),
+                        "selector" => $print_button,
+                        "property" => 'color',
+                        "default" => '#fff',
+                        "condition" => 'brand=brand'
+                    )
+                )
+            );
+            
+            
+            $print_section->addStyleControls(
+                array(
+                    array(
+                        "name" => __('Background Color (hover)'),
+                        "selector" => $print_button.":hover",
+                        "property" => 'background-color',
+                        "condition" => 'brand=brand'
+                    ),
+                    array(
+                        "name" => __('Text / Icon Color (hover)'),
+                        "selector" => $print_button.":hover",
+                        "property" => 'color',
+                        "condition" => 'brand=brand'
+                    )
+                )
+            );
 
 
         
@@ -1339,35 +1535,49 @@ class ExtraSocial extends OxygenExtraElements {
             jQuery(document).ready(oxygen_social_share);
             function oxygen_social_share($) {
 
-                $('.oxy-social-share-buttons').each(function( i, OxySocialShare ) {
+                let extrasSocialShare = function ( container ) {
 
-                    if ( $(OxySocialShare).has('.oxy-social-share-buttons_data[data-behaviour="popup"]') ) {
+                    $('.oxy-social-share-buttons').each(function( i, OxySocialShare ) {
 
-                        let socialWidth = 600;
-                        let socialHeight = 600;
-                        
-                        let leftPosition = (window.screen.width / 2) - ((socialWidth / 2) + 10);
-                        let topPosition = (window.screen.height / 2) - ((socialHeight / 2) + 50);
-                        let windowFeatures = "width="+ socialWidth +",height="+ socialHeight +",scrollbars=yes,left=" + leftPosition + ",top=" + topPosition + ",screenX=" + leftPosition + ",screenY=" + topPosition + ",toolbar=no,menubar=no,location=no,directories=no";
+                        if ( $(OxySocialShare).has('.oxy-social-share-buttons_data[data-behaviour="popup"]') ) {
 
-                        $(OxySocialShare).has('.oxy-social-share-buttons_data[data-behaviour="popup"]').find('.oxy-share-button:not(.email)').on('click', function (e) {
+                            let socialWidth = 600;
+                            let socialHeight = 600;
+                            
+                            let leftPosition = (window.screen.width / 2) - ((socialWidth / 2) + 10);
+                            let topPosition = (window.screen.height / 2) - ((socialHeight / 2) + 50);
+                            let windowFeatures = "width="+ socialWidth +",height="+ socialHeight +",scrollbars=yes,left=" + leftPosition + ",top=" + topPosition + ",screenX=" + leftPosition + ",screenY=" + topPosition + ",toolbar=no,menubar=no,location=no,directories=no";
 
-                            e.preventDefault();
-                            window.open(
-                                jQuery(this).attr("href"),
-                                "popupWindow",
-                                windowFeatures
-                            );
+                            $(OxySocialShare).has('.oxy-social-share-buttons_data[data-behaviour="popup"]').find('a.oxy-share-button:not(.email)').on('click', function (e) {
 
-                        });
+                                e.preventDefault();
+                                window.open(
+                                    jQuery(this).attr("href"),
+                                    "popupWindow",
+                                    windowFeatures
+                                );
 
-                    }
+                            });
 
-                }); 
+                        }
+
+                    }); 
+
+                }
+
+                extrasSocialShare('body');
+                
+                // Expose function
+                window.doExtrasSocialShare = extrasSocialShare;
 
            }  </script>  
            
         <?php }
+        
+
+    function output_print_js() { 
+        wp_enqueue_script( 'print-js', plugin_dir_url(__FILE__) . 'assets/print.js', '', '1.0.0' );
+    }
     
     
     function customCSS($options, $selector) {
@@ -1387,6 +1597,9 @@ class ExtraSocial extends OxygenExtraElements {
                         align-items: stretch;
                         margin: .2em;
                         overflow: hidden;
+                        cursor: pointer;
+                        border: none;
+                        padding: 0;
                     }
 
                     .oxy-social-share-buttons .oxy-share-button {
@@ -1420,7 +1633,28 @@ class ExtraSocial extends OxygenExtraElements {
 
                     .oxy-share-name {
                         padding: 1em 1.5em;
-                    }";
+                    }
+                    
+                    @media print {
+    
+                        .x-print-no-print {
+                            display: none !important;
+                        }
+                    
+                        .x-print-preserve-ancestor {
+                            display: block !important;
+                            margin: 0 !important;
+                            padding: 0 !important;
+                            border: none !important;
+                            box-shadow: none !important;
+                        }
+                    
+                        .oxy-social-share-buttons[data-x-hide-print] {
+                            display: none !important;
+                        }
+                    }
+                    
+                    ";
             
             $this->css_added = true;
             

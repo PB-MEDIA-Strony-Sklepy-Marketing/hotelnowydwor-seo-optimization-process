@@ -8,6 +8,7 @@
 class Oxygen_VSB_Dynamic_Shortcodes {
 
 	private $query;
+	private $custom_dynamic_datas = array();
 
 	function oxygen_vsb_add_shortcode() {
 		add_shortcode('oxygen', array($this, 'oxygen_vsb_dynamic_shortcode'));

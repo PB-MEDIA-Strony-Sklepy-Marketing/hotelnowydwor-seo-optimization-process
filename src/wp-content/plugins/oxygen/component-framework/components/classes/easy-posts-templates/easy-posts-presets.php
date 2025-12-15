@@ -14,7 +14,7 @@
         json_decode('{"name":"CSS Grid - 6 Columns","slug":"css-grid-6-columns-f","options":{"original":{"code-php":"<div class=\'oxy-post\' style=\'background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);\'>\n \n \t<div class=\'oxy-post-image-overlay\'>\n \n <div class=\'oxy-post-image-date-overlay\'>\n\t\t<?php the_time(get_option(\'date_format\')); ?>\n\t</div>\n \n <a class=\'oxy-post-title\' href=\'<?php the_permalink(); ?>\'><?php the_title(); ?></a>\n \n <a href=\'<?php the_permalink(); ?>\' class=\'oxy-read-more\'>Read More</a>\n \n \t</div>\n\n</div>","code-css":"%%EPID%% .oxy-post {\n display: flex;\n flex-direction: column;\n text-align: left;\n align-items: flex-start;\n width: 100%;\n background-size: cover;\n background-position: center center;\n}\n\n%%EPID%% .oxy-post-image-overlay {\n position: relative;\n display: flex;\n flex-grow: 1;\n flex-direction: column;\n text-align: left;\n align-items: center;\n justify-content: center;\n width: 100%;\n padding: 64px 16px;\n background-color: rgba(255,255,255,0.5);\n}\n\n%%EPID%% .oxy-post-image-date-overlay {\n position: absolute;\n top: 1rem;\n right: 1rem;\n font-size: .7rem;\n color: white;\n background-color: rgba(0,0,0,0.5);\n padding: .7rem 1rem;\n font-weight: bold;\n -webkit-font-smoothing: antialiased;\n}\n\n%%EPID%% .oxy-post-title {\n font-size: 1.5rem;\n line-height: 1.75rem;\n margin-bottom: 1rem;\n}\n\n%%EPID%% .oxy-easy-posts-pages {\n margin-top: 16px;\n padding: 16px 8px;\n}\n\n%%EPID%% .oxy-easy-posts-pages .page-numbers {\n padding: 8px 12px;\n background-color: #f2f2f2;\n color: black;\n}\n\n@media (max-width: 480px) {\n %%EPID%% .oxy-easy-posts-pages .page-numbers {\n line-height: 3rem;\n }\n}\n\n%%EPID%% .oxy-easy-posts-pages .page-numbers.current {\n background-color: #dddddd;\n}\n\n%%EPID%% .oxy-easy-posts-pages .page-numbers:hover {\n background-color: #dddddd; \n}\n","title_size":"","title_size-unit":"px","title_color":"#000000","title_hover_color":"#333333","meta_size":"","meta_size-unit":"px","meta_color":"","content_size":"","content_size-unit":"px","content_color":"","read_more_display_as":"button","read_more_size":"0.8","read_more_size-unit":"rem","read_more_text_color":"white","read_more_text_hover_color":"","read_more_button_color":"black","read_more_button_hover_color":"","paginate_color":"","paginate_alignment":"center","paginate_link_color":"","paginate_link_hover_color":"","posts_5050_below":"never","posts_100_below":"never","flex-direction":"grid","grid-column-count":"6","grid-column-min-width":"100","grid-column-gap":"16","grid-row-gap":"16","grid-match-height-of-tallest-child":"true","grid-child-rules":[{"child-index":0,"column-span":"6","row-span":""},{"child-index":1,"column-span":"4","row-span":"2"},{"child-index":2,"column-span":"2","row-span":""},{"child-index":3,"column-span":"2","row-span":""},{"child-index":4,"column-span":"2","row-span":""},{"child-index":5,"column-span":"2","row-span":""},{"child-index":6,"column-span":"2","row-span":""},{"child-index":7,"column-span":"2","row-span":""},{"child-index":8,"column-span":"2","row-span":""},{"child-index":9,"column-span":"2","row-span":""}],"display":"flex","wp_query":"default","query_post_types":["post"]},"media":{"tablet":{"original":{"flex-direction":"grid","grid-column-count":"6","grid-column-min-width":"10","grid-column-max-width":"1","grid-child-rules":[{"child-index":0,"column-span":"6","row-span":""},{"child-index":1,"column-span":"6","row-span":"2"},{"child-index":2,"column-span":"6","row-span":""},{"child-index":3,"column-span":"6","row-span":""},{"child-index":4,"column-span":"3","row-span":""},{"child-index":5,"column-span":"3","row-span":""},{"child-index":6,"column-span":"3","row-span":""},{"child-index":7,"column-span":"3","row-span":""},{"child-index":8,"column-span":"3","row-span":""},{"child-index":9,"column-span":"3","row-span":""}]}},"phone-landscape":{"original":[]},"phone-portrait":{"original":{"flex-direction":"grid","grid-column-count":"6","grid-column-min-width":"10","grid-child-rules":[{"child-index":0,"column-span":"6","row-span":""},{"child-index":1,"column-span":"6","row-span":""},{"child-index":2,"column-span":"6","row-span":""},{"child-index":3,"column-span":"6","row-span":""},{"child-index":4,"column-span":"6","row-span":""},{"child-index":5,"column-span":"6","row-span":""},{"child-index":6,"column-span":"6","row-span":""},{"child-index":7,"column-span":"6","row-span":""},{"child-index":8,"column-span":"6","row-span":""},{"child-index":9,"column-span":"6","row-span":""}]}}}}}', true),
         
     	array(
-	        "name" => __("Grid - Image - Standard","oxygen"),
+	        "name" => oxygen_translate("Grid - Image - Standard","oxygen"),
             "slug" => "grid-image-standard",
             "options" => array(
 	        	"original" => array(
@@ -26,7 +26,7 @@
 	    ),
 
 	    array(
-            "name" => __("Grid - Image w/ Animated Dark Gradient Overlay","oxygen"),
+            "name" => oxygen_translate("Grid - Image w/ Animated Dark Gradient Overlay","oxygen"),
             "slug" => "grid-image-dark-gradient",
             "options" => array(
             	"original" => array(
@@ -38,7 +38,7 @@
         ),
 
 	    array(
-            "name" => __("Grid - Image w/ Gradient Overlap","oxygen"),
+            "name" => oxygen_translate("Grid - Image w/ Gradient Overlap","oxygen"),
             "slug" => "grid-image-gradient",
 	    	"options" => array(
             	"original" => array(
@@ -50,7 +50,7 @@
 	    ),
 
 	    array(
-            "name" => __("Grid - Image w/ Rectangle Overlap","oxygen"),
+            "name" => oxygen_translate("Grid - Image w/ Rectangle Overlap","oxygen"),
             "slug" => "grid-image-w-rectangle-overlap",
             "options" => array(
             	"original" => array(
@@ -62,7 +62,7 @@
 	    ),
 
 	    array(
-            "name" => __("Grid - Image w/ Title Overlay","oxygen"),
+            "name" => oxygen_translate("Grid - Image w/ Title Overlay","oxygen"),
             "slug" => "grid-image-w-title-overlay",
             "options" => array(
             	"original" => array(
@@ -74,7 +74,7 @@
 	    ),
 
 	    array(        
-            "name" => __("List - Image on Left","oxygen"),
+            "name" => oxygen_translate("List - Image on Left","oxygen"),
             "slug" => "list-image-on-left",
             "options" => array(
             	"original" => array(
@@ -86,7 +86,7 @@
 	    ),
 
 	    array(
-            "name" => __("List - Standard (Centered)","oxygen"),
+            "name" => oxygen_translate("List - Standard (Centered)","oxygen"),
             "slug" => "list-standard-centered",
             "options" => array(
             	"original" => array(
@@ -98,7 +98,7 @@
 	    ),
 
 	    array(
-            "name" => __("List - Standard (Left)","oxygen"),
+            "name" => oxygen_translate("List - Standard (Left)","oxygen"),
             "slug" => "list-standard-left",
             "options" => array(
             	"original" => array(
@@ -110,7 +110,7 @@
 	    ),
 
 	    array(
-            "name" => __("List w/ Rectangle Overlap (Centered)","oxygen"),
+            "name" => oxygen_translate("List w/ Rectangle Overlap (Centered)","oxygen"),
             "slug" => "list-w-rectangle-overlap-centered",
             "options" => array(
             	"original" => array(
@@ -122,7 +122,7 @@
 	    ),
 
 	    array(
-            "name" => __("List w/ Rectangle Overlap (left)","oxygen"),
+            "name" => oxygen_translate("List w/ Rectangle Overlap (left)","oxygen"),
             "slug" => "list-w-rectangle-overlap-left",
             "options" => array(
             	"original" => array(
@@ -134,7 +134,7 @@
 	    ),
 
 	    array(
-            "name" => __("Masonry - Image - Standard","oxygen"),
+            "name" => oxygen_translate("Masonry - Image - Standard","oxygen"),
             "slug" => "masonry-image-standard",
             "options" => array(
             	"original" => array(
@@ -146,7 +146,7 @@
 	    ),
 
 	    array(
-            "name" => __("Masonry - Image w/ Gradient Overlap","oxygen"),
+            "name" => oxygen_translate("Masonry - Image w/ Gradient Overlap","oxygen"),
             "slug" => "masonry-image-w-gradient-overlap",
             "options" => array(
             	"original" => array(
@@ -158,7 +158,7 @@
 	    ),
 
 	    array(
-            "name" => __("Masonry - Image w/ Rectangle Overlap","oxygen"),
+            "name" => oxygen_translate("Masonry - Image w/ Rectangle Overlap","oxygen"),
             "slug" => "masonry-image-w-gradient-overlap",
             "options" => array(
             	"original" => array(
@@ -170,7 +170,7 @@
 	    ),
 
 	    array(
-            "name" => __("Masonry - Image w/ Title Overlay","oxygen"),
+            "name" => oxygen_translate("Masonry - Image w/ Title Overlay","oxygen"),
             "slug" => "masonry-image-w-title-overlay",
             "options" => array(
             	"original" => array(

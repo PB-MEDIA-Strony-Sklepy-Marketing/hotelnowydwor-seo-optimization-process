@@ -99,9 +99,9 @@ Class CT_Widget extends CT_Component {
 		</div>
 		<div class="oxygen-widget-settings-bottom" 
 			ng-if="isActiveName('<?php echo $this->options['tag']; ?>')">
-			<div class="oxygen-widget-settings-apply-button" title="<?php _e("Apply widget options","oxygen"); ?>" 
+			<div class="oxygen-widget-settings-apply-button" title="<?php oxygen_translate_echo("Apply widget options","oxygen"); ?>" 
 				ng-click="iframeScope.applyWidgetInstance()">
-				<?php _e("Apply", "oxygen"); ?>
+				<?php oxygen_translate_echo("Apply", "oxygen"); ?>
 			</div>
 			<?php
 				/**
@@ -203,7 +203,7 @@ $oxygen_vsb_components['widget'] = new CT_Widget( array(
 					),
 					array(
 						"type" 			=> "checkbox",
-						"heading" 		=> __("Don't render in Oxygen","oxygen"),
+						"heading" 		=> oxygen_translate("Don't render in Oxygen","oxygen"),
 						"param_name" 	=> "dont_render",
 						"value" 		=> "false",
 						"true_value" 	=> "true",
@@ -212,7 +212,7 @@ $oxygen_vsb_components['widget'] = new CT_Widget( array(
 					),
 					array(
 						"type" 			=> "measurebox",
-						"heading" 		=> __("Placeholder Width"),
+						"heading" 		=> oxygen_translate("Placeholder Width"),
 						"param_name" 	=> "placeholder-width",
 						"value" 		=> "",
 						"condition" 	=> "dont_render=true",
@@ -220,7 +220,7 @@ $oxygen_vsb_components['widget'] = new CT_Widget( array(
 					),
 					array(
 						"type" 			=> "measurebox",
-						"heading" 		=> __("Placeholder Height"),
+						"heading" 		=> oxygen_translate("Placeholder Height"),
 						"param_name" 	=> "placeholder-height",
 						"value" 		=> "",
 						"condition" 	=> "dont_render=true",

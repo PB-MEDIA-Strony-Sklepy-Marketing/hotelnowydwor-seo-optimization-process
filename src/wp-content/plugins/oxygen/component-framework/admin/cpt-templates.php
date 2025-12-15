@@ -20,15 +20,15 @@ function ct_add_templates_cpt() {
 		'menu_name'          => _x( 'Templates', 'admin menu', 'component-theme' ),
 		'name_admin_bar'     => _x( 'Template', 'add new on admin bar', 'component-theme' ),
 		'add_new'            => _x( 'Add New Template', 'template', 'component-theme' ),
-		'add_new_item'       => __( 'Add New Template', 'component-theme' ),
-		'new_item'           => __( 'New Template', 'component-theme' ),
-		'edit_item'          => __( 'Edit Template', 'component-theme' ),
-		'view_item'          => __( 'View Template', 'component-theme' ),
-		'all_items'          => __( 'Templates', 'component-theme' ),
-		'search_items'       => __( 'Search Templates', 'component-theme' ),
-		'parent_item_colon'  => __( 'Parent Templates:', 'component-theme' ),
-		'not_found'          => __( 'No templates found.', 'component-theme' ),
-		'not_found_in_trash' => __( 'No templates found in Trash.', 'component-theme' )
+		'add_new_item'       => oxygen_translate( 'Add New Template', 'component-theme' ),
+		'new_item'           => oxygen_translate( 'New Template', 'component-theme' ),
+		'edit_item'          => oxygen_translate( 'Edit Template', 'component-theme' ),
+		'view_item'          => oxygen_translate( 'View Template', 'component-theme' ),
+		'all_items'          => oxygen_translate( 'Templates', 'component-theme' ),
+		'search_items'       => oxygen_translate( 'Search Templates', 'component-theme' ),
+		'parent_item_colon'  => oxygen_translate( 'Parent Templates:', 'component-theme' ),
+		'not_found'          => oxygen_translate( 'No templates found.', 'component-theme' ),
+		'not_found_in_trash' => oxygen_translate( 'No templates found in Trash.', 'component-theme' )
 	);
 
 	$args = array(
@@ -118,7 +118,7 @@ function ct_custom_views_columns($columns) {
 	unset($columns['date']);
 
     // add type
-    $columns['ct_template_type'] = __( 'Template Type', 'component-theme' );
+    $columns['ct_template_type'] = oxygen_translate( 'Template Type', 'component-theme' );
 
     // add date back
     $columns['date'] = $date;
@@ -134,11 +134,11 @@ function ct_custom_view_column( $column, $post_id ) {
             $type = oxy_get_post_meta( $post_id , 'ct_template_type' , true );
 
            	if ( $type == "reusable_part") {
-           		_e( 'Re-usable part', 'component-theme' );
+           		oxygen_translate_echo( 'Re-usable part', 'component-theme' );
            	}
 
            	else {
-           		_e( 'Template', 'component-theme' );
+           		oxygen_translate_echo( 'Template', 'component-theme' );
            	}
 
             break;
@@ -214,7 +214,7 @@ function ct_oxygen_meta_box() {
 
 		add_meta_box(
 			'ct_views_cpt',
-			__( 'Oxygen', 'component-theme' ),
+			oxygen_translate( 'Oxygen', 'component-theme' ),
 			'ct_view_meta_box_callback',
 			$post_type->name,
 			($num_version >= 5 ? 'normal' : 'advanced'),
@@ -228,9 +228,9 @@ add_action( 'add_meta_boxes', 'ct_oxygen_meta_box' );
 function ct_view_taxonomies_selector($field_name, $selected_items, $alloption = false) {
 	?>
 	<select name="<?php echo esc_attr($field_name); ?>[]" id="<?php echo esc_attr($field_name); ?>" multiple="multiple">
-		<option value="<?php echo __( "all_taxonomies" ); ?>"
+		<option value="<?php echo oxygen_translate( "all_taxonomies" ); ?>"
 			<?php if ( in_array( "all_taxonomies", $selected_items ) ) echo 'selected="selected"'; ?>>
-			<?php _e( "All Taxonomies", "component-theme" ); ?>
+			<?php oxygen_translate_echo( "All Taxonomies", "component-theme" ); ?>
 		</option>
 		<?php 
 
@@ -238,12 +238,12 @@ function ct_view_taxonomies_selector($field_name, $selected_items, $alloption = 
 		$default_categories = get_categories(array('hide_empty' 	=> 0));
 
 		?>
-			<optgroup label="<?php echo __('Categories', 'component-theme'); ?>">
+			<optgroup label="<?php echo oxygen_translate('Categories', 'component-theme'); ?>">
 				<?php 
 				if($alloption) { ?>
-				<option value="<?php echo __( "all_categories" ); ?>"
+				<option value="<?php echo oxygen_translate( "all_categories" ); ?>"
 					<?php if ( in_array( "all_categories", $selected_items ) ) echo 'selected="selected"'; ?>>
-					<?php _e( "All Categories", "component-theme" ); ?>
+					<?php oxygen_translate_echo( "All Categories", "component-theme" ); ?>
 				</option>
 
 				<?php
@@ -263,12 +263,12 @@ function ct_view_taxonomies_selector($field_name, $selected_items, $alloption = 
 		$default_tags = get_tags(array('hide_empty' 	=> 0));
 
 		?>
-			<optgroup label="<?php echo __('Tags', 'component-theme'); ?>">
+			<optgroup label="<?php echo oxygen_translate('Tags', 'component-theme'); ?>">
 				<?php 
 				if($alloption) { ?>
-				<option value="<?php echo __( "all_tags" ); ?>"
+				<option value="<?php echo oxygen_translate( "all_tags" ); ?>"
 					<?php if ( in_array( "all_tags", $selected_items ) ) echo 'selected="selected"'; ?>>
-					<?php _e( "All Tags", "component-theme" ); ?>
+					<?php oxygen_translate_echo( "All Tags", "component-theme" ); ?>
 				</option>
 
 				<?php
@@ -312,7 +312,7 @@ function ct_view_taxonomies_selector($field_name, $selected_items, $alloption = 
 				if($alloption) { ?>
 				<option value="<?php echo esc_attr( "all_".$taxonomy->name ); ?>"
 					<?php if ( in_array( "all_".$taxonomy->name, $selected_items ) ) echo 'selected="selected"'; ?>>
-					<?php _e( "All ", "component-theme" ); echo sanitize_text_field( $taxonomy->labels->name ); ?>
+					<?php oxygen_translate_echo( "All ", "component-theme" ); echo sanitize_text_field( $taxonomy->labels->name ); ?>
 				</option>
 
 				<?php
@@ -408,7 +408,7 @@ function ct_view_meta_box_callback( $post ) {
 
 		?>
 
-			<label style="margin-top: 10px; <?php if($editing_block) echo 'display: none;'; ?>"><?php _e("Render Page Using Template", "component-theme");?><div class="oxy-tooltip"><div class="oxy-tooltip-text">Manage templates from the Oxygen » Templates screen.</div></div>
+			<label style="margin-top: 10px; <?php if($editing_block) echo 'display: none;'; ?>"><?php oxygen_translate_echo("Render Page Using Template", "component-theme");?><div class="oxy-tooltip"><div class="oxy-tooltip-text">Manage templates from the Oxygen » Templates screen.</div></div>
 
 				<select name="ct_other_template" id="ct_parent_template">
 					<?php
@@ -416,7 +416,7 @@ function ct_view_meta_box_callback( $post ) {
 
 						if($editing_block){
 						    ?>
-                            <option value="-1" ><?php _e( "None", "component-theme" ); ?></option>
+                            <option value="-1" ><?php oxygen_translate_echo( "None", "component-theme" ); ?></option>
                             <?php
                         }else{
 
@@ -441,7 +441,7 @@ function ct_view_meta_box_callback( $post ) {
 
                                 $has_a_parent = oxy_get_post_meta( $generic_view->ID, 'ct_parent_template', false );
                             ?>
-                            <option value="-1" ><?php _e( "None", "component-theme" ); ?></option>
+                            <option value="-1" ><?php oxygen_translate_echo( "None", "component-theme" ); ?></option>
                             <option <?php echo $contains_inner_content?'data-inner=true':'';?> <?php echo $has_a_parent?'data-parent=true':'';?> value="0" data-template-id="<?php echo intval($generic_view->ID); ?>"  <?php echo empty($ct_other_template)?'selected':'';?> >Default (<?php echo sanitize_text_field( $generic_view->post_title ); ?>)</option>
                             <?php
                             }
@@ -452,24 +452,18 @@ function ct_view_meta_box_callback( $post ) {
                             }
 						}
 						foreach($templates as $template) {
-							if(intval($ct_other_template) == $template->id) {
-								$selected_template = $template;
-							}
 
 							// do not display re-usables
 							$ct_template_type = oxy_get_post_meta($template->id, 'ct_template_type', true);
-							
 							if($ct_template_type && $ct_template_type =='reusable_part') {
 								continue;
 							}
 
 							// do not display type = inner_content
 							$template_inner_content = oxy_get_post_meta($template->id, 'ct_template_inner_content', true);
-
 							if($template_inner_content) {
 								continue;
 							}
-
 								
 							$is_selected_template = intval($ct_other_template) == $template->id;
 
@@ -477,7 +471,7 @@ function ct_view_meta_box_callback( $post ) {
 							// don't modify $json nor $shortcodes vars
 							$json_to_check = oxy_get_post_meta( $template->id, "ct_builder_json", true );
 							if ( $json_to_check ) {
-								$contains_inner_content = (strpos($json, '"name":"ct_inner_content"') !== false);
+								$contains_inner_content = (strpos($json_to_check, '"name":"ct_inner_content"') !== false);
 							}
 							else {
 								$codes = '';
@@ -533,23 +527,23 @@ function ct_view_meta_box_callback( $post ) {
 						data-current-post-nonce="<?php echo wp_create_nonce( 'oxygen-nonce-' . $post->ID );?>"
 						href="<?php echo esc_url(ct_get_post_builder_link( $template_id )); echo $parent_of_template?'&ct_inner=true':''; ?>" >
 						<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/oxygen.svg">
-						<?php printf( __("Edit Template", "oxygen") ); ?>
+						<?php printf( oxygen_translate("Edit Template", "oxygen") ); ?>
 					</a>
-					<p><?php _e("This post is being rendered by an Oxygen template. To edit this post directly, add an Inner Content element to the template.", "oxygen"); ?></p>
+					<p><?php oxygen_translate_echo("This post is being rendered by an Oxygen template. To edit this post directly, add an Inner Content element to the template.", "oxygen"); ?></p>
 				</div>
 				<?php else: ?>
 				<div id="ct-edit-template-builder-parent-wrap" <?php echo (!$show_edit_button && $option_is_selected) ? "":"style='display:none' " ?>>
-					<?php echo __("Oxygen is open in another tab or by another user.", "oxygen"); ?><br/>
-					<?php echo __("Please close the other instance of the builder and refresh this page to edit.", "oxygen"); ?><br/>
+					<?php echo oxygen_translate("Oxygen is open in another tab or by another user.", "oxygen"); ?><br/>
+					<?php echo oxygen_translate("Please close the other instance of the builder and refresh this page to edit.", "oxygen"); ?><br/>
 					<a id="oxygen-open-anyway-link" class="oxygen-open-anyway-link-parent"
 						data-site-url="<?php echo site_url();?>" 
 						data-parent-template="<?php echo $ct_other_template?intval($ct_other_template):0;?>" 
 						data-current-post-id="<?php echo $post->ID; ?>"
 						data-current-post-nonce="<?php echo wp_create_nonce( 'oxygen-nonce-' . $post->ID );?>"
 						href="<?php echo esc_url(ct_get_post_builder_link( $template_id )); echo $parent_of_template?'&ct_inner=true':''; ?>" >
-						<?php echo __("Open Anyway", "oxygen"); ?>
+						<?php echo oxygen_translate("Open Anyway", "oxygen"); ?>
 						</a>
-					<p><?php _e("This post is being rendered by an Oxygen template. To edit this post directly, add an Inner Content element to the template.", "oxygen"); ?></p>
+					<p><?php oxygen_translate_echo("This post is being rendered by an Oxygen template. To edit this post directly, add an Inner Content element to the template.", "oxygen"); ?></p>
 				</div>
 				<?php endif; ?>
 
@@ -557,8 +551,8 @@ function ct_view_meta_box_callback( $post ) {
 				<div class='oxygen-edit-template-button-or-message oxygen-open-anyway-link-post'
 					<?php echo (!$show_edit_button && $option_is_selected) ? "style='display:none' ":"" ?>>
 					<div class='oxygen-edit-button-message'>
-						<?php echo __("Oxygen is open in another tab or by another user.", "oxygen"); ?><br/>
-						<?php echo __("Please close the other instance of the builder and refresh this page to edit.", "oxygen"); ?><br/>
+						<?php echo oxygen_translate("Oxygen is open in another tab or by another user.", "oxygen"); ?><br/>
+						<?php echo oxygen_translate("Please close the other instance of the builder and refresh this page to edit.", "oxygen"); ?><br/>
 						<a id="oxygen-open-anyway-link" class="oxygen-open-anyway-link"
 							data-parent-template="<?php echo $ct_other_template?intval($ct_other_template):0;?>" 
 							data-current-post-id="<?php echo $post->ID; ?>"
@@ -578,7 +572,7 @@ function ct_view_meta_box_callback( $post ) {
 								}
 							?>
 							href="<?php echo $url; ?>">
-							<?php echo __("Open Anyway", "oxygen"); ?>
+							<?php echo oxygen_translate("Open Anyway", "oxygen"); ?>
 						</a>
 					</div>
 				</div>
@@ -605,10 +599,10 @@ function ct_view_meta_box_callback( $post ) {
 							?>
 						href="<?php echo $url; ?>">
 						<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/oxygen.svg">
-						<?php printf( __("Edit with Oxygen", "oxygen") ); ?>
+						<?php printf( oxygen_translate("Edit with Oxygen", "oxygen") ); ?>
 					</a>
 					<div id='oxygen-save-first-message'>
-						<?php echo __("Please save before editing with Oxygen.", "oxygen"); ?>
+						<?php echo oxygen_translate("Please save before editing with Oxygen.", "oxygen"); ?>
 					</div>
 				</div>
 			<?php endif; ?>
@@ -620,11 +614,11 @@ function ct_view_meta_box_callback( $post ) {
 				<?php if (oxygen_vsb_is_agency_bundle()) : ?>
 				<p>
 					<?php $post_locked = oxy_get_post_meta( $post->ID, 'oxygen_lock_post_edit_mode', true ); ?>
-					<label><input <?php checked($post_locked, "true") ?> type="checkbox" name="oxygen_lock_post_edit_mode" value="true"><?php _e( "Lock Post In Edit Mode", "oxygen" ); ?></label>
+					<label><input <?php checked($post_locked, "true") ?> type="checkbox" name="oxygen_lock_post_edit_mode" value="true"><?php oxygen_translate_echo( "Lock Post In Edit Mode", "oxygen" ); ?></label>
 				</p>
 				<?php endif; ?>
 				<p>
-					<span id="ct-toggle-shortcodes"><?php _e( "Shortcodes (read only)", "oxygen" ); ?></span>
+					<span id="ct-toggle-shortcodes"><?php oxygen_translate_echo( "Shortcodes (read only)", "oxygen" ); ?></span>
 				</p>
 				<div id="ct-builder-shortcodes" style="display:none">
 					<textarea readonly="true" class="widefat" rows="8" name="ct_builder_shortcodes" id ="ct_builder_shortcodes"><?php 
@@ -632,7 +626,7 @@ function ct_view_meta_box_callback( $post ) {
 					?></textarea>
 				</div>
 				<p>
-					<span id="ct-toggle-json"><?php _e( "JSON", "oxygen" ); ?></span>
+					<span id="ct-toggle-json"><?php oxygen_translate_echo( "JSON", "oxygen" ); ?></span>
 				</p>
 				<div id="ct-builder-json" style="display:none">
 					<textarea class="widefat" rows="8" name="ct_builder_json" id ="ct_builder_json"><?php 
@@ -662,8 +656,8 @@ function ct_view_meta_box_callback( $post ) {
 			<?php if (is_oxygen_edit_post_locked()) : ?>
 			<div class='oxygen-edit-template-button-or-message'>
 				<div class='oxygen-edit-button-message'>
-					<?php echo __("Oxygen is open in another tab or by another user.", "oxygen"); ?><br/>
-					<?php echo __("Please close the other instance of the builder and refresh this page to edit.", "oxygen"); ?><br/>
+					<?php echo oxygen_translate("Oxygen is open in another tab or by another user.", "oxygen"); ?><br/>
+					<?php echo oxygen_translate("Please close the other instance of the builder and refresh this page to edit.", "oxygen"); ?><br/>
 					<a id="oxygen-open-anyway-link"
 						<?php 
 						$url = esc_url(ct_get_post_builder_link( $post->ID ));
@@ -678,7 +672,7 @@ function ct_view_meta_box_callback( $post ) {
 							}
 						?>
 						href="<?php echo $url; ?>">
-						<?php echo __("Open Anyway", "oxygen"); ?>
+						<?php echo oxygen_translate("Open Anyway", "oxygen"); ?>
 					</a>
 				</div>
 			</div>
@@ -703,10 +697,10 @@ function ct_view_meta_box_callback( $post ) {
 					href="<?php echo $url; ?>" 
 					>
 					<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/oxygen.svg">
-					<?php printf( __("Edit with Oxygen", "component-theme"), sanitize_text_field( get_the_title() ) ); ?>
+					<?php printf( oxygen_translate("Edit with Oxygen", "component-theme"), sanitize_text_field( get_the_title() ) ); ?>
 				</a>
 				<div id='oxygen-save-first-message'>
-					<?php echo __("Your template settings have changed.<br />Please save before editing with Oxygen.", "component-theme"); ?>
+					<?php echo oxygen_translate("Your template settings have changed.<br />Please save before editing with Oxygen.", "component-theme"); ?>
 				</div>
 			</div>
 			<?php endif; ?>
@@ -725,10 +719,10 @@ function ct_view_meta_box_callback( $post ) {
 				);
 			?>
 			<div class='oxygen-metabox-control-group'>
-				<label style="margin-top: 10px;"><?php _e("Inherit design from other template", "component-theme");?>
+				<label style="margin-top: 10px;"><?php oxygen_translate_echo("Inherit design from other template", "component-theme");?>
 					<br>
 					<select name="ct_parent_template" id="ct_parent_template" data-parent-template="<?php echo (!$ct_parent_template || intval($ct_parent_template) === 0)?'0':intval($ct_parent_template);?>">
-						<option value="0" <?php echo (!$ct_parent_template || intval($ct_parent_template) === 0)?'selected':'';?>><?php _e('None', 'component-theme'); ?></option>
+						<option value="0" <?php echo (!$ct_parent_template || intval($ct_parent_template) === 0)?'selected':'';?>><?php oxygen_translate_echo('None', 'component-theme'); ?></option>
 						<?php
 						foreach($templates as $template) {
 							if(intval($ct_parent_template) == $template->id) {
@@ -866,19 +860,19 @@ function ct_view_meta_box_callback( $post ) {
 
 
 		<?php wp_enqueue_script( 'accordion' ); ?>
-		<div class='oxygen-vsb-apply-template-label'><?php _e("Where does this template apply?","component-theme"); ?></div>
+		<div class='oxygen-vsb-apply-template-label'><?php oxygen_translate_echo("Where does this template apply?","component-theme"); ?></div>
 		<div class="accordion-container oxygen-vsb-template-accordion">
 			<ul class="outer-border">
 				<li class="control-section accordion-section" id="oxygen-template-application-singular">
 					<div class="accordion-section-title">
-						<button onclick="return false" aria-label="Expand singular template assignment options" aria-expanded="false"><?php _e('Singular', 'component-theme');?></button>
+						<button onclick="return false" aria-label="Expand singular template assignment options" aria-expanded="false"><?php oxygen_translate_echo('Singular', 'component-theme');?></button>
 					</div>
 					<div class="accordion-section-content ">
 						<div class="inside">
 							<div class="oxygen-metabox-control-group">
 								<label>
 									<input type="checkbox" name="ct_template_single_all" value="true" <?php checked( $template_single_all, "true"); ?>>
-									<?php _e("All Post Types","component-theme"); ?>
+									<?php oxygen_translate_echo("All Post Types","component-theme"); ?>
 								</label>
 								<br>
 								<?php 
@@ -908,7 +902,7 @@ function ct_view_meta_box_callback( $post ) {
 								<label>
 									<input type="checkbox" name="ct_use_template_taxonomies" value="true" 
 										<?php if ( $use_taxonomies ) echo 'checked="checked"'; ?>>
-									<?php _e("Only apply if taxonomized as all of the following", "component-theme"); ?>
+									<?php oxygen_translate_echo("Only apply if taxonomized as all of the following", "component-theme"); ?>
 								</label>
 								
 								<?php ct_view_taxonomies_selector('ct_template_taxonomies', $template_taxonomies) ?>
@@ -918,17 +912,17 @@ function ct_view_meta_box_callback( $post ) {
 								<label>
 									<input type="checkbox" name="ct_template_apply_if_post_of_parents" value="true" 
 										<?php if ( $template_apply_if_post_of_parents ) echo 'checked="checked"'; ?>>
-									<?php _e("Only apply if parent ID is one of the following", "component-theme"); ?>
+									<?php oxygen_translate_echo("Only apply if parent ID is one of the following", "component-theme"); ?>
 								</label>
 								<br>
-								<input type="text" name="ct_template_post_of_parents" placeholder="<?php _e("Separate multiple page IDs with commas", "component-theme"); ?>" id="ct_template_post_of_parents" class='oxygen-vsb-metabox-input' value="<?php echo esc_attr($template_post_of_parents);?>" />
+								<input type="text" name="ct_template_post_of_parents" placeholder="<?php oxygen_translate_echo("Separate multiple page IDs with commas", "component-theme"); ?>" id="ct_template_post_of_parents" class='oxygen-vsb-metabox-input' value="<?php echo esc_attr($template_post_of_parents);?>" />
 							</div>
 						</div>
 					</div>
 				</li>
 				<li class="control-section accordion-section" id="oxygen-template-application-archive">
 					<div class="accordion-section-title">
-						<button onclick="return false" aria-label="Expand archive template assignment options" aria-expanded="false"><?php _e('Archive', 'component-theme');?></button>
+						<button onclick="return false" aria-label="Expand archive template assignment options" aria-expanded="false"><?php oxygen_translate_echo('Archive', 'component-theme');?></button>
 					</div>
 					<div class="accordion-section-content ">
 						<div class="inside">
@@ -936,7 +930,7 @@ function ct_view_meta_box_callback( $post ) {
 								<label>
 									<input type="checkbox" name="ct_template_all_archives" value="true" 
 										<?php if ( $template_all_archives ) echo 'checked="checked"'; ?>>
-									<?php _e("All Archives", "component-theme"); ?>
+									<?php oxygen_translate_echo("All Archives", "component-theme"); ?>
 								</label>
 
 							</div>
@@ -946,7 +940,7 @@ function ct_view_meta_box_callback( $post ) {
 								<label>
 									<input type="checkbox" name="ct_template_apply_if_archive_among_taxonomies" value="true" 
 										<?php if ( $template_apply_if_archive_among_taxonomies ) echo 'checked="checked"'; ?>>
-									<?php _e("Taxonomies", "component-theme"); ?>
+									<?php oxygen_translate_echo("Taxonomies", "component-theme"); ?>
 								</label>
 								<?php ct_view_taxonomies_selector('ct_template_archive_among_taxonomies', $template_archive_among_taxonomies, true) ?>
 							</div>
@@ -956,13 +950,13 @@ function ct_view_meta_box_callback( $post ) {
 								<label>
 									<input type="checkbox" name="ct_template_apply_if_archive_among_cpt" value="true" 
 										<?php if ( $template_apply_if_archive_among_cpt ) echo 'checked="checked"'; ?>>
-									<?php _e("Post Types", "component-theme"); ?>
+									<?php oxygen_translate_echo("Post Types", "component-theme"); ?>
 								</label>
 
 								<select name="ct_template_archive_post_types[]" id="ct_template_archive_post_types" multiple="multiple">
-									<option value="<?php echo __( "all_posttypes" ); ?>"
+									<option value="<?php echo oxygen_translate( "all_posttypes" ); ?>"
 										<?php if ( in_array( "all_posttypes", $template_archive_post_types ) ) echo 'selected="selected"'; ?>>
-										<?php _e( "All Custom Post Types", "component-theme" ); ?>
+										<?php oxygen_translate_echo( "All Custom Post Types", "component-theme" ); ?>
 									</option>
 								<?php $custom_post_types = get_post_types();
 									$exclude_types 	= array( "ct_template", "nav_menu_item", "revision", "page" );
@@ -991,13 +985,13 @@ function ct_view_meta_box_callback( $post ) {
 								<label>
 									<input type="checkbox" name="ct_template_apply_if_archive_among_authors" value="true" 
 										<?php if ( $template_apply_if_archive_among_authors ) echo 'checked="checked"'; ?>>
-									<?php _e("Authors", "component-theme"); ?>
+									<?php oxygen_translate_echo("Authors", "component-theme"); ?>
 								</label>
 
 								<select name="ct_template_authors_archives[]" id="ct_template_authors_archives" multiple="multiple">
-									<option value="<?php echo __( "all_authors" ); ?>"
+									<option value="<?php echo oxygen_translate( "all_authors" ); ?>"
 										<?php if ( in_array( "all_authors", $template_authors_archives ) ) echo 'selected="selected"'; ?>>
-										<?php _e( "All Authors", "component-theme" ); ?>
+										<?php oxygen_translate_echo( "All Authors", "component-theme" ); ?>
 									</option>
 									<?php 
 									// get all users to loop
@@ -1024,7 +1018,7 @@ function ct_view_meta_box_callback( $post ) {
 								<label>
 									<input type="checkbox" name="ct_template_date_archive" value="true" 
 										<?php if ( $template_date_archive ) echo 'checked="checked"'; ?>>
-									<?php _e("Date", "component-theme"); ?>
+									<?php oxygen_translate_echo("Date", "component-theme"); ?>
 								</label>
 							</div>
 						</div>
@@ -1032,7 +1026,7 @@ function ct_view_meta_box_callback( $post ) {
 				</li>
 				<li class="control-section accordion-section" id="oxygen-template-application-other">
 					<div class="accordion-section-title">
-						<button onclick="return false" aria-label="Expand other template assignment options" aria-expanded="false"><?php _e('Other', 'component-theme');?></button>
+						<button onclick="return false" aria-label="Expand other template assignment options" aria-expanded="false"><?php oxygen_translate_echo('Other', 'component-theme');?></button>
 					</div>
 					<div class="accordion-section-content ">
 						<div class="inside">
@@ -1040,39 +1034,39 @@ function ct_view_meta_box_callback( $post ) {
 								<label>
 									<input type="checkbox" name="ct_template_front_page" value="true" 
 										<?php if ( $template_front_page ) echo 'checked="checked"'; ?>>
-									<?php _e("Front Page", "component-theme"); ?>
+									<?php oxygen_translate_echo("Front Page", "component-theme"); ?>
 								</label><br/>
 								
 								<label>
 									<input type="checkbox" name="ct_template_blog_posts" value="true" 
 										<?php if ( $template_blog_posts ) echo 'checked="checked"'; ?>>
-									<?php _e("Blog Posts Index", "component-theme"); ?>
+									<?php oxygen_translate_echo("Blog Posts Index", "component-theme"); ?>
 								</label><br/>
 
 
 								<label>
 									<input type="checkbox" name="ct_template_search_page" value="true" 
 										<?php if ( $template_search_page ) echo 'checked="checked"'; ?>>
-									<?php _e("Search Results", "component-theme"); ?>
+									<?php oxygen_translate_echo("Search Results", "component-theme"); ?>
 								</label><br/>
 
 								<label>
 									<input type="checkbox" name="ct_template_404_page" value="true" 
 										<?php if ( $template_404_page ) echo 'checked="checked"'; ?>>
-									<?php _e("404", "component-theme"); ?>
+									<?php oxygen_translate_echo("404", "component-theme"); ?>
 								</label><br/>
 
 								<label>
 									<input type="checkbox" name="ct_template_inner_content" value="true" 
 										<?php if ( $template_inner_content ) echo 'checked="checked"'; ?>>
-									<?php _e("Inner Content", "component-theme"); ?>
+									<?php oxygen_translate_echo("Inner Content", "component-theme"); ?>
 								</label><br/>
 
 
 								<label>
 									<input type="checkbox" name="ct_template_index" value="true" 
 										<?php if ( $template_index ) echo 'checked="checked"'; ?>>
-									<?php _e("Catch All", "component-theme"); ?>
+									<?php oxygen_translate_echo("Catch All", "component-theme"); ?>
 								</label>
 							</div>
 						</div>
@@ -1083,7 +1077,7 @@ function ct_view_meta_box_callback( $post ) {
 		<div class="oxygen-metabox-control-group">
 			<label>
 				<div class='oxygen-vsb-template-priority'>
-					<?php _e("Template Priority ", "component-theme");?>
+					<?php oxygen_translate_echo("Template Priority ", "component-theme");?>
 					<div class="oxy-tooltip"><div class="oxy-tooltip-text">If multiple templates could apply, the template with the highest priority number will be used.</div></div>
 				</div>
 
@@ -1097,17 +1091,17 @@ function ct_view_meta_box_callback( $post ) {
 		<?php if (oxygen_vsb_is_agency_bundle()) : ?>
 		<p>
 			<?php $post_locked = oxy_get_post_meta( $post->ID, 'oxygen_lock_post_edit_mode', true ); ?>
-			<label><input <?php checked($post_locked, "true") ?> type="checkbox" name="oxygen_lock_post_edit_mode" value="true"><?php _e( "Lock Post In Edit Mode", "oxygen" ); ?></label>
+			<label><input <?php checked($post_locked, "true") ?> type="checkbox" name="oxygen_lock_post_edit_mode" value="true"><?php oxygen_translate_echo( "Lock Post In Edit Mode", "oxygen" ); ?></label>
 		</p>
 		<?php endif; ?>
 		<p>
-			<span id="ct-toggle-shortcodes"><?php _e( "Shortcodes (read only)", "component-theme" ); ?></span>
+			<span id="ct-toggle-shortcodes"><?php oxygen_translate_echo( "Shortcodes (read only)", "component-theme" ); ?></span>
 		</p>
 		<div id="ct-builder-shortcodes" style="display:none">
 			<textarea readonly="true" class="widefat" rows="8" name="ct_builder_shortcodes" id="ct_builder_shortcodes"><?php echo htmlentities( $shortcodes, ENT_COMPAT, "UTF-8" ); ?></textarea>
 		</div>
 		<p>
-			<span id="ct-toggle-json"><?php _e( "JSON", "oxygen" ); ?></span>
+			<span id="ct-toggle-json"><?php oxygen_translate_echo( "JSON", "oxygen" ); ?></span>
 		</p>
 		<div id="ct-builder-json" style="display:none">
 			<textarea class="widefat" rows="8" name="ct_builder_json" id ="ct_builder_json"><?php echo htmlentities(  oxy_get_post_meta( $post->ID, 'ct_builder_json', true ) ); ?></textarea>
@@ -1516,12 +1510,12 @@ function ct_view_order_meta_box_callback( $post ) {
 
 	$order = oxy_get_post_meta( $post->ID, 'ct_template_order', true );
 
-	_e("Order ", "component-theme");
+	oxygen_translate_echo("Order ", "component-theme");
 
 	?>
 
 	<input type="text" name="ct_template_order" value="<?php echo esc_html($order); ?>">
-	<p class="description"><?php _e("Templates with highest order has a priority when multiple templates applies."); ?></p>
+	<p class="description"><?php oxygen_translate_echo("Templates with highest order has a priority when multiple templates applies."); ?></p>
 	<?php
 }
 
@@ -1579,10 +1573,10 @@ function ct_views_filter_dropdown() {
 		$types = array(
            	
            	"reusable_part" =>
-           		__( 'Re-usable part', 'component-theme' ),
+           		oxygen_translate( 'Re-usable part', 'component-theme' ),
            	
            	"template" =>
-           		__( 'Template', 'component-theme' ),
+           		oxygen_translate( 'Template', 'component-theme' ),
 
 		);
         
@@ -1649,7 +1643,7 @@ function ct_views_order_column( $columns ) {
 	unset($columns['date']);
     
     // add type
-    $columns['ct_view_order'] = __( 'Order', 'component-theme' );
+    $columns['ct_view_order'] = oxygen_translate( 'Order', 'component-theme' );
 
     // add date back
     $columns['date'] = $date;
@@ -1780,7 +1774,7 @@ function ct_views_taxonomies_value( $column, $post_id ) {
             }
 
 			if ( isset($categories_all) && $categories_all ) {
-				_e("All Categories", "component-theme");
+				oxygen_translate_echo("All Categories", "component-theme");
 				echo "<br/>";
 			}
 			else
@@ -1792,7 +1786,7 @@ function ct_views_taxonomies_value( $column, $post_id ) {
 				}
 
 				if(isset($category_names) && is_array($category_names)) {
-					_e("Categories: ", "component-theme");
+					oxygen_translate_echo("Categories: ", "component-theme");
 					echo implode(", ", $category_names);
 					echo "<br/>";
 				}
@@ -1800,7 +1794,7 @@ function ct_views_taxonomies_value( $column, $post_id ) {
 			}
 
 			if ( isset($tags_all) && $tags_all ) {
-				_e("All Tags", "component-theme");
+				oxygen_translate_echo("All Tags", "component-theme");
 				echo "<br/>";
 			}
 			else
@@ -1811,14 +1805,14 @@ function ct_views_taxonomies_value( $column, $post_id ) {
 					$tag_names[] = $tag->name;
 				}
 				if(isset($tag_names) && is_array($tag_names)) {
-					_e("Tags: ", "component-theme");
+					oxygen_translate_echo("Tags: ", "component-theme");
 					echo implode(", ", $tag_names);
 					echo "<br/>";
 				}
 			}
 
             if ( isset($custom_taxonomies_all) && $custom_taxonomies_all ) {
-            	_e("All Custom Taxonomies", "component-theme");
+            	oxygen_translate_echo("All Custom Taxonomies", "component-theme");
             	echo "<br/>";
             }
 			else
@@ -1832,7 +1826,7 @@ function ct_views_taxonomies_value( $column, $post_id ) {
 
 					// all certain taxonomy terms
 					if ( strpos( $id, "all_") === 0 ) {
-						_e("All ", "component-theme");
+						oxygen_translate_echo("All ", "component-theme");
 						echo str_replace("all_", "", $id)."<br/>";
 
 						// save to exclude later
@@ -1856,7 +1850,7 @@ function ct_views_taxonomies_value( $column, $post_id ) {
 			}
 
 			if ( isset($authors_archives_all) && $authors_archives_all ) {
-				_e("All Authors", "component-theme");
+				oxygen_translate_echo("All Authors", "component-theme");
 				echo "<br/>";
 			}
 			else
@@ -1868,7 +1862,7 @@ function ct_views_taxonomies_value( $column, $post_id ) {
 				}
 
 				if(isset($author_names) && is_array($author_names)) {
-					_e("Authors: ", "component-theme");
+					oxygen_translate_echo("Authors: ", "component-theme");
 					echo implode(", ", $author_names);
 					echo "<br/>";
 				}

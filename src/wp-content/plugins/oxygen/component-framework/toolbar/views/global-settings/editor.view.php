@@ -1,9 +1,9 @@
 
-					<?php $this->settings_home_breadcrumbs(__("Editor","oxygen")); ?>
+					<?php $this->settings_home_breadcrumbs(oxygen_translate("Editor","oxygen")); ?>
 
 					<div class="oxygen-control-row" >
 						<div class="oxygen-control-wrapper">
-							<label class="oxygen-control-label"><?php _e("Indicate Parents","oxygen"); ?></label>
+							<label class="oxygen-control-label"><?php oxygen_translate_echo("Indicate Parents","oxygen"); ?></label>
 							<div class="oxygen-control ">
 								<label class="oxygen-checkbox">
 									<input type="checkbox" 
@@ -21,7 +21,7 @@
             
                     <div class="oxygen-control-row">
                         <div class="oxygen-control-wrapper">
-                            <label class="oxygen-control-label"><?php _e("Class Suggestions Limit","oxygen"); ?></label>
+                            <label class="oxygen-control-label"><?php oxygen_translate_echo("Class Suggestions Limit","oxygen"); ?></label>
                             <div class="oxygen-control">
                                 <div class="oxygen-input">
                                     <input type="text" spellcheck="false"

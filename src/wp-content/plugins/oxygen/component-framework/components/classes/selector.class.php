@@ -31,7 +31,7 @@ Class CT_Selector extends CT_Component {
 				<div class='oxygen-control-wrapper'>
 					<div class='oxygen-control'>
 						<div class='oxygen-input'>
-							<input type="text" spellcheck="false" placeholder="<?php _e("content...", "component-theme"); ?>"
+							<input type="text" spellcheck="false" placeholder="<?php oxygen_translate_echo("content...", "component-theme"); ?>"
 								ng-model="iframeScope.component.options[iframeScope.component.active.id]['model']['content']"
 								ng-change="iframeScope.setOption(iframeScope.component.active.id,iframeScope.component.active.name,'content')"/>
 						</div>
@@ -43,7 +43,7 @@ Class CT_Selector extends CT_Component {
 			<div class="oxygen-control-row">
 
 				<div class='oxygen-control-wrapper'>
-					<label class='oxygen-control-label'><?php _e( "Friendly Name", "component-theme" ); ?></label>
+					<label class='oxygen-control-label'><?php oxygen_translate_echo( "Friendly Name", "component-theme" ); ?></label>
 					<div class='oxygen-control'>
 						<div class='oxygen-input'>
 							<input type="text" spellcheck="false"
@@ -58,7 +58,7 @@ Class CT_Selector extends CT_Component {
 			<div class="oxygen-control-row">
 
 				<div class="oxygen-control-wrapper">
-					<label class='oxygen-control-label'><?php _e( "Style Set", "oxygen" ); ?></label>
+					<label class='oxygen-control-label'><?php oxygen_translate_echo( "Style Set", "oxygen" ); ?></label>
 					<div class="oxygen-select oxygen-select-box-wrapper oxygen-style-set-dropdown">
 						<div class="oxygen-select-box">
 							<div class="oxygen-select-box-current">{{iframeScope.customSelectors[iframeScope.selectorToEdit]['set_name']}}</div>
@@ -66,21 +66,21 @@ Class CT_Selector extends CT_Component {
 						</div>
 						<div class="oxygen-select-box-options">
 							<div class="oxygen-select-box-option">
-								<input type="text" class="ct-new-component-class-input" placeholder="<?php _e("Enter style set name...","oxygen");?>" 
+								<input type="text" class="ct-new-component-class-input" placeholder="<?php oxygen_translate_echo("Enter style set name...","oxygen");?>" 
 									ng-model="$parent.newStyleSetName"
 									ng-keypress="$parent.processStyleSetNameInput($event)">
 								&nbsp;
 								<span class="oxygen-add-style-set"
 									ng-click="$parent.addNewStyleSet()">
-									<?php _e("add set...", "oxygen"); ?>
+									<?php oxygen_translate_echo("add set...", "oxygen"); ?>
 								</span>
 							</div>
-							<div class="oxygen-select-box-option" title="<?php _e("Use this style set", "oxygen"); ?>"
+							<div class="oxygen-select-box-option" title="<?php oxygen_translate_echo("Use this style set", "oxygen"); ?>"
 								ng-repeat="(key,set) in iframeScope.styleSets"
 								ng-click="$parent.setSelectorStyleSet(key);">
 								{{key}}
 								<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/remove_icon.svg'
-									title="<?php _e("Remove style set from Oxygen", "oxygen"); ?>"
+									title="<?php oxygen_translate_echo("Remove style set from Oxygen", "oxygen"); ?>"
 									ng-click="$parent.deleteStyleSet(key)"/>
 							</div>
 						</div>

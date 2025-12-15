@@ -38,11 +38,11 @@ class ExtraOffCanvasWrapper extends OxygenExtraElements {
 
         } else {
         
-            $trigger = isset( $options['trigger'] ) ? $options['trigger'] : 'ct-inner-wrap';
+            $trigger = isset( $options['trigger'] ) ? esc_attr( $options['trigger'] ) : 'ct-inner-wrap';
             $click_outside = $options['click_outside'] === 'true' ? 'true' : 'false';
             $start = $options['start'] === 'open' ? 'true' : 'false';
             $pressing_esc = $options['pressing_esc'] === 'true' ? 'true' : 'false';
-            $focus_selector = $options['maybe_focus'] === 'selector' ? $options['focus_selector'] : '.offcanvas-inner';
+            $focus_selector = $options['maybe_focus'] === 'selector' ? esc_attr( $options['focus_selector'] ) : '.offcanvas-inner';
             $maybe_focus = $options['maybe_focus'];
             $stagger_animation_delay = isset( $options['stagger_animation_delay'] ) ? esc_attr($options['stagger_animation_delay']) : '50';
             $stagger_first_delay = isset( $options['stagger_first_delay'] ) ? esc_attr($options['stagger_first_delay']) : '200';
@@ -91,6 +91,12 @@ class ExtraOffCanvasWrapper extends OxygenExtraElements {
             if ('true' === $options['maybe_auto_aria_controls']) {
                 $output .= 'data-auto-aria="true" ';
             }
+
+            if ('true' === $options['maybe_focus_trap']) {
+                $output .= 'data-focus-trap="true" ';
+            }
+
+            
             
             if ( 'true' === $options['stagger_animations'] ) {
                 $output .= 'data-stagger="'. $stagger_animation_delay .'" ';
@@ -722,6 +728,19 @@ class ExtraOffCanvasWrapper extends OxygenExtraElements {
 
          $accessibility_section->addOptionControl(
             array(
+                'type' => 'buttons-list',
+                'name' => __('Trap focus'),
+                'slug' => 'maybe_focus_trap'
+            )
+            
+        )->setValue(array( 
+            "true" => "Enabled", 
+            "false" => "Disabled" 
+        ))
+         ->setDefaultValue('true');
+
+         $accessibility_section->addOptionControl(
+            array(
                 'type' => 'textfield',
                 'name' => __('Aria label'),
                 'slug' => 'aria_label',
@@ -1022,7 +1041,7 @@ class ExtraOffCanvasWrapper extends OxygenExtraElements {
             
         }
         
-        if ((isset($options["oxy-off-canvas_overflow"]) && $options["oxy-off-canvas_overflow"] === "false")  && ($options["oxy-off-canvas_start"] != "true") ) {
+        if ( (isset($options["oxy-off-canvas_overflow"]) && $options["oxy-off-canvas_overflow"] === "false") && ( !isset($options["oxy-off-canvas_start"] ) || ( null !== $options["oxy-off-canvas_start"] && $options["oxy-off-canvas_start"] === "closed" ) ) ) {
 
             $toggled = str_replace('#','toggled', $selector);        
 
@@ -1032,7 +1051,7 @@ class ExtraOffCanvasWrapper extends OxygenExtraElements {
                     }";         
             
         }
-        
+
         
          /**
          * Offcanvas Left (default)
@@ -1283,7 +1302,7 @@ class ExtraOffCanvasWrapper extends OxygenExtraElements {
     }
     
     function output_js() { 
-        wp_enqueue_script( 'extras-offcanvas', plugin_dir_url(__FILE__) . 'assets/offcanvas-init.js', '', '1.0.3' );
+        wp_enqueue_script( 'extras-offcanvas', plugin_dir_url(__FILE__) . 'assets/offcanvas-init.js', '', '1.0.4' );
     }
     
 }

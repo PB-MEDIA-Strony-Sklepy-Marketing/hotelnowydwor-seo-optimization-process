@@ -71,7 +71,7 @@ Class OXY_Rich_Text extends CT_Component {
 				<div class='oxygen-control-row'
 					ng-hide="!isActiveName('oxy_rich_text')">
 					<div class='oxygen-control-wrapper'>
-						<label class='oxygen-control-label'><?php _e("Text Align","oxygen"); ?></label>
+						<label class='oxygen-control-label'><?php oxygen_translate_echo("Text Align","oxygen"); ?></label>
 						<div class='oxygen-control'>
 							<div class='oxygen-icon-button-list'>
 								<?php $oxygen_toolbar->icon_button_list_button('text-align','left','text-align/left.svg'); ?>
@@ -90,7 +90,7 @@ global $oxygen_vsb_components;
 $oxygen_vsb_components['rich_text'] = new OXY_Rich_Text( 
 
 		array( 
-			'name' 		=> __('Rich Text', 'oxygen'),
+			'name' 		=> oxygen_translate('Rich Text', 'oxygen'),
 			'tag' 		=> 'oxy_rich_text',
 			'params' 	=> array(
 					array(
@@ -102,23 +102,23 @@ $oxygen_vsb_components['rich_text'] = new OXY_Rich_Text(
 					),
 					array(
 						"type" 			=> "font-family",
-						"heading" 		=> __("Font Family", "oxygen"),
+						"heading" 		=> oxygen_translate("Font Family", "oxygen"),
 						"css" 			=> false,
 					),
 					array(
 						"type" 			=> "colorpicker",
-						"heading" 		=> __("Text Color", "oxygen"),
+						"heading" 		=> oxygen_translate("Text Color", "oxygen"),
 						"param_name" 	=> "color",
 						"value" 		=> "",
 					),
 					array(
 						"type" 			=> "slider-measurebox",
-						"heading" 		=> __("Font Size", "oxygen"),
+						"heading" 		=> oxygen_translate("Font Size", "oxygen"),
 						"param_name" 	=> "font-size",
 					),
 					array(
 						"type" 			=> "dropdown",
-						"heading" 		=> __("Font Weight", "oxygen"),
+						"heading" 		=> oxygen_translate("Font Weight", "oxygen"),
 						"param_name" 	=> "font-weight",
 						"value" 		=> array (
 											"" 		=> "&nbsp;",
@@ -135,7 +135,7 @@ $oxygen_vsb_components['rich_text'] = new OXY_Rich_Text(
 					),
 					array(
 						"type" 			=> "tag",
-						"heading" 		=> __("Tag", "oxygen"),
+						"heading" 		=> oxygen_translate("Tag", "oxygen"),
 						"param_name" 	=> "tag",
 						"value" 		=> array (
 											"div" 		=> "div",

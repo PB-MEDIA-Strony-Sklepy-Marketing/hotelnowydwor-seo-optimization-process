@@ -72,7 +72,7 @@ Class CT_SVG_Icon extends CT_Component {
 						<div class="oxygen-select-box-dropdown"></div>
 					</div>
 					<div class="oxygen-select-box-options">
-						<div class="oxygen-select-box-option" title="<?php _e("Use this set", "component-theme"); ?>"
+						<div class="oxygen-select-box-option" title="<?php oxygen_translate_echo("Use this set", "component-theme"); ?>"
 							ng-repeat="(name,set) in iframeScope.SVGSets" 
 							ng-click="iframeScope.setCurrentSVGSet(name);">
 							{{name}}
@@ -85,12 +85,12 @@ Class CT_SVG_Icon extends CT_Component {
 		<div class="oxygen-control-row"
 			ng-show="isActiveName('<?php echo $this->options['tag']; ?>')">
 			<div class="oxygen-control-wrapper">
-				<label class="oxygen-control-label"><?php _e("Icon", "oxygen"); ?></label>
+				<label class="oxygen-control-label"><?php oxygen_translate_echo("Icon", "oxygen"); ?></label>
 				<div class="oxygen-control">
 					<div class="oxygen-icon-chooser">
 
 						<div class="oxygen-input">
-							<input type="text" placeholder="<?php _e("Start typing to search...","oxygen"); ?>"
+							<input type="text" placeholder="<?php oxygen_translate_echo("Start typing to search...","oxygen"); ?>"
 								ng-model="iframeScope.iconFilter.title">
 						</div>
 
@@ -235,13 +235,13 @@ $oxygen_vsb_components['svg_icon'] = new CT_SVG_Icon (
 			'params' 	=> array(
 					array(
 						"type" 			=> "colorpicker",
-						"heading" 		=> __("Color","oxygen"),
+						"heading" 		=> oxygen_translate("Color","oxygen"),
 						"param_name" 	=> "color",
 						"value" 		=> "",
 					),
 					array(
 						"type" 			=> "slider-measurebox",
-						"heading" 		=> __("Icon Size", "oxygen"),
+						"heading" 		=> oxygen_translate("Icon Size", "oxygen"),
 						"param_name" 	=> "font-size",
 						"value" 		=> 32
 					),

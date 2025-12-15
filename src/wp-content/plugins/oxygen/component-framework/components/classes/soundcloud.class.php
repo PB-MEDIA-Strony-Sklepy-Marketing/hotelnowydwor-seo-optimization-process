@@ -51,12 +51,12 @@ Class Oxy_SoundCloud extends CT_Component {
 // Create instance
 global $oxygen_vsb_components;
 $oxygen_vsb_components['soundcloud'] = new Oxy_SoundCloud( array( 
-			'name' 		=> __('SoundCloud','oxygen'),
+			'name' 		=> oxygen_translate('SoundCloud','oxygen'),
 			'tag' 		=> 'oxy_soundcloud',
 			'params' 	=> array(
 				array(
 					"type" 			=> "textfield",
-					"heading" 		=> __("SoundCloud URL","oxygen"),
+					"heading" 		=> oxygen_translate("SoundCloud URL","oxygen"),
 					"param_name" 	=> "soundcloud_url",
 					"value" 		=> "https://soundcloud.com/nathaniel-eliason/13-learning-spanish-and-more",
 					"css" 			=> false,
@@ -64,19 +64,19 @@ $oxygen_vsb_components['soundcloud'] = new Oxy_SoundCloud( array(
 				),
 				array(
 					"type" 			=> "measurebox",
-					"heading" 		=> __("Width", "oxygen"),
+					"heading" 		=> oxygen_translate("Width", "oxygen"),
 					"param_name" 	=> "width",
 					"value" 		=> "100",
 				),
 				array(
 					"type" 			=> "measurebox",
-					"heading" 		=> __("Height", "oxygen"),
+					"heading" 		=> oxygen_translate("Height", "oxygen"),
 					"param_name" 	=> "height",
 					"value" 		=> "300",
 				),
 				array(
 					"type" 			=> "colorpicker",
-					"heading" 		=> __("Color", "oxygen"),
+					"heading" 		=> oxygen_translate("Color", "oxygen"),
 					"param_name" 	=> "soundcloud_color",
 					"value" 		=> "",
 					"css" 			=> false,
@@ -84,7 +84,7 @@ $oxygen_vsb_components['soundcloud'] = new Oxy_SoundCloud( array(
 				),
 				array(
 					"type" 			=> "checkbox",
-					"heading" 		=> __("Auto Play","oxygen"),
+					"heading" 		=> oxygen_translate("Auto Play","oxygen"),
 					"param_name" 	=> "soundcloud_auto_play",
 					"value" 		=> "false",
 					"true_value" 	=> "true",
@@ -94,7 +94,7 @@ $oxygen_vsb_components['soundcloud'] = new Oxy_SoundCloud( array(
 				),
 				array(
 					"type" 			=> "checkbox",
-					"heading" 		=> __("Show Comments","oxygen"),
+					"heading" 		=> oxygen_translate("Show Comments","oxygen"),
 					"param_name" 	=> "soundcloud_show_comments",
 					"value" 		=> "true",
 					"true_value" 	=> "true",
@@ -104,7 +104,7 @@ $oxygen_vsb_components['soundcloud'] = new Oxy_SoundCloud( array(
 				),
 				array(
 					"type" 			=> "checkbox",
-					"heading" 		=> __("Hide Related ","oxygen"),
+					"heading" 		=> oxygen_translate("Hide Related ","oxygen"),
 					"param_name" 	=> "soundcloud_hide_related",
 					"value" 		=> "false",
 					"true_value" 	=> "true",

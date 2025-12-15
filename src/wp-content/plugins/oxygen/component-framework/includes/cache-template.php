@@ -8,9 +8,9 @@ $oxy_ajax_post_id = intval($_REQUEST['post_id']);
 
 $result = oxygen_vsb_cache_page_css(intval( $_REQUEST['post_id'] ));
 if ($result) {
-    $message = __("CSS cache generated successfully.","oxygen");
+    $message = oxygen_translate("CSS cache generated successfully.","oxygen");
 }
 else {
-    $message = __("CSS cache not generated.","oxygen");
+    $message = oxygen_translate("CSS cache not generated.","oxygen");
 }
 echo "<div>" . $message . " Post ID: " . intval($_REQUEST['post_id'])." - " . get_the_title(intval($_REQUEST['post_id'])) . "</div>";

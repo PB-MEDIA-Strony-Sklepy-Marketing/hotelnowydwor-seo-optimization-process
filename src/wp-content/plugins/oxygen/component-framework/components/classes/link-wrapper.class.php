@@ -89,7 +89,7 @@ $oxygen_vsb_components['link_wrapper'] = new CT_Link_Wrapper (
 			'params' 	=> array(
 					array(
 						"type" 			=> "hyperlink",
-						"heading" 		=> __("URL","oxygen"),
+						"heading" 		=> oxygen_translate("URL","oxygen"),
 						"param_name" 	=> "url",
 						"value" 		=> "http://",
 						"css" 			=> false,
@@ -98,7 +98,7 @@ $oxygen_vsb_components['link_wrapper'] = new CT_Link_Wrapper (
 					),
 					array(
 						"type" 			=> "dropdown",
-						"heading" 		=> __("Target","oxygen"),
+						"heading" 		=> oxygen_translate("Target","oxygen"),
 						"param_name" 	=> "target",
 						"value" 		=> array (
 											"" => "&nbsp;",
@@ -112,20 +112,20 @@ $oxygen_vsb_components['link_wrapper'] = new CT_Link_Wrapper (
 					),
 					array(
 						"type" 			=> "html_attribute",
-						"heading" 		=> __("Rel","oxygen"),
+						"heading" 		=> oxygen_translate("Rel","oxygen"),
 						"param_name" 	=> "rel",
 						"value" 		=> "",
 						"css" 			=> false,
 					),
 					array(
 						"type" 			=> "flex-layout",
-						"heading" 		=> __("Layout Child Elements", "oxygen"),
+						"heading" 		=> oxygen_translate("Layout Child Elements", "oxygen"),
 						"param_name" 	=> "flex-direction",
 						"css" 			=> true,
 					),
 					array(
 						"type" 			=> "checkbox",
-						"heading" 		=> __("Allow multiline"),
+						"heading" 		=> oxygen_translate("Allow multiline"),
 						"param_name" 	=> "flex-wrap",
 						"value" 		=> "nowrap",
 						"true_value" 	=> "wrap",
@@ -137,13 +137,13 @@ $oxygen_vsb_components['link_wrapper'] = new CT_Link_Wrapper (
 					),
 					array(
 						"type" 			=> "measurebox",
-						"heading" 		=> __("Width"),
+						"heading" 		=> oxygen_translate("Width"),
 						"param_name" 	=> "width",
 						"value" 		=> "",
 					),
 					array(
 						"type" 			=> "colorpicker",
-						"heading" 		=> __("Background color"),
+						"heading" 		=> oxygen_translate("Background color"),
 						"param_name" 	=> "background-color",
 					),
 				),

@@ -162,7 +162,7 @@ Class Oxy_Tabs extends CT_Component {
 				<div id="oxygen-add-another-row" class="oxygen-add-section-element"
 					ng-click="iframeScope.addTab()">
 					<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/add-icons/header.svg' />
-					<?php _e("Add Another Tab","oxygen"); ?>
+					<?php oxygen_translate_echo("Add Another Tab","oxygen"); ?>
 				</div>
 			</div>
 		</div>
@@ -172,7 +172,7 @@ Class Oxy_Tabs extends CT_Component {
 				<div id="oxygen-add-another-row" class="oxygen-add-section-element"
 					ng-click="iframeScope.addTab()">
 					<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/add-icons/header.svg' />
-					<?php _e("Add Another Tab Content","oxygen"); ?>
+					<?php oxygen_translate_echo("Add Another Tab Content","oxygen"); ?>
 				</div>
 			</div>
 		</div>
@@ -185,18 +185,18 @@ global $oxygen_vsb_components;
 $oxygen_vsb_components['tabs'] = new Oxy_Tabs ( 
 
 		array( 
-			'name' 		=> __('Tabs', 'oxygen'),
+			'name' 		=> oxygen_translate('Tabs', 'oxygen'),
 			'tag' 		=> 'oxy_tabs',
 			'params' 	=> array(
 					array(
 						"type" 			=> "flex-layout",
-						"heading" 		=> __("Layout Child Elements", "oxygen"),
+						"heading" 		=> oxygen_translate("Layout Child Elements", "oxygen"),
 						"param_name" 	=> "flex-direction",
 						"css" 			=> true,
 					),
 					array(
 						"type" 			=> "checkbox",
-						"heading" 		=> __("Allow multiline"),
+						"heading" 		=> oxygen_translate("Allow multiline"),
 						"param_name" 	=> "flex-wrap",
 						"value" 		=> "",
 						"true_value" 	=> "wrap",
@@ -208,13 +208,13 @@ $oxygen_vsb_components['tabs'] = new Oxy_Tabs (
 					),
 					array(
 						"type" 			=> "measurebox",
-						"heading" 		=> __("Width"),
+						"heading" 		=> oxygen_translate("Width"),
 						"param_name" 	=> "width",
 						"value" 		=> "",
 					),
 					array(
 						"type" 			=> "colorpicker",
-						"heading" 		=> __("Background color"),
+						"heading" 		=> oxygen_translate("Background color"),
 						"param_name" 	=> "background-color",
 					),
 				),

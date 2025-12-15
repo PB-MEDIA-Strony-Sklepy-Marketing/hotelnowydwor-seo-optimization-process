@@ -4,7 +4,7 @@
 		<div class="oxy-style-indicator"
 			ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('width')&&!IDHasOption('width'),'oxygen-has-id-value':iframeScope.IDHasOption('width')}">
 		</div>
-		<label class='oxygen-control-label'><?php _e("Width", "component-theme"); ?></label>
+		<label class='oxygen-control-label'><?php oxygen_translate_echo("Width", "component-theme"); ?></label>
 		
 		<div class='oxygen-control'
 			ng-hide="isActiveName('ct_column')">
@@ -23,8 +23,8 @@
 		</div>
 	</div>
 
-	<?php $this->measure_box_with_wrapper("min-width", __("Min-width", "oxygen"), 'px,%,em,vw,vh'); ?>
-	<?php $this->measure_box_with_wrapper("max-width", __("Max-width", "oxygen"), 'px,%,em,vw,vh'); ?>
+	<?php $this->measure_box_with_wrapper("min-width", oxygen_translate("Min-width", "oxygen"), 'px,%,em,vw,vh'); ?>
+	<?php $this->measure_box_with_wrapper("max-width", oxygen_translate("Max-width", "oxygen"), 'px,%,em,vw,vh'); ?>
 
 </div>
 
@@ -34,7 +34,7 @@
 		<div class="oxy-style-indicator"
 			ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('height')&&!IDHasOption('height'),'oxygen-has-id-value':iframeScope.IDHasOption('height')}">
 		</div>
-		<label class='oxygen-control-label'><?php _e("Height", "component-theme"); ?></label>
+		<label class='oxygen-control-label'><?php oxygen_translate_echo("Height", "component-theme"); ?></label>
 		
 		<div class='oxygen-control'>
 
@@ -43,8 +43,8 @@
 		</div>
 	</div>
 
-	<?php $this->measure_box_with_wrapper("min-height", __("Min-height", "oxygen"), 'px,%,em,vw,vh'); ?>
-	<?php $this->measure_box_with_wrapper("max-height", __("Max-height", "oxygen"), 'px,%,em,vw,vh'); ?>
+	<?php $this->measure_box_with_wrapper("min-height", oxygen_translate("Min-height", "oxygen"), 'px,%,em,vw,vh'); ?>
+	<?php $this->measure_box_with_wrapper("max-height", oxygen_translate("Max-height", "oxygen"), 'px,%,em,vw,vh'); ?>
 </div>
 
 <div class="oxygen-control-row"
@@ -53,7 +53,7 @@
 		<div class="oxy-style-indicator"
 			ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('section-width')&&!IDHasOption('section-width'),'oxygen-has-id-value':iframeScope.IDHasOption('section-width')}">
 		</div>
-		<label class="oxygen-control-label"><?php _e("Section Container Width","component-theme");?></label>
+		<label class="oxygen-control-label"><?php oxygen_translate_echo("Section Container Width","component-theme");?></label>
 		<div class="oxygen-control">
 		
 			<div class="oxygen-select oxygen-select-box-wrapper">
@@ -85,7 +85,7 @@
 		<div class="oxy-style-indicator"
 			ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('custom-width')&&!IDHasOption('custom-width'),'oxygen-has-id-value':iframeScope.IDHasOption('custom-width')}">
 		</div>
-		<label class="oxygen-control-label"><?php _e("Custom Container Width"); ?></label>
+		<label class="oxygen-control-label"><?php oxygen_translate_echo("Custom Container Width"); ?></label>
 		<div class="oxygen-control">
 
 			<div class="oxygen-measure-box"
@@ -105,7 +105,7 @@
 <div class="oxygen-control-row"
 	ng-show="isActiveName('oxy_header')">
 	<div class="oxygen-control-wrapper">
-		<label class="oxygen-control-label"><?php _e("Header Container Width","component-theme");?></label>
+		<label class="oxygen-control-label"><?php oxygen_translate_echo("Header Container Width","component-theme");?></label>
 		<div class="oxygen-control">
 		
 			<div class="oxygen-select oxygen-select-box-wrapper">
@@ -134,7 +134,7 @@
 <div class="oxygen-control-row"
 	ng-show="isActiveName('oxy_header_row')">
 	<div class="oxygen-control-wrapper">
-		<label class="oxygen-control-label"><?php _e("Header Row Container Width","component-theme");?></label>
+		<label class="oxygen-control-label"><?php oxygen_translate_echo("Header Row Container Width","component-theme");?></label>
 		<div class="oxygen-control">
 		
 			<div class="oxygen-select oxygen-select-box-wrapper">
@@ -163,7 +163,7 @@
 <div class="oxygen-control-row"
 	ng-show="isActiveName('oxy_header')&&iframeScope.getOption('header-width')=='custom'">
 	<div class="oxygen-control-wrapper">
-		<label class="oxygen-control-label"><?php _e("Custom Container Width"); ?></label>
+		<label class="oxygen-control-label"><?php oxygen_translate_echo("Custom Container Width"); ?></label>
 		<div class="oxygen-control">
 
 			<div class="oxygen-measure-box"
@@ -183,7 +183,7 @@
 <div class="oxygen-control-row"
 	ng-show="isActiveName('oxy_header_row')&&iframeScope.getOption('header-row-width')=='custom'">
 	<div class="oxygen-control-wrapper">
-		<label class="oxygen-control-label"><?php _e("Custom Container Width"); ?></label>
+		<label class="oxygen-control-label"><?php oxygen_translate_echo("Custom Container Width"); ?></label>
 		<div class="oxygen-control">
 
 			<div class="oxygen-measure-box"

@@ -20,9 +20,9 @@ class ExtraReadingProgress extends OxygenExtraElements {
     function render($options, $defaults, $content) {
         
         // Get options
-        $element_selector = isset( $options['element_selector'] ) ? $options['element_selector'] : 'body';
-        $viewport_start = isset( $options['viewport_start'] ) ? $options['viewport_start'] : 'top';
-        $viewport_end = isset( $options['viewport_end'] ) ? $options['viewport_end'] : 'middle';
+        $element_selector = isset( $options['element_selector'] ) ? esc_attr( $options['element_selector'] ) : 'body';
+        $viewport_start = isset( $options['viewport_start'] ) ? esc_attr( $options['viewport_start'] ) : 'top';
+        $viewport_end = isset( $options['viewport_end'] ) ? esc_attr( $options['viewport_end'] ) : 'middle';
         
         ?>
         <div class="reading-progress-inner" data-selector="<?php echo $element_selector; ?>" data-progress-start="<?php echo $viewport_start; ?>" data-progress-end="<?php echo $viewport_end; ?>"></div>

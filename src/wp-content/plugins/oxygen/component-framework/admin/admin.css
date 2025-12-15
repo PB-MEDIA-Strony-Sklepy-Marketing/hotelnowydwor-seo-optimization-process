@@ -853,7 +853,6 @@ div#ct-connection-category {
 }
 .oxygen-edit-mode-button {
   display: none;
-  height: 100% !important;
   padding: 5px;
   background: #4f88f9;
   background-image: linear-gradient(#4f88f9, #317af7);
@@ -865,7 +864,15 @@ div#ct-connection-category {
   filter: grayscale();
 }
 .oxygen-edit-mode-button img {
-  height: 100% !important;
+  width: auto;
+  height: 50px;
+  display: block;
+}
+.interface-interface-skeleton__header {
+  display: flex;
+}
+.editor-header {
+  flex-basis: 100%;
 }
 
 .oxygen-edit-mode-button-non-gutenberg.oxygen-edit-mode-button-non-gutenberg {

@@ -19,7 +19,7 @@ Class OxygenCompositeElementsPluginUpdater {
 		$this->prefix 		= $args["prefix"];
 		$this->plugin_name 	= $args["plugin_name"]; // should be exact as EDD item name
 		$this->priority 	= $args["priority"];
-		$this->license_text = (isset($args["license_text"])) ? $args["license_text"] : __('If you purchased a Composite Elements license separately, enter it here to access the Composite Elements Library', 'component-theme');
+		$this->license_text = (isset($args["license_text"])) ? $args["license_text"] : oxygen_translate('If you purchased a Composite Elements license separately, enter it here to access the Composite Elements Library', 'component-theme');
 
 		add_action( 'admin_init', array( $this, 'init'), 0 );
 		add_action( 'admin_init', array( $this, 'activate_license' ) );
@@ -86,14 +86,14 @@ Class OxygenCompositeElementsPluginUpdater {
 					<tbody>
 						<tr valign="top">
 							<td>
-								<input id="<?php echo $this->prefix; ?>license_key" name="<?php echo $this->prefix; ?>license_key" type="<?php echo $type; ?>" class="regular-text" value="<?php esc_attr_e( $license ); ?>" />
+								<input id="<?php echo $this->prefix; ?>license_key" name="<?php echo $this->prefix; ?>license_key" type="<?php echo $type; ?>" class="regular-text" value="<?php esc_attroxygen_translate_echo( $license ); ?>" />
 								<label for="<?php echo $this->prefix; ?>license_key"><?php echo $status; ?></label>
 								<p class="description"><?php echo $this->license_text ?></p>
 							</td>
 						</tr>
 					</tbody>
 				</table>	
-				<?php submit_button( __("Submit","oxygen"), "primary", $this->prefix."submit_license" ); ?>
+				<?php submit_button( oxygen_translate("Submit","oxygen"), "primary", $this->prefix."submit_license" ); ?>
 			
 			</form>
 		</div>

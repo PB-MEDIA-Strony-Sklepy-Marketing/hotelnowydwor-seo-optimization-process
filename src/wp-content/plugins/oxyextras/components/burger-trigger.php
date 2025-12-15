@@ -431,6 +431,7 @@ class ExtraBurger extends OxygenExtraElements {
                         display: flex;
                         padding: 0;
                         align-items: center;
+                        touch-action: manipulation;
                     }
 
                     .oxy-burger-trigger .hamburger-box {
@@ -439,9 +440,7 @@ class ExtraBurger extends OxygenExtraElements {
                         -webkit-transform: scale(var(--burger-size));
                     }
 
-                    .oxy-burger-trigger .hamburger:focus {
-                        outline: none;
-                    }
+                    
 
                     .oxy-burger-trigger .hamburger-inner, 
                     .oxy-burger-trigger .hamburger-inner:after, 

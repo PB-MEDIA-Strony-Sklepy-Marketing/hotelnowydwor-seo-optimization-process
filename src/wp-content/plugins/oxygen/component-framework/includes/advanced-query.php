@@ -593,14 +593,14 @@ class Oxy_VSB_Advanced_Query {
         <div class='oxygen-condition-builder-add-condition' 
             ng-if="iframeScope.component.options[iframeScope.component.active.id]['model']['wp_query_advanced'] && iframeScope.component.options[iframeScope.component.active.id]['model']['wp_query_advanced'].length">
             
-            <a ng-click="iframeScope.component.options[iframeScope.component.active.id]['model']['wp_query_advanced'].push({key:null, values:[]}); iframeScope.setOption(iframeScope.component.active.id, '<?php echo $tag; ?>', 'wp_query_advanced')"><?php _e("Add Parameter","oxygen");?></a>
+            <a ng-click="iframeScope.component.options[iframeScope.component.active.id]['model']['wp_query_advanced'].push({key:null, values:[]}); iframeScope.setOption(iframeScope.component.active.id, '<?php echo $tag; ?>', 'wp_query_advanced')"><?php oxygen_translate_echo("Add Parameter","oxygen");?></a>
         </div> 
 
         <div class="oxygen-add-button"
             ng-if="!iframeScope.component.options[iframeScope.component.active.id]['model']['wp_query_advanced'] || !iframeScope.component.options[iframeScope.component.active.id]['model']['wp_query_advanced'].length"
             ng-click="iframeScope.component.options[iframeScope.component.active.id]['model']['wp_query_advanced'].push({key:null, values:[]}); iframeScope.setOption(iframeScope.component.active.id, '<?php echo $tag; ?>', 'wp_query_advanced')">
             
-            <span><?php _e("Add Query Parameter","oxygen");?></span>
+            <span><?php oxygen_translate_echo("Add Query Parameter","oxygen");?></span>
         </div>
 
 		<?php

@@ -99,6 +99,8 @@ function oxygen_init_repeater_carousel($) {
                  $carouselcell = $inner.data('cell');
             }
 
+        
+
         var $prev = $inner.data('prev'),
             $next = $inner.data('next'),
             $contain = $inner.data('contain'),
@@ -114,8 +116,8 @@ function oxygen_init_repeater_carousel($) {
             $images_loaded = false == $inner.data('images-loaded') ? false : true,
             $page_dots = $inner.data('pagedots'),
             $percent = $inner.data('percent'),
-            $asnavfor = $($inner.data('asnavfor') + ' ' + $($inner.data('asnavfor')).find('.oxy-carousel-builder_inner').data('carousel'))[0],
-            $sync = $inner.data('sync') + ' ' + $($inner.data('sync')).find('.oxy-carousel-builder_inner').data('carousel'),
+            $asnavfor = $inner.closest('.oxy-dynamic-list > .ct-div-block').length ? $( '#' + $inner.closest('.oxy-dynamic-list > .ct-div-block').attr('id') + ' ' +  $inner.data('asnavfor') + ' ' + $($inner.data('asnavfor')).find('.oxy-carousel-builder_inner').data('carousel') )[0] : $( $inner.data('asnavfor') + ' ' + $($inner.data('asnavfor')).find('.oxy-carousel-builder_inner').data('carousel') )[0],
+            $sync = $inner.closest('.oxy-dynamic-list > .ct-div-block').length ? '#' + $inner.closest('.oxy-dynamic-list > .ct-div-block').attr('id') + ' ' + $inner.data('sync') + ' ' + $($inner.data('sync')).find('.oxy-carousel-builder_inner').data('carousel') : $inner.data('sync') + ' ' + $($inner.data('sync')).find('.oxy-carousel-builder_inner').data('carousel'),
             $dragthreshold = $inner.data('dragthreshold'),
             $selectedattraction = $inner.data('selectedattraction'),
             $friction = $inner.data('friction'),
@@ -130,7 +132,7 @@ function oxygen_init_repeater_carousel($) {
             $triggeraos = $inner.data('trigger-aos'),
             $triggeraosDelay = $inner.data('trigger-aos-delay'),
             $resumeAutoplay = $inner.data('resume-autoplay'),
-            $hash = $inner.data('hash');
+            $hash = $inner.data('hash'); 
 
 
         $($carouselslider).on('ready.flickity', function(event, index) {

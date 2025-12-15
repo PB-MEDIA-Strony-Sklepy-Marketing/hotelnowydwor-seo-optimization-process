@@ -80,7 +80,7 @@ jQuery(document).ready(function($) {
                     rightToLeft: %%right_to_left%%,
                     pageDots: true,
                     percentPosition: true,
-                    autoplay: %%autoplay%%,
+                    autoplay: parseInt('%%autoplay%%'),
                     pauseAutoPlayOnHover: %%maybe_pause_autoplay%%,
                     accessibility: false,
                     draggable: false,

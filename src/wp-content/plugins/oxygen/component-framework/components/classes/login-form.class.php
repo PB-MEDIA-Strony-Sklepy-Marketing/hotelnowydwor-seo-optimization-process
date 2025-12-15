@@ -149,31 +149,31 @@ class Oxygen_VSB_Login_Form extends CT_Component {
             ng-if="isActiveName('<?php echo $this->options['tag']; ?>')">
 
             <div class="oxygen-settings-section-heading">
-                <?php _e("Form Field", "oxygen"); ?>
+                <?php oxygen_translate_echo("Form Field", "oxygen"); ?>
             </div>
 
             <div class="oxygen-control-row">
-                <?php $oxygen_toolbar->colorpicker_with_wrapper("form_field_border_color", __("Border Color", "oxygen") ); ?>
+                <?php $oxygen_toolbar->colorpicker_with_wrapper("form_field_border_color", oxygen_translate("Border Color", "oxygen") ); ?>
             </div>
 
             <div class="oxygen-control-row">
-                <?php $oxygen_toolbar->colorpicker_with_wrapper("form_field_text_color", __("Text Color", "oxygen") ); ?>
+                <?php $oxygen_toolbar->colorpicker_with_wrapper("form_field_text_color", oxygen_translate("Text Color", "oxygen") ); ?>
             </div>
 
             <div class='oxygen-control-row'>
-                <?php $oxygen_toolbar->measure_box_with_wrapper('field_border_radius',__('Border Radius','oxygen'), "px"); ?>
+                <?php $oxygen_toolbar->measure_box_with_wrapper('field_border_radius',oxygen_translate('Border Radius','oxygen'), "px"); ?>
             </div>
             
             <div class="oxygen-settings-section-heading">
-                <?php _e("Submit Button", "oxygen"); ?>
+                <?php oxygen_translate_echo("Submit Button", "oxygen"); ?>
             </div>
 
             <div class="oxygen-control-row">
-                <?php $oxygen_toolbar->colorpicker_with_wrapper("submit_button_background_color", __("Background Color", "oxygen") ); ?>
+                <?php $oxygen_toolbar->colorpicker_with_wrapper("submit_button_background_color", oxygen_translate("Background Color", "oxygen") ); ?>
             </div>
 
             <div class="oxygen-control-row">
-                <?php $oxygen_toolbar->colorpicker_with_wrapper("submit_button_text_color", __("Text Color", "oxygen") ); ?>
+                <?php $oxygen_toolbar->colorpicker_with_wrapper("submit_button_text_color", oxygen_translate("Text Color", "oxygen") ); ?>
             </div>
 
         </div>
@@ -184,7 +184,7 @@ class Oxygen_VSB_Login_Form extends CT_Component {
 // Create component instance
 global $oxygen_vsb_components;
 $oxygen_vsb_components['login_form'] = new Oxygen_VSB_Login_Form( array(
-            'name'  => __('Login Form','oxygen'),
+            'name'  => oxygen_translate('Login Form','oxygen'),
             'tag'   => 'oxy_login_form',
             'advanced'  => array(
                 "positioning" => array(

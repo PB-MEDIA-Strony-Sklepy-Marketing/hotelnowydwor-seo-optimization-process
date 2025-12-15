@@ -253,14 +253,14 @@ Class Oxy_Header_Builder extends CT_Component {
 				<div id="oxygen-add-another-row" class="oxygen-add-section-element"
 					ng-click="iframeScope.addComponent('oxy_header_row')">
 					<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/add-icons/header.svg' />
-					<?php _e("Add Another Row","oxygen"); ?>
+					<?php oxygen_translate_echo("Add Another Row","oxygen"); ?>
 				</div>
 			</div>
 		</div>
 		<?php endif; ?>
 		
 		<div ng-show="isActiveName('<?php echo $this->options['tag']; ?>')&&!hasOpenTabs('oxy_header')">
-			<?php $oxygen_toolbar->media_queries_list_with_wrapper("stack-header-vertically", __("Stack Vertically Below","oxygen"), true); ?>
+			<?php $oxygen_toolbar->media_queries_list_with_wrapper("stack-header-vertically", oxygen_translate("Stack Vertically Below","oxygen"), true); ?>
 		</div>
 
 	<?php }
@@ -270,11 +270,11 @@ Class Oxy_Header_Builder extends CT_Component {
 // Create Header Builder instance
 global $oxygen_vsb_components;
 $oxygen_vsb_components['header_builder'] = new Oxy_Header_Builder( array( 
-			'name' 		=> __('Header Builder','oxygen'),
+			'name' 		=> oxygen_translate('Header Builder','oxygen'),
 			'tag' 		=> 'oxy_header',
 			'tabs'  => array(
                 'sticky' => array(
-                    'heading' => __('Sticky','oxygen'),
+                    'heading' => oxygen_translate('Sticky','oxygen'),
                     'params' => array(
                     	array(
 							"type" 			=> "checkbox",
@@ -282,12 +282,12 @@ $oxygen_vsb_components['header_builder'] = new Oxy_Header_Builder( array(
 							"value" 		=> "no",
 							"true_value" 	=> "yes",
 							"false_value" 	=> "no",
-							"label" 		=> __("Enable Sticky Header", "oxygen"),
+							"label" 		=> oxygen_translate("Enable Sticky Header", "oxygen"),
 							"css" 			=> false
 						),
 						/*array(
 							"type" 			=> "checkbox",
-							"label" 		=> __("Only Sticky On Upward Scroll","oxygen"),
+							"label" 		=> oxygen_translate("Only Sticky On Upward Scroll","oxygen"),
 							"param_name" 	=> "sticky_header_upward",
 							"value" 		=> "no",
 							"true_value" 	=> "yes",
@@ -297,7 +297,7 @@ $oxygen_vsb_components['header_builder'] = new Oxy_Header_Builder( array(
 						),*/
 						array(
 							"type" 			=> "textfield",
-							"heading" 		=> __("Scroll Distance (px)","oxygen"),
+							"heading" 		=> oxygen_translate("Scroll Distance (px)","oxygen"),
 							"param_name" 	=> "sticky_scroll_distance",
 							"value" 		=> "300",
 							"condition"		=> "sticky_header=yes",
@@ -305,14 +305,14 @@ $oxygen_vsb_components['header_builder'] = new Oxy_Header_Builder( array(
 						),
 						array(
 							"type" 			=> "colorpicker",
-							"heading" 		=> __("Sticky Background Color","oxygen"),
+							"heading" 		=> oxygen_translate("Sticky Background Color","oxygen"),
 							"param_name" 	=> "sticky-background-color",
 							"condition"		=> "sticky_header=yes",
 							"css" 			=> false
 						),
 						array(
 							"type" 			=> "medialist_above",
-							"heading" 		=> __("Sticky Above","oxygen"),
+							"heading" 		=> oxygen_translate("Sticky Above","oxygen"),
 							"value" 		=> "page-width",
 							"param_name" 	=> "sticky-media",
 							"condition"		=> "sticky_header=yes",
@@ -322,7 +322,7 @@ $oxygen_vsb_components['header_builder'] = new Oxy_Header_Builder( array(
 						),
 						array(
 							"type" 			=> "textfield",
-							"heading" 		=> __("Sticky Box Shadow","oxygen"),
+							"heading" 		=> oxygen_translate("Sticky Box Shadow","oxygen"),
 							"param_name" 	=> "sticky-box-shadow",
 							"value" 		=> "0px 0px 10px rgba(0,0,0,0.3);",
 							"condition"		=> "sticky_header=yes",
@@ -335,7 +335,7 @@ $oxygen_vsb_components['header_builder'] = new Oxy_Header_Builder( array(
 						),
 						array(
 							"type" 			=> "textfield",
-							"heading" 		=> __("Sticky Header Z-Index","oxygen"),
+							"heading" 		=> oxygen_translate("Sticky Header Z-Index","oxygen"),
 							"param_name" 	=> "sticky_zindex",
 							"value" 		=> "",
 							"condition"		=> "sticky_header=yes",
@@ -343,7 +343,7 @@ $oxygen_vsb_components['header_builder'] = new Oxy_Header_Builder( array(
 						),
 						array(
 							"type" 			=> "checkbox",
-							"label" 		=> __("Fade In Sticky","oxygen"),
+							"label" 		=> oxygen_translate("Fade In Sticky","oxygen"),
 							"param_name" 	=> "sticky_header_fade_in",
 							"value" 		=> "no",
 							"true_value" 	=> "yes",
@@ -353,7 +353,7 @@ $oxygen_vsb_components['header_builder'] = new Oxy_Header_Builder( array(
 						),
 						array(
 							"type" 			=> "slider-measurebox",
-							"heading" 		=> __("Fade In Speed","oxygen"),
+							"heading" 		=> oxygen_translate("Fade In Speed","oxygen"),
 							"param_name" 	=> "sticky_header_fade_in_speed",
 							"value" 		=> 0.3,
 							"min"			=> "0",
@@ -366,11 +366,11 @@ $oxygen_vsb_components['header_builder'] = new Oxy_Header_Builder( array(
                     ),
                 ),
                 'overlay' => array(
-                    'heading' => __('Overlay','oxygen'),
+                    'heading' => oxygen_translate('Overlay','oxygen'),
                     'params' => array(
                     	array(
 	                    	"type" 			=> "medialist_above",
-							"heading" 		=> __("Overlay Header","oxygen"),
+							"heading" 		=> oxygen_translate("Overlay Header","oxygen"),
 							"value" 		=> "",
 							"param_name" 	=> "overlay-header-above",
 							"always_option" => true,
@@ -379,7 +379,7 @@ $oxygen_vsb_components['header_builder'] = new Oxy_Header_Builder( array(
 						),
 						array(
 	                    	"type" 			=> "text",
-	                    	"text" 			=> __("Enable the header overlay on specific pages only from Settings -> Page Settings","oxygen"),
+	                    	"text" 			=> oxygen_translate("Enable the header overlay on specific pages only from Settings -> Page Settings","oxygen"),
 	                    	"class" 		=> "oxygen-overlay-header-text",
 							"css" 			=> false
 						)
@@ -389,7 +389,7 @@ $oxygen_vsb_components['header_builder'] = new Oxy_Header_Builder( array(
 			'params' 	=> array(
 				array(
 					"type" 			=> "colorpicker",
-					"heading" 		=> __("Background color"),
+					"heading" 		=> oxygen_translate("Background color"),
 					"param_name" 	=> "background-color",
 				),
 			),

@@ -71,12 +71,12 @@ global $oxygen_vsb_components;
 $oxygen_vsb_components['link_button'] = new CT_Link_Button ( 
 
 		array( 
-			'name' 		=> __("Button","oxygen"),
+			'name' 		=> oxygen_translate("Button","oxygen"),
 			'tag' 		=> 'ct_link_button',
 			'params' 	=> array(
 					array(
 						"type" 			=> "hyperlink",
-						"heading" 		=> __("URL","oxygen"),
+						"heading" 		=> oxygen_translate("URL","oxygen"),
 						"param_name" 	=> "url",
 						"value" 		=> "http://",
 						"css"			=> false,
@@ -84,7 +84,7 @@ $oxygen_vsb_components['link_button'] = new CT_Link_Button (
 					),
 					array(
 						"type" 			=> "dropdown",
-						"heading" 		=> __("Target","oxygen"),
+						"heading" 		=> oxygen_translate("Target","oxygen"),
 						"param_name" 	=> "target",
 						"value" 		=> array (
 											"" => "&nbsp;",
@@ -98,7 +98,7 @@ $oxygen_vsb_components['link_button'] = new CT_Link_Button (
 					),
 					array(
 						"type" 			=> "html_attribute",
-						"heading" 		=> __("Rel","oxygen"),
+						"heading" 		=> oxygen_translate("Rel","oxygen"),
 						"param_name" 	=> "rel",
 						"value" 		=> "",
 						"css" 			=> false,
@@ -111,17 +111,17 @@ $oxygen_vsb_components['link_button'] = new CT_Link_Button (
 					),
 					array(
 						"type" 			=> "radio",
-						"heading" 		=> __("Button Style", "oxygen"),
+						"heading" 		=> oxygen_translate("Button Style", "oxygen"),
 						"param_name" 	=> "button-style",
 						"value" 		=> array(
-											1 	=> __("Solid", "oxygen"),
-											2 	=> __("Outline", "oxygen")
+											1 	=> oxygen_translate("Solid", "oxygen"),
+											2 	=> oxygen_translate("Outline", "oxygen")
 										),
 						"css"			=> false,
 					),
 					array(
 						"type" 			=> "slider-measurebox",
-						"heading" 		=> __("Button Size", "oxygen"),
+						"heading" 		=> oxygen_translate("Button Size", "oxygen"),
 						"param_name" 	=> "button-size",
 						"value" 		=> 10,
 						"min"			=> "5",
@@ -130,7 +130,7 @@ $oxygen_vsb_components['link_button'] = new CT_Link_Button (
 					),
 					array(
 						"type" 			=> "colorpicker",
-						"heading" 		=> __("Button Color", "oxygen"),
+						"heading" 		=> oxygen_translate("Button Color", "oxygen"),
 						"param_name" 	=> "button-color",
 						"value" 		=> "#1e73be",
 						"css"			=> false,
@@ -139,13 +139,13 @@ $oxygen_vsb_components['link_button'] = new CT_Link_Button (
 					array(
 						"type" 				=> "colorpicker",
 						"param_name" 		=> "button-hover_color",
-						"heading" 			=> __("Button Hover Color", "oxygen"),
+						"heading" 			=> oxygen_translate("Button Hover Color", "oxygen"),
 						"hide_wrapper_start"=> true,
 						"state_condition" 	=> "!=hover"
 					),
 					array(
 						"type" 			=> "colorpicker",
-						"heading" 		=> __("Text Color"),
+						"heading" 		=> oxygen_translate("Text Color"),
 						"param_name" 	=> "button-text-color",
 						"value" 		=> "#ffffff",
 						"condition"		=> "button-style!=2",
@@ -153,18 +153,18 @@ $oxygen_vsb_components['link_button'] = new CT_Link_Button (
 					),
 					array(
 						"type" 			=> "slider-measurebox",
-						"heading" 		=> __("Text Size", "oxygen"),
+						"heading" 		=> oxygen_translate("Text Size", "oxygen"),
 						"param_name" 	=> "font-size",
 						"min"			=> "10",
 						"max"			=> "100",
 					),
 					array(
 						"type" 			=> "font-family",
-						"heading" 		=> __("Font Family", "oxygen"),
+						"heading" 		=> oxygen_translate("Font Family", "oxygen"),
 					),
 					array(
 						"type" 			=> "dropdown",
-						"heading" 		=> __("Font Weight", "oxygen"),
+						"heading" 		=> oxygen_translate("Font Weight", "oxygen"),
 						"param_name" 	=> "font-weight",
 						"value" 		=> array (
 											"" 	  => "&nbsp;",
@@ -181,7 +181,7 @@ $oxygen_vsb_components['link_button'] = new CT_Link_Button (
 					),
 					array(
 						"type" 			=> "textfield",
-						"heading" 		=> __("Target","oxygen"),
+						"heading" 		=> oxygen_translate("Target","oxygen"),
 						"param_name" 	=> "target",
 						"value" 		=> "_self",
 						"hidden"		=> true,

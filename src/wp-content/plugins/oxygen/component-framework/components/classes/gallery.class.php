@@ -92,7 +92,7 @@ class Oxygen_VSB_Gallery extends CT_Component {
                 }
             }
             else {
-                _e("No ACF gallery field data found", "oxygen");
+                oxygen_translate_echo("No ACF gallery field data found", "oxygen");
             }
 
             return $ids;
@@ -139,7 +139,7 @@ class Oxygen_VSB_Gallery extends CT_Component {
                 
             
             if (!$ids) {
-                _e("No Meta Box gallery field data found", "oxygen");
+                oxygen_translate_echo("No Meta Box gallery field data found", "oxygen");
             }
 
             return $ids;
@@ -172,7 +172,7 @@ class Oxygen_VSB_Gallery extends CT_Component {
             return $ids;
         } 
         else {
-            _e("No WooCommerce product found", "oxygen");
+            oxygen_translate_echo("No WooCommerce product found", "oxygen");
             
             return "";
         }
@@ -624,13 +624,13 @@ class Oxygen_VSB_Gallery extends CT_Component {
 
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Gallery Source","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Gallery Source","oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-button-list'>
-                                <?php $oxygen_toolbar->button_list_button('gallery_source','medialibrary', __('Media Library','oxygen')); ?>
-                                <?php $oxygen_toolbar->button_list_button('gallery_source','acf', __('ACF','oxygen')); ?>
-                                <?php $oxygen_toolbar->button_list_button('gallery_source','metabox', __('Meta Box','oxygen')); ?>
-                                <?php $oxygen_toolbar->button_list_button('gallery_source','woocommerce', __('WooCommerce','oxygen')); ?>
+                                <?php $oxygen_toolbar->button_list_button('gallery_source','medialibrary', oxygen_translate('Media Library','oxygen')); ?>
+                                <?php $oxygen_toolbar->button_list_button('gallery_source','acf', oxygen_translate('ACF','oxygen')); ?>
+                                <?php $oxygen_toolbar->button_list_button('gallery_source','metabox', oxygen_translate('Meta Box','oxygen')); ?>
+                                <?php $oxygen_toolbar->button_list_button('gallery_source','woocommerce', oxygen_translate('WooCommerce','oxygen')); ?>
                             </div>
                         </div>
                     </div>
@@ -639,7 +639,7 @@ class Oxygen_VSB_Gallery extends CT_Component {
                 <div class='oxygen-control-row'
                     ng-show="iframeScope.getOption('gallery_source')=='acf'">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("ACF Field", "oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("ACF Field", "oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-input'>
                                 <input type="text" spellcheck="false"
@@ -653,7 +653,7 @@ class Oxygen_VSB_Gallery extends CT_Component {
                 <div class='oxygen-control-row'
                     ng-show="iframeScope.getOption('gallery_source')=='metabox'">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Meta Box Field", "oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Meta Box Field", "oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-input'>
                                 <input type="text" spellcheck="false"
@@ -667,7 +667,7 @@ class Oxygen_VSB_Gallery extends CT_Component {
                 <div class='oxygen-control-row'
                     ng-show="iframeScope.getOption('gallery_source')=='medialibrary'">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Image IDs", "oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Image IDs", "oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-file-input'
                                 ng-class="{'oxygen-option-default':iframeScope.isInherited(iframeScope.component.active.id, 'image_ids')}">
@@ -679,7 +679,7 @@ class Oxygen_VSB_Gallery extends CT_Component {
                                     data-mediaButton="Select Images"
                                     data-mediaMultiple="true"
                                     data-mediaProperty="image_ids"
-                                    data-mediaType="gallery"><?php _e("browse","oxygen"); ?></div>
+                                    data-mediaType="gallery"><?php oxygen_translate_echo("browse","oxygen"); ?></div>
                             </div>
                         </div>
                     </div>
@@ -688,7 +688,7 @@ class Oxygen_VSB_Gallery extends CT_Component {
                 <div class='oxygen-control-row'
                     ng-show="iframeScope.getOption('gallery_source')=='woocommerce'">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Woo Product ID", "oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Woo Product ID", "oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-input'
                                 ng-class="{'oxygen-option-default':iframeScope.isInherited(iframeScope.component.active.id, 'woo_product_id')}">
@@ -702,7 +702,7 @@ class Oxygen_VSB_Gallery extends CT_Component {
 
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Link Images","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Link Images","oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-button-list'>
                                 <?php $oxygen_toolbar->button_list_button('link','yes'); ?>
@@ -715,7 +715,7 @@ class Oxygen_VSB_Gallery extends CT_Component {
                 <div class='oxygen-control-row'
                     ng-show="iframeScope.getOption('link')=='yes'">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Add Lightbox","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Add Lightbox","oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-button-list'>
                                 <?php $oxygen_toolbar->button_list_button('lightbox','yes'); ?>
@@ -727,7 +727,7 @@ class Oxygen_VSB_Gallery extends CT_Component {
 
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Thumbnail Resolution","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Thumbnail Resolution","oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class="oxygen-select oxygen-select-box-wrapper">
                                 <div class="oxygen-select-box">
@@ -753,7 +753,7 @@ class Oxygen_VSB_Gallery extends CT_Component {
                 </div>
 
                 <div ng-show="iframeScope.getOption('layout')!='flex'">
-                    <?php $oxygen_toolbar->checkbox('lazy', __("Lazy Load", "oxygen"), "lazy", "") ?>
+                    <?php $oxygen_toolbar->checkbox('lazy', oxygen_translate("Lazy Load", "oxygen"), "lazy", "") ?>
                 </div>
 
             </div>
@@ -762,7 +762,7 @@ class Oxygen_VSB_Gallery extends CT_Component {
                 ng-click="switchTab('gallery', 'layout')" 
                 ng-show="!hasOpenTabs('gallery')">
                     <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/general-config.svg">
-                    <?php _e("Layout", "oxygen"); ?>
+                    <?php oxygen_translate_echo("Layout", "oxygen"); ?>
                     <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
             </div>
 
@@ -775,14 +775,14 @@ class Oxygen_VSB_Gallery extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="tabs.gallery=[]"><?php _e("Gallery","oxygen"); ?></div>
+                        ng-click="tabs.gallery=[]"><?php oxygen_translate_echo("Gallery","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Layout","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Layout","oxygen"); ?></div>
                 </div>
 
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Layout","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Layout","oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-button-list'>
                                 <?php $oxygen_toolbar->button_list_button('layout','flex'); ?>
@@ -794,7 +794,7 @@ class Oxygen_VSB_Gallery extends CT_Component {
                 </div>
 
                 <div ng-show="iframeScope.getOption('display')=='grid'">
-                    <?php $oxygen_toolbar->checkbox('set_image_fit_to_cover', __("Set Image Fit To Cover", "oxygen"), "true", "false") ?>
+                    <?php $oxygen_toolbar->checkbox('set_image_fit_to_cover', oxygen_translate("Set Image Fit To Cover", "oxygen"), "true", "false") ?>
                 </div>
 
                 <div class="oxygen-control-row">
@@ -815,7 +815,7 @@ class Oxygen_VSB_Gallery extends CT_Component {
                 <div class='oxygen-control-row'
                     ng-show="iframeScope.getOption('layout')=='flex'">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Image Aspect Ratio", "oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Image Aspect Ratio", "oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-input'
                                 ng-class="{'oxygen-option-default':iframeScope.isInherited(iframeScope.component.active.id, 'image_aspect_ratio')}">
@@ -828,7 +828,7 @@ class Oxygen_VSB_Gallery extends CT_Component {
                 
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Images per row", "oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Images per row", "oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-input'
                                 ng-class="{'oxygen-option-default':iframeScope.isInherited(iframeScope.component.active.id, 'images_per_row')}">
@@ -840,11 +840,11 @@ class Oxygen_VSB_Gallery extends CT_Component {
                 </div>
 
                 <div class='oxygen-control-row'>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper('space_around_image',__('Space Around Image','oxygen'), "px"); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper('space_around_image',oxygen_translate('Space Around Image','oxygen'), "px"); ?>
                 </div>
 
                 <div class='oxygen-control-row'>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper('image_min_width',__('Image Min Width','oxygen'), "px"); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper('image_min_width',oxygen_translate('Image Min Width','oxygen'), "px"); ?>
                 </div>
 
                 </div>
@@ -855,7 +855,7 @@ class Oxygen_VSB_Gallery extends CT_Component {
                 ng-click="switchTab('gallery', 'captions')" 
                 ng-show="!hasOpenTabs('gallery')">
                     <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/general-config.svg">
-                    <?php _e("Captions", "oxygen"); ?>
+                    <?php oxygen_translate_echo("Captions", "oxygen"); ?>
                     <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
             </div>
 
@@ -868,14 +868,14 @@ class Oxygen_VSB_Gallery extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="tabs.gallery=[]"><?php _e("Gallery","oxygen"); ?></div>
+                        ng-click="tabs.gallery=[]"><?php oxygen_translate_echo("Gallery","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Captions","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Captions","oxygen"); ?></div>
                 </div>
 
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Show Captions","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Show Captions","oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-button-list'>
                                 <?php $oxygen_toolbar->button_list_button('gallery_captions','yes'); ?>
@@ -886,16 +886,16 @@ class Oxygen_VSB_Gallery extends CT_Component {
                 </div>
 
                 <div class="oxygen-control-row">
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("caption_color", __("Caption Color", "oxygen") ); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("caption_color", oxygen_translate("Caption Color", "oxygen") ); ?>
                 </div>
 
                 <div class="oxygen-control-row">
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("caption_background_color", __("Caption Background Color", "oxygen") ); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("caption_background_color", oxygen_translate("Caption Background Color", "oxygen") ); ?>
                 </div>
 
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Show Captions Only On Hover","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Show Captions Only On Hover","oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-button-list'>
                                 <?php $oxygen_toolbar->button_list_button('gallery_captions_only_hover','yes'); ?>
@@ -905,7 +905,7 @@ class Oxygen_VSB_Gallery extends CT_Component {
                     </div>
                 </div>
 
-                <?php $oxygen_toolbar->media_queries_list_with_wrapper("hide_captions_below", __("Hide Captions Below","oxygen"), true); ?>
+                <?php $oxygen_toolbar->media_queries_list_with_wrapper("hide_captions_below", oxygen_translate("Hide Captions Below","oxygen"), true); ?>
 
             </div>
 
@@ -913,7 +913,7 @@ class Oxygen_VSB_Gallery extends CT_Component {
                 ng-click="switchTab('gallery', 'hover')" 
                 ng-show="!hasOpenTabs('gallery')">
                     <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/general-config.svg">
-                    <?php _e("Hover", "oxygen"); ?>
+                    <?php oxygen_translate_echo("Hover", "oxygen"); ?>
                     <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
             </div>
 
@@ -926,14 +926,14 @@ class Oxygen_VSB_Gallery extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="tabs.gallery=[]"><?php _e("Gallery","oxygen"); ?></div>
+                        ng-click="tabs.gallery=[]"><?php oxygen_translate_echo("Gallery","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Hover","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Hover","oxygen"); ?></div>
                 </div>
 
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Image Opacity", "oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Image Opacity", "oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <?php $oxygen_toolbar->slider_measure_box('image_opacity', "", 0, 1, true, 0.1); ?>
                         </div>
@@ -942,7 +942,7 @@ class Oxygen_VSB_Gallery extends CT_Component {
 
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Hover Image Opacity", "oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Hover Image Opacity", "oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <?php $oxygen_toolbar->slider_measure_box('image_opacity_hover', "", 0, 1, true, 0.1); ?>
                         </div>
@@ -951,7 +951,7 @@ class Oxygen_VSB_Gallery extends CT_Component {
 
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Transition Duration", "oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Transition Duration", "oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <?php $oxygen_toolbar->slider_measure_box('transition_duration', "sec", 0, 1, true, 0.1); ?>
                         </div>
@@ -969,7 +969,7 @@ class Oxygen_VSB_Gallery extends CT_Component {
 global $oxygen_vsb_components;
 $oxygen_vsb_components['gallery'] = new Oxygen_VSB_Gallery(
         array(
-            'name'  => __('Gallery','oxygen'),
+            'name'  => oxygen_translate('Gallery','oxygen'),
             'tag'   => 'oxy_gallery',
             'advanced'  => array(
                 "other" => array(

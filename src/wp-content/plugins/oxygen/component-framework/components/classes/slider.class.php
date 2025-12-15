@@ -133,7 +133,7 @@ Class CT_Slider extends CT_Component {
 				ng-click="switchTab('slider', 'styling')" 
 				ng-show="!hasOpenTabs('slider')">
 					<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/styles.svg">
-					<?php _e("Styling", "oxygen"); ?>
+					<?php oxygen_translate_echo("Styling", "oxygen"); ?>
 					<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
 			</div>
 
@@ -141,7 +141,7 @@ Class CT_Slider extends CT_Component {
 				ng-click="switchTab('slider', 'configuration')" 
 				ng-show="!hasOpenTabs('slider')">
 					<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/general-config.svg">
-					<?php _e("Configuration", "oxygen"); ?>
+					<?php oxygen_translate_echo("Configuration", "oxygen"); ?>
 					<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
 			</div>
 		
@@ -153,14 +153,14 @@ Class CT_Slider extends CT_Component {
 						<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
 					</div>
 					<div class="oxygen-sidebar-breadcrumb-all-styles" 
-						ng-click="tabs.slider=[]"><?php _e("All Styles","oxygen"); ?></div>
+						ng-click="tabs.slider=[]"><?php oxygen_translate_echo("All Styles","oxygen"); ?></div>
 					<div class="oxygen-sidebar-breadcrumb-separator">/</div>
-					<div class="oxygen-sidebar-breadcrumb-current"><?php _e("Styling","oxygen"); ?></div>
+					<div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Styling","oxygen"); ?></div>
 				</div>
 
 				<div class='oxygen-control-row'>
 					<div class='oxygen-control-wrapper'>
-						<label class='oxygen-control-label'><?php _e("Animation","oxygen"); ?></label>
+						<label class='oxygen-control-label'><?php oxygen_translate_echo("Animation","oxygen"); ?></label>
 						<div class='oxygen-control'>
 							<div class='oxygen-button-list'>
 								<label class='oxygen-button-list-button'
@@ -184,7 +184,7 @@ Class CT_Slider extends CT_Component {
 
 				<div class="oxygen-control-row">
 					<div class='oxygen-control-wrapper'>
-						<label class='oxygen-control-label'><?php _e("Animation Speed (milliseconds)","oxygen"); ?></label>
+						<label class='oxygen-control-label'><?php oxygen_translate_echo("Animation Speed (milliseconds)","oxygen"); ?></label>
 						<div class='oxygen-control'>
 							<div class='oxygen-input'>
 								<input type="text" spellcheck="false"
@@ -197,7 +197,7 @@ Class CT_Slider extends CT_Component {
 
 				<div class='oxygen-control-row'>
 					<div class='oxygen-control-wrapper'>
-						<label class='oxygen-control-label'><?php _e("Arrow Color","oxygen"); ?></label>
+						<label class='oxygen-control-label'><?php oxygen_translate_echo("Arrow Color","oxygen"); ?></label>
 						<div class='oxygen-control'>
 							<div class='oxygen-button-list'>
 								<label class='oxygen-button-list-button'
@@ -220,7 +220,7 @@ Class CT_Slider extends CT_Component {
 				</div>
 
 				<div class="oxygen-control-row">
-					<?php $oxygen_toolbar->colorpicker_with_wrapper("slider-dot-color", __("Dot Color", "oxygen")); ?>
+					<?php $oxygen_toolbar->colorpicker_with_wrapper("slider-dot-color", oxygen_translate("Dot Color", "oxygen")); ?>
 				</div>
 
 				<div class="oxygen-control-row">
@@ -233,7 +233,7 @@ Class CT_Slider extends CT_Component {
 								ng-change="iframeScope.setOption(iframeScope.component.active.id,'ct_slider','slider-remove-padding')">
 							<div class='oxygen-checkbox-checkbox'
 								ng-class="{'oxygen-checkbox-checkbox-active':iframeScope.getOption('slider-remove-padding')=='yes'}">
-								<?php _e("Remove Padding Around Slides","oxygen"); ?>
+								<?php oxygen_translate_echo("Remove Padding Around Slides","oxygen"); ?>
 							</div>
 						</label>
 					</div>
@@ -249,7 +249,7 @@ Class CT_Slider extends CT_Component {
 								ng-change="iframeScope.setOption(iframeScope.component.active.id,'ct_slider','slider-dots-overlay')">
 							<div class='oxygen-checkbox-checkbox'
 								ng-class="{'oxygen-checkbox-checkbox-active':iframeScope.getOption('slider-dots-overlay')=='yes'}">
-								<?php _e("Dots Overlay Slider","oxygen"); ?>
+								<?php oxygen_translate_echo("Dots Overlay Slider","oxygen"); ?>
 							</div>
 						</label>
 					</div>
@@ -265,13 +265,13 @@ Class CT_Slider extends CT_Component {
 								ng-change="iframeScope.setOption(iframeScope.component.active.id,'ct_slider','slider-stretch-slides')">
 							<div class='oxygen-checkbox-checkbox'
 								ng-class="{'oxygen-checkbox-checkbox-active':iframeScope.getOption('slider-stretch-slides')=='yes'}">
-								<?php _e("All Slides Stretch To Same Height","oxygen"); ?>
+								<?php oxygen_translate_echo("All Slides Stretch To Same Height","oxygen"); ?>
 							</div>
 						</label>
 					</div>
 				</div>
 
-				<?php $oxygen_toolbar->measure_box_with_wrapper('slider-slide-padding',__("Force Slide Padding To", "oxygen") ); ?>
+				<?php $oxygen_toolbar->measure_box_with_wrapper('slider-slide-padding',oxygen_translate("Force Slide Padding To", "oxygen") ); ?>
 
 			</div>
 
@@ -283,9 +283,9 @@ Class CT_Slider extends CT_Component {
 						<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
 					</div>
 					<div class="oxygen-sidebar-breadcrumb-all-styles" 
-						ng-click="tabs.slider=[]"><?php _e("All Styles","oxygen"); ?></div>
+						ng-click="tabs.slider=[]"><?php oxygen_translate_echo("All Styles","oxygen"); ?></div>
 					<div class="oxygen-sidebar-breadcrumb-separator">/</div>
-					<div class="oxygen-sidebar-breadcrumb-current"><?php _e("Configuration","oxygen"); ?></div>
+					<div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Configuration","oxygen"); ?></div>
 				</div>
 
 				<div class="oxygen-control-row">
@@ -298,7 +298,7 @@ Class CT_Slider extends CT_Component {
 								ng-change="iframeScope.setOption(iframeScope.component.active.id,'ct_slider','slider-show-arrows');iframeScope.rebuildDOM(iframeScope.component.active.id)">
 							<div class='oxygen-checkbox-checkbox'
 								ng-class="{'oxygen-checkbox-checkbox-active':iframeScope.getOption('slider-show-arrows')=='yes'}">
-								<?php _e("Show Arrows","oxygen"); ?>
+								<?php oxygen_translate_echo("Show Arrows","oxygen"); ?>
 							</div>
 						</label>
 					</div>
@@ -314,7 +314,7 @@ Class CT_Slider extends CT_Component {
 								ng-change="iframeScope.setOption(iframeScope.component.active.id,'ct_slider','slider-show-dots');iframeScope.rebuildDOM(iframeScope.component.active.id)">
 							<div class='oxygen-checkbox-checkbox'
 								ng-class="{'oxygen-checkbox-checkbox-active':iframeScope.getOption('slider-show-dots')=='yes'}">
-								<?php _e("Show Dots","oxygen"); ?>
+								<?php oxygen_translate_echo("Show Dots","oxygen"); ?>
 							</div>
 						</label>
 					</div>
@@ -330,7 +330,7 @@ Class CT_Slider extends CT_Component {
 								ng-change="iframeScope.setOption(iframeScope.component.active.id,'ct_slider','slider-autoplay');iframeScope.rebuildDOM(iframeScope.component.active.id)">
 							<div class='oxygen-checkbox-checkbox'
 								ng-class="{'oxygen-checkbox-checkbox-active':iframeScope.getOption('slider-autoplay')=='yes'}">
-								<?php _e("Autoplay","oxygen"); ?>
+								<?php oxygen_translate_echo("Autoplay","oxygen"); ?>
 							</div>
 						</label>
 					</div>
@@ -346,7 +346,7 @@ Class CT_Slider extends CT_Component {
 								ng-change="iframeScope.setOption(iframeScope.component.active.id,'ct_slider','slider-infinite');">
 							<div class='oxygen-checkbox-checkbox'
 								ng-class="{'oxygen-checkbox-checkbox-active':iframeScope.getOption('slider-infinite')=='yes'}">
-								<?php _e("Infinite","oxygen"); ?>
+								<?php oxygen_translate_echo("Infinite","oxygen"); ?>
 							</div>
 						</label>
 					</div>
@@ -355,7 +355,7 @@ Class CT_Slider extends CT_Component {
 				<div class="oxygen-control-row"
 					ng-show="iframeScope.component.options[iframeScope.component.active.id]['model']['slider-autoplay'] == 'yes'">
 					<div class='oxygen-control-wrapper'>
-						<label class='oxygen-control-label'><?php _e("Delay (milliseconds)","oxygen"); ?></label>
+						<label class='oxygen-control-label'><?php oxygen_translate_echo("Delay (milliseconds)","oxygen"); ?></label>
 						<div class='oxygen-control'>
 							<div class='oxygen-input'>
 								<input type="text" spellcheck="false"
@@ -573,7 +573,7 @@ Class CT_Slider extends CT_Component {
 // Create Slider instance
 global $oxygen_vsb_components;
 $oxygen_vsb_components['slider'] = new CT_Slider( array( 
-			'name' 		=> __('Slider','oxygen'),
+			'name' 		=> oxygen_translate('Slider','oxygen'),
 			'tag' 		=> 'ct_slider',
 			'advanced' 	=> array(
 				'styles' => array(

@@ -2,7 +2,7 @@
 /*
 Plugin Name: OxyExtras
 Description: Component Library for Oxygen.
-Version: 1.4.3
+Version: 1.4.7
 Author: OxyExtras
 Author URI: https://oxyextras.com
 */
@@ -24,7 +24,7 @@ class OxyExtrasPlugin {
 
 	const PREFIX    = 'oxy_extras_';
 	const TITLE     = 'OxyExtras';
-	const VERSION   = '1.4.3';
+	const VERSION   = '1.4.7';
 	const STORE_URL = 'https://oxyextras.com';
 	const ITEM_ID   = 240;
 
@@ -35,6 +35,9 @@ class OxyExtrasPlugin {
 		add_action( 'activate_' . plugin_basename( __FILE__ ), array( __CLASS__, 'activate' ), 10, 2 );
 		add_action( 'admin_menu', array( __CLASS__, 'admin_menu' ), 11 );
 		add_action( 'admin_init', array( __CLASS__, 'plugin_updater' ), 0 );
+
+		/* admin setting styles */
+		add_action( 'admin_enqueue_scripts', [ __CLASS__, 'admin_settings_styles'] );
 
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'scripts' ), 11 );
 
@@ -56,6 +59,11 @@ class OxyExtrasPlugin {
 			
 			
 		}
+	}
+
+	/* Settings page styles */
+	public static function admin_settings_styles( $hook_suffix ) {
+		wp_enqueue_style( 'x_admin_css', plugins_url( 'includes/css/admin.css', __FILE__ ), false, '1.0.0' );
 	}
 
 	public static function activate( $plugin ) {
@@ -92,7 +100,7 @@ class OxyExtrasPlugin {
 	public static function menu_item() {
 		$tab = isset( $_GET['tab'] ) ? sanitize_text_field( $_GET['tab'] ) : false;
 		?>
-	<div class="wrap">
+	<div class="wrap oxyextras-settings">
 		<h2 class="nav-tab-wrapper">
 		<a href="?page=<?php echo self::PREFIX . 'menu'; ?>&amp;tab=settings" class="nav-tab<?php echo ( $tab === false || $tab == 'settings' ) ? ' nav-tab-active' : ''; ?>">Settings</a>
 		<a href="?page=<?php echo self::PREFIX . 'menu'; ?>&amp;tab=license" class="nav-tab<?php echo $tab == 'license' ? ' nav-tab-active' : ''; ?>">License</a>
@@ -153,19 +161,42 @@ class OxyExtrasPlugin {
 		?>
 		<h2>OxyExtras Changelog</h2>
 		<div style="background-color: #fff; padding: 15px 20px; border: 1px solid #ccd0d4">
-			<h3 style="margin-top: 0.5em;">1.4.3 ( May 31, 2022 )></h3>
+			<h3 style="margin-top: 0.5em;">1.4.6 ( Mar 27, 2024 )</h3>
+			<ul>
+				<li>[Pro Accordion] - Added an option to open the first accordion item when being used inside a repeater.</li>
+				<li>[Carousel Builder] - Sync functionality can now be used with carousels inside repeaters.</li>
+				<li>[Gutenberg Reusable Block] - Fixed deprecation notice.</li>
+			</ul>
+			
+			<h3>1.4.5 ( Mar 13, 2024 )</h3>
+			<ul>
+				<li>[General] - Security improvement.</li>
+			</ul>
+			
+			<h3>1.4.4 ( Mar 12, 2024 )</h3>
+			<ul>
+				<li>[Table of Contents] - Added option to use heading text as heading IDs inside content.</li>
+				<li>[Slide Menu] - Added option to auto close menu if hashlink menu item clicked.</li>
+				<li>[Content Timeline] - Now supports being inside nested repeaters.</li>
+				<li>[Social Share Buttons] - Changed defaults to use X icon.</li>
+				<li>[Carousel Builder] - Fixed issue with with carousel's preview mode showing </li>error in builder if autoplay setting has no value.</li>
+				<li>[Reading time] - Fixed issue where default words per minute value wasn't being used inside repeater when inside builder.</li>
+				<li>[General] - Security patch.</li>
+			</ul>
+			
+			<h3>1.4.3 ( May 31, 2022 )</h3>
 			<ul>
 				<li>[General] - Small update to all icons to better match Oxygen v4 UI.</li>
 				<li>[Carousel Builder] - Prevent Repeater divs wrapping onto multiple lines inside the builder.</li>
 				<li>[Read More] - Added seperate control for "transparent" gradient color.</li>
 			</ul>
 			
-			<h3>1.4.2 ( May 07, 2022 )></h3>
+			<h3>1.4.2 ( May 07, 2022 )</h3>
 			<ul>
 				<li>[Pro Media Player] Fixed SVG controls in the media player not showing up.</li>
 			</ul>
 
-			<h3>1.4.1 ( May 06, 2022 )></h3>
+			<h3>1.4.1 ( May 06, 2022 )</h3>
 			<ul>
 				<li>[Horizontal Slide Menu] - New component for horizontal sliding menus (mmenu.js).</li>
 				<li>[Interactive Cursor] - New component for adding a custom cursor that can interact with other elements.</li>
@@ -199,7 +230,7 @@ class OxyExtrasPlugin {
 				<li>[Lightbox] - Added a fix for AutomaticCSS users where a min-height on the body tag was being applied inside of lightbox iframe.</li>
 			</ul>
 
-			<h3>1.4.0 ( December 08, 2021 )></h3>
+			<h3>1.4.0 ( December 08, 2021 )</h3>
 			<ul>
 				<li>[Content Timeline] - Added an option to change the scroll position for classes to be added.</li>
 				<li>[Content Timeline] - Added more style controls for marker.</li>

@@ -153,7 +153,7 @@ Class Oxy_Nav_Menu extends CT_Component {
 			<div class="oxygen-control-row"
 				ng-show="!hasOpenTabs('navMenu')">
 				<div class='oxygen-control-wrapper'>
-					<label class='oxygen-control-label'><?php _e("Menu","oxygen"); ?></label>
+					<label class='oxygen-control-label'><?php oxygen_translate_echo("Menu","oxygen"); ?></label>
 					<div class='oxygen-control'>
 						<div class="oxygen-select oxygen-select-box-wrapper">
 							<div class="oxygen-select-box">
@@ -176,7 +176,7 @@ Class Oxy_Nav_Menu extends CT_Component {
 				ng-click="switchTab('navMenu', 'text')" 
 				ng-show="!hasOpenTabs('navMenu')">
 					<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/typography.svg">
-					<?php _e("Text", "oxygen"); ?>
+					<?php oxygen_translate_echo("Text", "oxygen"); ?>
 					<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
 			</div>
 
@@ -184,7 +184,7 @@ Class Oxy_Nav_Menu extends CT_Component {
 				ng-click="switchTab('navMenu', 'spacing')" 
 				ng-show="!hasOpenTabs('navMenu')">
 					<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/size_spacing.svg">
-					<?php _e("Spacing", "oxygen"); ?>
+					<?php oxygen_translate_echo("Spacing", "oxygen"); ?>
 					<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
 			</div>
 
@@ -192,7 +192,7 @@ Class Oxy_Nav_Menu extends CT_Component {
 				ng-click="switchTab('navMenu', 'hover_active')" 
 				ng-show="!hasOpenTabs('navMenu')">
 					<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/hover.svg">
-					<?php _e("Hover & Active", "oxygen"); ?>
+					<?php oxygen_translate_echo("Hover & Active", "oxygen"); ?>
 					<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
 			</div>
 
@@ -200,7 +200,7 @@ Class Oxy_Nav_Menu extends CT_Component {
 				ng-click="switchTab('navMenu', 'dropdowns')" 
 				ng-show="!hasOpenTabs('navMenu')">
 					<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/dropdown.svg">
-					<?php _e("Dropdowns", "oxygen"); ?>
+					<?php oxygen_translate_echo("Dropdowns", "oxygen"); ?>
 					<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
 			</div>
 
@@ -208,7 +208,7 @@ Class Oxy_Nav_Menu extends CT_Component {
 				ng-click="switchTab('navMenu', 'responsive')" 
 				ng-show="!hasOpenTabs('navMenu')">
 					<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/responsive.svg">
-					<?php _e("Mobile Responsive", "oxygen"); ?>
+					<?php oxygen_translate_echo("Mobile Responsive", "oxygen"); ?>
 					<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
 			</div>
 
@@ -220,18 +220,18 @@ Class Oxy_Nav_Menu extends CT_Component {
 						<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
 					</div>
 					<div class="oxygen-sidebar-breadcrumb-all-styles" 
-						ng-click="tabs.navMenu=[]"><?php _e("All Styles","oxygen"); ?></div>
+						ng-click="tabs.navMenu=[]"><?php oxygen_translate_echo("All Styles","oxygen"); ?></div>
 					<div class="oxygen-sidebar-breadcrumb-separator">/</div>
-					<div class="oxygen-sidebar-breadcrumb-current"><?php _e("Text","oxygen"); ?></div>
+					<div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Text","oxygen"); ?></div>
 				</div>
 
 				<div class='oxygen-control-row'>
 					<?php $oxygen_toolbar->font_family_dropdown(""); ?>
-					<?php $oxygen_toolbar->measure_box_with_wrapper("menu_font-size", __("Font size", "oxygen"), 'px,%,em'); ?>
+					<?php $oxygen_toolbar->measure_box_with_wrapper("menu_font-size", oxygen_translate("Font size", "oxygen"), 'px,%,em'); ?>
 				</div>
 
 				<div class="oxygen-control-row">
-					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_color", __("Color", "oxygen"), 'oxygen-typography-font-color'); ?>
+					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_color", oxygen_translate("Color", "oxygen"), 'oxygen-typography-font-color'); ?>
 				</div>
 
 				<div class="oxygen-control-row" ng-repeat="data in [{paramName:'menu_font-weight', idName:'oxygen-typography-font-family'}]" ng-include="'ctFontWeightTemplate'">
@@ -240,13 +240,13 @@ Class Oxy_Nav_Menu extends CT_Component {
 
 				<!-- line height & letter spacing -->
 				<div class='oxygen-control-row'>
-					<?php $oxygen_toolbar->measure_box_with_wrapper('menu_letter-spacing',__('Letter Spacing','oxygen')); ?>
+					<?php $oxygen_toolbar->measure_box_with_wrapper('menu_letter-spacing',oxygen_translate('Letter Spacing','oxygen')); ?>
 				</div>
 
 				<!-- text align -->
 				<div class='oxygen-control-row'>
 					<div class='oxygen-control-wrapper'>
-						<label class='oxygen-control-label'><?php _e("Text Align","oxygen"); ?></label>
+						<label class='oxygen-control-label'><?php oxygen_translate_echo("Text Align","oxygen"); ?></label>
 						<div class='oxygen-control'>
 							<div class='oxygen-icon-button-list'>
 								<?php $oxygen_toolbar->icon_button_list_button('menu_justify-content','flex-start','text-align/left.svg'); ?>
@@ -261,7 +261,7 @@ Class Oxy_Nav_Menu extends CT_Component {
 				<!-- text transform -->
 				<div class='oxygen-control-row'>
 					<div class='oxygen-control-wrapper'>
-						<label class='oxygen-control-label'><?php _e("Text Transform","oxygen"); ?></label>
+						<label class='oxygen-control-label'><?php oxygen_translate_echo("Text Transform","oxygen"); ?></label>
 						<div class='oxygen-control'>
 							<div class='oxygen-button-list'>
 								<?php $oxygen_toolbar->button_list_button('menu_text-transform','none'); ?>
@@ -276,7 +276,7 @@ Class Oxy_Nav_Menu extends CT_Component {
 				<!-- text decration -->
 				<div class='oxygen-control-row'>
 					<div class='oxygen-control-wrapper'>
-						<label class='oxygen-control-label'><?php _e("Text Decoration","oxygen"); ?></label>
+						<label class='oxygen-control-label'><?php oxygen_translate_echo("Text Decoration","oxygen"); ?></label>
 						<div class='oxygen-control'>
 							<div class='oxygen-button-list'>
 								<?php $oxygen_toolbar->button_list_button('menu_text-decoration','none','none'); ?>
@@ -291,7 +291,7 @@ Class Oxy_Nav_Menu extends CT_Component {
 				<!-- font smoothing -->
 				<div class='oxygen-control-row'>
 					<div class='oxygen-control-wrapper'>
-						<label class='oxygen-control-label'><?php _e("Font Smoothing","oxygen"); ?></label>
+						<label class='oxygen-control-label'><?php oxygen_translate_echo("Font Smoothing","oxygen"); ?></label>
 						<div class='oxygen-control'>
 							<div class='oxygen-button-list'>
 								<?php $oxygen_toolbar->button_list_button('menu_-webkit-font-smoothing','initial'); ?>
@@ -312,14 +312,14 @@ Class Oxy_Nav_Menu extends CT_Component {
 						<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
 					</div>
 					<div class="oxygen-sidebar-breadcrumb-all-styles" 
-						ng-click="tabs.navMenu=[]"><?php _e("All Styles","oxygen"); ?></div>
+						ng-click="tabs.navMenu=[]"><?php oxygen_translate_echo("All Styles","oxygen"); ?></div>
 					<div class="oxygen-sidebar-breadcrumb-separator">/</div>
-					<div class="oxygen-sidebar-breadcrumb-current"><?php _e("Spacing","oxygen"); ?></div>
+					<div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Spacing","oxygen"); ?></div>
 				</div>
 				
 				<div class="oxygen-control-row">
 					<div class='oxygen-control-wrapper'>
-						<label class='oxygen-control-label'><?php _e("Padding", "component-theme"); ?></label>
+						<label class='oxygen-control-label'><?php oxygen_translate_echo("Padding", "component-theme"); ?></label>
 						<div class='oxygen-control'>
 							<div class='oxygen-four-sides-measure-box'>
 								<?php $oxygen_toolbar->measure_box('menu_padding-top','px',true); ?>
@@ -328,7 +328,7 @@ Class Oxy_Nav_Menu extends CT_Component {
 								<?php $oxygen_toolbar->measure_box('menu_padding-left','px',true); ?>
                                 <div class="oxygen-flex-line-break"></div>
 								<div class="oxygen-apply-all-trigger">
-									<?php _e("apply all »", "oxygen"); ?>
+									<?php oxygen_translate_echo("apply all »", "oxygen"); ?>
 								</div>
 							</div>
 						</div>
@@ -338,7 +338,7 @@ Class Oxy_Nav_Menu extends CT_Component {
 				<div class="oxygen-control-row">
 
 					<div class='oxygen-control-wrapper' ng-show='iframeScope.component.active.name != "ct_section"'>
-						<label class='oxygen-control-label'><?php _e("Margin", "component-theme"); ?></label>
+						<label class='oxygen-control-label'><?php oxygen_translate_echo("Margin", "component-theme"); ?></label>
 						<div class='oxygen-control'>
 							<div class='oxygen-four-sides-measure-box'>
 								<?php $oxygen_toolbar->measure_box('menu_margin-top','',true); ?>
@@ -347,7 +347,7 @@ Class Oxy_Nav_Menu extends CT_Component {
 								<?php $oxygen_toolbar->measure_box('menu_margin-left','',true); ?>
                                 <div class="oxygen-flex-line-break"></div>
 								<div class="oxygen-apply-all-trigger">
-									<?php _e("apply all »", "oxygen"); ?>
+									<?php oxygen_translate_echo("apply all »", "oxygen"); ?>
 								</div>
 							</div>
 						</div>
@@ -364,39 +364,39 @@ Class Oxy_Nav_Menu extends CT_Component {
 						<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
 					</div>
 					<div class="oxygen-sidebar-breadcrumb-all-styles" 
-						ng-click="tabs.navMenu=[]"><?php _e("All Styles","oxygen"); ?></div>
+						ng-click="tabs.navMenu=[]"><?php oxygen_translate_echo("All Styles","oxygen"); ?></div>
 					<div class="oxygen-sidebar-breadcrumb-separator">/</div>
-					<div class="oxygen-sidebar-breadcrumb-current"><?php _e("Hover & Active","oxygen"); ?></div>
+					<div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Hover & Active","oxygen"); ?></div>
 				</div>
 				
 				<div class="oxygen-control-row">
-					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_hover_color", __("Hover Text Color", "oxygen"), 'oxygen-typography-font-color'); ?>
+					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_hover_color", oxygen_translate("Hover Text Color", "oxygen"), 'oxygen-typography-font-color'); ?>
 				</div>
 
 				<div class="oxygen-control-row">
-					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_hover_background-color", __("Hover Background Color", "oxygen") ); ?>
+					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_hover_background-color", oxygen_translate("Hover Background Color", "oxygen") ); ?>
 				</div>
 
 				<div class="oxygen-control-row">
-					<?php $oxygen_toolbar->measure_box_with_wrapper('menu_hover_border-top-width', __('Hover Border Top','oxygen'), 'px'); ?>
-					<?php $oxygen_toolbar->measure_box_with_wrapper('menu_hover_border-bottom-width', __('Hover Border Bottom','oxygen'), 'px'); ?>
+					<?php $oxygen_toolbar->measure_box_with_wrapper('menu_hover_border-top-width', oxygen_translate('Hover Border Top','oxygen'), 'px'); ?>
+					<?php $oxygen_toolbar->measure_box_with_wrapper('menu_hover_border-bottom-width', oxygen_translate('Hover Border Bottom','oxygen'), 'px'); ?>
 				</div>
 
 				<div class="oxygen-control-row">
-					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_active_color", __("Active Text Color", "oxygen"), 'oxygen-typography-font-color'); ?>
+					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_active_color", oxygen_translate("Active Text Color", "oxygen"), 'oxygen-typography-font-color'); ?>
 				</div>
 				<div class="oxygen-control-row">
-					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_active_background-color", __("Active Background Color", "oxygen"), 'oxygen-typography-font-color'); ?>
+					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_active_background-color", oxygen_translate("Active Background Color", "oxygen"), 'oxygen-typography-font-color'); ?>
 				</div>
 
 				<div class="oxygen-control-row">
-					<?php $oxygen_toolbar->measure_box_with_wrapper('menu_active_border-top-width', __('Active Border Top','oxygen'), 'px'); ?>
-					<?php $oxygen_toolbar->measure_box_with_wrapper('menu_active_border-bottom-width', __('Active Border Bottom','oxygen'), 'px'); ?>
+					<?php $oxygen_toolbar->measure_box_with_wrapper('menu_active_border-top-width', oxygen_translate('Active Border Top','oxygen'), 'px'); ?>
+					<?php $oxygen_toolbar->measure_box_with_wrapper('menu_active_border-bottom-width', oxygen_translate('Active Border Bottom','oxygen'), 'px'); ?>
 				</div>
 
 				<div class="oxygen-control-row">
 					<div class="oxygen-control-wrapper">
-						<label class='oxygen-control-label'><?php _e("Transition Duration", "oxygen"); ?></label>
+						<label class='oxygen-control-label'><?php oxygen_translate_echo("Transition Duration", "oxygen"); ?></label>
 						<div class='oxygen-control'>
 							<?php $oxygen_toolbar->slider_measure_box('menu_transition-duration', 's', 0, 1, true, 0.1); ?>
 						</div>
@@ -413,9 +413,9 @@ Class Oxy_Nav_Menu extends CT_Component {
 						<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
 					</div>
 					<div class="oxygen-sidebar-breadcrumb-all-styles" 
-						ng-click="tabs.navMenu=[]"><?php _e("All Styles","oxygen"); ?></div>
+						ng-click="tabs.navMenu=[]"><?php oxygen_translate_echo("All Styles","oxygen"); ?></div>
 					<div class="oxygen-sidebar-breadcrumb-separator">/</div>
-					<div class="oxygen-sidebar-breadcrumb-current"><?php _e("Dropdowns","oxygen"); ?></div>
+					<div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Dropdowns","oxygen"); ?></div>
 				</div>
 
 				<div class="oxygen-control-row">
@@ -428,7 +428,7 @@ Class Oxy_Nav_Menu extends CT_Component {
 								ng-change="iframeScope.setOption(iframeScope.component.active.id,'oxy_nav_menu','dropdowns');iframeScope.renderNavMenu()">
 							<div class='oxygen-checkbox-checkbox'
 								ng-class="{'oxygen-checkbox-checkbox-active':iframeScope.getOption('dropdowns')=='on'}">
-								<?php _e("Enable Dropdowns","oxygen"); ?>
+								<?php oxygen_translate_echo("Enable Dropdowns","oxygen"); ?>
 							</div>
 						</label>
 					</div>
@@ -444,30 +444,30 @@ Class Oxy_Nav_Menu extends CT_Component {
 								ng-change="iframeScope.setOption(iframeScope.component.active.id,'oxy_nav_menu','menu_dropdown_arrow');">
 							<div class='oxygen-checkbox-checkbox'
 								ng-class="{'oxygen-checkbox-checkbox-active':iframeScope.getOption('menu_dropdown_arrow')=='on'}">
-								<?php _e("Show dropdown arrows","oxygen"); ?>
+								<?php oxygen_translate_echo("Show dropdown arrows","oxygen"); ?>
 							</div>
 						</label>
 					</div>
 				</div>
 
 				<div class="oxygen-control-row">
-					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_dropdowns_background-color", __("Background Color", "oxygen"), 'oxygen-typography-font-color'); ?>
+					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_dropdowns_background-color", oxygen_translate("Background Color", "oxygen"), 'oxygen-typography-font-color'); ?>
 				</div>
 				<div class="oxygen-control-row">
-					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_dropdowns_hover_background-color", __("Background Hover Color", "oxygen"), 'oxygen-typography-font-color'); ?>
-				</div>
-				
-				<div class="oxygen-control-row">
-					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_dropdowns_color", __("Link Color", "oxygen"), 'oxygen-typography-font-color'); ?>
+					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_dropdowns_hover_background-color", oxygen_translate("Background Hover Color", "oxygen"), 'oxygen-typography-font-color'); ?>
 				</div>
 				
 				<div class="oxygen-control-row">
-					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_dropdowns_hover_color", __("Link Hover Color", "oxygen"), 'oxygen-typography-font-color'); ?>
+					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_dropdowns_color", oxygen_translate("Link Color", "oxygen"), 'oxygen-typography-font-color'); ?>
+				</div>
+				
+				<div class="oxygen-control-row">
+					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_dropdowns_hover_color", oxygen_translate("Link Hover Color", "oxygen"), 'oxygen-typography-font-color'); ?>
 				</div>
 
 				<div class="oxygen-control-row">
 					<div class='oxygen-control-wrapper'>
-						<label class='oxygen-control-label'><?php _e("Padding", "component-theme"); ?></label>
+						<label class='oxygen-control-label'><?php oxygen_translate_echo("Padding", "component-theme"); ?></label>
 						<div class='oxygen-control'>
 							<div class='oxygen-four-sides-measure-box'>
 								<?php $oxygen_toolbar->measure_box('menu_dropdowns_padding-top','px',true); ?>
@@ -476,7 +476,7 @@ Class Oxy_Nav_Menu extends CT_Component {
 								<?php $oxygen_toolbar->measure_box('menu_dropdowns_padding-left','px',true); ?>
                                 <div class="oxygen-flex-line-break"></div>
 								<div class="oxygen-apply-all-trigger">
-									<?php _e("apply all »", "oxygen"); ?>
+									<?php oxygen_translate_echo("apply all »", "oxygen"); ?>
 								</div>
 							</div>
 						</div>
@@ -493,31 +493,31 @@ Class Oxy_Nav_Menu extends CT_Component {
 						<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
 					</div>
 					<div class="oxygen-sidebar-breadcrumb-all-styles" 
-						ng-click="tabs.navMenu=[]"><?php _e("All Styles","oxygen"); ?></div>
+						ng-click="tabs.navMenu=[]"><?php oxygen_translate_echo("All Styles","oxygen"); ?></div>
 					<div class="oxygen-sidebar-breadcrumb-separator">/</div>
-					<div class="oxygen-sidebar-breadcrumb-current"><?php _e("Mobile Responsive","oxygen"); ?></div>
+					<div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Mobile Responsive","oxygen"); ?></div>
 				</div>
 				
-				<?php $oxygen_toolbar->media_queries_list_with_wrapper("menu_responsive", __("Mobile Menu / Toggle Below","oxygen"), true, true); ?>
+				<?php $oxygen_toolbar->media_queries_list_with_wrapper("menu_responsive", oxygen_translate("Mobile Menu / Toggle Below","oxygen"), true, true); ?>
 
 				<div class="oxygen-sidebar-advanced-subtab" 
 					ng-click="switchTab('navMenu', 'iconStyles')">
 						<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/styles.svg">
-						<?php _e("Icon Styles", "oxygen"); ?>
+						<?php oxygen_translate_echo("Icon Styles", "oxygen"); ?>
 						<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
 				</div>
 
 				<div class="oxygen-sidebar-advanced-subtab" 
 					ng-click="switchTab('navMenu', 'menuStyles')">
 						<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/styles.svg">
-						<?php _e("Menu Styles", "oxygen"); ?>
+						<?php oxygen_translate_echo("Menu Styles", "oxygen"); ?>
 						<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
 				</div>
 
 				<div class="oxygen-sidebar-advanced-subtab" 
 					ng-click="switchTab('navMenu', 'responsiveDropdowns')">
 						<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/dropdown.svg">
-						<?php _e("Dropdowns", "oxygen"); ?>
+						<?php oxygen_translate_echo("Dropdowns", "oxygen"); ?>
 						<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
 				</div>
 			
@@ -533,46 +533,46 @@ Class Oxy_Nav_Menu extends CT_Component {
 						<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
 					</div>
 					<div class="oxygen-sidebar-breadcrumb-all-styles" 
-						ng-click="switchTab('navMenu','responsive')"><?php _e("Mobile Responsive","oxygen"); ?></div>
+						ng-click="switchTab('navMenu','responsive')"><?php oxygen_translate_echo("Mobile Responsive","oxygen"); ?></div>
 					<div class="oxygen-sidebar-breadcrumb-separator">/</div>
-					<div class="oxygen-sidebar-breadcrumb-current"><?php _e("Icon Styles","oxygen"); ?></div>
+					<div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Icon Styles","oxygen"); ?></div>
 				</div>
 
 				<div class="oxygen-control-row">
 					<div class='oxygen-control-wrapper'>
-						<label class='oxygen-control-label'><?php _e("Icon Size", "oxygen"); ?></label>
+						<label class='oxygen-control-label'><?php oxygen_translate_echo("Icon Size", "oxygen"); ?></label>
 						<?php $oxygen_toolbar->slider_measure_box('menu_responsive_icon_size', 'px', 30, 140, false); ?>
 					</div>
 				</div>
 
 				<div class="oxygen-control-row">
 					<div class='oxygen-control-wrapper'>
-						<label class='oxygen-control-label'><?php _e("Margin Above / Below", "oxygen"); ?></label>
+						<label class='oxygen-control-label'><?php oxygen_translate_echo("Margin Above / Below", "oxygen"); ?></label>
 						<?php $oxygen_toolbar->slider_measure_box('menu_responsive_icon_margin', 'px', 0, 50, false); ?>
 					</div>
 				</div>
 				
 				<div class="oxygen-control-row">
-					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_responsive_icon_color", __("Icon Color", "oxygen") ); ?>
+					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_responsive_icon_color", oxygen_translate("Icon Color", "oxygen") ); ?>
 				</div>
 
 				<div class="oxygen-control-row">
-					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_responsive_icon_hover_color", __("Icon Hover Color", "oxygen") ); ?>
+					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_responsive_icon_hover_color", oxygen_translate("Icon Hover Color", "oxygen") ); ?>
 				</div>
 
 				<div class="oxygen-control-row">
 					<div class='oxygen-control-wrapper'>
-						<label class='oxygen-control-label'><?php _e("Padding Size", "oxygen"); ?></label>
+						<label class='oxygen-control-label'><?php oxygen_translate_echo("Padding Size", "oxygen"); ?></label>
 						<?php $oxygen_toolbar->slider_measure_box('menu_responsive_padding_size', 'px', 0, 50, false); ?>
 					</div>
 				</div>
 				
 				<div class="oxygen-control-row">
-					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_responsive_padding_color", __("Padding Color", "oxygen") ); ?>
+					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_responsive_padding_color", oxygen_translate("Padding Color", "oxygen") ); ?>
 				</div>
 
 				<div class="oxygen-control-row">
-					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_responsive_padding_hover_color", __("Padding Hover Color", "oxygen") ); ?>
+					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_responsive_padding_hover_color", oxygen_translate("Padding Hover Color", "oxygen") ); ?>
 				</div>
 			
 			</div><!-- isShowTab('navMenu','iconStyles') -->
@@ -585,25 +585,25 @@ Class Oxy_Nav_Menu extends CT_Component {
 						<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
 					</div>
 					<div class="oxygen-sidebar-breadcrumb-all-styles" 
-						ng-click="switchTab('navMenu','responsive')"><?php _e("Mobile Responsive","oxygen"); ?></div>
+						ng-click="switchTab('navMenu','responsive')"><?php oxygen_translate_echo("Mobile Responsive","oxygen"); ?></div>
 					<div class="oxygen-sidebar-breadcrumb-separator">/</div>
-					<div class="oxygen-sidebar-breadcrumb-current"><?php _e("Menu Styles","oxygen"); ?></div>
+					<div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Menu Styles","oxygen"); ?></div>
 				</div>
 
 				<div class="oxygen-control-row">
-					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_responsive_background_color", __("Background Color", "oxygen")); ?>
+					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_responsive_background_color", oxygen_translate("Background Color", "oxygen")); ?>
 				</div>
 
 				<div class="oxygen-control-row">
-					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_responsive_link_color", __("Link Text Color", "oxygen"), 'oxygen-typography-font-color'); ?>
+					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_responsive_link_color", oxygen_translate("Link Text Color", "oxygen"), 'oxygen-typography-font-color'); ?>
 				</div>
 
 				<div class="oxygen-control-row">
-					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_responsive_hover_link_color", __("Link Hover Color", "oxygen"), 'oxygen-typography-font-color'); ?>
+					<?php $oxygen_toolbar->colorpicker_with_wrapper("menu_responsive_hover_link_color", oxygen_translate("Link Hover Color", "oxygen"), 'oxygen-typography-font-color'); ?>
 				</div>
 
 				<div class='oxygen-control-wrapper'>
-					<label class='oxygen-control-label'><?php _e("Link Padding", "component-theme"); ?></label>
+					<label class='oxygen-control-label'><?php oxygen_translate_echo("Link Padding", "component-theme"); ?></label>
 					<div class='oxygen-control'>
 						<div class='oxygen-four-sides-measure-box'>
 							<?php $oxygen_toolbar->measure_box('menu_responsive_padding_top','px', true, false); ?>
@@ -612,7 +612,7 @@ Class Oxy_Nav_Menu extends CT_Component {
 							<?php $oxygen_toolbar->measure_box('menu_responsive_padding_left','px', true, false); ?>
 							<div class="oxygen-flex-line-break"></div>
 							<div class="oxygen-apply-all-trigger">
-								<?php _e("apply all »", "oxygen"); ?>
+								<?php oxygen_translate_echo("apply all »", "oxygen"); ?>
 							</div>
 						</div>
 					</div>
@@ -629,9 +629,9 @@ Class Oxy_Nav_Menu extends CT_Component {
 						<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
 					</div>
 					<div class="oxygen-sidebar-breadcrumb-all-styles" 
-						ng-click="switchTab('navMenu','responsive')"><?php _e("Mobile Responsive","oxygen"); ?></div>
+						ng-click="switchTab('navMenu','responsive')"><?php oxygen_translate_echo("Mobile Responsive","oxygen"); ?></div>
 					<div class="oxygen-sidebar-breadcrumb-separator">/</div>
-					<div class="oxygen-sidebar-breadcrumb-current"><?php _e("Dropdowns","oxygen"); ?></div>
+					<div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Dropdowns","oxygen"); ?></div>
 				</div>
 
 				<div class="oxygen-control-row">
@@ -644,7 +644,7 @@ Class Oxy_Nav_Menu extends CT_Component {
 								ng-change="iframeScope.setOption(iframeScope.component.active.id,'oxy_nav_menu','menu_responsive_dropdowns');">
 							<div class='oxygen-checkbox-checkbox'
 								ng-class="{'oxygen-checkbox-checkbox-active':iframeScope.getOption('menu_responsive_dropdowns')=='on'}">
-								<?php _e("Include dropdowns links in the responsive menu","oxygen"); ?>
+								<?php oxygen_translate_echo("Include dropdowns links in the responsive menu","oxygen"); ?>
 							</div>
 						</label>
 					</div>
@@ -691,7 +691,7 @@ Class Oxy_Nav_Menu extends CT_Component {
 // Create inctance
 global $oxygen_vsb_components;
 $oxygen_vsb_components['nav_menu'] = new Oxy_Nav_Menu( array( 
-			'name' 		=> __('Menu','oxygen'),
+			'name' 		=> oxygen_translate('Menu','oxygen'),
 			'tag' 		=> 'oxy_nav_menu',
 			'params' 	=> array(
 					array(
@@ -701,11 +701,11 @@ $oxygen_vsb_components['nav_menu'] = new Oxy_Nav_Menu( array(
 					),
 					array(
 						"type" 			=> "flex-layout",
-						"heading" 		=> __("Menu Layout", "oxygen"),
+						"heading" 		=> oxygen_translate("Menu Layout", "oxygen"),
 						"param_name" 	=> "menu_flex-direction",
 						"css" 			=> true,
-						"vertical_text" => __("Vertical", "oxygen"),
-						"horizontal_text" => __("Horizontal", "oxygen"),
+						"vertical_text" => oxygen_translate("Vertical", "oxygen"),
+						"horizontal_text" => oxygen_translate("Horizontal", "oxygen"),
 						"ng_show" 		=> "!hasOpenTabs('navMenu')&&iframeScope.currentState=='original'"
 					),
 				),

@@ -62,13 +62,13 @@ $oxygen_vsb_components['div_block'] = new CT_DIV_Block (
 			'params' 	=> array(
 					array(
 						"type" 			=> "flex-layout",
-						"heading" 		=> __("Layout Child Elements", "oxygen"),
+						"heading" 		=> oxygen_translate("Layout Child Elements", "oxygen"),
 						"param_name" 	=> "flex-direction",
 						"css" 			=> true,
 					),
 					array(
 						"type" 			=> "checkbox",
-						"heading" 		=> __("Allow multiline"),
+						"heading" 		=> oxygen_translate("Allow multiline"),
 						"param_name" 	=> "flex-wrap",
 						"value" 		=> "",
 						"true_value" 	=> "wrap",
@@ -80,18 +80,18 @@ $oxygen_vsb_components['div_block'] = new CT_DIV_Block (
 					),
 					array(
 						"type" 			=> "columnwidth",
-						"heading" 		=> __("Width"),
+						"heading" 		=> oxygen_translate("Width"),
 						"param_name" 	=> "width",
 						"value" 		=> "",
 					),
 					array(
 						"type" 			=> "colorpicker",
-						"heading" 		=> __("Background color"),
+						"heading" 		=> oxygen_translate("Background color"),
 						"param_name" 	=> "background-color",
 					),
 					array(
 						"type" 			=> "tag",
-						"heading" 		=> __("Tag", "oxygen"),
+						"heading" 		=> oxygen_translate("Tag", "oxygen"),
 						"param_name" 	=> "tag",
 						"value" 		=> array (
 											"div" 		=> "div",

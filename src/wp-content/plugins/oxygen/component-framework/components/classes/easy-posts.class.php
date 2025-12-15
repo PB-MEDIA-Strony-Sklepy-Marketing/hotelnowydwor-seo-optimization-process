@@ -610,7 +610,7 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
         try {
             $this->query = new WP_Query($args);
         } catch (\Throwable $th) {
-            $this->queryError = __("<b>There was an error during execution of an Advanced Query, please review the query params set.</b>", "oxygen");
+            $this->queryError = oxygen_translate("<b>There was an error during execution of an Advanced Query, please review the query params set.</b>", "oxygen");
             $this->query = new WP_Query(array());
         }
     }
@@ -634,7 +634,7 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                 ng-click="switchTab('oxy_posts_grid', 'query')" 
                 ng-show="!hasOpenTabs('oxy_posts_grid')">
                     <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/general-config.svg">
-                    <?php _e("Query", "oxygen"); ?>
+                    <?php oxygen_translate_echo("Query", "oxygen"); ?>
                     <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
             </div>
 
@@ -642,7 +642,7 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                 ng-click="switchTab('oxy_posts_grid', 'styles')" 
                 ng-show="!hasOpenTabs('oxy_posts_grid')">
                     <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/styles.svg">
-                    <?php _e("Styles", "oxygen"); ?>
+                    <?php oxygen_translate_echo("Styles", "oxygen"); ?>
                     <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
             </div>
 
@@ -651,7 +651,7 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                 ng-click="switchTab('oxy_posts_grid', 'templates')" 
                 ng-show="!hasOpenTabs('oxy_posts_grid')">
                     <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/code.svg">
-                    <?php _e("Templates", "oxygen"); ?>
+                    <?php oxygen_translate_echo("Templates", "oxygen"); ?>
                     <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
             </div>
             <?php endif; ?>
@@ -660,7 +660,7 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                 ng-click="switchTab('oxy_posts_grid', 'grid_layout')" 
                 ng-show="!hasOpenTabs('oxy_posts_grid')">
                     <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/styles.svg">
-                    <?php _e("Grid Layout", "oxygen"); ?>
+                    <?php oxygen_translate_echo("Grid Layout", "oxygen"); ?>
                     <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
             </div>
 
@@ -672,9 +672,9 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="tabs.oxy_posts_grid=[]"><?php _e("Easy Posts","oxygen"); ?></div>
+                        ng-click="tabs.oxy_posts_grid=[]"><?php oxygen_translate_echo("Easy Posts","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Grid Layout","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Grid Layout","oxygen"); ?></div>
                 </div>
                 
                 <div class="oxygen-control-row">
@@ -699,43 +699,43 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="tabs.oxy_posts_grid=[]"><?php _e("Easy Posts","oxygen"); ?></div>
+                        ng-click="tabs.oxy_posts_grid=[]"><?php oxygen_translate_echo("Easy Posts","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Styles","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Styles","oxygen"); ?></div>
                 </div>
 
                 <div class="oxygen-sidebar-advanced-subtab" 
                     ng-click="switchTab('oxy_posts_grid', 'title')">
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/styles.svg">
-                        <?php _e("Title", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Title", "oxygen"); ?>
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                 </div>
 
                 <div class="oxygen-sidebar-advanced-subtab" 
                     ng-click="switchTab('oxy_posts_grid', 'meta')">
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/styles.svg">
-                        <?php _e("Meta", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Meta", "oxygen"); ?>
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                 </div>
 
                 <div class="oxygen-sidebar-advanced-subtab" 
                     ng-click="switchTab('oxy_posts_grid', 'content')">
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/styles.svg">
-                        <?php _e("Content", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Content", "oxygen"); ?>
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                 </div>
 
                 <div class="oxygen-sidebar-advanced-subtab" 
                     ng-click="switchTab('oxy_posts_grid', 'readMore')">
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/styles.svg">
-                        <?php _e("Read More", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Read More", "oxygen"); ?>
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                 </div>
 
                 <div class="oxygen-sidebar-advanced-subtab" 
                     ng-click="switchTab('oxy_posts_grid', 'responsive')">
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/styles.svg">
-                        <?php _e("Responsive", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Responsive", "oxygen"); ?>
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                 </div>
 
@@ -749,21 +749,21 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('oxy_posts_grid', 'styles')"><?php _e("Styles","oxygen"); ?></div>
+                        ng-click="switchTab('oxy_posts_grid', 'styles')"><?php oxygen_translate_echo("Styles","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Title","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Title","oxygen"); ?></div>
                 </div>
                 
                 <div class='oxygen-control-row'>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper('title_size',__('Font size','oxygen')); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper('title_size',oxygen_translate('Font size','oxygen')); ?>
                 </div>
 
                 <div class="oxygen-control-row">
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("title_color", __("Color", "oxygen") ); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("title_color", oxygen_translate("Color", "oxygen") ); ?>
                 </div>
 
                 <div class="oxygen-control-row">
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("title_hover_color", __("Hover Color", "oxygen") ); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("title_hover_color", oxygen_translate("Hover Color", "oxygen") ); ?>
                 </div>
 
             </div>
@@ -776,17 +776,17 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('oxy_posts_grid', 'styles')"><?php _e("Styles","oxygen"); ?></div>
+                        ng-click="switchTab('oxy_posts_grid', 'styles')"><?php oxygen_translate_echo("Styles","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Meta","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Meta","oxygen"); ?></div>
                 </div>
                 
                 <div class='oxygen-control-row'>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper('meta_size',__('Font size','oxygen')); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper('meta_size',oxygen_translate('Font size','oxygen')); ?>
                 </div>
 
                 <div class="oxygen-control-row">
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("meta_color", __("Color", "oxygen") ); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("meta_color", oxygen_translate("Color", "oxygen") ); ?>
                 </div>
 
             </div>
@@ -799,17 +799,17 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('oxy_posts_grid', 'styles')"><?php _e("Styles","oxygen"); ?></div>
+                        ng-click="switchTab('oxy_posts_grid', 'styles')"><?php oxygen_translate_echo("Styles","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Content","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Content","oxygen"); ?></div>
                 </div>
                 
                 <div class='oxygen-control-row'>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper('content_size',__('Font size','oxygen')); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper('content_size',oxygen_translate('Font size','oxygen')); ?>
                 </div>
 
                 <div class="oxygen-control-row">
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("content_color", __("Color", "oxygen") ); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("content_color", oxygen_translate("Color", "oxygen") ); ?>
                 </div>
 
             </div>
@@ -822,14 +822,14 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('oxy_posts_grid', 'styles')"><?php _e("Styles","oxygen"); ?></div>
+                        ng-click="switchTab('oxy_posts_grid', 'styles')"><?php oxygen_translate_echo("Styles","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Read More","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Read More","oxygen"); ?></div>
                 </div>
 
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Display as","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Display as","oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-button-list'>
                                 <?php $oxygen_toolbar->button_list_button('read_more_display_as','button'); ?>
@@ -840,23 +840,23 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                 </div>
                 
                 <div class='oxygen-control-row'>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper('read_more_size',__('Font size','oxygen')); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper('read_more_size',oxygen_translate('Font size','oxygen')); ?>
                 </div>
 
                 <div class="oxygen-control-row">
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("read_more_text_color", __("Text Color", "oxygen") ); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("read_more_text_color", oxygen_translate("Text Color", "oxygen") ); ?>
                 </div>
 
                 <div class="oxygen-control-row">
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("read_more_text_hover_color", __("Text Hover Color", "oxygen") ); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("read_more_text_hover_color", oxygen_translate("Text Hover Color", "oxygen") ); ?>
                 </div>
 
                 <div class="oxygen-control-row">
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("read_more_button_color", __("Button Color", "oxygen") ); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("read_more_button_color", oxygen_translate("Button Color", "oxygen") ); ?>
                 </div>
 
                 <div class="oxygen-control-row">
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("read_more_button_hover_color", __("Button Hover Color", "oxygen") ); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("read_more_button_hover_color", oxygen_translate("Button Hover Color", "oxygen") ); ?>
                 </div>
 
             </div>
@@ -869,14 +869,14 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('oxy_posts_grid', 'styles')"><?php _e("Styles","oxygen"); ?></div>
+                        ng-click="switchTab('oxy_posts_grid', 'styles')"><?php oxygen_translate_echo("Styles","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Responsive","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Responsive","oxygen"); ?></div>
                 </div>
 
-                <?php $oxygen_toolbar->media_queries_list_with_wrapper("posts_5050_below", __("Posts are 50% Width Below","oxygen"), true); ?>
+                <?php $oxygen_toolbar->media_queries_list_with_wrapper("posts_5050_below", oxygen_translate("Posts are 50% Width Below","oxygen"), true); ?>
                 
-                <?php $oxygen_toolbar->media_queries_list_with_wrapper("posts_100_below", __("Posts are 100% Width Below","oxygen"), true); ?>
+                <?php $oxygen_toolbar->media_queries_list_with_wrapper("posts_100_below", oxygen_translate("Posts are 100% Width Below","oxygen"), true); ?>
 
             </div>
 
@@ -888,22 +888,22 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="tabs.oxy_posts_grid=[]"><?php _e("Easy Posts","oxygen"); ?></div>
+                        ng-click="tabs.oxy_posts_grid=[]"><?php oxygen_translate_echo("Easy Posts","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Templates","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Templates","oxygen"); ?></div>
                 </div>
 
                 <div class="oxygen-sidebar-advanced-subtab" 
                     ng-click="switchTab('oxy_posts_grid', 'templatePHP');expandSidebar();">
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/phphtml.svg">
-                        <?php _e("Template PHP", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Template PHP", "oxygen"); ?>
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                 </div>
 
                 <div class="oxygen-sidebar-advanced-subtab" 
                     ng-click="switchTab('oxy_posts_grid', 'templateCSS');expandSidebar();">
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/css.svg">
-                        <?php _e("Template CSS", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Template CSS", "oxygen"); ?>
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                 </div>
 
@@ -918,9 +918,9 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('oxy_posts_grid', 'templates')"><?php _e("Templates","oxygen"); ?></div>
+                        ng-click="switchTab('oxy_posts_grid', 'templates')"><?php oxygen_translate_echo("Templates","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("PHP","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("PHP","oxygen"); ?></div>
                 </div>
 
                 <div class="oxygen-sidebar-code-editor-wrap">
@@ -936,12 +936,12 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                         $oxygen_toolbar->codemirror_theme_chooser(); ?>
                     <a href="#" class="oxygen-code-editor-apply"
                         ng-click="iframeScope.renderComponentWithAJAX('oxy_render_easy_posts')">
-                        <?php _e("Apply Code", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Apply Code", "oxygen"); ?>
                     </a>
                     <a href="#" class="oxygen-code-editor-expand"
-                        data-collapse="<?php _e("Collapse Editor", "oxygen"); ?>" data-expand="<?php _e("Expand Editor", "oxygen"); ?>"
+                        data-collapse="<?php oxygen_translate_echo("Collapse Editor", "oxygen"); ?>" data-expand="<?php oxygen_translate_echo("Expand Editor", "oxygen"); ?>"
                         ng-click="toggleSidebar()">
-                        <?php _e("Expand Editor", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Expand Editor", "oxygen"); ?>
                     </a>
                 </div>
 
@@ -956,9 +956,9 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('oxy_posts_grid', 'templates')"><?php _e("Templates","oxygen"); ?></div>
+                        ng-click="switchTab('oxy_posts_grid', 'templates')"><?php oxygen_translate_echo("Templates","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("CSS","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("CSS","oxygen"); ?></div>
                 </div>
 
                 <div class="oxygen-sidebar-code-editor-wrap">
@@ -974,12 +974,12 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                         $oxygen_toolbar->codemirror_theme_chooser(); ?>
                     <a href="#" class="oxygen-code-editor-apply"
                         ng-click="iframeScope.renderComponentWithAJAX('oxy_render_easy_posts')">
-                        <?php _e("Apply Code", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Apply Code", "oxygen"); ?>
                     </a>
                     <a href="#" class="oxygen-code-editor-expand"
-                        data-collapse="<?php _e("Collapse Editor", "oxygen"); ?>" data-expand="<?php _e("Expand Editor", "oxygen"); ?>"
+                        data-collapse="<?php oxygen_translate_echo("Collapse Editor", "oxygen"); ?>" data-expand="<?php oxygen_translate_echo("Expand Editor", "oxygen"); ?>"
                         ng-click="toggleSidebar()">
-                        <?php _e("Expand Editor", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Expand Editor", "oxygen"); ?>
                     </a>
                 </div>
 
@@ -994,14 +994,14 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="tabs.oxy_posts_grid=[]"><?php _e("Easy Posts","oxygen"); ?></div>
+                        ng-click="tabs.oxy_posts_grid=[]"><?php oxygen_translate_echo("Easy Posts","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Query","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Query","oxygen"); ?></div>
                 </div>
 
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("WP Query","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("WP Query","oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-button-list'>
                                 <?php $oxygen_toolbar->button_list_button('wp_query', 'default'); ?>
@@ -1021,7 +1021,7 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                 <div class='oxygen-control-row'
                     ng-show="iframeScope.component.options[iframeScope.component.active.id]['model']['wp_query']=='manual'">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Query Params","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Query Params","oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class="oxygen-textarea">
                                 <textarea class="oxygen-textarea-textarea"
@@ -1036,28 +1036,28 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                     <div class="oxygen-sidebar-advanced-subtab" 
                         ng-click="switchTab('oxy_posts_grid', 'postType')">
                             <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/styles.svg">
-                            <?php _e("Post Type", "oxygen"); ?>
+                            <?php oxygen_translate_echo("Post Type", "oxygen"); ?>
                             <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                     </div>
 
                     <div class="oxygen-sidebar-advanced-subtab" 
                         ng-click="switchTab('oxy_posts_grid', 'filtering')">
                             <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/styles.svg">
-                            <?php _e("Filtering", "oxygen"); ?>
+                            <?php oxygen_translate_echo("Filtering", "oxygen"); ?>
                             <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                     </div>
 
                     <div class="oxygen-sidebar-advanced-subtab" 
                         ng-click="switchTab('oxy_posts_grid', 'order')">
                             <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/styles.svg">
-                            <?php _e("Order", "oxygen"); ?>
+                            <?php oxygen_translate_echo("Order", "oxygen"); ?>
                             <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                     </div>
 
                     <div class="oxygen-sidebar-advanced-subtab" 
                         ng-click="switchTab('oxy_posts_grid', 'count')">
                             <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/styles.svg">
-                            <?php _e("Count", "oxygen"); ?>
+                            <?php oxygen_translate_echo("Count", "oxygen"); ?>
                             <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                     </div>
 
@@ -1066,7 +1066,7 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                 <div class="oxygen-control-row oxygen-control-row-bottom-bar">
                     <a href="#" class="oxygen-apply-button"
                         ng-click="iframeScope.renderComponentWithAJAX('oxy_render_easy_posts')">
-                        <?php _e("Apply Query Params", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Apply Query Params", "oxygen"); ?>
                     </a>
                 </div>
 
@@ -1081,14 +1081,14 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('oxy_posts_grid', 'query')"><?php _e("Query","oxygen"); ?></div>
+                        ng-click="switchTab('oxy_posts_grid', 'query')"><?php oxygen_translate_echo("Query","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Post Type","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Post Type","oxygen"); ?></div>
                 </div>
 
                 <div class="oxygen-control-row">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Post Type", "oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Post Type", "oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <select id="oxy-easy-posts-post-type" name="oxy-easy-posts-post-type[]" multiple="multiple"
                                 ng-init="initSelect2('oxy-easy-posts-post-type','Choose custom post types...')"
@@ -1108,7 +1108,7 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                 
                 <div class="oxygen-control-row">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Or manually specify IDs (comma separated)", "oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Or manually specify IDs (comma separated)", "oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-input'>
                                 <input type="text" spellcheck="false"
@@ -1123,7 +1123,7 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                 <div class="oxygen-control-row oxygen-control-row-bottom-bar">
                     <a href="#" class="oxygen-apply-button"
                         ng-click="iframeScope.renderComponentWithAJAX('oxy_render_easy_posts')">
-                        <?php _e("Apply Query Params", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Apply Query Params", "oxygen"); ?>
                     </a>
                 </div>
 
@@ -1138,15 +1138,15 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('oxy_posts_grid', 'query')"><?php _e("Query","oxygen"); ?></div>
+                        ng-click="switchTab('oxy_posts_grid', 'query')"><?php oxygen_translate_echo("Query","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Filtering","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Filtering","oxygen"); ?></div>
                 </div>
 
                 <?php
                     $query_taxonomies = array(
-                        'query_taxonomies_any' => __("In Any of the Following Taxonomies", "oxygen"),
-                        'query_taxonomies_all' => __("Or In All of the Following Taxonomies", "oxygen")
+                        'query_taxonomies_any' => oxygen_translate("In Any of the Following Taxonomies", "oxygen"),
+                        'query_taxonomies_all' => oxygen_translate("Or In All of the Following Taxonomies", "oxygen")
                     );
                 ?>
 
@@ -1164,7 +1164,7 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                                 // get default post categories
                                 $default_categories = get_categories(array('hide_empty' => 0));
                                 ?>
-                                    <optgroup label="<?php echo __('Categories', 'component-theme'); ?>">
+                                    <optgroup label="<?php echo oxygen_translate('Categories', 'component-theme'); ?>">
                                         <?php 
                                         foreach ( $default_categories as $category ) : ?>
                                             <option value="<?php echo ((!isset($alloption) || !$alloption)?'category,':'').esc_attr( $category->term_id ); ?>">
@@ -1176,7 +1176,7 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                                 // get default post tags
                                 $default_tags = get_tags(array('hide_empty' => 0));
                                 ?>
-                                    <optgroup label="<?php echo __('Tags', 'component-theme'); ?>">
+                                    <optgroup label="<?php echo oxygen_translate('Tags', 'component-theme'); ?>">
                                         <?php 
                                         foreach ( $default_tags as $tag ) : ?>
                                             <option value="<?php echo ((!isset($alloption) || !$alloption)?'tag,':'').esc_attr( $tag->term_id ); ?>">
@@ -1216,7 +1216,7 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
 
                 <div class="oxygen-control-row">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("By the following authors", "oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("By the following authors", "oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <select id="oxy-easy-posts-authors" name="oxy-easy-posts-authors[]" multiple="multiple"
                                 ng-init="initSelect2('oxy-easy-posts-authors','Choose authors...')"
@@ -1238,7 +1238,7 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                 <div class="oxygen-control-row oxygen-control-row-bottom-bar">
                     <a href="#" class="oxygen-apply-button"
                         ng-click="iframeScope.renderComponentWithAJAX('oxy_render_easy_posts')">
-                        <?php _e("Apply Query Params", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Apply Query Params", "oxygen"); ?>
                     </a>
                 </div>
 
@@ -1253,14 +1253,14 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('oxy_posts_grid', 'query')"><?php _e("Query","oxygen"); ?></div>
+                        ng-click="switchTab('oxy_posts_grid', 'query')"><?php oxygen_translate_echo("Query","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Order","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Order","oxygen"); ?></div>
                 </div>
 
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Order By","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Order By","oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class="oxygen-select oxygen-select-box-wrapper">
                                 <div class="oxygen-select-box">
@@ -1270,33 +1270,33 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                                 <div class="oxygen-select-box-options">
                                     <div class="oxygen-select-box-option"
                                         ng-click="$parent.iframeScope.setOptionModel('query_order_by','');"
-                                        title="<?php _e("Unset order by", "oxygen"); ?>">
+                                        title="<?php oxygen_translate_echo("Unset order by", "oxygen"); ?>">
                                         &nbsp;
                                     </div>
                                     <div class="oxygen-select-box-option"
                                         ng-click="$parent.iframeScope.setOptionModel('query_order_by','date');"
-                                        title="<?php _e("Set order by", "oxygen"); ?>">
-                                        <?php _e("Date", "oxygen"); ?>
+                                        title="<?php oxygen_translate_echo("Set order by", "oxygen"); ?>">
+                                        <?php oxygen_translate_echo("Date", "oxygen"); ?>
                                     </div>
                                     <div class="oxygen-select-box-option"
                                         ng-click="$parent.iframeScope.setOptionModel('query_order_by','modified');"
-                                        title="<?php _e("Set order by", "oxygen"); ?>">
-                                        <?php _e("Date Last Modified", "oxygen"); ?>
+                                        title="<?php oxygen_translate_echo("Set order by", "oxygen"); ?>">
+                                        <?php oxygen_translate_echo("Date Last Modified", "oxygen"); ?>
                                     </div>
                                     <div class="oxygen-select-box-option"
                                         ng-click="$parent.iframeScope.setOptionModel('query_order_by','title');"
-                                        title="<?php _e("Set order by", "oxygen"); ?>">
-                                        <?php _e("Title", "oxygen"); ?>
+                                        title="<?php oxygen_translate_echo("Set order by", "oxygen"); ?>">
+                                        <?php oxygen_translate_echo("Title", "oxygen"); ?>
                                     </div>
                                     <div class="oxygen-select-box-option"
                                         ng-click="$parent.iframeScope.setOptionModel('query_order_by','comment_count');"
-                                        title="<?php _e("Set order by", "oxygen"); ?>">
-                                        <?php _e("Comment Count", "oxygen"); ?>
+                                        title="<?php oxygen_translate_echo("Set order by", "oxygen"); ?>">
+                                        <?php oxygen_translate_echo("Comment Count", "oxygen"); ?>
                                     </div>
                                     <div class="oxygen-select-box-option"
                                         ng-click="$parent.iframeScope.setOptionModel('query_order_by','menu_order');"
-                                        title="<?php _e("Set order by", "oxygen"); ?>">
-                                        <?php _e("Menu Order", "oxygen"); ?>
+                                        title="<?php oxygen_translate_echo("Set order by", "oxygen"); ?>">
+                                        <?php oxygen_translate_echo("Menu Order", "oxygen"); ?>
                                     </div>
                                 </div>
                             </div>
@@ -1306,7 +1306,7 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
 
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Order","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Order","oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-button-list'>
                                 <?php $oxygen_toolbar->button_list_button('query_order', 'ASC', 'ascending'); ?>
@@ -1319,7 +1319,7 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                 <div class="oxygen-control-row oxygen-control-row-bottom-bar">
                     <a href="#" class="oxygen-apply-button"
                         ng-click="iframeScope.renderComponentWithAJAX('oxy_render_easy_posts')">
-                        <?php _e("Apply Query Params", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Apply Query Params", "oxygen"); ?>
                     </a>
                 </div>
 
@@ -1335,13 +1335,13 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('oxy_posts_grid', 'query')"><?php _e("Query","oxygen"); ?></div>
+                        ng-click="switchTab('oxy_posts_grid', 'query')"><?php oxygen_translate_echo("Query","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Count","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Count","oxygen"); ?></div>
                 </div>
 
                 <div class="oxygen-control-row">
-                    <label class='oxygen-control-label'><?php _e("How Many Posts?", "oxygen"); ?></label>
+                    <label class='oxygen-control-label'><?php oxygen_translate_echo("How Many Posts?", "oxygen"); ?></label>
                 </div>
 
                 <div class="oxygen-control-row">
@@ -1354,7 +1354,7 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                                 ng-change="iframeScope.setOption(iframeScope.component.active.id,'oxy_posts_grid','query_all_posts')">
                             <div class='oxygen-checkbox-checkbox'
                                 ng-class="{'oxygen-checkbox-checkbox-active':iframeScope.getOption('query_all_posts')=='true'}">
-                                <?php _e("All","oxygen"); ?>
+                                <?php oxygen_translate_echo("All","oxygen"); ?>
                             </div>
                         </label>
                     </div>
@@ -1370,14 +1370,14 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                                 ng-change="iframeScope.setOption(iframeScope.component.active.id,'oxy_posts_grid','query_ignore_sticky_posts')">
                             <div class='oxygen-checkbox-checkbox'
                                 ng-class="{'oxygen-checkbox-checkbox-active':iframeScope.getOption('query_ignore_sticky_posts')=='true'}">
-                                <?php _e("Ignore Sticky Posts","oxygen"); ?>
+                                <?php oxygen_translate_echo("Ignore Sticky Posts","oxygen"); ?>
                             </div>
                         </label>
                     </div>
                 </div>
                 
                 <div class='oxygen-control-wrapper'>
-                    <label class='oxygen-control-label'><?php _e("or specify the number", "oxygen"); ?></label>
+                    <label class='oxygen-control-label'><?php oxygen_translate_echo("or specify the number", "oxygen"); ?></label>
                     <div class='oxygen-control'>
                         <div class='oxygen-input'>
                             <input type="text" spellcheck="false"
@@ -1390,7 +1390,7 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
                 <div class="oxygen-control-row oxygen-control-row-bottom-bar">
                     <a href="#" class="oxygen-apply-button"
                         ng-click="iframeScope.renderComponentWithAJAX('oxy_render_easy_posts')">
-                        <?php _e("Apply Query Params", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Apply Query Params", "oxygen"); ?>
                     </a>
                 </div>
             </div>
@@ -1404,7 +1404,7 @@ class Oxygen_VSB_Easy_Posts extends CT_Component {
 // Create component instance
 global $oxygen_vsb_components;
 $oxygen_vsb_components['easy_posts'] = new Oxygen_VSB_Easy_Posts( array(
-            'name'  => __('Easy Posts','oxygen'),
+            'name'  => oxygen_translate('Easy Posts','oxygen'),
             'tag'   => 'oxy_posts_grid',
             'advanced'  => array(
                 "positioning" => array(

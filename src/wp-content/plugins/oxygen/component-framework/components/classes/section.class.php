@@ -88,17 +88,17 @@ $oxygen_vsb_components['section'] = new CT_Section( array(
 					),
 					array(
 						"type" 			=> "colorpicker",
-						"heading" 		=> __("Text Color", "oxygen"),
+						"heading" 		=> oxygen_translate("Text Color", "oxygen"),
 						"param_name" 	=> "color",
 					),
 					array(
 						"type" 			=> "colorpicker",
-						"heading" 		=> __("Background Color", "oxygen"),
+						"heading" 		=> oxygen_translate("Background Color", "oxygen"),
 						"param_name" 	=> "background-color",
 					),
 					array(
 						"type" 			=> "flex-layout",
-						"heading" 		=> __("Child Element Layout", "oxygen"),
+						"heading" 		=> oxygen_translate("Child Element Layout", "oxygen"),
 						"param_name" 	=> "flex-direction",
 						"css" 			=> true,
 					),
@@ -107,7 +107,7 @@ $oxygen_vsb_components['section'] = new CT_Section( array(
 					),
 					array(
 						"type" 			=> "tag",
-						"heading" 		=> __("Tag", "oxygen"),
+						"heading" 		=> oxygen_translate("Tag", "oxygen"),
 						"param_name" 	=> "tag",
 						"value" 		=> array (
 											"section" 	=> "section",

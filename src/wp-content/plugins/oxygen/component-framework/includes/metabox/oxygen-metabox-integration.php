@@ -108,9 +108,9 @@ class OxygenMetaBoxIntegration {
         $all_options = array_reduce( $fields, array( $this, "add_button" ), array() );
 
         if( count( $all_options ) > 0 ) {
-            array_unshift( $all_options, array('name' => __( 'Select the Meta Box field', 'oxygen' ), 'type' => 'heading') );
+            array_unshift( $all_options, array('name' => oxygen_translate( 'Select the Meta Box field', 'oxygen' ), 'type' => 'heading') );
             $metabox_content = array(
-                'name'      => __( 'Meta Box Field', 'oxygen' ),
+                'name'      => oxygen_translate( 'Meta Box Field', 'oxygen' ),
                 'mode'       => 'content',
                 // Available modes: 'content', 'custom-field', 'link' and 'image'
                 'position'   => 'Post',
@@ -129,7 +129,7 @@ class OxygenMetaBoxIntegration {
             // Dynamic Data modal modes "custom-field", "link" and "image" are expected to return an URL
 
             $metabox_image = array(
-                'name' => __( 'Meta Box Field', 'oxygen' ),
+                'name' => oxygen_translate( 'Meta Box Field', 'oxygen' ),
                 'mode' => 'image',
                 // Available modes: 'content', 'custom-field', 'link' and 'image'
                 'position' => 'Post',
@@ -142,7 +142,7 @@ class OxygenMetaBoxIntegration {
             $dynamic_data[] = $metabox_image;
 
             $metabox_link = array(
-                'name' => __( 'Meta Box Field', 'oxygen' ),
+                'name' => oxygen_translate( 'Meta Box Field', 'oxygen' ),
                 'mode' => 'link',
                 // Available modes: 'content', 'custom-field', 'link' and 'image'
                 'position' => 'Post',
@@ -155,7 +155,7 @@ class OxygenMetaBoxIntegration {
             $dynamic_data[] = $metabox_link;
 
             $metabox_custom_field = array(
-                'name' => __( 'Meta Box Field', 'oxygen' ),
+                'name' => oxygen_translate( 'Meta Box Field', 'oxygen' ),
                 'mode' => 'custom-field',
                 // Available modes: 'content', 'custom-field', 'link' and 'image'
                 'position' => 'Post',
@@ -172,7 +172,7 @@ class OxygenMetaBoxIntegration {
         
         if( count( $options_for_image_id ) > 0 ) { 
             $metabox_image_id_field = array(
-                'name' => __( 'Meta Box Field', 'oxygen' ),
+                'name' => oxygen_translate( 'Meta Box Field', 'oxygen' ),
                 'mode' => 'image-id',
                 'position' => 'Post',
                 'data' => 'metabox_image_id',
@@ -196,7 +196,7 @@ class OxygenMetaBoxIntegration {
 
         if ( !in_array( $option['type'], array('taxonomy', 'taxonomy_advanced') ) ) {
             $properties[] = array(
-                'name' => __( 'Use default output format (this will convert text element to Shortcode element)', 'oxygen' ),
+                'name' => oxygen_translate( 'Use default output format (this will convert text element to Shortcode element)', 'oxygen' ),
                 'data' => 'use_default_output_format',
                 'type' => 'checkbox',
                 'value' => 'yes',
@@ -216,7 +216,7 @@ class OxygenMetaBoxIntegration {
             case 'text':
             case 'slider':
                 $properties[] = array(
-                    'name' => __( 'Include prepend and append text (if configured)', 'oxygen' ),
+                    'name' => oxygen_translate( 'Include prepend and append text (if configured)', 'oxygen' ),
                     'data' => 'include_prepend_append',
                     'type' => 'checkbox',
                     'value' => 'yes'
@@ -227,45 +227,45 @@ class OxygenMetaBoxIntegration {
             case 'image_advanced':
             case 'image_upload':
                 $properties[] = array(
-                    'name' => __('Separator (for multiple images)', 'oxygen'),
+                    'name' => oxygen_translate('Separator (for multiple images)', 'oxygen'),
                     'data' => 'separator',
                     'type' => 'text'
                 );
             case 'single_image':
                 $properties[] = array(
-                    'name'     => __( 'Please select what you want to insert', 'oxygen' ),
+                    'name'     => oxygen_translate( 'Please select what you want to insert', 'oxygen' ),
                     'data'      => 'insert_type',
                     'type'      => 'select',
                     'options'   => array(
-                        __( 'Image element', 'oxygen' ) =>'image_element',
-                        __( 'Image URL', 'oxygen' ) => 'image_url',
-                        __( 'Image Title', 'oxygen' ) => 'image_title',
-                        __( 'Image Caption', 'oxygen' ) => 'image_caption'
+                        oxygen_translate( 'Image element', 'oxygen' ) =>'image_element',
+                        oxygen_translate( 'Image URL', 'oxygen' ) => 'image_url',
+                        oxygen_translate( 'Image Title', 'oxygen' ) => 'image_title',
+                        oxygen_translate( 'Image Caption', 'oxygen' ) => 'image_caption'
                     ),
                     'nullval'   => 'image_element'
                 );
                 $properties[] = array(
-                    'name'=> __( 'Size', 'oxygen' ),
+                    'name'=> oxygen_translate( 'Size', 'oxygen' ),
                     'data'=> 'size',
                     'type'=> 'select',
                     'options'=> array(
-                        __( 'Thumbnail', 'oxygen' ) => 'thumbnail',
-                        __( 'Medium', 'oxygen' ) => 'medium',
-                        __( 'Medium Large', 'oxygen' ) => 'medium_large',
-                        __( 'Large', 'oxygen' ) => 'large',
-                        __( 'Original', 'oxygen' ) => 'full'
+                        oxygen_translate( 'Thumbnail', 'oxygen' ) => 'thumbnail',
+                        oxygen_translate( 'Medium', 'oxygen' ) => 'medium',
+                        oxygen_translate( 'Medium Large', 'oxygen' ) => 'medium_large',
+                        oxygen_translate( 'Large', 'oxygen' ) => 'large',
+                        oxygen_translate( 'Original', 'oxygen' ) => 'full'
                     ),
                     'nullval' => 'medium',
                     'change'=> 'scope.dynamicDataModel.width = ""; scope.dynamicDataModel.height = ""',
                     'show_condition' => "dynamicDataModel.insert_type == 'image_element'"
                 );
                 $properties[] = array(
-                    'name' => __( 'or', 'oxygen' ),
+                    'name' => oxygen_translate( 'or', 'oxygen' ),
                     'type' => 'label',
                     'show_condition' => 'dynamicDataModel.insert_type == \'image_element\''
                 );
                 $properties[] = array(
-                    'name' => __( 'Width', 'oxygen' ),
+                    'name' => oxygen_translate( 'Width', 'oxygen' ),
                     'data' => 'width',
                     'type' => 'text',
                     'helper'=> true,
@@ -273,7 +273,7 @@ class OxygenMetaBoxIntegration {
                     'show_condition' => "dynamicDataModel.insert_type == 'image_element'"
                 );
                 $properties[] = array(
-                    'name' => __( 'Height', 'oxygen' ),
+                    'name' => oxygen_translate( 'Height', 'oxygen' ),
                     'data' => 'height',
                     'type' => 'text',
                     'helper' => true,
@@ -281,7 +281,7 @@ class OxygenMetaBoxIntegration {
                     'show_condition' => 'dynamicDataModel.insert_type == \'image_element\''
                 );
                 $properties[] = array(
-                    'name' => __( 'Max Width (%)', 'oxygen' ),
+                    'name' => oxygen_translate( 'Max Width (%)', 'oxygen' ),
                     'data' => 'max_width',
                     'type' => 'text',
                     'show_condition' => "dynamicDataModel.insert_type == 'image_element'"
@@ -291,18 +291,18 @@ class OxygenMetaBoxIntegration {
             case 'select':
             case 'select_advanced':
                 $properties[] = array(
-                    'name'      => __( 'Return value or label?', 'oxygen' ),
+                    'name'      => oxygen_translate( 'Return value or label?', 'oxygen' ),
                     'data'      => 'display',
                     'type'      => 'select',
                     'options'   => array(
-                        __( 'Value', 'oxygen' ) => 'value',
-                        __( 'Label', 'oxygen' ) => 'label'
+                        oxygen_translate( 'Value', 'oxygen' ) => 'value',
+                        oxygen_translate( 'Label', 'oxygen' ) => 'label'
                     ),
                 );
             case 'image_select':
                 if( isset($option[ 'multiple' ]) && $option[ 'multiple' ] != 0 ) {
                     $properties[] = array(
-                        'name' => __('Separator (for multiple options fields)', 'oxygen'),
+                        'name' => oxygen_translate('Separator (for multiple options fields)', 'oxygen'),
                         'data' => 'separator',
                         'type' => 'text'
                     );
@@ -311,25 +311,25 @@ class OxygenMetaBoxIntegration {
             case 'checkbox_list':
             case 'autocomplete':
                 $properties[] = array(
-                    'name'      => __( 'Return value or label?', 'oxygen' ),
+                    'name'      => oxygen_translate( 'Return value or label?', 'oxygen' ),
                     'data'      => 'display',
                     'type'      => 'select',
                     'options'   => array(
-                        __( 'Value', 'oxygen' ) => 'value',
-                        __( 'Label', 'oxygen' ) => 'label'
+                        oxygen_translate( 'Value', 'oxygen' ) => 'value',
+                        oxygen_translate( 'Label', 'oxygen' ) => 'label'
                     ),
                 );
             case 'fieldset_text':
             case 'text_list':
             case 'key_value':
                 $properties[] = array(
-                    'name' => __('Separator (for keys and values)', 'oxygen'),
+                    'name' => oxygen_translate('Separator (for keys and values)', 'oxygen'),
                     'data' => 'separator',
                     'type' => 'text',
                     'show_condition' => 'dynamicDataModel.use_default_output_format!=\'yes\''
                 );
                 $properties[] = array(
-                    'name' => __( 'Separator (for multiple rows)', 'oxygen' ),
+                    'name' => oxygen_translate( 'Separator (for multiple rows)', 'oxygen' ),
                     'data' => 'cloned_separator',
                     'type' => 'text'
                 );
@@ -338,25 +338,25 @@ class OxygenMetaBoxIntegration {
             case 'radio':
             case 'button_group':
                 $properties[] = array(
-                    'name' => __('Separator (for multiple options fields)', 'oxygen'),
+                    'name' => oxygen_translate('Separator (for multiple options fields)', 'oxygen'),
                     'data' => 'separator',
                     'type' => 'text',
                     'show_condition' => 'dynamicDataModel.use_default_output_format!=\'yes\''
                 );
                 $properties[] = array(
-                    'name'      => __( 'Return value or label?', 'oxygen' ),
+                    'name'      => oxygen_translate( 'Return value or label?', 'oxygen' ),
                     'data'      => 'display',
                     'type'      => 'select',
                     'options'   => array(
-                        __( 'Value', 'oxygen' ) => 'value',
-                        __( 'Label', 'oxygen' ) => 'label'
+                        oxygen_translate( 'Value', 'oxygen' ) => 'value',
+                        oxygen_translate( 'Label', 'oxygen' ) => 'label'
                     ),
                 );
                 // no options?
                 break;
             case 'switch':
                 $properties[] = array(
-                    'name' => __( 'If set, output custom on/off text instead of true/false', 'oxygen' ),
+                    'name' => oxygen_translate( 'If set, output custom on/off text instead of true/false', 'oxygen' ),
                     'data' => 'output_custom_onoff',
                     'type' => 'checkbox',
                     'value' => 'yes'
@@ -366,36 +366,36 @@ class OxygenMetaBoxIntegration {
             case 'file_advanced':
             case 'file_upload':
                 $properties[] = array(
-                    'name' => __( 'Output type', 'oxygen' ),
+                    'name' => oxygen_translate( 'Output type', 'oxygen' ),
                     'data' => 'output_type',
                     'type' => 'select',
                     'options'=> array(
-                        __( 'Url', 'oxygen' ) => 'url',
-                        __( 'Attachment ID', 'oxygen' ) => 'attachment_id'
+                        oxygen_translate( 'Url', 'oxygen' ) => 'url',
+                        oxygen_translate( 'Attachment ID', 'oxygen' ) => 'attachment_id'
                     ),
                     'nullval' => 'url'
                 );
                 $properties[] = array(
-                    'name' => __( 'Separator (if multiple terms are provided)', 'oxygen' ),
+                    'name' => oxygen_translate( 'Separator (if multiple terms are provided)', 'oxygen' ),
                     'data' => 'separator',
                     'type' => 'text'
                 );
             case 'file_input':
                 $properties[] = array(
-                    'name' => __( 'Link', 'oxygen' ),
+                    'name' => oxygen_translate( 'Link', 'oxygen' ),
                     'data' => 'file_link',
                     'type' => 'checkbox',
                     'value' => 'yes',
                     'show_condition' => 'dynamicDataModel.output_type == \'url\''
                 );
                 $properties[] = array(
-                    'name' => __( 'Link text (file name will be used if left empty)', 'oxygen' ),
+                    'name' => oxygen_translate( 'Link text (file name will be used if left empty)', 'oxygen' ),
                     'data' => 'link_text',
                     'type' => 'text',
                     'show_condition' => 'dynamicDataModel.file_link == \'yes\''
                 );
                 $properties[] = array(
-                    'name' => __( 'Prevent file downloads from logged-out users', 'oxygen' ),
+                    'name' => oxygen_translate( 'Prevent file downloads from logged-out users', 'oxygen' ),
                     'data' => 'protect_file',
                     'type' => 'checkbox',
                     'value' => 'yes',
@@ -404,19 +404,19 @@ class OxygenMetaBoxIntegration {
                 break;
             case 'url':
                 $properties[] = array(
-                    'name' => __( 'Link', 'oxygen' ),
+                    'name' => oxygen_translate( 'Link', 'oxygen' ),
                     'data' => 'url_link',
                     'type' => 'checkbox',
                     'value' => 'yes'
                 );
                 $properties[] = array(
-                    'name' => __( 'Link text (URL will be used if left empty)', 'oxygen' ),
+                    'name' => oxygen_translate( 'Link text (URL will be used if left empty)', 'oxygen' ),
                     'data' => 'link_text',
                     'type' => 'text',
                     'show_condition' => 'dynamicDataModel.url_link == \'yes\''
                 );
                 $properties[] = array(
-                    'name' => __( 'Open in new Tab', 'oxygen' ),
+                    'name' => oxygen_translate( 'Open in new Tab', 'oxygen' ),
                     'data' => 'new_tab',
                     'type' => 'checkbox',
                     'value' => 'yes',
@@ -425,7 +425,7 @@ class OxygenMetaBoxIntegration {
                 break;
             case 'datetime':
             case 'datetime-local':
-                $label = __( 'PHP Date Format. Defaults to Y-m-d H:i:s', 'oxygen' );
+                $label = oxygen_translate( 'PHP Date Format. Defaults to Y-m-d H:i:s', 'oxygen' );
                 $properties[] = array(
                     'name' => $label,
                     'data' => 'format',
@@ -433,7 +433,7 @@ class OxygenMetaBoxIntegration {
                 );
                 break;
             case 'month':
-                $label = __( 'PHP Date Format. Defaults to Y-m', 'oxygen' );
+                $label = oxygen_translate( 'PHP Date Format. Defaults to Y-m', 'oxygen' );
                 $properties[] = array(
                     'name' => $label,
                     'data' => 'format',
@@ -441,7 +441,7 @@ class OxygenMetaBoxIntegration {
                 );
                 break;
             case 'week':
-                $label = __( 'PHP Date Format. Defaults to W Y', 'oxygen' );
+                $label = oxygen_translate( 'PHP Date Format. Defaults to W Y', 'oxygen' );
                 $properties[] = array(
                     'name' => $label,
                     'data' => 'format',
@@ -449,7 +449,7 @@ class OxygenMetaBoxIntegration {
                 );
                 break;
             case 'date':
-                $label = __( 'PHP Date Format. Defaults to Y-m-d', 'oxygen' );
+                $label = oxygen_translate( 'PHP Date Format. Defaults to Y-m-d', 'oxygen' );
                 $properties[] = array(
                     'name' => $label,
                     'data' => 'format',
@@ -458,36 +458,36 @@ class OxygenMetaBoxIntegration {
                 break;
             case 'post':
                 $properties[] = array(
-                    'name' => __( 'Separator (if multiple post objects are provided)', 'oxygen' ),
+                    'name' => oxygen_translate( 'Separator (if multiple post objects are provided)', 'oxygen' ),
                     'data' => 'separator',
                     'type' => 'text'
                 );
                 $properties[] = array(
-                    'name'     => __( 'Please select what you want to insert', 'oxygen' ),
+                    'name'     => oxygen_translate( 'Please select what you want to insert', 'oxygen' ),
                     'data'      => 'insert_type',
                     'type'      => 'select',
                     'options'   => array(
-                        __( 'Post Object ID', 'oxygen' ) => 'post_id',
-                        __( 'Post URL', 'oxygen' ) => 'post_url'
+                        oxygen_translate( 'Post Object ID', 'oxygen' ) => 'post_id',
+                        oxygen_translate( 'Post URL', 'oxygen' ) => 'post_url'
                     ),
                     'nullval'   => 'post_id',
                     'change' => 'scope.dynamicDataModel.post_link = false'
                 );
                 $properties[] = array(
-                    'name' => __( 'Link', 'oxygen' ),
+                    'name' => oxygen_translate( 'Link', 'oxygen' ),
                     'data' => 'post_link',
                     'type' => 'checkbox',
                     'value' => 'yes',
                     'show_condition' => 'dynamicDataModel.insert_type == \'post_url\''
                 );
                 $properties[] = array(
-                    'name' => __( 'Link text (URL will be used if left empty)', 'oxygen' ),
+                    'name' => oxygen_translate( 'Link text (URL will be used if left empty)', 'oxygen' ),
                     'data' => 'link_text',
                     'type' => 'text',
                     'show_condition' => 'dynamicDataModel.post_link == \'yes\''
                 );
                 $properties[] = array(
-                    'name' => __( 'Open in new Tab', 'oxygen' ),
+                    'name' => oxygen_translate( 'Open in new Tab', 'oxygen' ),
                     'data' => 'new_tab',
                     'type' => 'checkbox',
                     'value' => 'yes',
@@ -496,36 +496,36 @@ class OxygenMetaBoxIntegration {
                 break;
             case 'user':
                 $properties[] = array(
-                    'name' => __( 'Separator (if multiple user objects are provided)', 'oxygen' ),
+                    'name' => oxygen_translate( 'Separator (if multiple user objects are provided)', 'oxygen' ),
                     'data' => 'separator',
                     'type' => 'text'
                 );
                 $properties[] = array(
-                    'name'     => __( 'Please select what you want to insert', 'oxygen' ),
+                    'name'     => oxygen_translate( 'Please select what you want to insert', 'oxygen' ),
                     'data'      => 'insert_type',
                     'type'      => 'select',
                     'options'   => array(
-                        __( 'User Object ID', 'oxygen' ) => 'user_id',
-                        __( 'User URL', 'oxygen' ) => 'user_url'
+                        oxygen_translate( 'User Object ID', 'oxygen' ) => 'user_id',
+                        oxygen_translate( 'User URL', 'oxygen' ) => 'user_url'
                     ),
                     'nullval'   => 'user_id',
                     'change' => 'scope.dynamicDataModel.post_link = false'
                 );
                 $properties[] = array(
-                    'name' => __( 'Link', 'oxygen' ),
+                    'name' => oxygen_translate( 'Link', 'oxygen' ),
                     'data' => 'user_link',
                     'type' => 'checkbox',
                     'value' => 'yes',
                     'show_condition' => 'dynamicDataModel.insert_type == \'user_url\''
                 );
                 $properties[] = array(
-                    'name' => __( 'Link text (URL will be used if left empty)', 'oxygen' ),
+                    'name' => oxygen_translate( 'Link text (URL will be used if left empty)', 'oxygen' ),
                     'data' => 'link_text',
                     'type' => 'text',
                     'show_condition' => 'dynamicDataModel.post_link == \'yes\''
                 );
                 $properties[] = array(
-                    'name' => __( 'Open in new Tab', 'oxygen' ),
+                    'name' => oxygen_translate( 'Open in new Tab', 'oxygen' ),
                     'data' => 'new_tab',
                     'type' => 'checkbox',
                     'value' => 'yes',
@@ -535,45 +535,45 @@ class OxygenMetaBoxIntegration {
             case 'taxonomy':
             case 'taxonomy_advanced':
                 $properties[] = array(
-                    'name' => __( 'Use default output format (this will convert text element to Shortcode element)', 'oxygen' ),
+                    'name' => oxygen_translate( 'Use default output format (this will convert text element to Shortcode element)', 'oxygen' ),
                     'data' => 'use_default_taxonomy_output_format',
                     'type' => 'checkbox',
                     'value' => 'yes',
                     'show_condition' => 'dynamicDataModel.triggered_from_text_element==true',
                 );
                 $properties[] = array(
-                    'name' => __( 'Separator (if multiple terms are provided)', 'oxygen' ),
+                    'name' => oxygen_translate( 'Separator (if multiple terms are provided)', 'oxygen' ),
                     'data' => 'separator',
                     'type' => 'text',
                     'show_condition' => 'dynamicDataModel.use_default_taxonomy_output_format!=\'yes\''
                 );
                 $properties[] = array(
-                    'name'     => __( 'Please select what you want to insert', 'oxygen' ),
+                    'name'     => oxygen_translate( 'Please select what you want to insert', 'oxygen' ),
                     'data'      => 'insert_type',
                     'type'      => 'select',
                     'options'   => array(
-                        __( 'Term ID', 'oxygen' ) => 'term_id',
-                        __( 'Term URL', 'oxygen' ) => 'term_url',
-                        __( 'Term Name', 'oxygen' ) => 'term_name'
+                        oxygen_translate( 'Term ID', 'oxygen' ) => 'term_id',
+                        oxygen_translate( 'Term URL', 'oxygen' ) => 'term_url',
+                        oxygen_translate( 'Term Name', 'oxygen' ) => 'term_name'
                     ),
                     'nullval'   => 'term_id',
                     'change' => 'scope.dynamicDataModel.taxonomy_link = false'
                 );
                 $properties[] = array(
-                    'name' => __( 'Link', 'oxygen' ),
+                    'name' => oxygen_translate( 'Link', 'oxygen' ),
                     'data' => 'taxonomy_link',
                     'type' => 'checkbox',
                     'value' => 'yes',
                     'show_condition' => 'dynamicDataModel.insert_type == \'term_url\''
                 );
                 $properties[] = array(
-                    'name' => __( 'Link text (URL will be used if left empty)', 'oxygen' ),
+                    'name' => oxygen_translate( 'Link text (URL will be used if left empty)', 'oxygen' ),
                     'data' => 'link_text',
                     'type' => 'text',
                     'show_condition' => 'dynamicDataModel.taxonomy_link == \'yes\''
                 );
                 $properties[] = array(
-                    'name' => __( 'Open in new Tab', 'oxygen' ),
+                    'name' => oxygen_translate( 'Open in new Tab', 'oxygen' ),
                     'data' => 'new_tab',
                     'type' => 'checkbox',
                     'value' => 'yes',
@@ -594,7 +594,7 @@ class OxygenMetaBoxIntegration {
 
         if ( isset( $option['clone'] ) && $option['clone'] == 'true' ) {
             $properties[] = array(
-                'name' => __( 'Separator (if field is cloned)', 'oxygen' ),
+                'name' => oxygen_translate( 'Separator (if field is cloned)', 'oxygen' ),
                 'data' => 'cloned_separator',
                 'type' => 'text'
             );
@@ -602,7 +602,7 @@ class OxygenMetaBoxIntegration {
 
         if ( isset($option['settings_pages']) && is_array($option['settings_pages']) ) {
             $properties[] = array(
-                'name' => __( 'Settings Page', 'oxygen' ),
+                'name' => oxygen_translate( 'Settings Page', 'oxygen' ),
                 'data'      => "settings_page",
                 'type'      => 'select',
                 'options'   => array_combine($option['settings_pages'],$option['settings_pages']),
@@ -638,32 +638,32 @@ class OxygenMetaBoxIntegration {
             case 'image_advanced':
             case 'single_image':
                 $properties[] = array(
-                    'name' => __('Size', 'oxygen'),
+                    'name' => oxygen_translate('Size', 'oxygen'),
                     'data' => 'size',
                     'type' => 'select',
                     'options' => array(
-                        __('Thumbnail', 'oxygen') => 'thumbnail',
-                        __('Medium', 'oxygen') => 'medium',
-                        __('Medium Large', 'oxygen') => 'medium_large',
-                        __('Large', 'oxygen') => 'large',
-                        __('Original', 'oxygen') => 'full'
+                        oxygen_translate('Thumbnail', 'oxygen') => 'thumbnail',
+                        oxygen_translate('Medium', 'oxygen') => 'medium',
+                        oxygen_translate('Medium Large', 'oxygen') => 'medium_large',
+                        oxygen_translate('Large', 'oxygen') => 'large',
+                        oxygen_translate('Original', 'oxygen') => 'full'
                     ),
                     'nullval' => 'medium',
                     'change' => 'scope.dynamicDataModel.width = ""; scope.dynamicDataModel.height = ""'
                 );
                 $properties[] = array(
-                    'name' => __('or', 'oxygen'),
+                    'name' => oxygen_translate('or', 'oxygen'),
                     'type' => 'label'
                 );
                 $properties[] = array(
-                    'name' => __('Width', 'oxygen'),
+                    'name' => oxygen_translate('Width', 'oxygen'),
                     'data' => 'width',
                     'type' => 'text',
                     'helper' => true,
                     'change' => "scope.dynamicDataModel.size = scope.dynamicDataModel.width+'x'+scope.dynamicDataModel.height"
                 );
                 $properties[] = array(
-                    'name' => __('Height', 'oxygen'),
+                    'name' => oxygen_translate('Height', 'oxygen'),
                     'data' => 'height',
                     'type' => 'text',
                     'helper' => true,
@@ -820,7 +820,7 @@ class OxygenMetaBoxIntegration {
                     $timestamp = strtotime( $field_value );
                 }
                 if ($timestamp===false) {
-                    $output = __("Wrong date input","oxygen");
+                    $output = oxygen_translate("Wrong date input","oxygen");
                 }
                 else {
                     $output = date( empty( $atts[ 'format' ] ) ? $format : $atts[ 'format' ], $timestamp );
@@ -834,7 +834,7 @@ class OxygenMetaBoxIntegration {
                     $timestamp = strtotime( $field_value );
                 }
                 if ($timestamp===false) {
-                    $output = __("Wrong date input","oxygen");
+                    $output = oxygen_translate("Wrong date input","oxygen");
                 }
                 else {
                     $output = date( empty( $atts[ 'format' ] ) ? $default_format : $atts[ 'format' ], $timestamp );
@@ -848,7 +848,7 @@ class OxygenMetaBoxIntegration {
                     $timestamp = strtotime( $field_value );
                 }
                 if ($timestamp===false) {
-                    $output = __("Wrong date input","oxygen");
+                    $output = oxygen_translate("Wrong date input","oxygen");
                 }
                 else {
                     $output = date( empty( $atts[ 'format' ] ) ? $default_format : $atts[ 'format' ], $timestamp );
@@ -862,7 +862,7 @@ class OxygenMetaBoxIntegration {
                     $timestamp = strtotime( $field_value );
                 }
                 if ($timestamp===false) {
-                    $output = __("Wrong date input","oxygen");
+                    $output = oxygen_translate("Wrong date input","oxygen");
                 }
                 else {
                     $output = date( empty( $atts[ 'format' ] ) ? $default_format : $atts[ 'format' ], $timestamp );
@@ -1001,7 +1001,7 @@ class OxygenMetaBoxIntegration {
                 break;
 			case 'map':
 				if( empty( $this->options['api_key'] ) && empty( $field['api_key'] ) ) {
-					$output = __( 'No Google Maps Key set', 'oxygen' );
+					$output = oxygen_translate( 'No Google Maps Key set', 'oxygen' );
 				}else{
                     $output = $field_value;
 				}

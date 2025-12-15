@@ -157,7 +157,7 @@
 			<div class='oxygen-toolbar-panel'>
 				<div class='oxygen-zoom-control'
 					ng-show="viewportScale<1||viewportScaleLocked">
-					<label><?php _e("Zoom:", "oxygen"); ?></label>
+					<label><?php oxygen_translate_echo("Zoom:", "oxygen"); ?></label>
 					<span class='oxygen-zoom-control-zoom-amount'>{{viewportScale * 100 | number : 0}}%</span>
 					<span class='oxygen-zoom-icon'
 						ng-class="{'oxygen-zoom-icon-active':viewportScaleLocked}"
@@ -175,11 +175,11 @@
             <div class="oxygen-undo-redo-buttons">
                 <div class="oxygen-undo-button oxygen-toolbar-button" ng-click="iframeScope.undo()" ng-class="{'disabled': !iframeScope.canUndo}" >
                     <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/toolbar-icons/undo.svg" />
-                    <!-- <span><?php _e("Undo", "oxygen"); ?></span> -->
+                    <!-- <span><?php oxygen_translate_echo("Undo", "oxygen"); ?></span> -->
                 </div>
                 <div class="oxygen-redo-button oxygen-toolbar-button" ng-click="iframeScope.redo()" ng-class="{'disabled': !iframeScope.canRedo}" >
                     <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/toolbar-icons/redo.svg" />
-                    <!-- <span><?php _e("Redo", "oxygen"); ?></span> -->
+                    <!-- <span><?php oxygen_translate_echo("Redo", "oxygen"); ?></span> -->
                 </div>
             </div>
 		</div>
@@ -216,17 +216,17 @@
 					<a class="oxygen-toolbar-button-dropdown-option"
 						ng-click="iframeScope.setPostEditLockTransient(false)"
 						ng-href="{{iframeScope.ajaxVar.adminURL}}">
-						<?php _e("WP&nbspAdmin","oxygen");?>
+						<?php oxygen_translate_echo("WP&nbspAdmin","oxygen");?>
 					</a>
 					<a class="oxygen-toolbar-button-dropdown-option"
 						ng-hide="iframeScope.ajaxVar.ctTemplate"
 						ng-href="{{iframeScope.ajaxVar.frontendURL}}">
-						<?php _e("Frontend","oxygen");?>
+						<?php oxygen_translate_echo("Frontend","oxygen");?>
 					</a>
 					<a class="oxygen-toolbar-button-dropdown-option"
 						ng-show="iframeScope.ajaxVar.ctTemplate"
 						ng-href="{{iframeScope.template.postData.frontendURL}}">
-						<?php _e("Frontend","oxygen");?>
+						<?php oxygen_translate_echo("Frontend","oxygen");?>
 					</a>
 				</div>
 				<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/toolbar-icons/back-to-wp.svg" />
@@ -252,7 +252,7 @@
 				<img ng-src='{{page.custom_screenshot||page.screenshot_url}}' />
 				<div class='oxygen-add-section-library-addable-details'
 					ng-class="{'hilite': page.firstFew === 0}">
-					{{ page.firstFew !== 0 ? page.name : '<?php _e('Pro Only', 'oxygen');?>'}}
+					{{ page.firstFew !== 0 ? page.name : '<?php oxygen_translate_echo('Pro Only', 'oxygen');?>'}}
 				</div>
 			</div>
 		</div>
@@ -266,7 +266,7 @@
 				<img ng-src='{{page.custom_screenshot||page.screenshot_url}}' />
 				<div class='oxygen-add-section-library-addable-details'
 					ng-class="{'hilite': page.firstFew === 0}">
-					{{ page.firstFew !== 0 ? page.name : '<?php _e('Pro Only', 'oxygen');?>'}}
+					{{ page.firstFew !== 0 ? page.name : '<?php oxygen_translate_echo('Pro Only', 'oxygen');?>'}}
 				</div>
 			</div>
 		</div>
@@ -283,7 +283,7 @@
 					<img ng-src='{{component.custom_screenshot||component.screenshot_url}}' />
 					<div class='oxygen-add-section-library-addable-details'
 						ng-class="{'hilite': component.firstFew === 0}">
-						{{ component.firstFew !== 0 ? component.name : '<?php _e('Pro Only', 'oxygen');?>'}}
+						{{ component.firstFew !== 0 ? component.name : '<?php oxygen_translate_echo('Pro Only', 'oxygen');?>'}}
 					</div>
 				</div>
 			</div>
@@ -334,12 +334,12 @@
 		<div class='oxygen-editing-stylesheet-message' ng-if="iframeScope.selectedNodeType==='stylesheet'" ng-class="{'ui-hide':!showLeftSidebar}">
 
 			<div class="oxygen-sidebar-template">
-				<h2><?php _e("Style Sheet", "oxygen"); ?></h2>
+				<h2><?php oxygen_translate_echo("Style Sheet", "oxygen"); ?></h2>
 				
 				<div class="oxygen-reusable-title">
 					<h1>{{iframeScope.stylesheetToEdit['name']}}</h1>
 					<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/currently-editing/delete.svg'
-						title="<?php _e("Remove Stylesheet", "oxygen"); ?>"
+						title="<?php oxygen_translate_echo("Remove Stylesheet", "oxygen"); ?>"
 						ng-click="iframeScope.deleteStyleSheet(iframeScope.stylesheetToEdit, $event)"/>
 				</div>
 
@@ -351,19 +351,19 @@
 			ng-show="iframeScope.selectedNodeType==='selectorfolder'" ng-class="{'ui-hide':!showLeftSidebar}">
 
 			<div class="oxygen-sidebar-template">
-				<h2><?php _e("Selector Folder", "oxygen"); ?></h2>
+				<h2><?php oxygen_translate_echo("Selector Folder", "oxygen"); ?></h2>
 				
 				<div class="oxygen-reusable-title">
 					<h1>{{iframeScope.selectedSelectorFolder && iframeScope.selectedSelectorFolder!==-1?iframeScope.selectedSelectorFolder:'Uncategorized'}}</h1>
 					<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/currently-editing/delete.svg'
 						ng-if="iframeScope.selectedSelectorFolder && iframeScope.selectedSelectorFolder!==-1"
-						title="<?php _e("Remove Folder", "oxygen"); ?>"
+						title="<?php oxygen_translate_echo("Remove Folder", "oxygen"); ?>"
 						ng-click="iframeScope.deleteSelectorFolder(iframeScope.selectedSelectorFolder,$event); iframeScope.selectorFolderMenuOpen = false"/>
 				</div>
 
 				<a href="#" class="oxygen-sidebar-template-button"
 					ng-click="iframeScope.styleFolders[iframeScope.selectedSelectorFolder].status = (iframeScope.styleFolders[iframeScope.selectedSelectorFolder].status == 1 ? 0 : 1); iframeScope.selectorFolderMenuOpen = false; iframeScope.classesCached = false; iframeScope.outputCSSOptions()">
-					{{iframeScope.styleFolders[iframeScope.selectedSelectorFolder].status?'<?php _e("Disable Folder", "oxygen"); ?>':'<?php _e("Enable Folder", "oxygen"); ?>'}}</a>
+					{{iframeScope.styleFolders[iframeScope.selectedSelectorFolder].status?'<?php oxygen_translate_echo("Disable Folder", "oxygen"); ?>':'<?php oxygen_translate_echo("Enable Folder", "oxygen"); ?>'}}</a>
 
 				
 			</div>
@@ -373,25 +373,25 @@
 			ng-show="iframeScope.selectedNodeType==='cssfolder'" ng-class="{'ui-hide':!showLeftSidebar}">
 
 			<div class="oxygen-sidebar-template">
-				<h2><?php _e("Stylesheet Folder", "oxygen"); ?></h2>
+				<h2><?php oxygen_translate_echo("Stylesheet Folder", "oxygen"); ?></h2>
 				
 				<div class="oxygen-reusable-title">
 					<h1>{{iframeScope.selectedCSSFolder && iframeScope.selectedCSSFolder!==-1?iframeScope.getCSSFolder(iframeScope.selectedCSSFolder)['name']:'Uncategorized'}}</h1>
 					<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/currently-editing/delete.svg'
 						ng-if="iframeScope.selectedCSSFolder && iframeScope.selectedCSSFolder!==-1"
-						title="<?php _e("Remove Folder", "oxygen"); ?>"
+						title="<?php oxygen_translate_echo("Remove Folder", "oxygen"); ?>"
 						ng-click="iframeScope.deleteStyleSheet(iframeScope.getCSSFolder(iframeScope.selectedCSSFolder),$event); iframeScope.selectorFolderMenuOpen = false"/>
 				</div>
 
 				<a href="#" class="oxygen-sidebar-template-button"
 					ng-if="!iframeScope.selectedCSSFolder || iframeScope.selectedCSSFolder===-1"
 					ng-click="iframeScope.toggleUncategorizedStyleSheets(iframeScope.selectedCSSFolder !== -1); iframeScope.cssFolderMenuOpen = false; iframeScope.classesCached = false; iframeScope.outputCSSOptions()">
-					{{iframeScope.selectedCSSFolder !== -1?'<?php _e("Disable Folder", "oxygen"); ?>':'<?php _e("Enable Folder", "oxygen"); ?>'}}</a>
+					{{iframeScope.selectedCSSFolder !== -1?'<?php oxygen_translate_echo("Disable Folder", "oxygen"); ?>':'<?php oxygen_translate_echo("Enable Folder", "oxygen"); ?>'}}</a>
 
 				<a href="#" class="oxygen-sidebar-template-button"
 					ng-if="iframeScope.selectedCSSFolder && iframeScope.selectedCSSFolder!==-1"
 					ng-click="iframeScope.getCSSFolder(iframeScope.selectedCSSFolder).status = (iframeScope.getCSSFolder(iframeScope.selectedCSSFolder).status == 1 ? 0 : 1); iframeScope.cssFolderMenuOpen = false; iframeScope.classesCached = false; iframeScope.outputCSSOptions()">
-					{{iframeScope.getCSSFolder(iframeScope.selectedCSSFolder).status === 1?'<?php _e("Disable Folder", "oxygen"); ?>':'<?php _e("Enable Folder", "oxygen"); ?>'}}</a>
+					{{iframeScope.getCSSFolder(iframeScope.selectedCSSFolder).status === 1?'<?php oxygen_translate_echo("Disable Folder", "oxygen"); ?>':'<?php oxygen_translate_echo("Enable Folder", "oxygen"); ?>'}}</a>
 
 				
 			</div>
@@ -401,12 +401,12 @@
 			ng-show="iframeScope.selectedNodeType==='styleset'" ng-class="{'ui-hide':!showLeftSidebar}">
 
 			<div class="oxygen-sidebar-template">
-				<h2><?php _e("Style Set", "oxygen"); ?></h2>
+				<h2><?php oxygen_translate_echo("Style Set", "oxygen"); ?></h2>
 				
 				<div class="oxygen-reusable-title">
 					<h1>{{iframeScope.selectedStyleSet}}</h1>
 					<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/currently-editing/delete.svg'
-						title="<?php _e("Remove Component", "oxygen"); ?>"
+						title="<?php oxygen_translate_echo("Remove Component", "oxygen"); ?>"
 						ng-show="iframeScope.selectedStyleSet!=='Uncategorized Custom Selectors'"
 						ng-click="$parent.deleteStyleSet(iframeScope.selectedStyleSet)"/>
 				</div>
@@ -419,12 +419,12 @@
 			ng-show="isActiveName('ct_reusable') && !isActiveActionTab('componentBrowser')" ng-class="{'ui-hide':!showLeftSidebar}">
 
 			<div class="oxygen-sidebar-template">
-				<h2><?php _e("REUSABLE PART", "oxygen"); ?></h2>
+				<h2><?php oxygen_translate_echo("REUSABLE PART", "oxygen"); ?></h2>
 				
 				<div class="oxygen-reusable-title">
 					<h1>{{iframeScope.component.options[iframeScope.component.active.id]['nicename']}}</h1>
 					<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/currently-editing/delete.svg'
-						title="<?php _e("Remove Component", "oxygen"); ?>"
+						title="<?php oxygen_translate_echo("Remove Component", "oxygen"); ?>"
 						ng-show="iframeScope.component.active.id > 0 && !isActiveName('oxy_header_left') && !isActiveName('oxy_header_center') && !isActiveName('oxy_header_right')"
 						ng-click="iframeScope.removeActiveComponent()"/>
 				</div>
@@ -440,7 +440,7 @@
 
 				<a href="#" class="oxygen-sidebar-template-button"
 					ng-href="{{iframeScope.reusableEditLinks[iframeScope.component.active.id].replace('&amp;', '&')}}">
-					<?php _e("Open &amp; Edit Reusable Part", "oxygen"); ?></a>
+					<?php oxygen_translate_echo("Open &amp; Edit Reusable Part", "oxygen"); ?></a>
 			</div>
 		</div><!-- .oxygen-editing-reusable-message -->
 
@@ -449,10 +449,10 @@
 
 			<div class="oxygen-sidebar-template">
 
-				<h2><?php _e("TEMPLATE", "oxygen"); ?></h2>
+				<h2><?php oxygen_translate_echo("TEMPLATE", "oxygen"); ?></h2>
 				<h1>{{iframeScope.outerTemplateData['template_name']}}</h1>
 
-				<a href="#" ng-href="{{iframeScope.outerTemplateData['edit_link']}}" class="oxygen-sidebar-template-button"><?php _e("Open &amp; Edit Template", "oxygen"); ?></a>
+				<a href="#" ng-href="{{iframeScope.outerTemplateData['edit_link']}}" class="oxygen-sidebar-template-button"><?php oxygen_translate_echo("Open &amp; Edit Template", "oxygen"); ?></a>
 
 			</div>
 		</div>
@@ -462,9 +462,9 @@
 
 				<div class="oxygen-sidebar-template">
 					<div class="oxygen-reusable-title">
-						<h2><?php _e("INNER CONTENT", "oxygen"); ?></h2>
+						<h2><?php oxygen_translate_echo("INNER CONTENT", "oxygen"); ?></h2>
 						<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/currently-editing/delete.svg'
-							title="<?php _e("Remove Component", "oxygen"); ?>"
+							title="<?php oxygen_translate_echo("Remove Component", "oxygen"); ?>"
 							ng-show="iframeScope.component.active.id > 0 && !isActiveName('oxy_header_left') && !isActiveName('oxy_header_center') && !isActiveName('oxy_header_right')"
 							ng-click="iframeScope.removeActiveComponent()"/>
 					</div>
@@ -480,7 +480,7 @@
 						</span>
 					</div>
 
-					<a href="#" ng-if="iframeScope.template.postData.edit_link" ng-href="{{iframeScope.template.postData.edit_link}}" class="oxygen-sidebar-template-button"><?php _e("Open &amp; Edit Inner Content", "oxygen"); ?></a>
+					<a href="#" ng-if="iframeScope.template.postData.edit_link" ng-href="{{iframeScope.template.postData.edit_link}}" class="oxygen-sidebar-template-button"><?php oxygen_translate_echo("Open &amp; Edit Inner Content", "oxygen"); ?></a>
 
 				</div>
 		</div>
@@ -519,7 +519,7 @@
 								<div class="oxygen-select-box-options">
 									<div class="oxygen-select-box-option" ng-click="iframeScope.setCurrentSelectorFolder('');">
 											<span>
-												<?php _e('None', 'oxygen');?>
+												<?php oxygen_translate_echo('None', 'oxygen');?>
 											</span>
 									</div>
 
@@ -603,11 +603,11 @@
 			<div class='oxygen-sidebar-tabs'>
 				<div class='oxygen-sidebar-tabs-tab'
 					ng-click="styleTabAdvance=false;closeTabs(['oxy_posts_grid', 'dynamicList', 'slider','navMenu','effects','gallery'<?php echo $tabs; ?>]);toggleSidebar(true)" 
-					ng-class="{'oxygen-sidebar-tabs-tab-active':!styleTabAdvance}"><?php _e("Primary", "oxygen"); ?>
+					ng-class="{'oxygen-sidebar-tabs-tab-active':!styleTabAdvance}"><?php oxygen_translate_echo("Primary", "oxygen"); ?>
 				</div>
 				<div class='oxygen-sidebar-tabs-tab'
 					ng-click="showAllStylesFunc(); styleTabAdvance=true" 
-					ng-class="{'oxygen-sidebar-tabs-tab-active':styleTabAdvance,'oxy-styles-present':iframeScope.isTabHasOptions()}"><?php _e("Advanced", "oxygen"); ?>
+					ng-class="{'oxygen-sidebar-tabs-tab-active':styleTabAdvance,'oxy-styles-present':iframeScope.isTabHasOptions()}"><?php oxygen_translate_echo("Advanced", "oxygen"); ?>
 				</div>
 			</div>
 			<!-- .oxygen-sidebar-tabs -->
@@ -626,7 +626,7 @@
 					<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg' />
 				</div>
 				<div class='oxygen-sidebar-breadcrumb-all-styles'
-					ng-click="showAllStylesFunc();"><?php _e("All Styles", "oxygen"); ?></div>
+					ng-click="showAllStylesFunc();"><?php oxygen_translate_echo("All Styles", "oxygen"); ?></div>
 				<?php foreach ( $this->options['advanced'] as $key => $tab ) : ?>
 					<div class='oxygen-sidebar-breadcrumb-separator' 
 						ng-if="isShowTab('advanced','<?php echo $key; ?>')">/</div>
@@ -640,13 +640,13 @@
 
 				<div class='oxygen-sidebar-breadcrumb-all-styles'
 					ng-show="isShowTab('advanced','background-gradient')"
-					ng-click="switchTab('advanced', 'background');"><?php _e("Background", "oxygen"); ?></div>
+					ng-click="switchTab('advanced', 'background');"><?php oxygen_translate_echo("Background", "oxygen"); ?></div>
 
 				<div class='oxygen-sidebar-breadcrumb-separator' 
 					ng-show="isShowTab('advanced','background-gradient')">/</div>
 
 				<div class='oxygen-sidebar-breadcrumb-current' 
-					ng-show="isShowTab('advanced','background-gradient')"><?php _e("Gradient", "oxygen"); ?></div>
+					ng-show="isShowTab('advanced','background-gradient')"><?php oxygen_translate_echo("Gradient", "oxygen"); ?></div>
 				<!-- Exception for Background Gradient ENDS -->
 			</div>
 			<!-- .oxygen-sidebar-breadcrumb -->
@@ -681,10 +681,10 @@
 						<div class="oxygen-control">			
 							<div class="oxygen-input">
 								<input type="text" spellcheck="false"
-									placeholder="<?php _e("value", "oxygen"); ?>" 
+									placeholder="<?php oxygen_translate_echo("value", "oxygen"); ?>" 
 									ng-change="iframeScope.setOption(iframeScope.component.active.id, iframeScope.component.active.name,'custom-attributes');iframeScope.checkResizeBoxOptions('custom-attributes'); iframeScope.validateCustomAttributeValue($index);" 
 									ng-model="$parent.iframeScope.component.options[$parent.iframeScope.component.active.id]['model']['custom-attributes'][$index]['value']">
-									<div class="oxygen-dynamic-data-browse" ctdynamicdata data="iframeScope.dynamicShortcodesContentMode" callback="iframeScope.insertDynamicDataShortcode" optionname="'custom-attributes.'+$index+'.value'"><?php _e("data", "oxygen"); ?></div>
+									<div class="oxygen-dynamic-data-browse" ctdynamicdata data="iframeScope.dynamicShortcodesContentMode" callback="iframeScope.insertDynamicDataShortcode" optionname="'custom-attributes.'+$index+'.value'"><?php oxygen_translate_echo("data", "oxygen"); ?></div>
 							</div>
 						</div>
 					</div>
@@ -711,7 +711,7 @@
 			
 		<div class="oxygen-no-item-message" ng-class="{'ui-hide':!showLeftSidebar}" 
 			ng-hide="(iframeScope.component.active.name && iframeScope.component.active.id!=0) || iframeScope.isEditing('style-sheet') || isActiveActionTab('componentBrowser')">
-				<?php _e("No Item Selected","oxygen"); ?>
+				<?php oxygen_translate_echo("No Item Selected","oxygen"); ?>
 		</div>			
 		<!-- .oxygen-no-item-message -->
 
@@ -871,7 +871,7 @@
 			ng-class="{'oxygen-show-settings-panel':showSettingsPanel,'oxygen-global-settings-all-settings':!hasOpenTabs('settings')}">
 
 			<div class="oxygen-sidepanel-header-row">
-				<?php _e("Settings","oxygen"); ?>
+				<?php oxygen_translate_echo("Settings","oxygen"); ?>
 				<img class="oxygen-close-icon" ng-click="toggleSettingsPanel()" src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/toolbar-icons/cross-icon.svg">
 			</div>
 
@@ -883,11 +883,11 @@
 				 */
 				?>
 				
-				<?php $this->settings_tab(__("Page settings", "oxygen"), "page", "panelsection-icons/pagesettings.svg", "hasOpenTabs('settings')","oxygen-settings-main-tab"); ?>
+				<?php $this->settings_tab(oxygen_translate("Page settings", "oxygen"), "page", "panelsection-icons/pagesettings.svg", "hasOpenTabs('settings')","oxygen-settings-main-tab"); ?>
 				
-				<?php $this->settings_tab(__("Editor settings", "oxygen"), "editor", "panelsection-icons/general-config.svg", "hasOpenTabs('settings')","oxygen-settings-main-tab"); ?>
+				<?php $this->settings_tab(oxygen_translate("Editor settings", "oxygen"), "editor", "panelsection-icons/general-config.svg", "hasOpenTabs('settings')","oxygen-settings-main-tab"); ?>
 				
-				<?php $this->settings_tab(__("Global Styles", "oxygen"), "default-styles", "panelsection-icons/visual.svg", "hasOpenTabs('settings')","oxygen-settings-main-tab"); ?>
+				<?php $this->settings_tab(oxygen_translate("Global Styles", "oxygen"), "default-styles", "panelsection-icons/visual.svg", "hasOpenTabs('settings')","oxygen-settings-main-tab"); ?>
 
 
 				<?php
@@ -921,15 +921,15 @@
 				<div class="oxygen-sidebar-flex-panel"
 					ng-if="isShowTab('settings','default-styles')&&!hasOpenChildTabs('settings','default-styles')">
 
-					<?php $this->settings_home_breadcrumbs(__("Global Styles","oxygen")); ?>
+					<?php $this->settings_home_breadcrumbs(oxygen_translate("Global Styles","oxygen")); ?>
 
-					<?php $this->settings_tab(__("Colors", "oxygen"), "colors", "panelsection-icons/general-config.svg"); ?>
-					<?php $this->settings_child_tab(__("Fonts", "oxygen"), "default-styles", "fonts", "advanced/typography.svg"); ?>
-					<?php $this->settings_child_tab(__("Headings", "oxygen"), "default-styles", "headings", "advanced/typography.svg"); ?>
-					<?php $this->settings_child_tab(__("Body Text", "oxygen"), "default-styles", "body-text", "panelsection-icons/bodytext.svg"); ?>
-					<?php $this->settings_tab(__("Links", "oxygen"), "links", "panelsection-icons/links.svg"); ?>
-					<?php $this->settings_child_tab(__("Width & Breakpoints", "oxygen"), "default-styles", "page-width", "panelsection-icons/general-config.svg"); ?>
-					<?php $this->settings_child_tab(__("Sections & Columns", "oxygen"), "default-styles", "sections", "panelsection-icons/general-config.svg"); ?>
+					<?php $this->settings_tab(oxygen_translate("Colors", "oxygen"), "colors", "panelsection-icons/general-config.svg"); ?>
+					<?php $this->settings_child_tab(oxygen_translate("Fonts", "oxygen"), "default-styles", "fonts", "advanced/typography.svg"); ?>
+					<?php $this->settings_child_tab(oxygen_translate("Headings", "oxygen"), "default-styles", "headings", "advanced/typography.svg"); ?>
+					<?php $this->settings_child_tab(oxygen_translate("Body Text", "oxygen"), "default-styles", "body-text", "panelsection-icons/bodytext.svg"); ?>
+					<?php $this->settings_tab(oxygen_translate("Links", "oxygen"), "links", "panelsection-icons/links.svg"); ?>
+					<?php $this->settings_child_tab(oxygen_translate("Width & Breakpoints", "oxygen"), "default-styles", "page-width", "panelsection-icons/general-config.svg"); ?>
+					<?php $this->settings_child_tab(oxygen_translate("Sections & Columns", "oxygen"), "default-styles", "sections", "panelsection-icons/general-config.svg"); ?>
 
 					<?php
 
@@ -945,7 +945,7 @@
 
 					<div class="oxygen-control-row oxygen-control-row-bottom-bar">
 						<a href="#" class="oxygen-apply-button" ng-click="iframeScope.resetGlobalStylesToDefault()">
-							<?php _e("Reset to Default"); ?></a>
+							<?php oxygen_translate_echo("Reset to Default"); ?></a>
 					</div>
 
 				</div>
@@ -1030,11 +1030,11 @@
 ?>
 
 <div id="oxy-no-class-msg" class="oxygen-overlay-property-msg oxy-no-class-msg">
-	<?php _e("This property is not available for classes. It will be set in the element/ID.","oxygen"); ?>
+	<?php oxygen_translate_echo("This property is not available for classes. It will be set in the element/ID.","oxygen"); ?>
 </div>
 <div id="oxy-no-media-msg" class="oxygen-overlay-property-msg oxy-no-media-msg">
-	<?php _e("This property is not available for media queries. It will be set for 'Full Screen’.","oxygen"); ?>
+	<?php oxygen_translate_echo("This property is not available for media queries. It will be set for 'Full Screen’.","oxygen"); ?>
 </div>
 <div id="oxy-no-class-no-media-msg" class="oxygen-overlay-property-msg oxy-no-class-msg oxy-no-media-msg">
-	<?php _e("This property is not available for media queries or classes. It will be set for 'Full Screen’ in the element/ID.","oxygen"); ?>
+	<?php oxygen_translate_echo("This property is not available for media queries or classes. It will be set for 'Full Screen’ in the element/ID.","oxygen"); ?>
 </div>

@@ -63,8 +63,8 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
         $plugin_data = get_plugin_data( CT_PLUGIN_MAIN_FILE );
         ?>
         <div class="notice notice-warning">
-            <p><?php echo sprintf( __( 'Oxygen %s changes the way Repeater elements are styled. You must regenerate your Oxygen CSS Cache for Repeater elements to be rendered correctly.', 'oxygen' ), $plugin_data['Version'] ); ?></p>
-            <p><a href="<?php echo admin_url('admin.php?page=oxygen_vsb_settings&tab=cache&start_cache_generation=true');?>"><?php _e( 'Please click here to regenerate the CSS cache.');?></a></p>
+            <p><?php echo sprintf( oxygen_translate( 'Oxygen %s changes the way Repeater elements are styled. You must regenerate your Oxygen CSS Cache for Repeater elements to be rendered correctly.', 'oxygen' ), $plugin_data['Version'] ); ?></p>
+            <p><a href="<?php echo admin_url('admin.php?page=oxygen_vsb_settings&tab=cache&start_cache_generation=true');?>"><?php oxygen_translate_echo( 'Please click here to regenerate the CSS cache.');?></a></p>
         </div>
         <?php
     }
@@ -1245,7 +1245,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 try {
                     $query = new WP_Query( $args );
                 } catch (\Throwable $th) {
-                    $this->queryError = __("<b>There was an error during execution of an Advanced Query, please review the query params set.</b>", "oxygen");
+                    $this->queryError = oxygen_translate("<b>There was an error during execution of an Advanced Query, please review the query params set.</b>", "oxygen");
                     $query = new WP_Query( array() );
                 }
             }
@@ -1857,7 +1857,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 ng-click="switchTab('dynamicList', 'query')" 
                 ng-show="!hasOpenTabs('dynamicList')">
                     <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/general-config.svg">
-                    <?php _e("Query", "oxygen"); ?>
+                    <?php oxygen_translate_echo("Query", "oxygen"); ?>
                     <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
             </div>
 
@@ -1865,7 +1865,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 ng-click="switchTab('dynamicList', 'layout')" 
                 ng-show="!hasOpenTabs('dynamicList')">
                     <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/general-config.svg">
-                    <?php _e("Layout", "oxygen"); ?>
+                    <?php oxygen_translate_echo("Layout", "oxygen"); ?>
                     <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
             </div>
 
@@ -1873,7 +1873,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 ng-click="switchTab('dynamicList', 'pagination')" 
                 ng-show="!hasOpenTabs('dynamicList')">
                     <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/general-config.svg">
-                    <?php _e("Pagination", "oxygen"); ?>
+                    <?php oxygen_translate_echo("Pagination", "oxygen"); ?>
                     <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
             </div>
             
@@ -1881,7 +1881,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 ng-click="switchTab('dynamicList', 'grid_layout')" 
                 ng-show="!hasOpenTabs('dynamicList')">
                     <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/styles.svg">
-                    <?php _e("Grid Layout", "oxygen"); ?>
+                    <?php oxygen_translate_echo("Grid Layout", "oxygen"); ?>
                     <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
             </div>
 
@@ -1893,9 +1893,9 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="tabs.dynamicList=[]"><?php _e("Repeater","oxygen"); ?></div>
+                        ng-click="tabs.dynamicList=[]"><?php oxygen_translate_echo("Repeater","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Grid Layout","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Grid Layout","oxygen"); ?></div>
                 </div>
                 
                 <div class="oxygen-control-row">
@@ -1914,7 +1914,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
 
             <div class='oxygen-control-row' ng-if="!isShowTabOfGroup('dynamicList')">
                 <div class='oxygen-control-wrapper' id='oxygen-control-layout-display'>
-                    <label class='oxygen-control-label'><?php _e("Preview Render", "oxygen"); ?></label>
+                    <label class='oxygen-control-label'><?php oxygen_translate_echo("Preview Render", "oxygen"); ?></label>
                     <div class='oxygen-control'>
                         <div class='oxygen-button-list'>
 
@@ -1935,21 +1935,21 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="tabs.dynamicList=[]"><?php _e("Repeater","oxygen"); ?></div>
+                        ng-click="tabs.dynamicList=[]"><?php oxygen_translate_echo("Repeater","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Layout","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Layout","oxygen"); ?></div>
                 </div>
                 <?php
                     CT_Component::component_params(array(
                         array(
                             "type"          => "flex-layout",
-                            "heading"       => __("Layout Child Elements", "oxygen"),
+                            "heading"       => oxygen_translate("Layout Child Elements", "oxygen"),
                             "param_name"    => "flex-direction",
                             "css"           => true,
                         ),
                         array(
                             "type"          => "checkbox",
-                            "heading"       => __("Allow multiline"),
+                            "heading"       => oxygen_translate("Allow multiline"),
                             "param_name"    => "flex-wrap",
                             "value"         => "",
                             "true_value"    => "wrap",
@@ -1972,14 +1972,14 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="tabs.dynamicList=[]"><?php _e("Repeater","oxygen"); ?></div>
+                        ng-click="tabs.dynamicList=[]"><?php oxygen_translate_echo("Repeater","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Pagination","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Pagination","oxygen"); ?></div>
                 </div>
 
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Alignment","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Alignment","oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-button-list'>
 
@@ -1995,7 +1995,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <!-- Gap-->
                 <div class="oxygen-control-row">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Gap", "oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Gap", "oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-input'>
                                 <input type="text" spellcheck="false"
@@ -2009,7 +2009,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <!-- Range-->
                 <div class="oxygen-control-row">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Range", "oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Range", "oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-input'>
                                 <input type="text" spellcheck="false"
@@ -2024,7 +2024,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <!-- Prev Link Text-->
                 <div class="oxygen-control-row">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Previous Link Text", "oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Previous Link Text", "oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-input'>
                                 <input type="text" spellcheck="false"
@@ -2038,7 +2038,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <!-- Next Link Text-->
                 <div class="oxygen-control-row">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Next Link Text", "oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Next Link Text", "oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-input'>
                                 <input type="text" spellcheck="false"
@@ -2052,7 +2052,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                  <!-- Link Hover Transition Duration-->
                 <div class="oxygen-control-row">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Link Hover Transition Duration", "oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Link Hover Transition Duration", "oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-input'>
                                 <input type="text" spellcheck="false"
@@ -2065,26 +2065,26 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 </div>
 
                 <div class='oxygen-control-row'>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper('paginate_size',__('Font size','oxygen')); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper('paginate_size',oxygen_translate('Font size','oxygen')); ?>
                 </div>
 
                 <div class="oxygen-control-row">
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginate_color", __("Text Color", "oxygen") ); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginate_color", oxygen_translate("Text Color", "oxygen") ); ?>
                 </div>
 
                 <div class="oxygen-control-row">
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginate_link_color", __("Link Color", "oxygen") ); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginate_link_color", oxygen_translate("Link Color", "oxygen") ); ?>
                 </div>
 
                 <div class="oxygen-control-row">
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginate_link_hover_color", __("Link Hover Color", "oxygen") ); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginate_link_hover_color", oxygen_translate("Link Hover Color", "oxygen") ); ?>
                 </div>
                 
                 <!-- Container Style-->
                 <div class="oxygen-sidebar-advanced-subtab" 
                     ng-click="switchTab('dynamicList', 'paginationContainerStyle')">
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/size_spacing.svg">
-                        <?php _e("Container style", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Container style", "oxygen"); ?>
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                 </div>
                 
@@ -2092,7 +2092,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class="oxygen-sidebar-advanced-subtab" 
                     ng-click="switchTab('dynamicList', 'paginationLinksStyle')">
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/size_spacing.svg">
-                        <?php _e("Links style", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Links style", "oxygen"); ?>
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                 </div>
 
@@ -2100,7 +2100,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class="oxygen-sidebar-advanced-subtab" 
                     ng-click="switchTab('dynamicList', 'paginationLinksHoverStyle')">
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/size_spacing.svg">
-                        <?php _e("Links hover style", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Links hover style", "oxygen"); ?>
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                 </div>
                 
@@ -2116,37 +2116,37 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('dynamicList', 'pagination')"><?php _e("Pagination","oxygen"); ?></div>
+                        ng-click="switchTab('dynamicList', 'pagination')"><?php oxygen_translate_echo("Pagination","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Container Style","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Container Style","oxygen"); ?></div>
                 </div>
 
                 <!-- size and spacing -->
                 <div class="oxygen-sidebar-advanced-subtab" 
                     ng-click="switchTab('dynamicList', 'paginationSize')">
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/size_spacing.svg">
-                        <?php _e("Size & Spacing", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Size & Spacing", "oxygen"); ?>
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                 </div>
                 <!-- children layout -->
                 <div class="oxygen-sidebar-advanced-subtab" 
                     ng-click="switchTab('dynamicList', 'paginationLayout')">
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/layout.svg">
-                        <?php _e("Children Layout", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Children Layout", "oxygen"); ?>
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                 </div>
                 <!-- borders -->
                 <div class="oxygen-sidebar-advanced-subtab" 
                     ng-click="switchTab('dynamicList', 'paginationBorders')">
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/borders.svg">
-                        <?php _e("Borders", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Borders", "oxygen"); ?>
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                 </div>
                 <!-- background -->
                 <div class="oxygen-sidebar-advanced-subtab" 
                     ng-click="switchTab('dynamicList', 'paginationBackground')">
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/background.svg">
-                        <?php _e("Background", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Background", "oxygen"); ?>
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                 </div>
 
@@ -2161,16 +2161,16 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('dynamicList', 'pagination')"><?php _e("Pagination","oxygen"); ?></div>
+                        ng-click="switchTab('dynamicList', 'pagination')"><?php oxygen_translate_echo("Pagination","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Links Style","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Links Style","oxygen"); ?></div>
                 </div>
 
                 <!-- Link Size and Spacing-->
                 <div class="oxygen-sidebar-advanced-subtab" 
                     ng-click="switchTab('dynamicList', 'paginationLinkSize')">
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/size_spacing.svg">
-                        <?php _e("Link Size & Spacing", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Link Size & Spacing", "oxygen"); ?>
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                 </div>
 
@@ -2178,7 +2178,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class="oxygen-sidebar-advanced-subtab" 
                     ng-click="switchTab('dynamicList', 'paginationLinkActiveSize')">
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/size_spacing.svg">
-                        <?php _e("Active Link Size & Spacing", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Active Link Size & Spacing", "oxygen"); ?>
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                 </div>
 
@@ -2186,7 +2186,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class="oxygen-sidebar-advanced-subtab" 
                     ng-click="switchTab('dynamicList', 'paginationLinkBackground')">
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/background.svg">
-                        <?php _e("Link Background", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Link Background", "oxygen"); ?>
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                 </div>
 
@@ -2194,21 +2194,21 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class="oxygen-sidebar-advanced-subtab" 
                     ng-click="switchTab('dynamicList', 'paginationLinkActiveBackground')">
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/background.svg">
-                        <?php _e("Active Link Background", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Active Link Background", "oxygen"); ?>
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                 </div>
                 <!-- Link Borders-->
                 <div class="oxygen-sidebar-advanced-subtab" 
                     ng-click="switchTab('dynamicList', 'paginationLinkBorders')">
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/borders.svg">
-                        <?php _e("Link Borders", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Link Borders", "oxygen"); ?>
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                 </div>
                 <!-- Active Link Borders-->
                 <div class="oxygen-sidebar-advanced-subtab" 
                     ng-click="switchTab('dynamicList', 'paginationLinkActiveBorders')">
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/borders.svg">
-                        <?php _e("Active Link Borders", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Active Link Borders", "oxygen"); ?>
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                 </div>
 
@@ -2223,16 +2223,16 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('dynamicList', 'pagination')"><?php _e("Pagination","oxygen"); ?></div>
+                        ng-click="switchTab('dynamicList', 'pagination')"><?php oxygen_translate_echo("Pagination","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Links Hover Style","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Links Hover Style","oxygen"); ?></div>
                 </div>
 
                 <!-- Link Hover Size and Spacing-->
                 <div class="oxygen-sidebar-advanced-subtab" 
                     ng-click="switchTab('dynamicList', 'paginationLinkHoverSize')">
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/size_spacing.svg">
-                        <?php _e("Link Hover Size & Spacing", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Link Hover Size & Spacing", "oxygen"); ?>
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                 </div>
 
@@ -2240,7 +2240,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class="oxygen-sidebar-advanced-subtab" 
                     ng-click="switchTab('dynamicList', 'paginationLinkActiveHoverSize')">
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/size_spacing.svg">
-                        <?php _e("Active Link Hover Size & Spacing", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Active Link Hover Size & Spacing", "oxygen"); ?>
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                 </div>
 
@@ -2248,7 +2248,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class="oxygen-sidebar-advanced-subtab" 
                     ng-click="switchTab('dynamicList', 'paginationLinkHoverBackground')">
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/background.svg">
-                        <?php _e("Link Hover Background", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Link Hover Background", "oxygen"); ?>
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                 </div>
 
@@ -2256,21 +2256,21 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class="oxygen-sidebar-advanced-subtab" 
                     ng-click="switchTab('dynamicList', 'paginationLinkActiveHoverBackground')">
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/background.svg">
-                        <?php _e("Active Link Hover Background", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Active Link Hover Background", "oxygen"); ?>
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                 </div>
                 <!-- Link Hover Borders-->
                 <div class="oxygen-sidebar-advanced-subtab" 
                     ng-click="switchTab('dynamicList', 'paginationLinkHoverBorders')">
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/borders.svg">
-                        <?php _e("Link Hover Borders", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Link Hover Borders", "oxygen"); ?>
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                 </div>
                 <!-- Active Link Hover Borders-->
                 <div class="oxygen-sidebar-advanced-subtab" 
                     ng-click="switchTab('dynamicList', 'paginationLinkActiveHoverBorders')">
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/borders.svg">
-                        <?php _e("Active Link Hover Borders", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Active Link Hover Borders", "oxygen"); ?>
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                 </div>
 
@@ -2285,14 +2285,14 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('dynamicList', 'paginationContainerStyle')"><?php _e("Container Style","oxygen"); ?></div>
+                        ng-click="switchTab('dynamicList', 'paginationContainerStyle')"><?php oxygen_translate_echo("Container Style","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Size & Spacing","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Size & Spacing","oxygen"); ?></div>
                 </div>
 
                 <div class="oxygen-control-row">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Padding", "component-theme"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Padding", "component-theme"); ?></label>
                         
                         <div class='oxygen-control'>
 
@@ -2306,7 +2306,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                                 <div class="oxygen-flex-line-break"></div>
                                 
                                 <div class="oxygen-apply-all-trigger">
-                                    <?php _e("apply all »", "oxygen"); ?>
+                                    <?php oxygen_translate_echo("apply all »", "oxygen"); ?>
                                 </div>
 
                             </div>
@@ -2319,7 +2319,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class="oxygen-control-row">
 
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Margin", "component-theme"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Margin", "component-theme"); ?></label>
                         
                         <div class='oxygen-control'>
 
@@ -2333,7 +2333,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                                 <div class="oxygen-flex-line-break"></div>
                                 
                                 <div class="oxygen-apply-all-trigger">
-                                    <?php _e("apply all »", "oxygen"); ?>
+                                    <?php oxygen_translate_echo("apply all »", "oxygen"); ?>
                                 </div>
 
                             </div>
@@ -2345,7 +2345,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 
                 <div class="oxygen-control-row">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Width", "component-theme"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Width", "component-theme"); ?></label>
                         
                         <div class='oxygen-control'>
                             <?php $oxygen_toolbar->measure_box('paginate_width'); ?>
@@ -2353,15 +2353,15 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
 
                     </div>
 
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginate_min_width", __("Min-width", "oxygen"), 'px,%,em,vw,vh'); ?>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginate_max_width", __("Max-width", "oxygen"), 'px,%,em,vw,vh'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginate_min_width", oxygen_translate("Min-width", "oxygen"), 'px,%,em,vw,vh'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginate_max_width", oxygen_translate("Max-width", "oxygen"), 'px,%,em,vw,vh'); ?>
 
                 </div>
 
                 <div class="oxygen-control-row">
                     <div class='oxygen-control-wrapper'
                         ng-hide="isActiveName('ct_column')&&iframeScope.isEditing('media')">
-                        <label class='oxygen-control-label'><?php _e("Height", "component-theme"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Height", "component-theme"); ?></label>
                         
                         <div class='oxygen-control'>
 
@@ -2370,8 +2370,8 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         </div>
                     </div>
 
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginate_min_height", __("Min-height", "oxygen"), 'px,%,em,vw,vh'); ?>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginate_max_height", __("Max-height", "oxygen"), 'px,%,em,vw,vh'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginate_min_height", oxygen_translate("Min-height", "oxygen"), 'px,%,em,vw,vh'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginate_max_height", oxygen_translate("Max-height", "oxygen"), 'px,%,em,vw,vh'); ?>
                 </div>
             </div>
             
@@ -2385,9 +2385,9 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('dynamicList', 'paginationContainerStyle')"><?php _e("Container Style","oxygen"); ?></div>
+                        ng-click="switchTab('dynamicList', 'paginationContainerStyle')"><?php oxygen_translate_echo("Container Style","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Children Layout","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Children Layout","oxygen"); ?></div>
                 </div>
 
                 <?php
@@ -2395,7 +2395,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                     CT_Component::component_params(array(
                         array(
                             "type"          => "flex-layout",
-                            "heading"       => __("Layout Child Elements", "oxygen"),
+                            "heading"       => oxygen_translate("Layout Child Elements", "oxygen"),
                             "param_name"    => "paginate_flex_direction",
                         )
                     ),
@@ -2404,7 +2404,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
 
                 <div class='oxygen-control-row' ng-show="iframeScope.component.options[iframeScope.component.active.id]['model']['paginate_flex_direction'] !== 'column'">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Links Alignment","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Links Alignment","oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-button-list'>
 
@@ -2430,15 +2430,15 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('dynamicList', 'paginationContainerStyle')"><?php _e("Container Style","oxygen"); ?></div>
+                        ng-click="switchTab('dynamicList', 'paginationContainerStyle')"><?php oxygen_translate_echo("Container Style","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Borders","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Borders","oxygen"); ?></div>
                 </div>
 
                 <!-- border side chooser -->
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Currently Editing","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Currently Editing","oxygen"); ?></label>
                         <div class='oxygen-control'>
 
                             <div class="oxygen-select oxygen-select-box-wrapper">
@@ -2452,27 +2452,27 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                                     <div class="oxygen-select-box-option"
                                         ng-click="currentBorder='all'"
                                         ng-class="{'oxygen-select-box-option-active':currentBorder=='all'}">
-                                        <?php _e("all borders", "component-theme"); ?>
+                                        <?php oxygen_translate_echo("all borders", "component-theme"); ?>
                                     </div>
                                     <div class="oxygen-select-box-option"
                                         ng-click="currentBorder='top'"
                                         ng-class="{'oxygen-select-box-option-active':currentBorder=='top'}">
-                                        <?php _e("top", "component-theme"); ?>
+                                        <?php oxygen_translate_echo("top", "component-theme"); ?>
                                     </div>
                                     <div class="oxygen-select-box-option"
                                         ng-click="currentBorder='right'"
                                         ng-class="{'oxygen-select-box-option-active':currentBorder=='right'}">
-                                        <?php _e("right", "component-theme"); ?>
+                                        <?php oxygen_translate_echo("right", "component-theme"); ?>
                                     </div>
                                     <div class="oxygen-select-box-option"
                                         ng-click="currentBorder='bottom'"
                                         ng-class="{'oxygen-select-box-option-active':currentBorder=='bottom'}">
-                                        <?php _e("bottom", "component-theme"); ?>
+                                        <?php oxygen_translate_echo("bottom", "component-theme"); ?>
                                     </div>
                                     <div class="oxygen-select-box-option"
                                         ng-click="currentBorder='left'"
                                         ng-class="{'oxygen-select-box-option-active':currentBorder=='left'}">
-                                        <?php _e("left", "component-theme"); ?>
+                                        <?php oxygen_translate_echo("left", "component-theme"); ?>
                                     </div>
 
                                 </div>
@@ -2485,12 +2485,12 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <!-- color and size -->
                 <div class='oxygen-control-row'>
 
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginate_border_all_color",__("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='all'"); ?>
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginate_border_top_color",__("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='top'"); ?>
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginate_border_left_color",__("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='left'"); ?>
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginate_border_bottom_color",__("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='bottom'"); ?>
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginate_border_right_color",__("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='right'"); ?>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginate_border_'+currentBorder+'_width", __("Width", "oxygen"), 'px,em'); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginate_border_all_color",oxygen_translate("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='all'"); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginate_border_top_color",oxygen_translate("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='top'"); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginate_border_left_color",oxygen_translate("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='left'"); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginate_border_bottom_color",oxygen_translate("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='bottom'"); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginate_border_right_color",oxygen_translate("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='right'"); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginate_border_'+currentBorder+'_width", oxygen_translate("Width", "oxygen"), 'px,em'); ?>
 
                 </div>
 
@@ -2498,7 +2498,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class='oxygen-control-row'>
 
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Style","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Style","oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-button-list'>
 
@@ -2516,7 +2516,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class='oxygen-control-row' style='margin-bottom: 20px;'>
                     <a href='#' id='oxygen-control-borders-unset-button'
                         ng-click="iframeScope.unsetAllBorders('', ['paginate_border_all_color', 'paginate_border_top_color', 'paginate_border_left_color', 'paginate_border_bottom_color', 'paginate_border_right_color', 'paginate_border_all_width', 'paginate_border_all_width-unit', 'paginate_border_top_width', 'paginate_border_top_width-unit', 'paginate_border_left_width', 'paginate_border_left_width-unit', 'paginate_border_bottom_width', 'paginate_border_bottom_width-unit', 'paginate_border_right_width', 'paginate_border_right_width-unit', 'paginate_border_all_style', 'paginate_border_top_style', 'paginate_border_left_style', 'paginate_border_bottom_style', 'paginate_border_right_style'])">
-                        <?php _e("unset all borders","oxygen"); ?></a>
+                        <?php oxygen_translate_echo("unset all borders","oxygen"); ?></a>
                 </div>
 
                 <div class='oxygen-control-separator'></div>
@@ -2526,7 +2526,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                     ng-show="!editIndividualRadii">
 
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Border Radius","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Border Radius","oxygen"); ?></label>
 
                         <div class="oxygen-control">
                             <?php $oxygen_toolbar->measure_box("paginate_border_radius", 'px,%,em'); ?>
@@ -2534,7 +2534,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                     
                         <a href='#' id='oxygen-control-borders-radius-individual'
                             ng-click="editIndividualRadii=true">
-                            <?php _e("edit individual radius", "oxygen"); ?> &raquo;</a>
+                            <?php oxygen_translate_echo("edit individual radius", "oxygen"); ?> &raquo;</a>
                     </div>
 
                 </div>
@@ -2543,8 +2543,8 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class='oxygen-control-row'
                     ng-show="editIndividualRadii">
 
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginate_border_top_left_radius", __("Top Left"), 'px,%,em'); ?>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginate_border_top_right_radius", __("Top Right"), 'px,%,em'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginate_border_top_left_radius", oxygen_translate("Top Left"), 'px,%,em'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginate_border_top_right_radius", oxygen_translate("Top Right"), 'px,%,em'); ?>
 
                 </div>
 
@@ -2552,7 +2552,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                     ng-show="editIndividualRadii">
 
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Bottom Left","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Bottom Left","oxygen"); ?></label>
                         
                         <div class="oxygen-control">
                             <?php $oxygen_toolbar->measure_box("paginate_border_bottom_left_radius", 'px,%,em'); ?>
@@ -2560,10 +2560,10 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
 
                         <a href='#' id='oxygen-control-borders-radius-individual'
                             ng-click="editIndividualRadii=false">
-                            <?php _e("edit all radii", "oxygen"); ?> &raquo;</a>
+                            <?php oxygen_translate_echo("edit all radii", "oxygen"); ?> &raquo;</a>
                     </div>
 
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginate_border_bottom_right_radius", __("Bottom Right"), 'px,%,em'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginate_border_bottom_right_radius", oxygen_translate("Bottom Right"), 'px,%,em'); ?>
 
                 </div>
             </div>
@@ -2578,17 +2578,17 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('dynamicList', 'paginationContainerStyle')"><?php _e("Container Style","oxygen"); ?></div>
+                        ng-click="switchTab('dynamicList', 'paginationContainerStyle')"><?php oxygen_translate_echo("Container Style","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Background","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Background","oxygen"); ?></div>
                 </div>
 
                 <div class='oxygen-control-row'>
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginate_background_color", __("Background Color", "oxygen")); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginate_background_color", oxygen_translate("Background Color", "oxygen")); ?>
                 </div>
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Background Image","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Background Image","oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class="oxygen-file-input">
                                 <input type="text" spellcheck="false" 
@@ -2602,7 +2602,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                                     data-mediatitle="Select Image" 
                                     data-mediabutton="Select Image" 
                                     data-mediaproperty="paginate_background_image" 
-                                    data-mediatype="mediaUrl"><?php _e("browse","oxygen"); ?></div>
+                                    data-mediatype="mediaUrl"><?php oxygen_translate_echo("browse","oxygen"); ?></div>
 
                             </div>
                         </div>
@@ -2612,7 +2612,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <!-- background-size -->
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper' id='oxygen-control-layout-display'>
-                        <label class='oxygen-control-label'><?php _e("Background Size", "oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Background Size", "oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-button-list'>
 
@@ -2627,13 +2627,13 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 </div>
 
                 <div class="oxygen-control-row" ng-show="iframeScope.component.options[iframeScope.component.active.id]['model']['paginate_background_size'] == 'manual'">
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginate_background_size_width", __("Width", "oxygen"), 'px,%,em'); ?>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginate_background_size_height", __("Height", "oxygen"), 'px,%,em'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginate_background_size_width", oxygen_translate("Width", "oxygen"), 'px,%,em'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginate_background_size_height", oxygen_translate("Height", "oxygen"), 'px,%,em'); ?>
                 </div>
 
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper' id='oxygen-control-layout-display'>
-                        <label class='oxygen-control-label'><?php _e("Background Repeat", "oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Background Repeat", "oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-button-list'>
                                 <?php $oxygen_toolbar->button_list_button('paginate_background_repeat','no-repeat'); ?>
@@ -2657,14 +2657,14 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('dynamicList', 'paginationLinksStyle')"><?php _e("Links Style","oxygen"); ?></div>
+                        ng-click="switchTab('dynamicList', 'paginationLinksStyle')"><?php oxygen_translate_echo("Links Style","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Link Size & Spacing","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Link Size & Spacing","oxygen"); ?></div>
                 </div>
 
                 <div class="oxygen-control-row">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Padding", "component-theme"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Padding", "component-theme"); ?></label>
                         
                         <div class='oxygen-control'>
 
@@ -2678,7 +2678,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                                 <div class="oxygen-flex-line-break"></div>
                                 
                                 <div class="oxygen-apply-all-trigger">
-                                    <?php _e("apply all »", "oxygen"); ?>
+                                    <?php oxygen_translate_echo("apply all »", "oxygen"); ?>
                                 </div>
 
                             </div>
@@ -2691,7 +2691,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class="oxygen-control-row">
 
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Margin", "component-theme"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Margin", "component-theme"); ?></label>
                         
                         <div class='oxygen-control'>
 
@@ -2705,7 +2705,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                                 <div class="oxygen-flex-line-break"></div>
 
                                 <div class="oxygen-apply-all-trigger">
-                                    <?php _e("apply all »", "oxygen"); ?>
+                                    <?php oxygen_translate_echo("apply all »", "oxygen"); ?>
                                 </div>
 
                             </div>
@@ -2717,7 +2717,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 
                 <div class="oxygen-control-row">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Width", "component-theme"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Width", "component-theme"); ?></label>
                         
                         <div class='oxygen-control'>
                             <?php $oxygen_toolbar->measure_box('paginatelink_width'); ?>
@@ -2725,15 +2725,15 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
 
                     </div>
 
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelink_min_width", __("Min-width", "oxygen"), 'px,%,em,vw,vh'); ?>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelink_max_width", __("Max-width", "oxygen"), 'px,%,em,vw,vh'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelink_min_width", oxygen_translate("Min-width", "oxygen"), 'px,%,em,vw,vh'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelink_max_width", oxygen_translate("Max-width", "oxygen"), 'px,%,em,vw,vh'); ?>
 
                 </div>
 
                 <div class="oxygen-control-row">
                     <div class='oxygen-control-wrapper'
                         ng-hide="isActiveName('ct_column')&&iframeScope.isEditing('media')">
-                        <label class='oxygen-control-label'><?php _e("Height", "component-theme"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Height", "component-theme"); ?></label>
                         
                         <div class='oxygen-control'>
 
@@ -2742,8 +2742,8 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         </div>
                     </div>
 
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelink_min_height", __("Min-height", "oxygen"), 'px,%,em,vw,vh'); ?>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelink_max_height", __("Max-height", "oxygen"), 'px,%,em,vw,vh'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelink_min_height", oxygen_translate("Min-height", "oxygen"), 'px,%,em,vw,vh'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelink_max_height", oxygen_translate("Max-height", "oxygen"), 'px,%,em,vw,vh'); ?>
                 </div>
             </div>
             <!-- Pagination Active Link Size and Spacing-->
@@ -2756,14 +2756,14 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('dynamicList', 'paginationLinksStyle')"><?php _e("Links Style","oxygen"); ?></div>
+                        ng-click="switchTab('dynamicList', 'paginationLinksStyle')"><?php oxygen_translate_echo("Links Style","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Active Link Size & Spacing","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Active Link Size & Spacing","oxygen"); ?></div>
                 </div>
 
                 <div class="oxygen-control-row">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Padding", "component-theme"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Padding", "component-theme"); ?></label>
                         
                         <div class='oxygen-control'>
 
@@ -2777,7 +2777,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                                 <div class="oxygen-flex-line-break"></div>
 
                                 <div class="oxygen-apply-all-trigger">
-                                    <?php _e("apply all »", "oxygen"); ?>
+                                    <?php oxygen_translate_echo("apply all »", "oxygen"); ?>
                                 </div>
 
                             </div>
@@ -2790,7 +2790,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class="oxygen-control-row">
 
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Margin", "component-theme"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Margin", "component-theme"); ?></label>
                         
                         <div class='oxygen-control'>
 
@@ -2804,7 +2804,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                                 <div class="oxygen-flex-line-break"></div>
 
                                 <div class="oxygen-apply-all-trigger">
-                                    <?php _e("apply all »", "oxygen"); ?>
+                                    <?php oxygen_translate_echo("apply all »", "oxygen"); ?>
                                 </div>
 
                             </div>
@@ -2816,7 +2816,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 
                 <div class="oxygen-control-row">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Width", "component-theme"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Width", "component-theme"); ?></label>
                         
                         <div class='oxygen-control'>
                             <?php $oxygen_toolbar->measure_box('paginatelinkactive_width'); ?>
@@ -2824,15 +2824,15 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
 
                     </div>
 
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactive_min_width", __("Min-width", "oxygen"), 'px,%,em,vw,vh'); ?>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactive_max_width", __("Max-width", "oxygen"), 'px,%,em,vw,vh'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactive_min_width", oxygen_translate("Min-width", "oxygen"), 'px,%,em,vw,vh'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactive_max_width", oxygen_translate("Max-width", "oxygen"), 'px,%,em,vw,vh'); ?>
 
                 </div>
 
                 <div class="oxygen-control-row">
                     <div class='oxygen-control-wrapper'
                         ng-hide="isActiveName('ct_column')&&iframeScope.isEditing('media')">
-                        <label class='oxygen-control-label'><?php _e("Height", "component-theme"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Height", "component-theme"); ?></label>
                         
                         <div class='oxygen-control'>
 
@@ -2841,8 +2841,8 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         </div>
                     </div>
 
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactive_min_height", __("Min-height", "oxygen"), 'px,%,em,vw,vh'); ?>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactive_max_height", __("Max-height", "oxygen"), 'px,%,em,vw,vh'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactive_min_height", oxygen_translate("Min-height", "oxygen"), 'px,%,em,vw,vh'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactive_max_height", oxygen_translate("Max-height", "oxygen"), 'px,%,em,vw,vh'); ?>
                 </div>
             </div>
 
@@ -2856,15 +2856,15 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('dynamicList', 'paginationLinksStyle')"><?php _e("Links Style","oxygen"); ?></div>
+                        ng-click="switchTab('dynamicList', 'paginationLinksStyle')"><?php oxygen_translate_echo("Links Style","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Link Borders","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Link Borders","oxygen"); ?></div>
                 </div>
 
                 <!-- border side chooser -->
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Currently Editing","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Currently Editing","oxygen"); ?></label>
                         <div class='oxygen-control'>
 
                             <div class="oxygen-select oxygen-select-box-wrapper">
@@ -2878,27 +2878,27 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                                     <div class="oxygen-select-box-option"
                                         ng-click="currentBorder='all'"
                                         ng-class="{'oxygen-select-box-option-active':currentBorder=='all'}">
-                                        <?php _e("all borders", "component-theme"); ?>
+                                        <?php oxygen_translate_echo("all borders", "component-theme"); ?>
                                     </div>
                                     <div class="oxygen-select-box-option"
                                         ng-click="currentBorder='top'"
                                         ng-class="{'oxygen-select-box-option-active':currentBorder=='top'}">
-                                        <?php _e("top", "component-theme"); ?>
+                                        <?php oxygen_translate_echo("top", "component-theme"); ?>
                                     </div>
                                     <div class="oxygen-select-box-option"
                                         ng-click="currentBorder='right'"
                                         ng-class="{'oxygen-select-box-option-active':currentBorder=='right'}">
-                                        <?php _e("right", "component-theme"); ?>
+                                        <?php oxygen_translate_echo("right", "component-theme"); ?>
                                     </div>
                                     <div class="oxygen-select-box-option"
                                         ng-click="currentBorder='bottom'"
                                         ng-class="{'oxygen-select-box-option-active':currentBorder=='bottom'}">
-                                        <?php _e("bottom", "component-theme"); ?>
+                                        <?php oxygen_translate_echo("bottom", "component-theme"); ?>
                                     </div>
                                     <div class="oxygen-select-box-option"
                                         ng-click="currentBorder='left'"
                                         ng-class="{'oxygen-select-box-option-active':currentBorder=='left'}">
-                                        <?php _e("left", "component-theme"); ?>
+                                        <?php oxygen_translate_echo("left", "component-theme"); ?>
                                     </div>
 
                                 </div>
@@ -2911,12 +2911,12 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <!-- color and size -->
                 <div class='oxygen-control-row'>
 
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelink_border_all_color",__("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='all'"); ?>
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelink_border_top_color",__("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='top'"); ?>
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelink_border_left_color",__("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='left'"); ?>
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelink_border_bottom_color",__("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='bottom'"); ?>
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelink_border_right_color",__("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='right'"); ?>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelink_border_'+currentBorder+'_width", __("Width", "oxygen"), 'px,em'); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelink_border_all_color",oxygen_translate("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='all'"); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelink_border_top_color",oxygen_translate("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='top'"); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelink_border_left_color",oxygen_translate("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='left'"); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelink_border_bottom_color",oxygen_translate("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='bottom'"); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelink_border_right_color",oxygen_translate("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='right'"); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelink_border_'+currentBorder+'_width", oxygen_translate("Width", "oxygen"), 'px,em'); ?>
 
                 </div>
 
@@ -2924,7 +2924,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class='oxygen-control-row'>
 
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Style","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Style","oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-button-list'>
 
@@ -2942,7 +2942,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class='oxygen-control-row' style='margin-bottom: 20px;'>
                     <a href='#' id='oxygen-control-borders-unset-button'
                         ng-click="iframeScope.unsetAllBorders('', ['paginatelink_border_all_color', 'paginatelink_border_top_color', 'paginatelink_border_left_color', 'paginatelink_border_bottom_color', 'paginatelink_border_right_color', 'paginatelink_border_all_width', 'paginatelink_border_all_width-unit', 'paginatelink_border_top_width', 'paginatelink_border_top_width-unit', 'paginatelink_border_left_width', 'paginatelink_border_left_width-unit', 'paginatelink_border_bottom_width', 'paginatelink_border_bottom_width-unit', 'paginatelink_border_right_width', 'paginatelink_border_right_width-unit', 'paginatelink_border_all_style', 'paginatelink_border_top_style', 'paginatelink_border_left_style', 'paginatelink_border_bottom_style', 'paginatelink_border_right_style'])">
-                        <?php _e("unset all borders","oxygen"); ?></a>
+                        <?php oxygen_translate_echo("unset all borders","oxygen"); ?></a>
                 </div>
 
                 <div class='oxygen-control-separator'></div>
@@ -2952,7 +2952,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                     ng-show="!editIndividualRadii">
 
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Border Radius","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Border Radius","oxygen"); ?></label>
 
                         <div class="oxygen-control">
                             <?php $oxygen_toolbar->measure_box("paginatelink_border_radius", 'px,%,em'); ?>
@@ -2960,7 +2960,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                     
                         <a href='#' id='oxygen-control-borders-radius-individual'
                             ng-click="editIndividualRadii=true">
-                            <?php _e("edit individual radius", "oxygen"); ?> &raquo;</a>
+                            <?php oxygen_translate_echo("edit individual radius", "oxygen"); ?> &raquo;</a>
                     </div>
 
                 </div>
@@ -2969,8 +2969,8 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class='oxygen-control-row'
                     ng-show="editIndividualRadii">
 
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelink_border_top_left_radius", __("Top Left"), 'px,%,em'); ?>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelink_border_top_right_radius", __("Top Right"), 'px,%,em'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelink_border_top_left_radius", oxygen_translate("Top Left"), 'px,%,em'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelink_border_top_right_radius", oxygen_translate("Top Right"), 'px,%,em'); ?>
 
                 </div>
 
@@ -2978,7 +2978,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                     ng-show="editIndividualRadii">
 
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Bottom Left","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Bottom Left","oxygen"); ?></label>
                         
                         <div class="oxygen-control">
                             <?php $oxygen_toolbar->measure_box("paginatelink_border_bottom_left_radius", 'px,%,em'); ?>
@@ -2986,10 +2986,10 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
 
                         <a href='#' id='oxygen-control-borders-radius-individual'
                             ng-click="editIndividualRadii=false">
-                            <?php _e("edit all radii", "oxygen"); ?> &raquo;</a>
+                            <?php oxygen_translate_echo("edit all radii", "oxygen"); ?> &raquo;</a>
                     </div>
 
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelink_border_bottom_right_radius", __("Bottom Right"), 'px,%,em'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelink_border_bottom_right_radius", oxygen_translate("Bottom Right"), 'px,%,em'); ?>
 
                 </div>
             </div>
@@ -3004,15 +3004,15 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('dynamicList', 'paginationLinksStyle')"><?php _e("Links Style","oxygen"); ?></div>
+                        ng-click="switchTab('dynamicList', 'paginationLinksStyle')"><?php oxygen_translate_echo("Links Style","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Active Link Borders","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Active Link Borders","oxygen"); ?></div>
                 </div>
 
                 <!-- border side chooser -->
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Currently Editing","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Currently Editing","oxygen"); ?></label>
                         <div class='oxygen-control'>
 
                             <div class="oxygen-select oxygen-select-box-wrapper">
@@ -3026,27 +3026,27 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                                     <div class="oxygen-select-box-option"
                                         ng-click="currentBorder='all'"
                                         ng-class="{'oxygen-select-box-option-active':currentBorder=='all'}">
-                                        <?php _e("all borders", "component-theme"); ?>
+                                        <?php oxygen_translate_echo("all borders", "component-theme"); ?>
                                     </div>
                                     <div class="oxygen-select-box-option"
                                         ng-click="currentBorder='top'"
                                         ng-class="{'oxygen-select-box-option-active':currentBorder=='top'}">
-                                        <?php _e("top", "component-theme"); ?>
+                                        <?php oxygen_translate_echo("top", "component-theme"); ?>
                                     </div>
                                     <div class="oxygen-select-box-option"
                                         ng-click="currentBorder='right'"
                                         ng-class="{'oxygen-select-box-option-active':currentBorder=='right'}">
-                                        <?php _e("right", "component-theme"); ?>
+                                        <?php oxygen_translate_echo("right", "component-theme"); ?>
                                     </div>
                                     <div class="oxygen-select-box-option"
                                         ng-click="currentBorder='bottom'"
                                         ng-class="{'oxygen-select-box-option-active':currentBorder=='bottom'}">
-                                        <?php _e("bottom", "component-theme"); ?>
+                                        <?php oxygen_translate_echo("bottom", "component-theme"); ?>
                                     </div>
                                     <div class="oxygen-select-box-option"
                                         ng-click="currentBorder='left'"
                                         ng-class="{'oxygen-select-box-option-active':currentBorder=='left'}">
-                                        <?php _e("left", "component-theme"); ?>
+                                        <?php oxygen_translate_echo("left", "component-theme"); ?>
                                     </div>
 
                                 </div>
@@ -3059,12 +3059,12 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <!-- color and size -->
                 <div class='oxygen-control-row'>
 
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkactive_border_all_color",__("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='all'"); ?>
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkactive_border_top_color",__("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='top'"); ?>
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkactive_border_left_color",__("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='left'"); ?>
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkactive_border_bottom_color",__("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='bottom'"); ?>
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkactive_border_right_color",__("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='right'"); ?>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactive_border_'+currentBorder+'_width", __("Width", "oxygen"), 'px,em'); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkactive_border_all_color",oxygen_translate("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='all'"); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkactive_border_top_color",oxygen_translate("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='top'"); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkactive_border_left_color",oxygen_translate("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='left'"); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkactive_border_bottom_color",oxygen_translate("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='bottom'"); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkactive_border_right_color",oxygen_translate("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='right'"); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactive_border_'+currentBorder+'_width", oxygen_translate("Width", "oxygen"), 'px,em'); ?>
 
                 </div>
 
@@ -3072,7 +3072,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class='oxygen-control-row'>
 
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Style","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Style","oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-button-list'>
 
@@ -3090,7 +3090,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class='oxygen-control-row' style='margin-bottom: 20px;'>
                     <a href='#' id='oxygen-control-borders-unset-button'
                         ng-click="iframeScope.unsetAllBorders('', ['paginatelinkactive_border_all_color', 'paginatelinkactive_border_top_color', 'paginatelinkactive_border_left_color', 'paginatelinkactive_border_bottom_color', 'paginatelinkactive_border_right_color', 'paginatelinkactive_border_all_width', 'paginatelinkactive_border_all_width-unit', 'paginatelinkactive_border_top_width', 'paginatelinkactive_border_top_width-unit', 'paginatelinkactive_border_left_width', 'paginatelinkactive_border_left_width-unit', 'paginatelinkactive_border_bottom_width', 'paginatelinkactive_border_bottom_width-unit', 'paginatelinkactive_border_right_width', 'paginatelinkactive_border_right_width-unit', 'paginatelinkactive_border_all_style', 'paginatelinkactive_border_top_style', 'paginatelinkactive_border_left_style', 'paginatelinkactive_border_bottom_style', 'paginatelinkactive_border_right_style'])">
-                        <?php _e("unset all borders","oxygen"); ?></a>
+                        <?php oxygen_translate_echo("unset all borders","oxygen"); ?></a>
                 </div>
 
                 <div class='oxygen-control-separator'></div>
@@ -3100,7 +3100,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                     ng-show="!editIndividualRadii">
 
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Border Radius","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Border Radius","oxygen"); ?></label>
 
                         <div class="oxygen-control">
                             <?php $oxygen_toolbar->measure_box("paginatelinkactive_border_radius", 'px,%,em'); ?>
@@ -3108,7 +3108,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                     
                         <a href='#' id='oxygen-control-borders-radius-individual'
                             ng-click="editIndividualRadii=true">
-                            <?php _e("edit individual radius", "oxygen"); ?> &raquo;</a>
+                            <?php oxygen_translate_echo("edit individual radius", "oxygen"); ?> &raquo;</a>
                     </div>
 
                 </div>
@@ -3117,8 +3117,8 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class='oxygen-control-row'
                     ng-show="editIndividualRadii">
 
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactive_border_top_left_radius", __("Top Left"), 'px,%,em'); ?>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactive_border_top_right_radius", __("Top Right"), 'px,%,em'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactive_border_top_left_radius", oxygen_translate("Top Left"), 'px,%,em'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactive_border_top_right_radius", oxygen_translate("Top Right"), 'px,%,em'); ?>
 
                 </div>
 
@@ -3126,7 +3126,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                     ng-show="editIndividualRadii">
 
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Bottom Left","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Bottom Left","oxygen"); ?></label>
                         
                         <div class="oxygen-control">
                             <?php $oxygen_toolbar->measure_box("paginatelinkactive_border_bottom_left_radius", 'px,%,em'); ?>
@@ -3134,10 +3134,10 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
 
                         <a href='#' id='oxygen-control-borders-radius-individual'
                             ng-click="editIndividualRadii=false">
-                            <?php _e("edit all radii", "oxygen"); ?> &raquo;</a>
+                            <?php oxygen_translate_echo("edit all radii", "oxygen"); ?> &raquo;</a>
                     </div>
 
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactive_border_bottom_right_radius", __("Bottom Right"), 'px,%,em'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactive_border_bottom_right_radius", oxygen_translate("Bottom Right"), 'px,%,em'); ?>
 
                 </div>
             </div>
@@ -3152,16 +3152,16 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('dynamicList', 'paginationLinksStyle')"><?php _e("Links Style","oxygen"); ?></div>
+                        ng-click="switchTab('dynamicList', 'paginationLinksStyle')"><?php oxygen_translate_echo("Links Style","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Link Background","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Link Background","oxygen"); ?></div>
                 </div>
                 <div class='oxygen-control-row'>
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelink_background_color", __("Background Color", "oxygen")); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelink_background_color", oxygen_translate("Background Color", "oxygen")); ?>
                 </div>
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Background Image","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Background Image","oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class="oxygen-file-input">
                                 <input type="text" spellcheck="false" 
@@ -3175,7 +3175,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                                     data-mediatitle="Select Image" 
                                     data-mediabutton="Select Image" 
                                     data-mediaproperty="paginatelink_background_image" 
-                                    data-mediatype="mediaUrl"><?php _e("browse","oxygen"); ?></div>
+                                    data-mediatype="mediaUrl"><?php oxygen_translate_echo("browse","oxygen"); ?></div>
 
                             </div>
                         </div>
@@ -3184,7 +3184,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <!-- background-size -->
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper' id='oxygen-control-layout-display'>
-                        <label class='oxygen-control-label'><?php _e("Background Size", "oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Background Size", "oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-button-list'>
 
@@ -3199,13 +3199,13 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 </div>
 
                 <div class="oxygen-control-row" ng-show="iframeScope.component.options[iframeScope.component.active.id]['model']['paginatelink_background_size'] == 'manual'">
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelink_background_size_width", __("Width", "oxygen"), 'px,%,em'); ?>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelink_background_size_height", __("Height", "oxygen"), 'px,%,em'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelink_background_size_width", oxygen_translate("Width", "oxygen"), 'px,%,em'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelink_background_size_height", oxygen_translate("Height", "oxygen"), 'px,%,em'); ?>
                 </div>
 
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper' id='oxygen-control-layout-display'>
-                        <label class='oxygen-control-label'><?php _e("Background Repeat", "oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Background Repeat", "oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-button-list'>
                                 <?php $oxygen_toolbar->button_list_button('paginatelink_background_repeat','no-repeat'); ?>
@@ -3228,16 +3228,16 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('dynamicList', 'paginationLinksStyle')"><?php _e("Links Style","oxygen"); ?></div>
+                        ng-click="switchTab('dynamicList', 'paginationLinksStyle')"><?php oxygen_translate_echo("Links Style","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Active Link Background","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Active Link Background","oxygen"); ?></div>
                 </div>
                 <div class='oxygen-control-row'>
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkactive_background_color", __("Background Color", "oxygen")); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkactive_background_color", oxygen_translate("Background Color", "oxygen")); ?>
                 </div>
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Background Image","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Background Image","oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class="oxygen-file-input">
                                 <input type="text" spellcheck="false" 
@@ -3251,7 +3251,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                                     data-mediatitle="Select Image" 
                                     data-mediabutton="Select Image" 
                                     data-mediaproperty="paginatelinkactive_background_image" 
-                                    data-mediatype="mediaUrl"><?php _e("browse","oxygen"); ?></div>
+                                    data-mediatype="mediaUrl"><?php oxygen_translate_echo("browse","oxygen"); ?></div>
 
                             </div>
                         </div>
@@ -3260,7 +3260,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <!-- background-size -->
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper' id='oxygen-control-layout-display'>
-                        <label class='oxygen-control-label'><?php _e("Background Size", "oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Background Size", "oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-button-list'>
 
@@ -3275,13 +3275,13 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 </div>
 
                 <div class="oxygen-control-row" ng-show="iframeScope.component.options[iframeScope.component.active.id]['model']['paginatelinkactive_background_size'] == 'manual'">
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactive_background_size_width", __("Width", "oxygen"), 'px,%,em'); ?>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactive_background_size_height", __("Height", "oxygen"), 'px,%,em'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactive_background_size_width", oxygen_translate("Width", "oxygen"), 'px,%,em'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactive_background_size_height", oxygen_translate("Height", "oxygen"), 'px,%,em'); ?>
                 </div>
 
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper' id='oxygen-control-layout-display'>
-                        <label class='oxygen-control-label'><?php _e("Background Repeat", "oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Background Repeat", "oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-button-list'>
                                 <?php $oxygen_toolbar->button_list_button('paginatelinkactive_background_repeat','no-repeat'); ?>
@@ -3305,14 +3305,14 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('dynamicList', 'paginationLinksHoverStyle')"><?php _e("Links Hover Style","oxygen"); ?></div>
+                        ng-click="switchTab('dynamicList', 'paginationLinksHoverStyle')"><?php oxygen_translate_echo("Links Hover Style","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Link Hover Size & Spacing","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Link Hover Size & Spacing","oxygen"); ?></div>
                 </div>
 
                 <div class="oxygen-control-row">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Padding", "component-theme"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Padding", "component-theme"); ?></label>
                         
                         <div class='oxygen-control'>
 
@@ -3326,7 +3326,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                                 <div class="oxygen-flex-line-break"></div>
                                 
                                 <div class="oxygen-apply-all-trigger">
-                                    <?php _e("apply all »", "oxygen"); ?>
+                                    <?php oxygen_translate_echo("apply all »", "oxygen"); ?>
                                 </div>
 
                             </div>
@@ -3339,7 +3339,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class="oxygen-control-row">
 
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Margin", "component-theme"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Margin", "component-theme"); ?></label>
                         
                         <div class='oxygen-control'>
 
@@ -3353,7 +3353,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                                 <div class="oxygen-flex-line-break"></div>
                                 
                                 <div class="oxygen-apply-all-trigger">
-                                    <?php _e("apply all »", "oxygen"); ?>
+                                    <?php oxygen_translate_echo("apply all »", "oxygen"); ?>
                                 </div>
 
                             </div>
@@ -3365,7 +3365,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 
                 <div class="oxygen-control-row">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Width", "component-theme"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Width", "component-theme"); ?></label>
                         
                         <div class='oxygen-control'>
                             <?php $oxygen_toolbar->measure_box('paginatelinkhover_width'); ?>
@@ -3373,15 +3373,15 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
 
                     </div>
 
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkhover_min_width", __("Min-width", "oxygen"), 'px,%,em,vw,vh'); ?>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkhover_max_width", __("Max-width", "oxygen"), 'px,%,em,vw,vh'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkhover_min_width", oxygen_translate("Min-width", "oxygen"), 'px,%,em,vw,vh'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkhover_max_width", oxygen_translate("Max-width", "oxygen"), 'px,%,em,vw,vh'); ?>
 
                 </div>
 
                 <div class="oxygen-control-row">
                     <div class='oxygen-control-wrapper'
                         ng-hide="isActiveName('ct_column')&&iframeScope.isEditing('media')">
-                        <label class='oxygen-control-label'><?php _e("Height", "component-theme"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Height", "component-theme"); ?></label>
                         
                         <div class='oxygen-control'>
 
@@ -3390,8 +3390,8 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         </div>
                     </div>
 
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkhover_min_height", __("Min-height", "oxygen"), 'px,%,em,vw,vh'); ?>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkhover_max_height", __("Max-height", "oxygen"), 'px,%,em,vw,vh'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkhover_min_height", oxygen_translate("Min-height", "oxygen"), 'px,%,em,vw,vh'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkhover_max_height", oxygen_translate("Max-height", "oxygen"), 'px,%,em,vw,vh'); ?>
                 </div>
             </div>
             <!-- Pagination Active Link Hover Size and Spacing-->
@@ -3404,14 +3404,14 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('dynamicList', 'paginationLinksHoverStyle')"><?php _e("Links Hover Style","oxygen"); ?></div>
+                        ng-click="switchTab('dynamicList', 'paginationLinksHoverStyle')"><?php oxygen_translate_echo("Links Hover Style","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Active Link Hover Size & Spacing","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Active Link Hover Size & Spacing","oxygen"); ?></div>
                 </div>
 
                 <div class="oxygen-control-row">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Padding", "component-theme"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Padding", "component-theme"); ?></label>
                         
                         <div class='oxygen-control'>
 
@@ -3425,7 +3425,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                                 <div class="oxygen-flex-line-break"></div>
                                 
                                 <div class="oxygen-apply-all-trigger">
-                                    <?php _e("apply all »", "oxygen"); ?>
+                                    <?php oxygen_translate_echo("apply all »", "oxygen"); ?>
                                 </div>
 
                             </div>
@@ -3438,7 +3438,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class="oxygen-control-row">
 
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Margin", "component-theme"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Margin", "component-theme"); ?></label>
                         
                         <div class='oxygen-control'>
 
@@ -3452,7 +3452,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                                 <div class="oxygen-flex-line-break"></div>
 
                                 <div class="oxygen-apply-all-trigger">
-                                    <?php _e("apply all »", "oxygen"); ?>
+                                    <?php oxygen_translate_echo("apply all »", "oxygen"); ?>
                                 </div>
 
                             </div>
@@ -3464,7 +3464,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 
                 <div class="oxygen-control-row">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Width", "component-theme"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Width", "component-theme"); ?></label>
                         
                         <div class='oxygen-control'>
                             <?php $oxygen_toolbar->measure_box('paginatelinkactivehover_width'); ?>
@@ -3472,15 +3472,15 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
 
                     </div>
 
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactivehover_min_width", __("Min-width", "oxygen"), 'px,%,em,vw,vh'); ?>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactivehover_max_width", __("Max-width", "oxygen"), 'px,%,em,vw,vh'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactivehover_min_width", oxygen_translate("Min-width", "oxygen"), 'px,%,em,vw,vh'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactivehover_max_width", oxygen_translate("Max-width", "oxygen"), 'px,%,em,vw,vh'); ?>
 
                 </div>
 
                 <div class="oxygen-control-row">
                     <div class='oxygen-control-wrapper'
                         ng-hide="isActiveName('ct_column')&&iframeScope.isEditing('media')">
-                        <label class='oxygen-control-label'><?php _e("Height", "component-theme"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Height", "component-theme"); ?></label>
                         
                         <div class='oxygen-control'>
 
@@ -3489,8 +3489,8 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         </div>
                     </div>
 
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactivehover_min_height", __("Min-height", "oxygen"), 'px,%,em,vw,vh'); ?>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactivehover_max_height", __("Max-height", "oxygen"), 'px,%,em,vw,vh'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactivehover_min_height", oxygen_translate("Min-height", "oxygen"), 'px,%,em,vw,vh'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactivehover_max_height", oxygen_translate("Max-height", "oxygen"), 'px,%,em,vw,vh'); ?>
                 </div>
             </div>
 
@@ -3504,15 +3504,15 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('dynamicList', 'paginationLinksHoverStyle')"><?php _e("Links Hover Style","oxygen"); ?></div>
+                        ng-click="switchTab('dynamicList', 'paginationLinksHoverStyle')"><?php oxygen_translate_echo("Links Hover Style","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Link Hover Borders","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Link Hover Borders","oxygen"); ?></div>
                 </div>
 
                 <!-- border side chooser -->
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Currently Editing","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Currently Editing","oxygen"); ?></label>
                         <div class='oxygen-control'>
 
                             <div class="oxygen-select oxygen-select-box-wrapper">
@@ -3526,27 +3526,27 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                                     <div class="oxygen-select-box-option"
                                         ng-click="currentBorder='all'"
                                         ng-class="{'oxygen-select-box-option-active':currentBorder=='all'}">
-                                        <?php _e("all borders", "component-theme"); ?>
+                                        <?php oxygen_translate_echo("all borders", "component-theme"); ?>
                                     </div>
                                     <div class="oxygen-select-box-option"
                                         ng-click="currentBorder='top'"
                                         ng-class="{'oxygen-select-box-option-active':currentBorder=='top'}">
-                                        <?php _e("top", "component-theme"); ?>
+                                        <?php oxygen_translate_echo("top", "component-theme"); ?>
                                     </div>
                                     <div class="oxygen-select-box-option"
                                         ng-click="currentBorder='right'"
                                         ng-class="{'oxygen-select-box-option-active':currentBorder=='right'}">
-                                        <?php _e("right", "component-theme"); ?>
+                                        <?php oxygen_translate_echo("right", "component-theme"); ?>
                                     </div>
                                     <div class="oxygen-select-box-option"
                                         ng-click="currentBorder='bottom'"
                                         ng-class="{'oxygen-select-box-option-active':currentBorder=='bottom'}">
-                                        <?php _e("bottom", "component-theme"); ?>
+                                        <?php oxygen_translate_echo("bottom", "component-theme"); ?>
                                     </div>
                                     <div class="oxygen-select-box-option"
                                         ng-click="currentBorder='left'"
                                         ng-class="{'oxygen-select-box-option-active':currentBorder=='left'}">
-                                        <?php _e("left", "component-theme"); ?>
+                                        <?php oxygen_translate_echo("left", "component-theme"); ?>
                                     </div>
 
                                 </div>
@@ -3559,12 +3559,12 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <!-- color and size -->
                 <div class='oxygen-control-row'>
 
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkhover_border_all_color",__("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='all'"); ?>
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkhover_border_top_color",__("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='top'"); ?>
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkhover_border_left_color",__("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='left'"); ?>
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkhover_border_bottom_color",__("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='bottom'"); ?>
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkhover_border_right_color",__("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='right'"); ?>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkhover_border_'+currentBorder+'_width", __("Width", "oxygen"), 'px,em'); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkhover_border_all_color",oxygen_translate("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='all'"); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkhover_border_top_color",oxygen_translate("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='top'"); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkhover_border_left_color",oxygen_translate("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='left'"); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkhover_border_bottom_color",oxygen_translate("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='bottom'"); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkhover_border_right_color",oxygen_translate("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='right'"); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkhover_border_'+currentBorder+'_width", oxygen_translate("Width", "oxygen"), 'px,em'); ?>
 
                 </div>
 
@@ -3572,7 +3572,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class='oxygen-control-row'>
 
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Style","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Style","oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-button-list'>
 
@@ -3590,7 +3590,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class='oxygen-control-row' style='margin-bottom: 20px;'>
                     <a href='#' id='oxygen-control-borders-unset-button'
                         ng-click="iframeScope.unsetAllBorders('', ['paginatelinkhover_border_all_color', 'paginatelinkhover_border_top_color', 'paginatelinkhover_border_left_color', 'paginatelinkhover_border_bottom_color', 'paginatelinkhover_border_right_color', 'paginatelinkhover_border_all_width', 'paginatelinkhover_border_all_width-unit', 'paginatelinkhover_border_top_width', 'paginatelinkhover_border_top_width-unit', 'paginatelinkhover_border_left_width', 'paginatelinkhover_border_left_width-unit', 'paginatelinkhover_border_bottom_width', 'paginatelinkhover_border_bottom_width-unit', 'paginatelinkhover_border_right_width', 'paginatelinkhover_border_right_width-unit', 'paginatelinkhover_border_all_style', 'paginatelinkhover_border_top_style', 'paginatelinkhover_border_left_style', 'paginatelinkhover_border_bottom_style', 'paginatelinkhover_border_right_style'])">
-                        <?php _e("unset all borders","oxygen"); ?></a>
+                        <?php oxygen_translate_echo("unset all borders","oxygen"); ?></a>
                 </div>
 
                 <div class='oxygen-control-separator'></div>
@@ -3600,7 +3600,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                     ng-show="!editIndividualRadii">
 
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Border Radius","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Border Radius","oxygen"); ?></label>
 
                         <div class="oxygen-control">
                             <?php $oxygen_toolbar->measure_box("paginatelinkhover_border_radius", 'px,%,em'); ?>
@@ -3608,7 +3608,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                     
                         <a href='#' id='oxygen-control-borders-radius-individual'
                             ng-click="editIndividualRadii=true">
-                            <?php _e("edit individual radius", "oxygen"); ?> &raquo;</a>
+                            <?php oxygen_translate_echo("edit individual radius", "oxygen"); ?> &raquo;</a>
                     </div>
 
                 </div>
@@ -3617,8 +3617,8 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class='oxygen-control-row'
                     ng-show="editIndividualRadii">
 
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkhover_border_top_left_radius", __("Top Left"), 'px,%,em'); ?>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkhover_border_top_right_radius", __("Top Right"), 'px,%,em'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkhover_border_top_left_radius", oxygen_translate("Top Left"), 'px,%,em'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkhover_border_top_right_radius", oxygen_translate("Top Right"), 'px,%,em'); ?>
 
                 </div>
 
@@ -3626,7 +3626,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                     ng-show="editIndividualRadii">
 
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Bottom Left","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Bottom Left","oxygen"); ?></label>
                         
                         <div class="oxygen-control">
                             <?php $oxygen_toolbar->measure_box("paginatelinkhover_border_bottom_left_radius", 'px,%,em'); ?>
@@ -3634,10 +3634,10 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
 
                         <a href='#' id='oxygen-control-borders-radius-individual'
                             ng-click="editIndividualRadii=false">
-                            <?php _e("edit all radii", "oxygen"); ?> &raquo;</a>
+                            <?php oxygen_translate_echo("edit all radii", "oxygen"); ?> &raquo;</a>
                     </div>
 
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkhover_border_bottom_right_radius", __("Bottom Right"), 'px,%,em'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkhover_border_bottom_right_radius", oxygen_translate("Bottom Right"), 'px,%,em'); ?>
 
                 </div>
             </div>
@@ -3652,15 +3652,15 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('dynamicList', 'paginationLinksHoverStyle')"><?php _e("Links Hover Style","oxygen"); ?></div>
+                        ng-click="switchTab('dynamicList', 'paginationLinksHoverStyle')"><?php oxygen_translate_echo("Links Hover Style","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Active Link Hover Borders","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Active Link Hover Borders","oxygen"); ?></div>
                 </div>
 
                 <!-- border side chooser -->
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Currently Editing","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Currently Editing","oxygen"); ?></label>
                         <div class='oxygen-control'>
 
                             <div class="oxygen-select oxygen-select-box-wrapper">
@@ -3674,27 +3674,27 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                                     <div class="oxygen-select-box-option"
                                         ng-click="currentBorder='all'"
                                         ng-class="{'oxygen-select-box-option-active':currentBorder=='all'}">
-                                        <?php _e("all borders", "component-theme"); ?>
+                                        <?php oxygen_translate_echo("all borders", "component-theme"); ?>
                                     </div>
                                     <div class="oxygen-select-box-option"
                                         ng-click="currentBorder='top'"
                                         ng-class="{'oxygen-select-box-option-active':currentBorder=='top'}">
-                                        <?php _e("top", "component-theme"); ?>
+                                        <?php oxygen_translate_echo("top", "component-theme"); ?>
                                     </div>
                                     <div class="oxygen-select-box-option"
                                         ng-click="currentBorder='right'"
                                         ng-class="{'oxygen-select-box-option-active':currentBorder=='right'}">
-                                        <?php _e("right", "component-theme"); ?>
+                                        <?php oxygen_translate_echo("right", "component-theme"); ?>
                                     </div>
                                     <div class="oxygen-select-box-option"
                                         ng-click="currentBorder='bottom'"
                                         ng-class="{'oxygen-select-box-option-active':currentBorder=='bottom'}">
-                                        <?php _e("bottom", "component-theme"); ?>
+                                        <?php oxygen_translate_echo("bottom", "component-theme"); ?>
                                     </div>
                                     <div class="oxygen-select-box-option"
                                         ng-click="currentBorder='left'"
                                         ng-class="{'oxygen-select-box-option-active':currentBorder=='left'}">
-                                        <?php _e("left", "component-theme"); ?>
+                                        <?php oxygen_translate_echo("left", "component-theme"); ?>
                                     </div>
 
                                 </div>
@@ -3707,12 +3707,12 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <!-- color and size -->
                 <div class='oxygen-control-row'>
 
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkactivehover_border_all_color",__("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='all'"); ?>
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkactivehover_border_top_color",__("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='top'"); ?>
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkactivehover_border_left_color",__("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='left'"); ?>
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkactivehover_border_bottom_color",__("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='bottom'"); ?>
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkactivehover_border_right_color",__("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='right'"); ?>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactivehover_border_'+currentBorder+'_width", __("Width", "oxygen"), 'px,em'); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkactivehover_border_all_color",oxygen_translate("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='all'"); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkactivehover_border_top_color",oxygen_translate("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='top'"); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkactivehover_border_left_color",oxygen_translate("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='left'"); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkactivehover_border_bottom_color",oxygen_translate("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='bottom'"); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkactivehover_border_right_color",oxygen_translate("Color","oxygen"),"oxygen-typography-font-color", "currentBorder=='right'"); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactivehover_border_'+currentBorder+'_width", oxygen_translate("Width", "oxygen"), 'px,em'); ?>
 
                 </div>
 
@@ -3720,7 +3720,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class='oxygen-control-row'>
 
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Style","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Style","oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-button-list'>
 
@@ -3738,7 +3738,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class='oxygen-control-row' style='margin-bottom: 20px;'>
                     <a href='#' id='oxygen-control-borders-unset-button'
                         ng-click="iframeScope.unsetAllBorders('', ['paginatelinkactivehover_border_all_color', 'paginatelinkactivehover_border_top_color', 'paginatelinkactivehover_border_left_color', 'paginatelinkactivehover_border_bottom_color', 'paginatelinkactivehover_border_right_color', 'paginatelinkactivehover_border_all_width', 'paginatelinkactivehover_border_all_width-unit', 'paginatelinkactivehover_border_top_width', 'paginatelinkactivehover_border_top_width-unit', 'paginatelinkactivehover_border_left_width', 'paginatelinkactivehover_border_left_width-unit', 'paginatelinkactivehover_border_bottom_width', 'paginatelinkactivehover_border_bottom_width-unit', 'paginatelinkactivehover_border_right_width', 'paginatelinkactivehover_border_right_width-unit', 'paginatelinkactivehover_border_all_style', 'paginatelinkactivehover_border_top_style', 'paginatelinkactivehover_border_left_style', 'paginatelinkactivehover_border_bottom_style', 'paginatelinkactivehover_border_right_style'])">
-                        <?php _e("unset all borders","oxygen"); ?></a>
+                        <?php oxygen_translate_echo("unset all borders","oxygen"); ?></a>
                 </div>
 
                 <div class='oxygen-control-separator'></div>
@@ -3748,7 +3748,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                     ng-show="!editIndividualRadii">
 
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Border Radius","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Border Radius","oxygen"); ?></label>
                     
                         <div class="oxygen-control">
                             <?php $oxygen_toolbar->measure_box("paginatelinkactivehover_border_radius", 'px,%,em'); ?>
@@ -3756,7 +3756,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                     
                         <a href='#' id='oxygen-control-borders-radius-individual'
                             ng-click="editIndividualRadii=true">
-                            <?php _e("edit individual radius", "oxygen"); ?> &raquo;</a>
+                            <?php oxygen_translate_echo("edit individual radius", "oxygen"); ?> &raquo;</a>
                     </div>
 
                 </div>
@@ -3765,8 +3765,8 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class='oxygen-control-row'
                     ng-show="editIndividualRadii">
 
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactivehover_border_top_left_radius", __("Top Left"), 'px,%,em'); ?>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactivehover_border_top_right_radius", __("Top Right"), 'px,%,em'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactivehover_border_top_left_radius", oxygen_translate("Top Left"), 'px,%,em'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactivehover_border_top_right_radius", oxygen_translate("Top Right"), 'px,%,em'); ?>
 
                 </div>
 
@@ -3774,7 +3774,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                     ng-show="editIndividualRadii">
 
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Bottom Left","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Bottom Left","oxygen"); ?></label>
                         
                         <div class="oxygen-control">
                             <?php $oxygen_toolbar->measure_box("paginatelinkactivehover_border_bottom_left_radius", 'px,%,em'); ?>
@@ -3782,10 +3782,10 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
 
                         <a href='#' id='oxygen-control-borders-radius-individual'
                             ng-click="editIndividualRadii=false">
-                            <?php _e("edit all radii", "oxygen"); ?> &raquo;</a>
+                            <?php oxygen_translate_echo("edit all radii", "oxygen"); ?> &raquo;</a>
                     </div>
 
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactivehover_border_bottom_right_radius", __("Bottom Right"), 'px,%,em'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactivehover_border_bottom_right_radius", oxygen_translate("Bottom Right"), 'px,%,em'); ?>
 
                 </div>
             </div>
@@ -3800,16 +3800,16 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('dynamicList', 'paginationLinksHoverStyle')"><?php _e("Links Hover Style","oxygen"); ?></div>
+                        ng-click="switchTab('dynamicList', 'paginationLinksHoverStyle')"><?php oxygen_translate_echo("Links Hover Style","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Link Hover Background","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Link Hover Background","oxygen"); ?></div>
                 </div>
                 <div class='oxygen-control-row'>
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkhover_background_color", __("Background Color", "oxygen")); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkhover_background_color", oxygen_translate("Background Color", "oxygen")); ?>
                 </div>
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Background Image","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Background Image","oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class="oxygen-file-input">
                                 <input type="text" spellcheck="false" 
@@ -3823,7 +3823,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                                     data-mediatitle="Select Image" 
                                     data-mediabutton="Select Image" 
                                     data-mediaproperty="paginatelinkhover_background_image" 
-                                    data-mediatype="mediaUrl"><?php _e("browse","oxygen"); ?></div>
+                                    data-mediatype="mediaUrl"><?php oxygen_translate_echo("browse","oxygen"); ?></div>
 
                             </div>
                         </div>
@@ -3833,7 +3833,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <!-- background-size -->
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper' id='oxygen-control-layout-display'>
-                        <label class='oxygen-control-label'><?php _e("Background Size", "oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Background Size", "oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-button-list'>
 
@@ -3848,13 +3848,13 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 </div>
 
                 <div class="oxygen-control-row" ng-show="iframeScope.component.options[iframeScope.component.active.id]['model']['paginatelinkhover_background_size'] == 'manual'">
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkhover_background_size_width", __("Width", "oxygen"), 'px,%,em'); ?>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkhover_background_size_height", __("Height", "oxygen"), 'px,%,em'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkhover_background_size_width", oxygen_translate("Width", "oxygen"), 'px,%,em'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkhover_background_size_height", oxygen_translate("Height", "oxygen"), 'px,%,em'); ?>
                 </div>
 
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper' id='oxygen-control-layout-display'>
-                        <label class='oxygen-control-label'><?php _e("Background Repeat", "oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Background Repeat", "oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-button-list'>
                                 <?php $oxygen_toolbar->button_list_button('paginatelinkhover_background_repeat','no-repeat'); ?>
@@ -3877,16 +3877,16 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('dynamicList', 'paginationLinksHoverStyle')"><?php _e("Links Hover Style","oxygen"); ?></div>
+                        ng-click="switchTab('dynamicList', 'paginationLinksHoverStyle')"><?php oxygen_translate_echo("Links Hover Style","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Active Link Hover Background","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Active Link Hover Background","oxygen"); ?></div>
                 </div>
                 <div class='oxygen-control-row'>
-                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkactivehover_background_color", __("Background Color", "oxygen")); ?>
+                    <?php $oxygen_toolbar->colorpicker_with_wrapper("paginatelinkactivehover_background_color", oxygen_translate("Background Color", "oxygen")); ?>
                 </div>
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Background Image","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Background Image","oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class="oxygen-file-input">
                                 <input type="text" spellcheck="false" 
@@ -3900,7 +3900,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                                     data-mediatitle="Select Image" 
                                     data-mediabutton="Select Image" 
                                     data-mediaproperty="paginatelinkactivehover_background_image" 
-                                    data-mediatype="mediaUrl"><?php _e("browse","oxygen"); ?></div>
+                                    data-mediatype="mediaUrl"><?php oxygen_translate_echo("browse","oxygen"); ?></div>
 
                             </div>
                         </div>
@@ -3910,7 +3910,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <!-- background-size -->
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper' id='oxygen-control-layout-display'>
-                        <label class='oxygen-control-label'><?php _e("Background Size", "oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Background Size", "oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-button-list'>
 
@@ -3925,13 +3925,13 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 </div>
 
                 <div class="oxygen-control-row" ng-show="iframeScope.component.options[iframeScope.component.active.id]['model']['paginatelinkactivehover_background_size'] == 'manual'">
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactivehover_background_size_width", __("Width", "oxygen"), 'px,%,em'); ?>
-                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactivehover_background_size_height", __("Height", "oxygen"), 'px,%,em'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactivehover_background_size_width", oxygen_translate("Width", "oxygen"), 'px,%,em'); ?>
+                    <?php $oxygen_toolbar->measure_box_with_wrapper("paginatelinkactivehover_background_size_height", oxygen_translate("Height", "oxygen"), 'px,%,em'); ?>
                 </div>
 
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper' id='oxygen-control-layout-display'>
-                        <label class='oxygen-control-label'><?php _e("Background Repeat", "oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Background Repeat", "oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-button-list'>
                                 <?php $oxygen_toolbar->button_list_button('paginatelinkactivehover_background_repeat','no-repeat'); ?>
@@ -3954,15 +3954,15 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="tabs.dynamicList=[]"><?php _e("Repeater","oxygen"); ?></div>
+                        ng-click="tabs.dynamicList=[]"><?php oxygen_translate_echo("Repeater","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Query","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Query","oxygen"); ?></div>
                 </div>
 
                 <div class='oxygen-control-row'
                     ng-show="iframeScope.component.options[iframeScope.component.active.id]['model']['use_acf_repeater']!='true'&&iframeScope.component.options[iframeScope.component.active.id]['model']['use_metabox_clonable_group']!='true'">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("WP Query","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("WP Query","oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-button-list'>
                                 <?php $oxygen_toolbar->button_list_button('wp_query', 'default'); ?>
@@ -3982,7 +3982,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class='oxygen-control-row'
                     ng-show="iframeScope.component.options[iframeScope.component.active.id]['model']['wp_query']=='manual' && iframeScope.component.options[iframeScope.component.active.id]['model']['use_acf_repeater']!='true' && iframeScope.component.options[iframeScope.component.active.id]['model']['use_metabox_clonable_group']!='true'">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Query Params","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Query Params","oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class="oxygen-textarea">
                                 <textarea class="oxygen-textarea-textarea"
@@ -3997,28 +3997,28 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                     <div class="oxygen-sidebar-advanced-subtab" 
                         ng-click="switchTab('dynamicList', 'postType')">
                             <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/styles.svg">
-                            <?php _e("Post Type", "oxygen"); ?>
+                            <?php oxygen_translate_echo("Post Type", "oxygen"); ?>
                             <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                     </div>
 
                     <div class="oxygen-sidebar-advanced-subtab" 
                         ng-click="switchTab('dynamicList', 'filtering')">
                             <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/styles.svg">
-                            <?php _e("Filtering", "oxygen"); ?>
+                            <?php oxygen_translate_echo("Filtering", "oxygen"); ?>
                             <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                     </div>
 
                     <div class="oxygen-sidebar-advanced-subtab" 
                         ng-click="switchTab('dynamicList', 'order')">
                             <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/styles.svg">
-                            <?php _e("Order", "oxygen"); ?>
+                            <?php oxygen_translate_echo("Order", "oxygen"); ?>
                             <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                     </div>
 
                     <div class="oxygen-sidebar-advanced-subtab" 
                         ng-click="switchTab('dynamicList', 'count')">
                             <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/panelsection-icons/styles.svg">
-                            <?php _e("Count", "oxygen"); ?>
+                            <?php oxygen_translate_echo("Count", "oxygen"); ?>
                             <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg">
                     </div>
 
@@ -4040,7 +4040,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                                 ng-change="iframeScope.setOption(iframeScope.component.active.id,'oxy_dynamic_list','use_acf_repeater')">
                             <div class='oxygen-checkbox-checkbox'
                                 ng-class="{'oxygen-checkbox-checkbox-active':iframeScope.getOption('use_acf_repeater')=='true'}">
-                                <?php _e("Use ACF Repeater","oxygen"); ?>
+                                <?php oxygen_translate_echo("Use ACF Repeater","oxygen"); ?>
                             </div>
                         </label>
                     </div>
@@ -4049,7 +4049,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class='oxygen-control-row'
                     ng-show="iframeScope.component.options[iframeScope.component.active.id]['model']['use_acf_repeater']=='true'">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("ACF Repeater Field","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("ACF Repeater Field","oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-button-list'>
                                 <label 
@@ -4085,7 +4085,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                                 ng-change="iframeScope.setOption(iframeScope.component.active.id,'oxy_dynamic_list','use_metabox_clonable_group')">
                             <div class='oxygen-checkbox-checkbox'
                                 ng-class="{'oxygen-checkbox-checkbox-active':iframeScope.getOption('use_metabox_clonable_group')=='true'}">
-                                <?php _e("Use Meta Box Group","oxygen"); ?>
+                                <?php oxygen_translate_echo("Use Meta Box Group","oxygen"); ?>
                             </div>
                         </label>
                     </div>
@@ -4094,7 +4094,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class='oxygen-control-row'
                     ng-show="iframeScope.component.options[iframeScope.component.active.id]['model']['use_metabox_clonable_group']=='true'">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Meta Box Groups","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Meta Box Groups","oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-button-list'>
                                 <label class="oxygen-button-list-button" 
@@ -4118,7 +4118,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class="oxygen-control-row oxygen-control-row-bottom-bar">
                     <a href="#" class="oxygen-apply-button"
                         ng-click="iframeScope.updateRepeaterQuery()">
-                        <?php _e("Apply Query Params", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Apply Query Params", "oxygen"); ?>
                     </a>
                 </div>
 
@@ -4133,14 +4133,14 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('dynamicList', 'query')"><?php _e("Query","oxygen"); ?></div>
+                        ng-click="switchTab('dynamicList', 'query')"><?php oxygen_translate_echo("Query","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Post Type","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Post Type","oxygen"); ?></div>
                 </div>
 
                 <div class="oxygen-control-row">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Post Type", "oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Post Type", "oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <select id="oxy-easy-posts-post-type" name="oxy-easy-posts-post-type[]" multiple="multiple"
                                 ng-init="initSelect2('oxy-easy-posts-post-type','Choose custom post types...')"
@@ -4160,7 +4160,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 
                 <div class="oxygen-control-row">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Or manually specify IDs (comma separated)", "oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Or manually specify IDs (comma separated)", "oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-input'>
                                 <input type="text" spellcheck="false"
@@ -4175,7 +4175,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class="oxygen-control-row oxygen-control-row-bottom-bar">
                     <a href="#" class="oxygen-apply-button"
                         ng-click="iframeScope.updateRepeaterQuery()">
-                        <?php _e("Apply Query Params", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Apply Query Params", "oxygen"); ?>
                     </a>
                 </div>
 
@@ -4190,15 +4190,15 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('dynamicList', 'query')"><?php _e("Query","oxygen"); ?></div>
+                        ng-click="switchTab('dynamicList', 'query')"><?php oxygen_translate_echo("Query","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Filtering","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Filtering","oxygen"); ?></div>
                 </div>
 
                 <?php
                     $query_taxonomies = array(
-                        'query_taxonomies_any' => __("In Any of the Following Taxonomies", "oxygen"),
-                        'query_taxonomies_all' => __("Or In All of the Following Taxonomies", "oxygen")
+                        'query_taxonomies_any' => oxygen_translate("In Any of the Following Taxonomies", "oxygen"),
+                        'query_taxonomies_all' => oxygen_translate("Or In All of the Following Taxonomies", "oxygen")
                     );
                 ?>
 
@@ -4216,7 +4216,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                                 // get default post categories
                                 $default_categories = get_categories(array('hide_empty' => 0));
                                 ?>
-                                    <optgroup label="<?php echo __('Categories', 'component-theme'); ?>">
+                                    <optgroup label="<?php echo oxygen_translate('Categories', 'component-theme'); ?>">
                                         <?php 
                                         foreach ( $default_categories as $category ) : ?>
                                             <option value="<?php echo ((!isset($alloption) || !$alloption)?'category,':'').esc_attr( $category->term_id ); ?>">
@@ -4228,7 +4228,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                                 // get default post tags
                                 $default_tags = get_tags(array('hide_empty' => 0));
                                 ?>
-                                    <optgroup label="<?php echo __('Tags', 'component-theme'); ?>">
+                                    <optgroup label="<?php echo oxygen_translate('Tags', 'component-theme'); ?>">
                                         <?php 
                                         foreach ( $default_tags as $tag ) : ?>
                                             <option value="<?php echo ((!isset($alloption) || !$alloption)?'tag,':'').esc_attr( $tag->term_id ); ?>">
@@ -4268,7 +4268,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
 
                 <div class="oxygen-control-row">
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("By the following authors", "oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("By the following authors", "oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <select id="oxy-easy-posts-authors" name="oxy-easy-posts-authors[]" multiple="multiple"
                                 ng-init="initSelect2('oxy-easy-posts-authors','Choose authors...')"
@@ -4290,7 +4290,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class="oxygen-control-row oxygen-control-row-bottom-bar">
                     <a href="#" class="oxygen-apply-button"
                         ng-click="iframeScope.updateRepeaterQuery()">
-                        <?php _e("Apply Query Params", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Apply Query Params", "oxygen"); ?>
                     </a>
                 </div>
 
@@ -4305,14 +4305,14 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('dynamicList', 'query')"><?php _e("Query","oxygen"); ?></div>
+                        ng-click="switchTab('dynamicList', 'query')"><?php oxygen_translate_echo("Query","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Order","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Order","oxygen"); ?></div>
                 </div>
 
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Order By","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Order By","oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class="oxygen-select oxygen-select-box-wrapper">
                                 <div class="oxygen-select-box">
@@ -4322,33 +4322,33 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                                 <div class="oxygen-select-box-options">
                                     <div class="oxygen-select-box-option"
                                         ng-click="$parent.iframeScope.setOptionModel('query_order_by','');"
-                                        title="<?php _e("Unset order by", "oxygen"); ?>">
+                                        title="<?php oxygen_translate_echo("Unset order by", "oxygen"); ?>">
                                         &nbsp;
                                     </div>
                                     <div class="oxygen-select-box-option"
                                         ng-click="$parent.iframeScope.setOptionModel('query_order_by','date');"
-                                        title="<?php _e("Set order by", "oxygen"); ?>">
-                                        <?php _e("Date", "oxygen"); ?>
+                                        title="<?php oxygen_translate_echo("Set order by", "oxygen"); ?>">
+                                        <?php oxygen_translate_echo("Date", "oxygen"); ?>
                                     </div>
                                     <div class="oxygen-select-box-option"
                                         ng-click="$parent.iframeScope.setOptionModel('query_order_by','modified');"
-                                        title="<?php _e("Set order by", "oxygen"); ?>">
-                                        <?php _e("Date Last Modified", "oxygen"); ?>
+                                        title="<?php oxygen_translate_echo("Set order by", "oxygen"); ?>">
+                                        <?php oxygen_translate_echo("Date Last Modified", "oxygen"); ?>
                                     </div>
                                     <div class="oxygen-select-box-option"
                                         ng-click="$parent.iframeScope.setOptionModel('query_order_by','title');"
-                                        title="<?php _e("Set order by", "oxygen"); ?>">
-                                        <?php _e("Title", "oxygen"); ?>
+                                        title="<?php oxygen_translate_echo("Set order by", "oxygen"); ?>">
+                                        <?php oxygen_translate_echo("Title", "oxygen"); ?>
                                     </div>
                                     <div class="oxygen-select-box-option"
                                         ng-click="$parent.iframeScope.setOptionModel('query_order_by','comment_count');"
-                                        title="<?php _e("Set order by", "oxygen"); ?>">
-                                        <?php _e("Comment Count", "oxygen"); ?>
+                                        title="<?php oxygen_translate_echo("Set order by", "oxygen"); ?>">
+                                        <?php oxygen_translate_echo("Comment Count", "oxygen"); ?>
                                     </div>
                                     <div class="oxygen-select-box-option"
                                         ng-click="$parent.iframeScope.setOptionModel('query_order_by','menu_order');"
-                                        title="<?php _e("Set order by", "oxygen"); ?>">
-                                        <?php _e("Menu Order", "oxygen"); ?>
+                                        title="<?php oxygen_translate_echo("Set order by", "oxygen"); ?>">
+                                        <?php oxygen_translate_echo("Menu Order", "oxygen"); ?>
                                     </div>
                                 </div>
                             </div>
@@ -4358,7 +4358,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
 
                 <div class='oxygen-control-row'>
                     <div class='oxygen-control-wrapper'>
-                        <label class='oxygen-control-label'><?php _e("Order","oxygen"); ?></label>
+                        <label class='oxygen-control-label'><?php oxygen_translate_echo("Order","oxygen"); ?></label>
                         <div class='oxygen-control'>
                             <div class='oxygen-button-list'>
                                 <?php $oxygen_toolbar->button_list_button('query_order', 'ASC', 'ascending'); ?>
@@ -4371,7 +4371,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class="oxygen-control-row oxygen-control-row-bottom-bar">
                     <a href="#" class="oxygen-apply-button"
                         ng-click="iframeScope.updateRepeaterQuery()">
-                        <?php _e("Apply Query Params", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Apply Query Params", "oxygen"); ?>
                     </a>
                 </div>
 
@@ -4387,9 +4387,9 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                         <img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
                     </div>
                     <div class="oxygen-sidebar-breadcrumb-all-styles" 
-                        ng-click="switchTab('dynamicList', 'query')"><?php _e("Query","oxygen"); ?></div>
+                        ng-click="switchTab('dynamicList', 'query')"><?php oxygen_translate_echo("Query","oxygen"); ?></div>
                     <div class="oxygen-sidebar-breadcrumb-separator">/</div>
-                    <div class="oxygen-sidebar-breadcrumb-current"><?php _e("Count","oxygen"); ?></div>
+                    <div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Count","oxygen"); ?></div>
                 </div>
 
                 <div class="oxygen-control-row">
@@ -4402,14 +4402,14 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                                 ng-change="iframeScope.setOption(iframeScope.component.active.id,'oxy_dynamic_list','query_ignore_sticky_posts')">
                             <div class='oxygen-checkbox-checkbox'
                                 ng-class="{'oxygen-checkbox-checkbox-active':iframeScope.getOption('query_ignore_sticky_posts')=='true'}">
-                                <?php _e("Ignore Sticky Posts","oxygen"); ?>
+                                <?php oxygen_translate_echo("Ignore Sticky Posts","oxygen"); ?>
                             </div>
                         </label>
                     </div>
                 </div>
                 
                 <div class='oxygen-control-wrapper'>
-                    <label class='oxygen-control-label'><?php _e("Posts per page", "oxygen"); ?></label>
+                    <label class='oxygen-control-label'><?php oxygen_translate_echo("Posts per page", "oxygen"); ?></label>
                     <div class='oxygen-control'>
                         <div class='oxygen-input'>
                             <input type="text" spellcheck="false"
@@ -4422,7 +4422,7 @@ class Oxygen_VSB_Dynamic_List extends CT_Component {
                 <div class="oxygen-control-row oxygen-control-row-bottom-bar">
                     <a href="#" class="oxygen-apply-button"
                         ng-click="iframeScope.updateRepeaterQuery()">
-                        <?php _e("Apply Query Params", "oxygen"); ?>
+                        <?php oxygen_translate_echo("Apply Query Params", "oxygen"); ?>
                     </a>
                 </div>
             </div>
@@ -4448,7 +4448,7 @@ $oxygen_vsb_components['repeater'] = new Oxygen_VSB_Dynamic_List( array(
             'params' => array(
                 array(
                     "type" 			=> "tag",
-                    "heading" 		=> __("Tag", "oxygen"),
+                    "heading" 		=> oxygen_translate("Tag", "oxygen"),
                     "param_name" 	=> "tag",
                     "value" 		=> array (
                                         "div" 		=> "div",

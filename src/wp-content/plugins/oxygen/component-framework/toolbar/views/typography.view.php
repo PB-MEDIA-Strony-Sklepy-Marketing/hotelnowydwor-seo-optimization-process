@@ -1,11 +1,11 @@
 <!-- font family & size-->
 <div class='oxygen-control-row'>
 	<?php $this->font_family_dropdown(); ?>
-	<?php $this->measure_box_with_wrapper("font-size", __("Font size", "oxygen"), 'px,%,em'); ?>
+	<?php $this->measure_box_with_wrapper("font-size", oxygen_translate("Font size", "oxygen"), 'px,%,em'); ?>
 </div>
 
 <div class="oxygen-control-row">
-	<?php $this->colorpicker_with_wrapper("color", __("Color", "oxygen"), 'oxygen-typography-font-color'); ?>
+	<?php $this->colorpicker_with_wrapper("color", oxygen_translate("Color", "oxygen"), 'oxygen-typography-font-color'); ?>
 </div>
 
 
@@ -19,7 +19,7 @@
 		<div class="oxy-style-indicator"
 			ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('text-align')&&!IDHasOption('text-align'),'oxygen-has-id-value':iframeScope.IDHasOption('text-align')}">
 		</div>
-		<label class='oxygen-control-label'><?php _e("Text Align","oxygen"); ?></label>
+		<label class='oxygen-control-label'><?php oxygen_translate_echo("Text Align","oxygen"); ?></label>
 		<div class='oxygen-control oxygen-control-text-align'>
 			<div class='oxygen-icon-button-list'>
 
@@ -35,8 +35,8 @@
 
 <!-- line height & letter spacing -->
 <div class='oxygen-control-row'>
-	<?php $this->simple_input_with_wrapper('line-height',__('Line Height','oxygen')); ?>
-	<?php $this->measure_box_with_wrapper('letter-spacing',__('Letter Spacing','oxygen')); ?>
+	<?php $this->simple_input_with_wrapper('line-height',oxygen_translate('Line Height','oxygen')); ?>
+	<?php $this->measure_box_with_wrapper('letter-spacing',oxygen_translate('Letter Spacing','oxygen')); ?>
 </div>
 
 <!-- text decoration and font style -->
@@ -46,7 +46,7 @@
 		<div class="oxy-style-indicator"
 			ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('text-decoration')&&!IDHasOption('text-decoration'),'oxygen-has-id-value':iframeScope.IDHasOption('text-decoration')}">
 		</div>
-		<label class='oxygen-control-label'><?php _e("Text Decoration"); ?></label>
+		<label class='oxygen-control-label'><?php oxygen_translate_echo("Text Decoration"); ?></label>
 		<div class='oxygen-control'>
 			<div class='oxygen-button-list'>
 
@@ -63,7 +63,7 @@
 		<div class="oxy-style-indicator"
 			ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('font-style')&&!IDHasOption('font-style'),'oxygen-has-id-value':iframeScope.IDHasOption('font-style')}">
 		</div>
-		<label class='oxygen-control-label'><?php _e("Font Style"); ?></label>
+		<label class='oxygen-control-label'><?php oxygen_translate_echo("Font Style"); ?></label>
 		<div class='oxygen-control'>
 			<div class='oxygen-button-list'>
 
@@ -81,7 +81,7 @@
 		<div class="oxy-style-indicator"
 			ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('text-transform')&&!IDHasOption('text-transform'),'oxygen-has-id-value':iframeScope.IDHasOption('text-transform')}">
 		</div>
-		<label class='oxygen-control-label'><?php _e("Text Transform","oxygen"); ?></label>
+		<label class='oxygen-control-label'><?php oxygen_translate_echo("Text Transform","oxygen"); ?></label>
 		<div class='oxygen-control'>
 			<div class='oxygen-button-list'>
 
@@ -101,7 +101,7 @@
 		<div class="oxy-style-indicator"
 			ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('-webkit-font-smoothing')&&!IDHasOption('-webkit-font-smoothing'),'oxygen-has-id-value':iframeScope.IDHasOption('-webkit-font-smoothing')}">
 		</div>
-		<label class='oxygen-control-label'><?php _e("Font Smoothing","oxygen"); ?></label>
+		<label class='oxygen-control-label'><?php oxygen_translate_echo("Font Smoothing","oxygen"); ?></label>
 		<div class='oxygen-control'>
 			<div class='oxygen-button-list'>
 				

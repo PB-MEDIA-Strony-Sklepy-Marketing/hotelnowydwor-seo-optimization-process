@@ -151,7 +151,7 @@ Class OxygenElementHelper {
 			<div class="oxygen-control-row oxygen-control-row-bottom-bar">
 				<a href="#" class="oxygen-apply-button"
 					ng-click="iframeScope.rebuildDOM(iframeScope.component.active.id)">
-					<?php _e("Apply Params", "oxygen"); ?>
+					<?php oxygen_translate_echo("Apply Params", "oxygen"); ?>
 				</a>
 			</div>
 		</div>

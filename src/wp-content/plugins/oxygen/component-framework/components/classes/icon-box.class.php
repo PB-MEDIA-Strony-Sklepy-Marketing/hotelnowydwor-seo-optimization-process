@@ -396,43 +396,43 @@ class Oxygen_VSB_Icon_Box extends CT_Component{
 
 global $oxygen_vsb_components;
 $oxygen_vsb_components['icon_box'] = new Oxygen_VSB_Icon_Box( array(
-            'name'  => __('Icon Box','oxygen'),
+            'name'  => oxygen_translate('Icon Box','oxygen'),
             'tag'   => 'oxy_icon_box',
             'tabs'  => array(
                 'layout_spacing' => array(
-                    'heading' => __('Layout & Spacing','oxygen'),
+                    'heading' => oxygen_translate('Layout & Spacing','oxygen'),
                     'params' => array(
                         array(
                             "type"          => "radio",
-                            "heading"       => __("Content alignment", "oxygen"),
+                            "heading"       => oxygen_translate("Content alignment", "oxygen"),
                             "param_name"    => "icon_box_content_alignment",
                             "value"         => array(
-                                                 'left'     => __("left", "oxygen"),
-                                                 'center'   => __("center", "oxygen"),
-                                                 'right'    => __("right", "oxygen"),
+                                                 'left'     => oxygen_translate("left", "oxygen"),
+                                                 'center'   => oxygen_translate("center", "oxygen"),
+                                                 'right'    => oxygen_translate("right", "oxygen"),
                                             ),
                             "css"           => false,
                         ),
                         array(
                             "type"          => "radio",
-                            "heading"       => __("Icon Position", "oxygen"),
+                            "heading"       => oxygen_translate("Icon Position", "oxygen"),
                             "param_name"    => "icon_box_icon_position",
                             "value"         => array(
-                                                 'top'      => __("top", "oxygen"),
-                                                 'left'     => __("left", "oxygen"),
-                                                 'right'    => __("right", "oxygen"),
-                                                 'bottom'   => __("bottom", "oxygen"),
+                                                 'top'      => oxygen_translate("top", "oxygen"),
+                                                 'left'     => oxygen_translate("left", "oxygen"),
+                                                 'right'    => oxygen_translate("right", "oxygen"),
+                                                 'bottom'   => oxygen_translate("bottom", "oxygen"),
                                             ),
                             "css"           => false,
                         ),
                         array(
                             "type"          => "radio",
-                            "heading"       => __("Icon Vertical Alignment", "oxygen"),
+                            "heading"       => oxygen_translate("Icon Vertical Alignment", "oxygen"),
                             "param_name"    => "icon_box_icon_vertical_alignment",
                             "value"         => array(
-                                                 'flex-start'   => __("top", "oxygen"),
-                                                 'center'       => __("middle", "oxygen"),
-                                                 'flex-end'     => __("bottom", "oxygen"),
+                                                 'flex-start'   => oxygen_translate("top", "oxygen"),
+                                                 'center'       => oxygen_translate("middle", "oxygen"),
+                                                 'flex-end'     => oxygen_translate("bottom", "oxygen"),
                                             ),
                             "condition"     => "icon_box_icon_position=left||icon_box_icon_position=right",
                             "css"           => false,
@@ -441,7 +441,7 @@ $oxygen_vsb_components['icon_box'] = new Oxygen_VSB_Icon_Box( array(
                         // Icon
                         array(
                             "type"          => "slider-measurebox",
-                            "heading"       => __("Icon Space Before", "oxygen"),
+                            "heading"       => oxygen_translate("Icon Space Before", "oxygen"),
                             "param_name"    => "icon_box_icon_space_before",
                             "value"         => "",
                             "css"           => false,
@@ -454,7 +454,7 @@ $oxygen_vsb_components['icon_box'] = new Oxygen_VSB_Icon_Box( array(
 
                         array(
                             "type"          => "slider-measurebox",
-                            "heading"       => __("Icon Space After", "oxygen"),
+                            "heading"       => oxygen_translate("Icon Space After", "oxygen"),
                             "param_name"    => "icon_box_icon_space_after",
                             "value"         => "12",
                             "css"           => false,
@@ -468,7 +468,7 @@ $oxygen_vsb_components['icon_box'] = new Oxygen_VSB_Icon_Box( array(
                         // Heading
                         array(
                             "type"          => "slider-measurebox",
-                            "heading"       => __("Heading Space Above", "oxygen"),
+                            "heading"       => oxygen_translate("Heading Space Above", "oxygen"),
                             "param_name"    => "icon_box_heading_space_above",
                             "value"         => "",
                             "css"           => false,
@@ -481,7 +481,7 @@ $oxygen_vsb_components['icon_box'] = new Oxygen_VSB_Icon_Box( array(
 
                         array(
                             "type"          => "slider-measurebox",
-                            "heading"       => __("Heading Space Below", "oxygen"),
+                            "heading"       => oxygen_translate("Heading Space Below", "oxygen"),
                             "param_name"    => "icon_box_heading_space_below",
                             "value"         => "12",
                             "css"           => false,
@@ -495,7 +495,7 @@ $oxygen_vsb_components['icon_box'] = new Oxygen_VSB_Icon_Box( array(
                         // Text
                         array(
                             "type"          => "slider-measurebox",
-                            "heading"       => __("Text Space Above", "oxygen"),
+                            "heading"       => oxygen_translate("Text Space Above", "oxygen"),
                             "param_name"    => "icon_box_text_space_above",
                             "value"         => "",
                             "css"           => false,
@@ -508,7 +508,7 @@ $oxygen_vsb_components['icon_box'] = new Oxygen_VSB_Icon_Box( array(
 
                         array(
                             "type"          => "slider-measurebox",
-                            "heading"       => __("Text Space Below", "oxygen"),
+                            "heading"       => oxygen_translate("Text Space Below", "oxygen"),
                             "param_name"    => "icon_box_text_space_below",
                             "value"         => "20",
                             "css"           => false,
@@ -522,7 +522,7 @@ $oxygen_vsb_components['icon_box'] = new Oxygen_VSB_Icon_Box( array(
                         // Text
                         array(
                             "type"          => "slider-measurebox",
-                            "heading"       => __("Link Space Above", "oxygen"),
+                            "heading"       => oxygen_translate("Link Space Above", "oxygen"),
                             "param_name"    => "icon_box_link_space_above",
                             "value"         => "20",
                             "css"           => false,
@@ -535,7 +535,7 @@ $oxygen_vsb_components['icon_box'] = new Oxygen_VSB_Icon_Box( array(
 
                         array(
                             "type"          => "slider-measurebox",
-                            "heading"       => __("Link Space Below", "oxygen"),
+                            "heading"       => oxygen_translate("Link Space Below", "oxygen"),
                             "param_name"    => "icon_box_link_space_below",
                             "value"         => "",
                             "css"           => false,
@@ -549,23 +549,23 @@ $oxygen_vsb_components['icon_box'] = new Oxygen_VSB_Icon_Box( array(
                 ),
 
                 'responsive' => array(
-                    'heading' => __('Responsive','oxygen'),
+                    'heading' => oxygen_translate('Responsive','oxygen'),
                     'params' => array(
                         array(
                             "type"          => "medialist",
-                            "heading"       => __("Vertical Layout Below","oxygen"),
+                            "heading"       => oxygen_translate("Vertical Layout Below","oxygen"),
                             "value"         => "",
                             "param_name"    => "icon_box_vertical_layout_below",
                             "css"           => false
                         ),
                         array(
                             "type"          => "radio",
-                            "heading"       => __("Content Alignment", "oxygen"),
+                            "heading"       => oxygen_translate("Content Alignment", "oxygen"),
                             "param_name"    => "icon_box_mobile_content_alignment",
                             "value"         => array(
-                                                 'left'     => __("left", "oxygen"),
-                                                 'center'   => __("center", "oxygen"),
-                                                 'right'    => __("right", "oxygen"),
+                                                 'left'     => oxygen_translate("left", "oxygen"),
+                                                 'center'   => oxygen_translate("center", "oxygen"),
+                                                 'right'    => oxygen_translate("right", "oxygen"),
                                             ),
                             "css"           => false,
                         ),
@@ -573,10 +573,10 @@ $oxygen_vsb_components['icon_box'] = new Oxygen_VSB_Icon_Box( array(
                 ),
 
                 'typography' => array(
-                    'heading' => __('Typography','oxygen'),
+                    'heading' => oxygen_translate('Typography','oxygen'),
                     'tabs' => array(
                         'heading_typography' => array(
-                            'heading' => __("Heading","oxygen"),
+                            'heading' => oxygen_translate("Heading","oxygen"),
                             'params' => array(
                                 array(
                                     "type"          => "typography",
@@ -599,7 +599,7 @@ $oxygen_vsb_components['icon_box'] = new Oxygen_VSB_Icon_Box( array(
                             )
                         ),
                         'text_typography' => array(
-                            'heading' => __("Text","oxygen"),
+                            'heading' => oxygen_translate("Text","oxygen"),
                             'params' => array(
                                 array(
                                     "type"          => "typography",

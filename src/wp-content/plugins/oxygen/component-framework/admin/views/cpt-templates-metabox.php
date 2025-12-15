@@ -2,33 +2,33 @@
 	
 	<label>
 		<input class="ct-template-anchor" type="radio" name="ct_template_type" value="archive" <?php checked( $template_type, "archive"); ?>>
-		<?php _e("Archive", "component-theme"); ?>
+		<?php oxygen_translate_echo("Archive", "component-theme"); ?>
 	</label>
 	<label>
 		<input class="ct-template-anchor" type="radio" name="ct_template_type" value="single_post" <?php checked( $template_type, "single_post"); ?>>
-		<?php _e("Single", "component-theme"); ?>
+		<?php oxygen_translate_echo("Single", "component-theme"); ?>
 	</label>
 
 	<label>
 		<input class="ct-template-anchor" type="radio" name="ct_template_type" value="reusable_part" <?php checked( $template_type, "reusable_part"); ?>>
-		<?php _e("Re-usable part", "component-theme"); ?>
+		<?php oxygen_translate_echo("Re-usable part", "component-theme"); ?>
 	</label>
 
 	<label>
 		<input class="ct-template-anchor" type="radio" name="ct_template_type" value="other_template" <?php checked( $template_type, "other_template"); ?>>
-		<?php _e("Other Template", "component-theme"); ?>
+		<?php oxygen_translate_echo("Other Template", "component-theme"); ?>
 	</label>
 </div>
 
 <div id="ct_archive" class="ct-template-section">
 
-	<b><?php _e("Post Types Archives","component-theme"); ?></b>
+	<b><?php oxygen_translate_echo("Post Types Archives","component-theme"); ?></b>
 	<br/>
 
 	<label>
 		<input type="checkbox" name="ct_template_archive_post_types_all" value="true" 
 			<?php if ( $template_archive_post_types_all ) echo 'checked="checked"'; ?>>
-		<?php _e("All Post Types", "component-theme"); ?>
+		<?php oxygen_translate_echo("All Post Types", "component-theme"); ?>
 	</label>
 	
 	<select class="ct-select2" name="ct_template_archive_post_types[]" id="ct_template_archive_post_types" multiple="multiple">
@@ -64,13 +64,13 @@
 	</script>
 	
 	<br/><br/>
-	<b><?php _e("Categories Archives", "component-theme"); ?></b>
+	<b><?php oxygen_translate_echo("Categories Archives", "component-theme"); ?></b>
 	<br/>
 
 	<label>
 		<input type="checkbox" name="ct_template_categories_all" value="true" 
 			<?php if ( $template_categories_all ) echo 'checked="checked"'; ?>>
-		<?php _e("All Categories", "component-theme"); ?>
+		<?php oxygen_translate_echo("All Categories", "component-theme"); ?>
 	</label>
 	
 	<select name="ct_template_categories[]" id="ct_template_categories" multiple="multiple">
@@ -97,13 +97,13 @@
 
 
 	<br/><br/>
-	<b><?php _e("Tags Archives", "component-theme"); ?></b>
+	<b><?php oxygen_translate_echo("Tags Archives", "component-theme"); ?></b>
 	<br/>
 
 	<label>
 		<input type="checkbox" name="ct_template_tags_all" value="true" 
 			<?php if ( $template_tags_all ) echo 'checked="checked"'; ?>>
-		<?php _e("All Tags", "component-theme"); ?>
+		<?php oxygen_translate_echo("All Tags", "component-theme"); ?>
 	</label>
 	
 	<select name="ct_template_tags[]" id="ct_template_tags" multiple="multiple">
@@ -130,13 +130,13 @@
 	</script>
 
 	<br/><br/>
-	<b><?php _e("Custom Taxonomies", "component-theme"); ?></b>
+	<b><?php oxygen_translate_echo("Custom Taxonomies", "component-theme"); ?></b>
 	<br/>
 
 	<label>
 		<input type="checkbox" name="ct_template_custom_taxonomies_all" value="true" 
 			<?php if ( $template_custom_taxonomies_all ) echo 'checked="checked"'; ?>>
-		<?php _e("All Taxonomies", "component-theme"); ?>
+		<?php oxygen_translate_echo("All Taxonomies", "component-theme"); ?>
 	</label>
 
 	<select name="ct_template_custom_taxonomies[]" id="ct_template_custom_taxonomies" multiple="multiple">
@@ -169,7 +169,7 @@
 				
 				<option value="<?php echo esc_attr( "all_".$taxonomy->name ); ?>"
 					<?php if ( in_array( "all_".$taxonomy->name, $template_custom_taxonomies ) ) echo 'selected="selected"'; ?>>
-					<?php _e( "All ", "component-theme" ); echo sanitize_text_field( $taxonomy->labels->name ); ?>
+					<?php oxygen_translate_echo( "All ", "component-theme" ); echo sanitize_text_field( $taxonomy->labels->name ); ?>
 				</option>
 
 				<?php foreach ( $categories as $category ) : ?>
@@ -191,13 +191,13 @@
 	</script>
 
 	<br/><br/>
-	<b><?php _e("Authors Archives", "component-theme"); ?></b>
+	<b><?php oxygen_translate_echo("Authors Archives", "component-theme"); ?></b>
 	<br/>
 
 	<label>
 		<input type="checkbox" name="ct_template_authors_archives_all" value="true" 
 			<?php if ( $template_authors_archives_all ) echo 'checked="checked"'; ?>>
-		<?php _e("All Authors Archives", "component-theme"); ?>
+		<?php oxygen_translate_echo("All Authors Archives", "component-theme"); ?>
 	</label>
 	
 	<select name="ct_template_authors_archives[]" id="ct_template_authors_archives" multiple="multiple">
@@ -223,43 +223,43 @@
 	</script>
 
 	<br/><br/>
-	<b><?php _e("Other", "component-theme"); ?></b>
+	<b><?php oxygen_translate_echo("Other", "component-theme"); ?></b>
 	<br/>
 
 	<label>
 		<input type="checkbox" name="ct_template_index" value="true" 
 			<?php if ( $template_index ) echo 'checked="checked"'; ?>>
-		<?php _e("Index", "component-theme"); ?>
+		<?php oxygen_translate_echo("Index", "component-theme"); ?>
 	</label><br/>
 	
 	<label>
 		<input type="checkbox" name="ct_template_front_page" value="true" 
 			<?php if ( $template_front_page ) echo 'checked="checked"'; ?>>
-		<?php _e("Front Page", "component-theme"); ?>
-	</label><span class="description"><?php _e("('Front page' option must be set in Settings > Reading settings)","component-theme"); ?></span><br/>
+		<?php oxygen_translate_echo("Front Page", "component-theme"); ?>
+	</label><span class="description"><?php oxygen_translate_echo("('Front page' option must be set in Settings > Reading settings)","component-theme"); ?></span><br/>
 	
 	<label>
 		<input type="checkbox" name="ct_template_blog_posts" value="true" 
 			<?php if ( $template_blog_posts ) echo 'checked="checked"'; ?>>
-		<?php _e("Blog Posts", "component-theme"); ?>
-	</label><span class="description"><?php _e("('Blog Posts' option must be set in Settings > Reading settings)","component-theme"); ?></span><br/>
+		<?php oxygen_translate_echo("Blog Posts", "component-theme"); ?>
+	</label><span class="description"><?php oxygen_translate_echo("('Blog Posts' option must be set in Settings > Reading settings)","component-theme"); ?></span><br/>
 
 	<label>
 		<input type="checkbox" name="ct_template_date_archive" value="true" 
 			<?php if ( $template_date_archive ) echo 'checked="checked"'; ?>>
-		<?php _e("Date Archive", "component-theme"); ?>
+		<?php oxygen_translate_echo("Date Archive", "component-theme"); ?>
 	</label><br/>
 
 	<label>
 		<input type="checkbox" name="ct_template_search_page" value="true" 
 			<?php if ( $template_search_page ) echo 'checked="checked"'; ?>>
-		<?php _e("Search Results Page", "component-theme"); ?>
+		<?php oxygen_translate_echo("Search Results Page", "component-theme"); ?>
 	</label><br/>
 
 	<label>
 		<input type="checkbox" name="ct_template_404_page" value="true" 
 			<?php if ( $template_404_page ) echo 'checked="checked"'; ?>>
-		<?php _e("Page 404", "component-theme"); ?>
+		<?php oxygen_translate_echo("Page 404", "component-theme"); ?>
 	</label><br/>
 	
 
@@ -271,7 +271,7 @@
 
 		<div class="ct-template-column-left">
 		
-			<?php _e("Apply to","component-theme"); ?><br/>
+			<?php oxygen_translate_echo("Apply to","component-theme"); ?><br/>
 			<?php 
 
 			// get all types available for install
@@ -293,14 +293,14 @@
 			<?php endforeach; ?>
 			<label>
 				<input type="checkbox" name="ct_template_single_all" value="true" <?php checked( $template_single_all, "true"); ?>>
-				<?php _e("Apply to all","component-theme"); ?>
+				<?php oxygen_translate_echo("Apply to all","component-theme"); ?>
 			</label>
 		</div><!-- .ct-template-column-left -->
 
 		<div class="ct-template-column-left">
 			<label>
 				<input type="checkbox" id="ct_use_template_taxonomies" name="ct_use_template_taxonomies" value="true" <?php checked($use_taxonomies, "true"); ?>>
-				<?php _e("Only apply to posts in certain taxonomies", "component-theme"); ?><br/>
+				<?php oxygen_translate_echo("Only apply to posts in certain taxonomies", "component-theme"); ?><br/>
 			</label>
 
 			<div class="ct-template-taxonomies">
@@ -316,7 +316,7 @@
 
 				<div id="ct-template-taxonomy-placeholder">
 					<div class="ct-template-taxonomy">
-						<?php _e("Has","component-theme"); ?>
+						<?php oxygen_translate_echo("Has","component-theme"); ?>
 						<select name="ct_taxonomy_names[]">
 						<?php foreach ( $taxonomies as $key => $value ) : ?>
 							<option value="<?php echo esc_attr( $key ); ?>">
@@ -325,7 +325,7 @@
 						<?php endforeach; ?>
 						</select>
 						<input type="text" name="ct_taxonomy_values[]" value="">
-						<span class="ct-taxonomy-relation"><?php _e("And","component-theme"); ?></span>
+						<span class="ct-taxonomy-relation"><?php oxygen_translate_echo("And","component-theme"); ?></span>
 						<span class="dashicons dashicons-trash ct-remove-taxonomy"></span>
 						<span class="dashicons dashicons-plus ct-add-taxonomy"></span>
 					</div>
@@ -333,7 +333,7 @@
 				
 				<?php foreach ( $template_taxonomies['names'] as $template_taxonomy_key => $template_taxonomy_name ) : ?>
 				<div class="ct-template-taxonomy">
-					<?php _e("Has","component-theme"); ?>
+					<?php oxygen_translate_echo("Has","component-theme"); ?>
 					<select name="ct_taxonomy_names[]">
 					<?php foreach ( $taxonomies as $key => $value ) : ?>
 						<option value="<?php echo esc_attr( $key ); ?>" <?php echo selected( $key, $template_taxonomy_name ); ?>>
@@ -342,7 +342,7 @@
 					<?php endforeach; ?>
 					</select>
 					<input type="text" name="ct_taxonomy_values[]" value="<?php echo esc_attr( $template_taxonomies['values'][$template_taxonomy_key] ); ?>">
-					<span class="ct-taxonomy-relation"><?php _e("And","component-theme"); ?></span>
+					<span class="ct-taxonomy-relation"><?php oxygen_translate_echo("And","component-theme"); ?></span>
 					<span class="dashicons dashicons-trash ct-remove-taxonomy"></span>
 					<span class="dashicons dashicons-plus ct-add-taxonomy"></span>
 				</div>

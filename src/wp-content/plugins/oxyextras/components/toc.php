@@ -78,6 +78,8 @@ class ExtraTOC extends OxygenExtraElements {
         $suffix = isset( $options['suffix'] ) ? esc_attr($options['suffix']) : '';
         $seperator = isset( $options['seperator'] ) ? esc_attr($options['seperator']) : '';
 
+        $heading_ids = isset( $options['heading_ids'] ) ? esc_attr($options['heading_ids']) : 'prefix';
+
         $builder_clicks = (defined('OXY_ELEMENTS_API_AJAX') && OXY_ELEMENTS_API_AJAX) ? 'onclick="extrasToggleToc.call(this)" ' : '';
 
         $context_type = isset( $options['context_type'] ) ? esc_attr($options['context_type']) : '';
@@ -113,7 +115,8 @@ class ExtraTOC extends OxygenExtraElements {
         
         if (isset( $options['maybe_autoid'] ) && ('true' === $options['maybe_autoid'])) {
             
-            $output .= 'data-autoid="true" ';
+            $output .= 'data-autoid="true" '; 
+            $output .= 'data-autoid-type="'. $heading_ids .'" ';
             $output .= 'data-prefix="'. esc_attr($options['id_prefix']) .'" ';
             
         }
@@ -1043,13 +1046,29 @@ class ExtraTOC extends OxygenExtraElements {
 
          $scroll_section->addOptionControl(
             array(
+                'type' => 'buttons-list',
+                'name' => __('Heading IDs'),
+                'slug' => 'heading_ids',
+                "condition" => 'maybe_autoid=true'
+            )
+        )->setValue(array(
+             "prefix" => "ID with Prefix", 
+             "text" => "Use heading text" 
+             )
+        )
+         ->setDefaultValue('prefix');
+
+         $scroll_section->addOptionControl(
+            array(
                 "type" => 'textfield',
                 "name" => __('ID prefix'),
                 "slug" => 'id_prefix',
                 "default" => 'toc-',
-                "condition" => 'maybe_autoid=true'
+                "condition" => 'maybe_autoid=true&&heading_ids!=text'
             )
         );
+
+        
 
          $scroll_section->addOptionControl(
             array(
@@ -1342,7 +1361,7 @@ class ExtraTOC extends OxygenExtraElements {
     }
     
     function output_init_js() { 
-        wp_enqueue_script( 'tocbot-init-js', plugin_dir_url(__FILE__) . 'assets/tocbot-init.js', '', '1.0.1' );    
+        wp_enqueue_script( 'tocbot-init-js', plugin_dir_url(__FILE__) . 'assets/tocbot-init.js', '', '1.0.2' );    
     }
     
 

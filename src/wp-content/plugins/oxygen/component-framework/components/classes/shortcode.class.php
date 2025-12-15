@@ -133,12 +133,12 @@ $oxygen_vsb_components['shortcode'] = new CT_Shortcode ( array(
 								"param_name" 	=> "full_shortcode",
 								"value" 		=> "",
 								"type" 			=> "textfield",
-								"heading" 		=> __("Full shortcode","oxygen"),
+								"heading" 		=> oxygen_translate("Full shortcode","oxygen"),
 								"css" 			=> false,
 							),
 							array(
 								"type" 			=> "tag",
-								"heading" 		=> __("Tag"),
+								"heading" 		=> oxygen_translate("Tag"),
 								"param_name" 	=> "tag",
 								"value" 		=> array (
 													"div" => "DIV",
@@ -168,7 +168,7 @@ $oxygen_vsb_components['shortcode'] = new CT_Shortcode ( array(
 							),
 							array(
 								"type" 			=> "checkbox",
-								"heading" 		=> __("Don't render in Oxygen","oxygen"),
+								"heading" 		=> oxygen_translate("Don't render in Oxygen","oxygen"),
 								"param_name" 	=> "dont_render",
 								"value" 		=> "false",
 								"true_value" 	=> "true",
@@ -177,7 +177,7 @@ $oxygen_vsb_components['shortcode'] = new CT_Shortcode ( array(
 							),
 							array(
 								"type" 			=> "measurebox",
-								"heading" 		=> __("Placeholder Width"),
+								"heading" 		=> oxygen_translate("Placeholder Width"),
 								"param_name" 	=> "placeholder-width",
 								"value" 		=> "",
 								"condition" 	=> "dont_render=true",
@@ -185,7 +185,7 @@ $oxygen_vsb_components['shortcode'] = new CT_Shortcode ( array(
 							),
 							array(
 								"type" 			=> "measurebox",
-								"heading" 		=> __("Placeholder Height"),
+								"heading" 		=> oxygen_translate("Placeholder Height"),
 								"param_name" 	=> "placeholder-height",
 								"value" 		=> "",
 								"condition" 	=> "dont_render=true",

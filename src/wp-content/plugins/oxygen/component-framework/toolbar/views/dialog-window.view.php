@@ -21,11 +21,11 @@
 </div>
 <div id="oxygen-global-colors-new-color-dialog" class="oxygen-global-colors-new-color oxygen-global-colors-new-color-dialog"
     ng-show="addNewColorDialog">
-    <h2><?php _e("New Color","oxygen"); ?></h2>
+    <h2><?php oxygen_translate_echo("New Color","oxygen"); ?></h2>
     <div class="oxygen-input">
         <div class="oxygen-global-color"
             ng-style="{backgroundColor:addNewColorDialogValue}"></div>
-        <input type="text" spellcheck="false" placeholder="<?php _e("Color Name","oxygen"); ?>"
+        <input type="text" spellcheck="false" placeholder="<?php oxygen_translate_echo("Color Name","oxygen"); ?>"
             ng-model="newGlobalSettingsColorName" ng-model-options="{ debounce: 10 }">
     </div>
     <div class="oxygen-select oxygen-select-box-wrapper"
@@ -52,7 +52,7 @@
 </div>
 <div id="oxygen-presets-dialog" class="oxygen-presets-dialog oxygen-data-dialog"
     ng-show="showPresetsDialog">
-    <h1><?php _e("Preset","oxygen"); ?>
+    <h1><?php oxygen_translate_echo("Preset","oxygen"); ?>
         <svg class="oxygen-close-icon"
             ng-click="showPresetsDialog=false"><use xlink:href="#oxy-icon-cross"></use>
         </svg>
@@ -60,7 +60,7 @@
     <div id="oxygen-preset-json-container">{{iframeScope.presetExportJSON}}</div>
     <div class="oxygen-apply-button"
         ng-click="iframeScope.copyPresetExportJSON()">
-        <?php _e("Copy To Clipboard","oxygen"); ?>
+        <?php oxygen_translate_echo("Copy To Clipboard","oxygen"); ?>
     </div>
 </div>
 <!-- /Presets Dialog Window -->
@@ -76,10 +76,10 @@
     
     <h1>
         <span ng-show="showExportDialog">
-            <?php _e("Export Element JSON","oxygen"); ?>
+            <?php oxygen_translate_echo("Export Element JSON","oxygen"); ?>
         </span>
         <span ng-show="showImportDialog">
-            <?php _e("Import Element JSON","oxygen"); ?>
+            <?php oxygen_translate_echo("Import Element JSON","oxygen"); ?>
         </span>
         <svg class="oxygen-close-icon"
             ng-click="showImportDialog=false;showExportDialog=false;elementExportJSON='';elementImportJSON=''"><use xlink:href="#oxy-icon-cross"></use>
@@ -90,7 +90,7 @@
         <div class="oxygen-json-container">{{elementExportJSON}}</div>
         <div class="oxygen-apply-button"
             ng-click="copyElementExportJSON()">
-            <?php _e("Copy To Clipboard","oxygen"); ?>
+            <?php oxygen_translate_echo("Copy To Clipboard","oxygen"); ?>
         </div>
     </div>
 
@@ -99,7 +99,7 @@
             ng-model="elementImportJSON"></textarea>
         <div class="oxygen-apply-button"
             ng-click="processElementImportJSON()">
-            <?php _e("Import","oxygen"); ?>
+            <?php oxygen_translate_echo("Import","oxygen"); ?>
         </div>
     </div>
 </div>

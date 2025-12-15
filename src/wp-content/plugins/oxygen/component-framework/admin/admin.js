@@ -246,7 +246,7 @@ jQuery(document).ready(function($) {
 					jQuery('#ct-edit-template-builder').show();
 					jQuery('#oxygen-save-first-message').hide();
 
-					jQuery(".oxygen-edit-mode-button").insertBefore(".editor-header__toolbar").show()
+					jQuery(".oxygen-edit-mode-button").insertBefore(".edit-post-header").css("display","block")
 
 					// unbind click event as we don't need it anymore
 					jQuery('body').off('click', 'button, input[type=submit]', showEditWithOxygenButton);
@@ -428,7 +428,7 @@ jQuery(document).ready(function($) {
 	// Edit with Oxygen alternative button for Edit Mode users
 	if ( document.location.href.indexOf(publishedPostURL) > 0 ) {
 		setTimeout(() => {
-			$(".oxygen-edit-mode-button").insertBefore(".editor-header__toolbar").show()
+			$(".oxygen-edit-mode-button").insertBefore(".edit-post-header").css("display","block")
 		}, 1000);
 		$(".oxygen-edit-mode-button-non-gutenberg").insertAfter(".wp-heading-inline").css("display","inline-block")
 	}

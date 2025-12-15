@@ -3,7 +3,7 @@
 		<div class="oxy-style-indicator"
 			ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('gradient')&&!IDHasOption('gradient'),'oxygen-has-id-value':iframeScope.IDHasOption('gradient')}">
 		</div>
-		<a href="#" class="oxygen-gradient-add-color" ng-click="addGradientColor()"><?php _e("Add a Color", "component-theme"); ?></a>
+		<a href="#" class="oxygen-gradient-add-color" ng-click="addGradientColor()"><?php oxygen_translate_echo("Add a Color", "component-theme"); ?></a>
 	</div>
 </div>
 
@@ -35,7 +35,7 @@
 
 <div class="oxygen-control-row">
 	<div class="oxygen-control-wrapper" id="oxygen-control-layout-display">
-		<label class="oxygen-control-label"><?php _e("Type", "component-theme"); ?></label>
+		<label class="oxygen-control-label"><?php oxygen_translate_echo("Type", "component-theme"); ?></label>
 		<div class="oxygen-control">
 			<div class="oxygen-button-list">
 				<label class="oxygen-button-list-button"
@@ -45,7 +45,7 @@
 						ng-checked="iframeScope.component.options[iframeScope.component.active.id]['model']['gradient']['gradient-type'] == 'linear'"
 						ng-click="toggleGradientRadio('gradient-type', 'linear', $index, $event)"
 						class="ng-pristine ng-untouched ng-valid" />
-				<?php _e("linear", "component-theme"); ?></label>
+				<?php oxygen_translate_echo("linear", "component-theme"); ?></label>
 							
 				<label class="oxygen-button-list-button" ng-class="{'oxygen-button-list-button-active': iframeScope.component.options[iframeScope.component.active.id]['model']['gradient']['gradient-type'] == 'radial'}">
 					<input type="radio" 
@@ -53,7 +53,7 @@
 						ng-checked="iframeScope.component.options[iframeScope.component.active.id]['model']['gradient']['gradient-type'] == 'linear'"
 						ng-click="toggleGradientRadio('gradient-type', 'radial', $index, $event)" 
 						class="ng-pristine ng-untouched ng-valid" />
-				<?php _e("radial", "component-theme"); ?></label>
+				<?php oxygen_translate_echo("radial", "component-theme"); ?></label>
 			</div>
 		</div>
 	</div>
@@ -63,7 +63,7 @@
 	
 	<div class="oxygen-control-row">
 		<div class="oxygen-control-wrapper" id="oxygen-control-layout-display">
-			<label class="oxygen-control-label"><?php _e("Shape", "component-theme"); ?></label>
+			<label class="oxygen-control-label"><?php oxygen_translate_echo("Shape", "component-theme"); ?></label>
 			<div class="oxygen-control">
 				<div class="oxygen-button-list">
 					<label class="oxygen-button-list-button"
@@ -73,7 +73,7 @@
 							ng-checked="iframeScope.component.options[iframeScope.component.active.id]['model']['gradient']['radial-shape'] == 'ellipse'"
 							ng-click="toggleGradientRadio('radial-shape', 'ellipse', $index, $event)"
 							class="ng-pristine ng-untouched ng-valid" />
-					<?php _e("ellipse", "component-theme"); ?></label>
+					<?php oxygen_translate_echo("ellipse", "component-theme"); ?></label>
 								
 					<label class="oxygen-button-list-button" ng-class="{'oxygen-button-list-button-active': iframeScope.component.options[iframeScope.component.active.id]['model']['gradient']['radial-shape'] == 'circle'}">
 						<input type="radio" 
@@ -81,7 +81,7 @@
 							ng-checked="iframeScope.component.options[iframeScope.component.active.id]['model']['gradient']['radial-shape'] == 'circle'"
 							ng-click="toggleGradientRadio('radial-shape', 'circle', $index, $event)" 
 							class="ng-pristine ng-untouched ng-valid" />
-					<?php _e("circle", "component-theme"); ?></label>
+					<?php oxygen_translate_echo("circle", "component-theme"); ?></label>
 				</div>
 			</div>
 		</div>
@@ -89,7 +89,7 @@
 
 	<div class="oxygen-control-row">
 		<div class="oxygen-control-wrapper" id="oxygen-control-layout-display">
-			<label class="oxygen-control-label"><?php _e("Size", "component-theme"); ?></label>
+			<label class="oxygen-control-label"><?php oxygen_translate_echo("Size", "component-theme"); ?></label>
 			<div class="oxygen-control">
 				<div class="oxygen-button-list">
 					<label class="oxygen-button-list-button"
@@ -99,7 +99,7 @@
 							ng-checked="iframeScope.component.options[iframeScope.component.active.id]['model']['gradient']['radial-size'] == 'farthest-corner'"
 							ng-click="toggleGradientRadio('radial-size', 'farthest-corner', $index, $event)"
 							class="ng-pristine ng-untouched ng-valid" />
-					<?php _e("farthest-corner", "component-theme"); ?></label>
+					<?php oxygen_translate_echo("farthest-corner", "component-theme"); ?></label>
 								
 					<label class="oxygen-button-list-button" ng-class="{'oxygen-button-list-button-active': iframeScope.component.options[iframeScope.component.active.id]['model']['gradient']['radial-size'] == 'closest-side'}">
 						<input type="radio" 
@@ -107,7 +107,7 @@
 							ng-checked="iframeScope.component.options[iframeScope.component.active.id]['model']['gradient']['radial-size'] == 'closest-side'"
 							ng-click="toggleGradientRadio('radial-size', 'closest-side', $index, $event)" 
 							class="ng-pristine ng-untouched ng-valid" />
-					<?php _e("closest-side", "component-theme"); ?></label>
+					<?php oxygen_translate_echo("closest-side", "component-theme"); ?></label>
 
 					<label class="oxygen-button-list-button" ng-class="{'oxygen-button-list-button-active': iframeScope.component.options[iframeScope.component.active.id]['model']['gradient']['radial-size'] == 'closest-corner'}">
 						<input type="radio" 
@@ -115,7 +115,7 @@
 							ng-checked="iframeScope.component.options[iframeScope.component.active.id]['model']['gradient']['radial-size'] == 'closest-corner'"
 							ng-click="toggleGradientRadio('radial-size', 'closest-corner', $index, $event)" 
 							class="ng-pristine ng-untouched ng-valid" />
-					<?php _e("closest-corner", "component-theme"); ?></label>
+					<?php oxygen_translate_echo("closest-corner", "component-theme"); ?></label>
 
 					<label class="oxygen-button-list-button" ng-class="{'oxygen-button-list-button-active': iframeScope.component.options[iframeScope.component.active.id]['model']['gradient']['radial-size'] == 'farthest-side'}">
 						<input type="radio" 
@@ -123,7 +123,7 @@
 							ng-checked="iframeScope.component.options[iframeScope.component.active.id]['model']['gradient']['radial-size'] == 'farthest-side'"
 							ng-click="toggleGradientRadio('radial-size', 'farthest-side', $index, $event)" 
 							class="ng-pristine ng-untouched ng-valid" />
-					<?php _e("farthest-side", "component-theme"); ?></label>
+					<?php oxygen_translate_echo("farthest-side", "component-theme"); ?></label>
 				</div>
 			</div>
 		</div>
@@ -131,7 +131,7 @@
 
 	<div class="oxygen-control-row">
 		<div class="oxygen-control-wrapper">
-			<label class="oxygen-control-label"><?php _e("Left", "component-theme"); ?></label>
+			<label class="oxygen-control-label"><?php oxygen_translate_echo("Left", "component-theme"); ?></label>
 			<div class="oxygen-control">
 				<div class="oxygen-measure-box oxygen-option-default">
 					<input type="text" spellcheck="false" 
@@ -156,7 +156,7 @@
 		</div>
 
 		<div class="oxygen-control-wrapper">
-			<label class="oxygen-control-label"><?php _e("Top", "component-theme"); ?></label>
+			<label class="oxygen-control-label"><?php oxygen_translate_echo("Top", "component-theme"); ?></label>
 			<div class="oxygen-control">
 				<div class="oxygen-measure-box oxygen-option-default">
 					<input type="text" spellcheck="false" 
@@ -185,7 +185,7 @@
 
 <div ng-if="!iframeScope.component.options[iframeScope.component.active.id]['model']['gradient']['gradient-type'] || iframeScope.component.options[iframeScope.component.active.id]['model']['gradient']['gradient-type'] == 'linear'">
 	<div class="oxygen-control-wrapper">
-		<label class="oxygen-control-label"><?php _e("Angle", "component-theme"); ?></label>
+		<label class="oxygen-control-label"><?php oxygen_translate_echo("Angle", "component-theme"); ?></label>
 		<div class="oxygen-control">
 			<div class="oxygen-measure-box oxygen-option-default">
 				<input type="text" spellcheck="false" 

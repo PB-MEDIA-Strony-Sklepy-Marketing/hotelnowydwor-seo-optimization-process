@@ -37,68 +37,68 @@ Class Oxygen_AOS {
 		add_action("ct_footer_js", array($this, "init") );
 
 		$this->animations_list = array(
-			"fade" => __("Fade","oxygen"),
-			"fade-up" => __("Fade Up","oxygen"),
-			"fade-down" => __("Fade Down","oxygen"),
-			"fade-left" => __("Fade Left","oxygen"),
-			"fade-right" => __("Fade Right","oxygen"),
-			"fade-up-right" => __("Fade Up Right","oxygen"),
-			"fade-up-left" => __("Fade Up Left","oxygen"),
-			"fade-down-right" => __("Fade Down Right","oxygen"),
-			"fade-down-left" => __("Fade Down Left","oxygen"),
-			"flip-up" => __("Flip Up","oxygen"),
-			"flip-down" => __("Flip Down","oxygen"),
-			"flip-left" => __("Flip Left","oxygen"),
-			"flip-right" => __("Flip Right","oxygen"),
-			"slide-up" => __("Slide Up","oxygen"),
-			"slide-down" => __("Slide Down","oxygen"),
-			"slide-left" => __("Slide Left","oxygen"),
-			"slide-right" => __("Slide Right","oxygen"),
-			"zoom-in" => __("Zoom In","oxygen"),
-			"zoom-in-up" => __("Zoom In Up","oxygen"),
-			"zoom-in-down" => __("Zoom In Down","oxygen"),
-			"zoom-in-left" => __("Zoom In Left","oxygen"),
-			"zoom-in-right" => __("Zoom In Right","oxygen"),
-			"zoom-out" => __("Zoom Out","oxygen"),
-			"zoom-out-up" => __("Zoom Out Up","oxygen"),
-			"zoom-out-down" => __("Zoom Out Down","oxygen"),
-			"zoom-out-left" => __("Zoom Out Left","oxygen"),
-			"zoom-out-right" => __("Zoom Out Right","oxygen"),
+			"fade" => oxygen_translate("Fade","oxygen"),
+			"fade-up" => oxygen_translate("Fade Up","oxygen"),
+			"fade-down" => oxygen_translate("Fade Down","oxygen"),
+			"fade-left" => oxygen_translate("Fade Left","oxygen"),
+			"fade-right" => oxygen_translate("Fade Right","oxygen"),
+			"fade-up-right" => oxygen_translate("Fade Up Right","oxygen"),
+			"fade-up-left" => oxygen_translate("Fade Up Left","oxygen"),
+			"fade-down-right" => oxygen_translate("Fade Down Right","oxygen"),
+			"fade-down-left" => oxygen_translate("Fade Down Left","oxygen"),
+			"flip-up" => oxygen_translate("Flip Up","oxygen"),
+			"flip-down" => oxygen_translate("Flip Down","oxygen"),
+			"flip-left" => oxygen_translate("Flip Left","oxygen"),
+			"flip-right" => oxygen_translate("Flip Right","oxygen"),
+			"slide-up" => oxygen_translate("Slide Up","oxygen"),
+			"slide-down" => oxygen_translate("Slide Down","oxygen"),
+			"slide-left" => oxygen_translate("Slide Left","oxygen"),
+			"slide-right" => oxygen_translate("Slide Right","oxygen"),
+			"zoom-in" => oxygen_translate("Zoom In","oxygen"),
+			"zoom-in-up" => oxygen_translate("Zoom In Up","oxygen"),
+			"zoom-in-down" => oxygen_translate("Zoom In Down","oxygen"),
+			"zoom-in-left" => oxygen_translate("Zoom In Left","oxygen"),
+			"zoom-in-right" => oxygen_translate("Zoom In Right","oxygen"),
+			"zoom-out" => oxygen_translate("Zoom Out","oxygen"),
+			"zoom-out-up" => oxygen_translate("Zoom Out Up","oxygen"),
+			"zoom-out-down" => oxygen_translate("Zoom Out Down","oxygen"),
+			"zoom-out-left" => oxygen_translate("Zoom Out Left","oxygen"),
+			"zoom-out-right" => oxygen_translate("Zoom Out Right","oxygen"),
 		);
 
 		$this->anchor_placements = array(
-		    "top-bottom" => __("Top Bottom","oxygen"),
-		    "top-center" => __("Top Center","oxygen"),
-		    "top-top" => __("Top Top","oxygen"),
-		    "center-bottom" => __("Center Bottom","oxygen"),
-		    "center-center" => __("Center Center","oxygen"),
-		    "center-top" => __("Center Top","oxygen"),
-		    "bottom-bottom" => __("Bottom Bottom","oxygen"),
-		    "bottom-center" => __("Bottom Center","oxygen"),
-		    "bottom-top" => __("Bottom Top","oxygen"),
+		    "top-bottom" => oxygen_translate("Top Bottom","oxygen"),
+		    "top-center" => oxygen_translate("Top Center","oxygen"),
+		    "top-top" => oxygen_translate("Top Top","oxygen"),
+		    "center-bottom" => oxygen_translate("Center Bottom","oxygen"),
+		    "center-center" => oxygen_translate("Center Center","oxygen"),
+		    "center-top" => oxygen_translate("Center Top","oxygen"),
+		    "bottom-bottom" => oxygen_translate("Bottom Bottom","oxygen"),
+		    "bottom-center" => oxygen_translate("Bottom Center","oxygen"),
+		    "bottom-top" => oxygen_translate("Bottom Top","oxygen"),
 		);
 
 		$this->easing_functions = array(
-		    "linear" => __("linear","oxygen"),
-		    "ease" => __("ease","oxygen"),
-		    "ease-in" => __("ease-in","oxygen"),
-		    "ease-out" => __("ease-out","oxygen"),
-		    "ease-in-out" => __("ease-in-out","oxygen"),
-		    "ease-in-back" => __("ease-in-back","oxygen"),
-		    "ease-out-back" => __("ease-out-back","oxygen"),
-		    "ease-in-out-back" => __("ease-in-out-back","oxygen"),
-		    "ease-in-sine" => __("ease-in-sine","oxygen"),
-		    "ease-out-sine" => __("ease-out-sine","oxygen"),
-		    "ease-in-out-sine" => __("ease-in-out-sine","oxygen"),
-		    "ease-in-quad" => __("ease-in-quad","oxygen"),
-		    "ease-out-quad" => __("ease-out-quad","oxygen"),
-		    "ease-in-out-quad" => __("ease-in-out-quad","oxygen"),
-		    "ease-in-cubic" => __("ease-in-cubic","oxygen"),
-		    "ease-out-cubic" => __("ease-out-cubic","oxygen"),
-		    "ease-in-out-cubic" => __("ease-in-out-cubic","oxygen"),
-		    "ease-in-quart" => __("ease-in-quart","oxygen"),
-		    "ease-out-quart" => __("ease-out-quart","oxygen"),
-		    "ease-in-out-quart" => __("ease-in-out-quart","oxygen"),
+		    "linear" => oxygen_translate("linear","oxygen"),
+		    "ease" => oxygen_translate("ease","oxygen"),
+		    "ease-in" => oxygen_translate("ease-in","oxygen"),
+		    "ease-out" => oxygen_translate("ease-out","oxygen"),
+		    "ease-in-out" => oxygen_translate("ease-in-out","oxygen"),
+		    "ease-in-back" => oxygen_translate("ease-in-back","oxygen"),
+		    "ease-out-back" => oxygen_translate("ease-out-back","oxygen"),
+		    "ease-in-out-back" => oxygen_translate("ease-in-out-back","oxygen"),
+		    "ease-in-sine" => oxygen_translate("ease-in-sine","oxygen"),
+		    "ease-out-sine" => oxygen_translate("ease-out-sine","oxygen"),
+		    "ease-in-out-sine" => oxygen_translate("ease-in-out-sine","oxygen"),
+		    "ease-in-quad" => oxygen_translate("ease-in-quad","oxygen"),
+		    "ease-out-quad" => oxygen_translate("ease-out-quad","oxygen"),
+		    "ease-in-out-quad" => oxygen_translate("ease-in-out-quad","oxygen"),
+		    "ease-in-cubic" => oxygen_translate("ease-in-cubic","oxygen"),
+		    "ease-out-cubic" => oxygen_translate("ease-out-cubic","oxygen"),
+		    "ease-in-out-cubic" => oxygen_translate("ease-in-out-cubic","oxygen"),
+		    "ease-in-quart" => oxygen_translate("ease-in-quart","oxygen"),
+		    "ease-out-quart" => oxygen_translate("ease-out-quart","oxygen"),
+		    "ease-in-out-quart" => oxygen_translate("ease-in-out-quart","oxygen"),
 		);
 	}
 
@@ -187,7 +187,7 @@ Class Oxygen_AOS {
 			ng-hide="hasOpenTabs('effects')||iframeScope.isEditing('custom-selector')"
 			ng-class="{'oxy-styles-present' : iframeScope.isTabHasOptions('effects','animation-on-scroll')}">
 				<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/animation.svg' />
-				<span><?php _e("Animate On Scroll","oxygen"); ?></span>
+				<span><?php oxygen_translate_echo("Animate On Scroll","oxygen"); ?></span>
 				<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/open-section.svg' />
 		</div>
 
@@ -211,12 +211,12 @@ Class Oxygen_AOS {
 			<div class="oxygen-sidebar-breadcrumb-icon" ng-click="$parent.$parent.switchTab('advanced', 'effects');$parent.$parent.closeTabs(['effects']);">
 				<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg">
 			</div>
-			<div class="oxygen-sidebar-breadcrumb-all-styles" ng-click="$parent.$parent.switchTab('advanced', 'effects');$parent.$parent.closeTabs(['effects']);"><?php _e("Effects","oxygen"); ?></div>
+			<div class="oxygen-sidebar-breadcrumb-all-styles" ng-click="$parent.$parent.switchTab('advanced', 'effects');$parent.$parent.closeTabs(['effects']);"><?php oxygen_translate_echo("Effects","oxygen"); ?></div>
 			<div class="oxygen-sidebar-breadcrumb-separator">/</div>
-			<div class="oxygen-sidebar-breadcrumb-current"><?php _e("Animate On Scroll","oxygen"); ?></div>
+			<div class="oxygen-sidebar-breadcrumb-current"><?php oxygen_translate_echo("Animate On Scroll","oxygen"); ?></div>
 		</div>
 
-		<?php $oxygen_toolbar->checkbox_with_wrapper('aos-enable',__('Enable Animation','oxygen'), 'true', 'false'); ?>
+		<?php $oxygen_toolbar->checkbox_with_wrapper('aos-enable',oxygen_translate('Enable Animation','oxygen'), 'true', 'false'); ?>
 
 		<div ng-show="$parent.iframeScope.getOption('aos-enable')=='true'">
 
@@ -225,7 +225,7 @@ Class Oxygen_AOS {
 				<div class="oxy-style-indicator"
 					ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('aos-type')&&!IDHasOption('aos-type'),'oxygen-has-id-value':iframeScope.IDHasOption('aos-type')}">
 				</div>
-				<label class='oxygen-control-label'><?php _e("Animation Type","oxygen"); ?></label>
+				<label class='oxygen-control-label'><?php oxygen_translate_echo("Animation Type","oxygen"); ?></label>
 				<div class='oxygen-control'>
 					<div class="oxygen-select oxygen-select-box-wrapper">
 						<div class="oxygen-select-box"
@@ -248,7 +248,7 @@ Class Oxygen_AOS {
 		</div>
 		
 		<div class='oxygen-control-row'>
-			<?php $oxygen_toolbar->slider_measure_box_with_wrapper('aos-duration',__('Animation Duration','oxygen'), 'ms', 50, 3000, null, 50); ?>
+			<?php $oxygen_toolbar->slider_measure_box_with_wrapper('aos-duration',oxygen_translate('Animation Duration','oxygen'), 'ms', 50, 3000, null, 50); ?>
 		</div>
 
 		<div class='oxygen-control-row'>
@@ -256,7 +256,7 @@ Class Oxygen_AOS {
 				<div class="oxy-style-indicator"
 					ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('aos-anchor-placement')&&!IDHasOption('aos-anchor-placement'),'oxygen-has-id-value':iframeScope.IDHasOption('aos-anchor-placement')}">
 				</div>
-				<label class='oxygen-control-label'><?php _e("Anchor Placement","oxygen"); ?></label>
+				<label class='oxygen-control-label'><?php oxygen_translate_echo("Anchor Placement","oxygen"); ?></label>
 				<div class='oxygen-control'>
 					<div class="oxygen-select oxygen-select-box-wrapper">
 						<div class="oxygen-select-box"
@@ -283,7 +283,7 @@ Class Oxygen_AOS {
 				<div class="oxy-style-indicator"
 					ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('aos-easing')&&!IDHasOption('aos-easing'),'oxygen-has-id-value':iframeScope.IDHasOption('aos-easing')}">
 				</div>
-				<label class='oxygen-control-label'><?php _e("Animation Easing","oxygen"); ?></label>
+				<label class='oxygen-control-label'><?php oxygen_translate_echo("Animation Easing","oxygen"); ?></label>
 				<div class='oxygen-control'>
 					<div class="oxygen-select oxygen-select-box-wrapper">
 						<div class="oxygen-select-box"
@@ -306,15 +306,15 @@ Class Oxygen_AOS {
 		</div>
 
 		<div class='oxygen-control-row'>
-			<?php $oxygen_toolbar->measure_box_with_wrapper('aos-offset',__('Animation Trigger Offset','oxygen'), 'px'); ?>
+			<?php $oxygen_toolbar->measure_box_with_wrapper('aos-offset',oxygen_translate('Animation Trigger Offset','oxygen'), 'px'); ?>
 		</div>
 
 		<div class='oxygen-control-row'>
-			<?php $oxygen_toolbar->measure_box_with_wrapper('aos-delay',__('Animation Delay','oxygen'), 'ms'); ?>
+			<?php $oxygen_toolbar->measure_box_with_wrapper('aos-delay',oxygen_translate('Animation Delay','oxygen'), 'ms'); ?>
 		</div>
 
 		<div class='oxygen-control-row'>
-			<?php $oxygen_toolbar->simple_input_with_wrapper('aos-anchor',__('Anchor','oxygen')); ?>
+			<?php $oxygen_toolbar->simple_input_with_wrapper('aos-anchor',oxygen_translate('Anchor','oxygen')); ?>
 		</div>
 
 		<div class='oxygen-control-row'>
@@ -322,11 +322,11 @@ Class Oxygen_AOS {
 				<div class="oxy-style-indicator"
 					ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('aos-once')&&!IDHasOption('aos-once'),'oxygen-has-id-value':iframeScope.IDHasOption('aos-once')}">
 				</div>
-	            <label class='oxygen-control-label'><?php _e("Animate Only Once","oxygen"); ?></label>
+	            <label class='oxygen-control-label'><?php oxygen_translate_echo("Animate Only Once","oxygen"); ?></label>
 	            <div class='oxygen-control'>
 	                <div class='oxygen-button-list'>
-	                    <?php $oxygen_toolbar->button_list_button('aos-once','true', __('yes','oxygen')); ?>
-	                    <?php $oxygen_toolbar->button_list_button('aos-once','false', __('no','oxygen')); ?>
+	                    <?php $oxygen_toolbar->button_list_button('aos-once','true', oxygen_translate('yes','oxygen')); ?>
+	                    <?php $oxygen_toolbar->button_list_button('aos-once','false', oxygen_translate('no','oxygen')); ?>
 	                </div>
 	            </div>
 	        </div>
@@ -349,7 +349,7 @@ Class Oxygen_AOS {
 		
 		global $oxygen_toolbar;
 
-		$oxygen_toolbar->settings_child_tab(__("Animate On Scroll", "oxygen"), "page", "aos", "advanced/animation.svg");
+		$oxygen_toolbar->settings_child_tab(oxygen_translate("Animate On Scroll", "oxygen"), "page", "aos", "advanced/animation.svg");
 	}
 
 
@@ -380,7 +380,7 @@ Class Oxygen_AOS {
 		
 		global $oxygen_toolbar;
 
-		$oxygen_toolbar->settings_child_tab(__("Animate On Scroll", "oxygen"), "default-styles", "aos", "advanced/animation.svg");
+		$oxygen_toolbar->settings_child_tab(oxygen_translate("Animate On Scroll", "oxygen"), "default-styles", "aos", "advanced/animation.svg");
 	
 	}
 

@@ -71,10 +71,6 @@
     -webkit-transition: all var(--extras-accordion-duration);
 }
 
-.oxy-pro-accordion_header:focus {
-    outline: none;
-}
-
 .oxy-pro-accordion_header svg {
     fill: currentColor;
     font-size: 1em;
@@ -167,4 +163,8 @@
 .oxy-pro-accordion_item.active .oxy-pro-accordion_icon svg {
     transform: rotateX(180deg);
     -webkit-transform: rotateX(180deg);
+}
+
+.oxy-dynamic-list > .ct-div-block:first-child .oxy-pro-accordion_inner[data-repeater-first="true"] .oxy-pro-accordion_body {
+    display: block;
 }

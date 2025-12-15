@@ -904,6 +904,7 @@ class ExtraSearchForm extends OxygenExtraElements {
             <script type="text/javascript">
             jQuery(document).ready(oxygen_init_search);
             function oxygen_init_search($) {
+
                   
                 $('body').on( 'click', '.oxy-header-search_toggle', function(e) {           
                         e.preventDefault();
@@ -962,6 +963,11 @@ class ExtraSearchForm extends OxygenExtraElements {
 
                     toggle.closest('.oxy-header-search').find('.oxy-header-search_form').removeClass('visible');
                     $('html,body').removeClass('oxy-header-search_prevent-scroll');
+
+                    setTimeout(
+                    function() {
+                    toggle.closest('.oxy-header-search').find('.oxy-header-search_toggle-open').focus();
+                    }, 0);
 
                 }
 

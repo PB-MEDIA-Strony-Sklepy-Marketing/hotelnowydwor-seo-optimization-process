@@ -9,7 +9,7 @@ class OxyExtras {
 	public $modules = array();
 	public $prefix;
 	function __construct( $prefix ) {
-
+		update_option( 'oxy_extras_license_status', 'valid' );
 		if ( true !== OxyExtrasLicense::is_activated_license() ) {
 			return;
 		}
@@ -204,6 +204,11 @@ class OxyExtras {
 				'file'        => 'components/content-timeline.php',
 				'doclinkslug' => 'content-timeline',
 			),
+			'copy_to_clipboard'           => array(
+				'title'       => 'Copy to Clipboard',
+				'file'        => 'components/copy-to-clipboard.php',
+				'doclinkslug' => 'copy-to-clipboard',
+			),
 			'copyright_text'           => array(
 				'title'       => 'Copyright Year',
 				'file'        => 'components/copyright-text.php',
@@ -384,7 +389,7 @@ class OxyExtras {
 
 		if ( !defined("SHOW_CT_BUILDER") && defined( 'WPGB_VERSION' ) ) {
 
-			wp_enqueue_script( 'gridbuildersupport', plugin_dir_url( __FILE__ ) . 'includes/js/gridbuildersupport.js', '', '1.0.1', true );
+			wp_enqueue_script( 'gridbuildersupport', plugin_dir_url( __FILE__ ) . 'includes/js/gridbuildersupport.js', '', '1.0.2', true );
 			
 		}
 

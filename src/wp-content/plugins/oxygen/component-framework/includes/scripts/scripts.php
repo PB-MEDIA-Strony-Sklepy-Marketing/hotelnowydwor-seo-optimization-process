@@ -41,7 +41,7 @@ Class Oxygen_Scripts {
 		
 		global $oxygen_toolbar;
 
-		$oxygen_toolbar->settings_child_tab(__("Scripts", "oxygen"), "page", "scripts", "advanced/js.svg");
+		$oxygen_toolbar->settings_child_tab(oxygen_translate("Scripts", "oxygen"), "page", "scripts", "advanced/js.svg");
 	}
 
 
@@ -72,7 +72,7 @@ Class Oxygen_Scripts {
 		
 		global $oxygen_toolbar;
 
-		$oxygen_toolbar->settings_child_tab(__("Scripts", "oxygen"), "default-styles", "scripts", "advanced/js.svg");
+		$oxygen_toolbar->settings_child_tab(oxygen_translate("Scripts", "oxygen"), "default-styles", "scripts", "advanced/js.svg");
 	
 	}
 

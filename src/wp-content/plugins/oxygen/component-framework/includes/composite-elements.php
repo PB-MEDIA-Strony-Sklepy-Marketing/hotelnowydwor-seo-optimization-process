@@ -67,7 +67,7 @@ Class OxygenCompositeElements {
 				<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/add-icons/widgets.svg' />
 				<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/add-icons/widgets-active.svg' />
 				<?php endif; ?>
-				<?php echo ( isset($element->name) ) ? sanitize_text_field( $element->name ) : __("No name element", "oxygen"); ?>
+				<?php echo ( isset($element->name) ) ? sanitize_text_field( $element->name ) : oxygen_translate("No name element", "oxygen"); ?>
 			</div>
 		<?php endif;
 		endforeach;

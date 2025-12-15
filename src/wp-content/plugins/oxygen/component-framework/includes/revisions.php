@@ -163,19 +163,19 @@ class Oxygen_Revisions {
         }
 ?>
         <div>
-            <span id="ct-toggle-revisions"><?php _e( "Revisions", "component-theme" ); ?></span><div class="oxy-tooltip"><div class="oxy-tooltip-text revisions"><?php _e( "Restore previous versions of this post or template's design. Restoring a revision will not affect any changes for site-wide settings like Global Styles, Fonts, or Classes.", "oxygen" ) ?></div></div>
+            <span id="ct-toggle-revisions"><?php oxygen_translate_echo( "Revisions", "component-theme" ); ?></span><div class="oxy-tooltip"><div class="oxy-tooltip-text revisions"><?php oxygen_translate_echo( "Restore previous versions of this post or template's design. Restoring a revision will not affect any changes for site-wide settings like Global Styles, Fonts, or Classes.", "oxygen" ) ?></div></div>
         </div>
         <div id="ct-builder-revisions" style="display:none">
 	        <?php if( $template && !$is_reusable ): ?>
-                <span id="ct_preview_revision_select_label"><?php echo __("Preview template with this post: ", 'component_theme'); ?></span>
+                <span id="ct_preview_revision_select_label"><?php echo oxygen_translate("Preview template with this post: ", 'component_theme'); ?></span>
                 <select id="ct_preview_revision_select">
                 </select>
 	        <?php endif; ?>
             <ul id="ct_builder_revisions" style="height:auto!important;">
                 <?php for($i = count($revisions) -1; $i >= 0; $i--): $revision_date = get_date_from_gmt( date('Y-m-d H:i:s', intval( $dates[$i]->meta_value ) ) ); ?>
-                    <li><?php echo __("Revision created automatically on ", 'component_theme') . $revision_date ?>
+                    <li><?php echo oxygen_translate("Revision created automatically on ", 'component_theme') . $revision_date ?>
                         <?php if( $current_revision == $revisions[$i]->meta_id ): ?>
-                            <?php echo __( ' (current)', 'component_theme' ); ?>
+                            <?php echo oxygen_translate( ' (current)', 'component_theme' ); ?>
                         <?php else: ?>
                             <?php
                                 $revision = $revisions[$i]->meta_id;
@@ -185,9 +185,9 @@ class Oxygen_Revisions {
                                 if( $is_reusable) {
                                     $permalink = get_permalink( $post_id );
                                 }
-                                echo "<a class='oxygen-preview-revision' href='javascript:;' target='_blank' data-revision='$revision' data-permalink='$permalink' data-restorelink='$restorelink' data-parameter='$preview_parameter' data-date='$revision_date' data-template='" . ($template ? 'true' : 'false') . "'>" . __( 'Preview', 'component_theme' ) . "</a> ";
-		                        echo "<a class='oxygen-restore-revision' href='" . $restorelink . "'>" . __( 'Restore', 'component_theme' ) . "</a>";
-		                        echo " <a class='oxygen-delete-revision' href='" . $deletelink . "'>" . __( 'Delete', 'component_theme' ) . "</a>";
+                                echo "<a class='oxygen-preview-revision' href='javascript:;' target='_blank' data-revision='$revision' data-permalink='$permalink' data-restorelink='$restorelink' data-parameter='$preview_parameter' data-date='$revision_date' data-template='" . ($template ? 'true' : 'false') . "'>" . oxygen_translate( 'Preview', 'component_theme' ) . "</a> ";
+		                        echo "<a class='oxygen-restore-revision' href='" . $restorelink . "'>" . oxygen_translate( 'Restore', 'component_theme' ) . "</a>";
+		                        echo " <a class='oxygen-delete-revision' href='" . $deletelink . "'>" . oxygen_translate( 'Delete', 'component_theme' ) . "</a>";
                             ?>
 
                         <?php endif; ?>
@@ -196,7 +196,7 @@ class Oxygen_Revisions {
             </ul>
             <?php 
             $delete_all_link = get_edit_post_link( $post_id, '' ) . '&ct_delete_all_revisions=' . $post_id .'&wp_nonce=' . wp_create_nonce( 'ct_delete_all_revisions' );
-            echo "<a id='oxygen-delete-all-revisions' href='" . $delete_all_link . "'>" . __( 'Delete All Post Revisions', 'component_theme' ) . "</a>"; ?>
+            echo "<a id='oxygen-delete-all-revisions' href='" . $delete_all_link . "'>" . oxygen_translate( 'Delete All Post Revisions', 'component_theme' ) . "</a>"; ?>
         </div>
 <?php
     }

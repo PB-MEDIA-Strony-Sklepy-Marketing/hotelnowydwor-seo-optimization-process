@@ -45,8 +45,7 @@ class ExtraReadingTime extends OxygenExtraElements {
        $text_after_plural = $dynamic($options['text_after_plural']);
        $before = $dynamic($options['before']);
         
-      
-        $wpm = intval($options['wpm']);
+       $wpm = isset( $options['wpm'] ) ? intval( $options['wpm'] ) : 275;
         
         global $post;
     

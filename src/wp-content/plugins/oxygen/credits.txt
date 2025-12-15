@@ -1,6 +1,6 @@
 ﻿Credits & Licenses for 3rd Party Libraries:
 
-You can find the Oxygen license at https://oxygenbuilder.com/license/. Oxygen and its add-ons are licensed to you under the GPL v2: http://www.gnu.org/licenses/gpl-2.0.txt.
+You can find the Oxygen license at https://classic.oxygenbuilder.com/license/. Oxygen and its add-ons are licensed to you under the GPL v2: http://www.gnu.org/licenses/gpl-2.0.txt.
 
 Oxygen contains other libraries. Their licenses are either presented here or inside their source code.
 

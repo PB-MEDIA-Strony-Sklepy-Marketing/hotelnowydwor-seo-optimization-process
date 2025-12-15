@@ -102,7 +102,7 @@ class OxyEl {
             $options['button_priority'] = $this->button_priority();
         }
 
-        $this->El = new OxygenElement(__($name), $slug, '', $this->icon(), $this->button_place(), $options, $this->has_js);
+        $this->El = new OxygenElement(oxygen_translate($name), $slug, '', $this->icon(), $this->button_place(), $options, $this->has_js);
 
         $this->El->setTag( $this->tag() );
 
@@ -218,7 +218,7 @@ class OxyEl {
         $slug = $this->selector2slug($selector);
         $slug.= "_flex";
 
-        $FlexLayout = $l->addPreset("flex-layout", $slug, __("Child Element Layout"));
+        $FlexLayout = $l->addPreset("flex-layout", $slug, oxygen_translate("Child Element Layout"));
         $FlexLayout->setValue( array(
             'flex-direction' => 'column',
             'align-items' => '',
@@ -237,7 +237,7 @@ class OxyEl {
 
         $typographySection = $this->El->addControlsSection(
             $slug,
-            __($name),
+            oxygen_translate($name),
             "assets/icon.png",
             $OxyEl,
             $section
@@ -246,7 +246,7 @@ class OxyEl {
         $typographyPreset = $typographySection->addPreset(
             "typography",
             $slug,
-            __($name." Typography")
+            oxygen_translate($name." Typography")
         );
 
         $typographyPreset->whiteList();
@@ -268,7 +268,7 @@ class OxyEl {
 
         $borderSection = $this->El->addControlsSection(
             $slug,
-            __($name),
+            oxygen_translate($name),
             "assets/icon.png",
             $OxyEl,
             $section
@@ -277,13 +277,13 @@ class OxyEl {
         $borderPreset = $borderSection->addPreset(
             "border",
             $slug,
-            __($name." Border")
+            oxygen_translate($name." Border")
         );
 
         $borderRadiusPreset = $borderSection->addPreset(
             "border-radius",
             $slug."_border_radius",
-            __($name." Border Radius")
+            oxygen_translate($name." Border Radius")
         );
 
         $borderPreset->whiteList();
@@ -311,7 +311,7 @@ class OxyEl {
 
         $boxShadowSection = $this->El->addControlsSection(
             $slug,
-            __($name),
+            oxygen_translate($name),
             "assets/icon.png",
             $OxyEl,
             $section
@@ -320,7 +320,7 @@ class OxyEl {
         $boxShadowPreset = $boxShadowSection->addPreset(
             "box-shadow",
             $slug,
-            __($name)
+            oxygen_translate($name)
         );
 
         $boxShadowPreset->whiteList();
@@ -438,7 +438,7 @@ class OxyEl {
 
 
         if (isset($tag['choices'])) {
-            $control = $l->addControl('tag', 'html_tag', __("Tag"));            
+            $control = $l->addControl('tag', 'html_tag', oxygen_translate("Tag"));            
             $control->setValue(explode(",", $tag['choices']));
             // set default
             if (isset($tag['default'])){
@@ -500,7 +500,7 @@ class OxyEl {
             $control_slug = 'slug_'.preg_replace("/[^A-Za-z0-9 ]/", "", $control_slug);
         }
 
-        $Control = $l->addControl($control_type, $control_slug, __($control_label));
+        $Control = $l->addControl($control_type, $control_slug, oxygen_translate($control_label));
 
         // option controls is not a style controls, make those auto rebuild element to avoid "Apply param" button
         /*$rebuild_element = isset($params['rebuild_element']) ? $params['rebuild_element'] : true; 
@@ -578,7 +578,7 @@ class OxyEl {
             $control_slug = $params['slug'];
         }
 
-        $control = $l->addControl($control_type, $control_slug, __($control_label));
+        $control = $l->addControl($control_type, $control_slug, oxygen_translate($control_label));
 
         // now map the control to the appropriate css selector, based on the control slug
         if (isset($params['selector'])){

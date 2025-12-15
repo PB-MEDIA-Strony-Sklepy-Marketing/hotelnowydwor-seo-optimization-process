@@ -88,7 +88,7 @@ Class Oxy_Header_Builder_Row extends CT_Component {
 		<div ng-show="isActiveName('<?php echo $this->options['tag']; ?>')">
 			<div class="oxygen-control-row">
 				<div class='oxygen-control-wrapper'>
-					<label class='oxygen-control-label'><?php _e("Stack Vertically Below","oxygen"); ?></label>
+					<label class='oxygen-control-label'><?php oxygen_translate_echo("Stack Vertically Below","oxygen"); ?></label>
 					<div class='oxygen-control oxygen-special-property not-available-for-media not-available-for-classes'>
 
 						<div class="oxygen-select oxygen-select-box-wrapper">
@@ -108,7 +108,7 @@ Class Oxy_Header_Builder_Row extends CT_Component {
 								<div class="oxygen-select-box-option" 
 									ng-click="iframeScope.setOptionModel('stack-header-vertically','never')"
 									ng-class="{'oxygen-select-box-option-active':iframeScope.getOption('stack-header-vertically')=='never'}">
-									<?php _e("Never","oxygen"); ?>
+									<?php oxygen_translate_echo("Never","oxygen"); ?>
 								</div>
 							</div>
 						</div>
@@ -119,7 +119,7 @@ Class Oxy_Header_Builder_Row extends CT_Component {
 
 			<div class="oxygen-control-row">
 				<div class='oxygen-control-wrapper'>
-					<label class='oxygen-control-label'><?php _e("Hide Row Below","oxygen"); ?></label>
+					<label class='oxygen-control-label'><?php oxygen_translate_echo("Hide Row Below","oxygen"); ?></label>
 					<div class='oxygen-control oxygen-special-property not-available-for-media not-available-for-classes'>
 
 						<div class="oxygen-select oxygen-select-box-wrapper">
@@ -139,7 +139,7 @@ Class Oxy_Header_Builder_Row extends CT_Component {
 								<div class="oxygen-select-box-option" 
 									ng-click="iframeScope.setOptionModel('hide-row','never')"
 									ng-class="{'oxygen-select-box-option-active':iframeScope.getOption('hide-row')=='never'}">
-									<?php _e("Never","oxygen"); ?>
+									<?php oxygen_translate_echo("Never","oxygen"); ?>
 								</div>
 							</div>
 						</div>
@@ -156,35 +156,35 @@ Class Oxy_Header_Builder_Row extends CT_Component {
 // Create instance
 global $oxygen_vsb_components;
 $oxygen_vsb_components['header_row'] = new Oxy_Header_Builder_Row( array( 
-			'name' 		=> __('Header Row','oxygen'),
+			'name' 		=> oxygen_translate('Header Row','oxygen'),
 			'tag' 		=> 'oxy_header_row',
 			'params' 	=> array(
 				array(
 					"type" 			=> "colorpicker",
-					"heading" 		=> __("Background color"),
+					"heading" 		=> oxygen_translate("Background color"),
 					"param_name" 	=> "background-color",
 				),
 				array(
 					"type" 			=> "measurebox",
-					"heading" 		=> __("Height","oxygen"),
+					"heading" 		=> oxygen_translate("Height","oxygen"),
 					"param_name" 	=> "height",
 					"param_units" 	=> "px",
 					"value" 		=> "",
 				),
 				array(
 					// special setting type for backwrad compatibility
-					"heading" 		=> __("Sticky Display","oxygen"),
+					"heading" 		=> oxygen_translate("Sticky Display","oxygen"),
 					"type" 			=> "hide_show_in_sticky",
 					"param_name" 	=> "",
                     "css"           => false,
 				),
 				array(
                     "type"          => "radio",
-                    "heading"       => __("Overlay Display", "oxygen"),
+                    "heading"       => oxygen_translate("Overlay Display", "oxygen"),
                     "param_name"    => "overlay_display",
                     "value"         => array(
-                                        'only_show_in_overlay'  => __("only show in overlay", "oxygen"),
-                                        'hide_in_overlay'     	=> __("hide in overlay", "oxygen"),
+                                        'only_show_in_overlay'  => oxygen_translate("only show in overlay", "oxygen"),
+                                        'hide_in_overlay'     	=> oxygen_translate("hide in overlay", "oxygen"),
                                     ),
                     "default" 		=> "",
                     "css"           => false,

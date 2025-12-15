@@ -26,67 +26,67 @@ Class CT_Toolbar {
 
 		$this->options['advanced'] = array(
 											"background" => array (
-												"heading" 	=> __("Background", "oxygen"),
+												"heading" 	=> oxygen_translate("Background", "oxygen"),
 												"tab_icon" 	=> "background",
 											),
 
 											"position" => array (
-												"heading" 	=> __("Size & Spacing", "oxygen"),
+												"heading" 	=> oxygen_translate("Size & Spacing", "oxygen"),
 												"tab_icon" 	=> "size_spacing",
 											),
 
 											"layout" => array (
-												"heading" 	=> __("Layout", "oxygen"),
+												"heading" 	=> oxygen_translate("Layout", "oxygen"),
 												"tab_icon" 	=> "layout",
 											),
 
 											"typography" => array (
-												"heading" 	=> __("Typography", "oxygen"),
+												"heading" 	=> oxygen_translate("Typography", "oxygen"),
 												"tab_icon" 	=> "typography",
 											),
 
 											"borders" => array (
-												"heading" 	=> __("Borders", "oxygen"),
+												"heading" 	=> oxygen_translate("Borders", "oxygen"),
 												"tab_icon" 	=> "borders",
 											),
 
 											"effects" => array (
-												"heading" 	=> __("Effects", "oxygen"),
+												"heading" 	=> oxygen_translate("Effects", "oxygen"),
 												"tab_icon" 	=> "effects",
 											),
 
 											"code-php" => array (
-												"heading" 	=> __("PHP", "oxygen"),
+												"heading" 	=> oxygen_translate("PHP", "oxygen"),
 												"tab_icon" 	=> "borders",
 											),
 
 											"code-css" => array (
-												"heading" 	=> __("CSS", "oxygen"),
+												"heading" 	=> oxygen_translate("CSS", "oxygen"),
 												"tab_icon" 	=> "css",
 											),
 
 											"code-js" => array (
-												"heading" 	=> __("JavaScript", "oxygen"),
+												"heading" 	=> oxygen_translate("JavaScript", "oxygen"),
 												"tab_icon" 	=> "js",
 											),
 
 											"code-mixed" => array (
-												"heading" 	=> __("Mixed Code", "oxygen"),
+												"heading" 	=> oxygen_translate("Mixed Code", "oxygen"),
 												"tab_icon" 	=> "js",
 											),
 
 											"custom-css" => array (
-												"heading" 	=> __("Custom CSS", "oxygen"),
+												"heading" 	=> oxygen_translate("Custom CSS", "oxygen"),
 												"tab_icon" 	=> "css",
 											),
 
 											"custom-js" => array (
-												"heading" 	=> __("JavaScript", "oxygen"),
+												"heading" 	=> oxygen_translate("JavaScript", "oxygen"),
 												"tab_icon" 	=> "js",
 											),
 
 											"custom-attributes" => array (
-												"heading" 	=> __("Attributes", "oxygen"),
+												"heading" 	=> oxygen_translate("Attributes", "oxygen"),
 												"tab_icon" 	=> "layout",
 											),
 										);
@@ -272,7 +272,7 @@ Class CT_Toolbar {
 				<?php if (oxygen_vsb_current_user_can_full_access()) : ?>
 				<div class="oxy-condition-menu-container">
 					<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/currently-editing/condition.svg'
-						title="<?php _e("Condition Settings", "oxygen"); ?>"
+						title="<?php oxygen_translate_echo("Condition Settings", "oxygen"); ?>"
 						data-linkProperty="url" data-linkTarget="target"
 						class="oxygen-link-button"
 						ng-class="{'ct-link-button-highlight' : iframeScope.component.options[iframeScope.component.active.id]['model']['globalconditions'] && iframeScope.component.options[iframeScope.component.active.id]['model']['globalconditions'].length > 0}"
@@ -281,16 +281,16 @@ Class CT_Toolbar {
 					<div class="oxy-condition-menu" ng-show="$parent.showConditionsMenu">
 						<div class="oxy-condition-menu-backdrop" ng-click="$parent.showConditionsMenu=false"></div>
 						<div>
-							<h1 class="oxy-condition-menu-title"><?php _e("Show/Hide Element", "oxygen"); ?></h1>
+							<h1 class="oxy-condition-menu-title"><?php oxygen_translate_echo("Show/Hide Element", "oxygen"); ?></h1>
 							<a 
 							ng-click="$parent.showConditionsMenu=false; showDialogWindow(); dialogForms['ifCondition'] = true; "
-							class="oxy-condition-menu-button"><?php _e("Set Conditions", "oxygen"); ?></a>
+							class="oxy-condition-menu-button"><?php oxygen_translate_echo("Set Conditions", "oxygen"); ?></a>
 
 							<div class="oxy-condition-menu-divider"></div>
 
 							<div class='oxygen-control-row'>
 								<div class='oxygen-control-wrapper' id='oxygen-control-layout-display'>
-									<label class='oxygen-control-label'><?php _e("Condition Type", "oxygen"); ?></label>
+									<label class='oxygen-control-label'><?php oxygen_translate_echo("Condition Type", "oxygen"); ?></label>
 									<div class='oxygen-control'>
 										<div class='oxygen-button-list'>
 
@@ -302,29 +302,29 @@ Class CT_Toolbar {
 								</div>
 							</div>
 							<div class="oxy-condition-menu-divider"></div>
-							<h1 class="oxy-condition-menu-behavior"><?php _e("In-Editor Behavior", "oxygen"); ?></h1>
+							<h1 class="oxy-condition-menu-behavior"><?php oxygen_translate_echo("In-Editor Behavior", "oxygen"); ?></h1>
 							<div class="oxy-condition-menu-radios">
 								<label>
 								<input ng-model="iframeScope.component.options[iframeScope.component.active.id]['model']['conditionspreview']"
-								ng-change="iframeScope.setOption(iframeScope.component.active.id, iframeScope.component.active.name, 'conditionspreview'); evalGlobalConditions(); evalGlobalConditionsInList()" type="radio" value="2"> <?php _e("Always Show", "oxygen"); ?></label><br>
+								ng-change="iframeScope.setOption(iframeScope.component.active.id, iframeScope.component.active.name, 'conditionspreview'); evalGlobalConditions(); evalGlobalConditionsInList()" type="radio" value="2"> <?php oxygen_translate_echo("Always Show", "oxygen"); ?></label><br>
 								<label><input ng-model="iframeScope.component.options[iframeScope.component.active.id]['model']['conditionspreview']"
-								ng-change="iframeScope.setOption(iframeScope.component.active.id, iframeScope.component.active.name, 'conditionspreview'); evalGlobalConditions(); evalGlobalConditionsInList()"  type="radio" value="0"> <?php _e("Always Hide", "oxygen"); ?></label><br>
+								ng-change="iframeScope.setOption(iframeScope.component.active.id, iframeScope.component.active.name, 'conditionspreview'); evalGlobalConditions(); evalGlobalConditionsInList()"  type="radio" value="0"> <?php oxygen_translate_echo("Always Hide", "oxygen"); ?></label><br>
 								<label><input ng-model="iframeScope.component.options[iframeScope.component.active.id]['model']['conditionspreview']"
-								ng-change="iframeScope.setOption(iframeScope.component.active.id, iframeScope.component.active.name, 'conditionspreview'); evalGlobalConditions(); evalGlobalConditionsInList()"  type="radio" value="1"> <?php _e("Show/Hide Based on Conditions", "oxygen"); ?></label>
+								ng-change="iframeScope.setOption(iframeScope.component.active.id, iframeScope.component.active.name, 'conditionspreview'); evalGlobalConditions(); evalGlobalConditionsInList()"  type="radio" value="1"> <?php oxygen_translate_echo("Show/Hide Based on Conditions", "oxygen"); ?></label>
 							</div>
 							<div class="oxy-condition-menu-divider"></div>
 							<div class='oxygen-control-wrapper'>
-								<label class='oxygen-control-label'><?php _e("Copy / Paste Conditions", "oxygen"); ?></label>
+								<label class='oxygen-control-label'><?php oxygen_translate_echo("Copy / Paste Conditions", "oxygen"); ?></label>
 								<div class='oxygen-control'>
 									<div class='oxygen-button-list'>
 
 										<div class="oxygen-button-list-button"
 											ng-click="iframeScope.copyConditions()">
-											<?php _e("Copy","oxygen"); ?>
+											<?php oxygen_translate_echo("Copy","oxygen"); ?>
 										</div>
 										<div class="oxygen-button-list-button"
 											ng-click="lookForConditionsAndPaste()">
-											<?php _e("Paste","oxygen"); ?>
+											<?php oxygen_translate_echo("Paste","oxygen"); ?>
 										</div>
 
 									</div>
@@ -336,7 +336,7 @@ Class CT_Toolbar {
 				<?php endif; ?>
 
 				<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/currently-editing/link.svg'
-					title="<?php _e("Link Settings", "oxygen"); ?>"
+					title="<?php oxygen_translate_echo("Link Settings", "oxygen"); ?>"
 					data-linkProperty="url" data-linkTarget="target"
 					class="oxygen-link-button"
 					ng-class="{'ct-link-button-highlight' : iframeScope.getLinkId()}"
@@ -345,7 +345,7 @@ Class CT_Toolbar {
 
 				<?php if (oxygen_vsb_current_user_can_full_access()||oxygen_vsb_user_has_enabled_elements()) : ?>
 				<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/currently-editing/duplicate.svg'
-					title="<?php _e("Duplicate Component", "oxygen"); ?>"
+					title="<?php oxygen_translate_echo("Duplicate Component", "oxygen"); ?>"
 					<?php if (!oxygen_vsb_current_user_can_full_access()&&oxygen_vsb_user_has_enabled_elements()) : ?>
 					ng-if="iframeScope.isElementEnabledForUser()"
 					<?php endif; ?>
@@ -353,7 +353,7 @@ Class CT_Toolbar {
 					ng-click="iframeScope.duplicateComponent()"/>
 
 				<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/currently-editing/delete.svg'
-					title="<?php _e("Remove Component", "oxygen"); ?>"
+					title="<?php oxygen_translate_echo("Remove Component", "oxygen"); ?>"
 					<?php if (!oxygen_vsb_current_user_can_full_access()&&oxygen_vsb_user_has_enabled_elements()) : ?>
 					ng-if="iframeScope.isElementEnabledForUser()"
 					<?php endif; ?>
@@ -384,7 +384,7 @@ Class CT_Toolbar {
 				<div class='oxygen-active-selector-box'
 					ng-if="iframeScope.isNotSelectedYet(iframeScope.component.active.id)&&!iframeScope.isEditing('custom-selector')"
 					ng-click="iframeScope.onSelectorDropdown()">
-						<input type='text' spellcheck="false" value="<?php _e( "Choose selector to edit...", "oxygen" ); ?>"/>
+						<input type='text' spellcheck="false" value="<?php oxygen_translate_echo( "Choose selector to edit...", "oxygen" ); ?>"/>
 						<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/dropdown-arrow.svg'/>
 				</div>
 				<div class='oxygen-active-selector-box'
@@ -425,14 +425,14 @@ Class CT_Toolbar {
 					ng-if="!iframeScope.isEditing('custom-selector')">
 					<li>
 						<input type="text" class="oxygen-classes-dropdown-input"
-							placeholder="<?php _e( "Enter class name...", "oxygen" ); ?>"
+							placeholder="<?php oxygen_translate_echo( "Enter class name...", "oxygen" ); ?>"
 							ng-model="iframeScope.newcomponentclass.name"
 							ng-change="iframeScope.updateSuggestedClasses()"
 							ng-keypress="iframeScope.processClassNameInput($event, iframeScope.component.active.id)"
 							focus-me="$parent.ctSelectBoxFocus" />
 						<div class="oxygen-classes-dropdown-add-class"
 							ng-click="iframeScope.tryAddClassToComponent(iframeScope.component.active.id)">
-							<?php _e("add class...", "oxygen"); ?>
+							<?php oxygen_translate_echo("add class...", "oxygen"); ?>
 						</div>
 					</li>
                     <li class="oxygen-classes-dropdown-heading" ng-show="iframeScope.suggestedClasses.length">
@@ -456,12 +456,12 @@ Class CT_Toolbar {
 						<div class='oxygen-active-selector-box-id'>id</div>
 						<div>{{iframeScope.getComponentSelector()}}</div>
 						<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/currently-editing/copy-styles-to.svg'
-								title="<?php _e("Copy styles to another selector", "oxygen"); ?>"
+								title="<?php oxygen_translate_echo("Copy styles to another selector", "oxygen"); ?>"
 								ng-click="activateCopySelectorMode(false,$event)"/>
 						<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/currently-editing/clear-styles.svg'
 								ng-class="{'oxygen-disabled':iframeScope.isIDLocked()}"
 								class="oxygen-no-margin"
-								title="<?php _e("Delete all styles from this selector", "oxygen"); ?>"
+								title="<?php oxygen_translate_echo("Delete all styles from this selector", "oxygen"); ?>"
 								ng-click="iframeScope.clearSelectorOptions();$event.stopPropagation()"/>
 						<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/currently-editing/delete-selector.svg'
 								class="oxygen-no-margin oxygen-disabled"/>
@@ -473,20 +473,20 @@ Class CT_Toolbar {
 							<div class='oxygen-active-selector-box-class'>class</div>
 							<div class='oxygen-active-selector-box-classname'>{{className}}</div>
 							<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/currently-editing/copy-styles-to.svg'
-								title="<?php _e("Copy styles to another selector", "oxygen"); ?>"
+								title="<?php oxygen_translate_echo("Copy styles to another selector", "oxygen"); ?>"
 								ng-click="$parent.activateCopySelectorMode(className,$event)"/>
 							<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/currently-editing/clear-styles.svg'
 								class="oxygen-no-margin"
 								ng-class="{'oxygen-disabled':iframeScope.isSelectorLocked(className)}"
-								title="<?php _e("Delete all styles from this selector", "oxygen"); ?>"
+								title="<?php oxygen_translate_echo("Delete all styles from this selector", "oxygen"); ?>"
 								ng-click="iframeScope.clearSelectorOptions(className);$event.stopPropagation()"/>
 							<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/currently-editing/delete-selector.svg'
 								class="oxygen-no-margin"
-								title="<?php _e("Remove class from component", "oxygen"); ?>"
+								title="<?php oxygen_translate_echo("Remove class from component", "oxygen"); ?>"
 								ng-click="iframeScope.removeComponentClass(className)"/>
 					</li>
 
-					<li title="<?php _e("Copy Styles Here", "oxygen"); ?>"
+					<li title="<?php oxygen_translate_echo("Copy Styles Here", "oxygen"); ?>"
 						ng-class="{'oxygen-disabled':iframeScope.isIDLocked()&&!copySelectorFromID}"
 						ng-click="iframeScope.copySelectorOptions()"
 						ng-show="copySelectorFromClass||copySelectorFromID">
@@ -501,7 +501,7 @@ Class CT_Toolbar {
 								class="oxygen-no-margin oxygen-disabled"/>
 					</li>
 						
-					<li title="<?php _e("Copy Styles Here", "oxygen"); ?>"
+					<li title="<?php oxygen_translate_echo("Copy Styles Here", "oxygen"); ?>"
 						ng-class="{'oxygen-disabled':iframeScope.isSelectorLocked(className)&&copySelectorFromClass!==className}"
 						ng-click="iframeScope.copySelectorOptions(className)"
 						ng-show="copySelectorFromClass||copySelectorFromID"
@@ -554,22 +554,22 @@ Class CT_Toolbar {
 				<?php endif; ?>
 
 				<ul class="oxygen-states-dropdown">
-					<li title="<?php _e("Edit original state", "oxygen"); ?>"
+					<li title="<?php oxygen_translate_echo("Edit original state", "oxygen"); ?>"
 						ng-click="iframeScope.switchState('original');">
-							<?php _e("original", "oxygen"); ?>
+							<?php oxygen_translate_echo("original", "oxygen"); ?>
 					</li>
-					<li title="<?php _e("Edit this state", "oxygen"); ?>"
+					<li title="<?php oxygen_translate_echo("Edit this state", "oxygen"); ?>"
 						ng-repeat="state in iframeScope.getComponentStatesList()"
 						ng-click="iframeScope.switchState('original'); iframeScope.switchState(state);"
 						ng-class="{'oxy-styles-present':iframeScope.isStateHasOptions(state)}">
 							<div>:{{state}}</div>
 							<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/remove_icon.svg'
-								title="<?php _e("Remove state from component", "oxygen"); ?>"
+								title="<?php oxygen_translate_echo("Remove state from component", "oxygen"); ?>"
 								ng-click="iframeScope.tryDeleteComponentState(state,$event)"/>
 
 					<li ng-click="iframeScope.addState()">
 						<span class="oxygen-states-dropdown-add-state">
-							<?php _e("add state...", "oxygen"); ?>
+							<?php oxygen_translate_echo("add state...", "oxygen"); ?>
 						</span>
 					</li>
 				</ul>
@@ -579,7 +579,7 @@ Class CT_Toolbar {
 					ng-if="iframeScope.isEditing('custom-selector')&&!iframeScope.isEditing('class')&&disableSelectorDetectorMode"
 					ng-click="toggleSelectorDetectorMode();">
 					<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/other/pencil.svg'
-						title="<?php _e( "Selector Detector Mode", "oxygen" ); ?>"/>
+						title="<?php oxygen_translate_echo( "Selector Detector Mode", "oxygen" ); ?>"/>
 				</div>
 				<!-- .oxygen-back-to-selector-detector -->
 			</div>
@@ -591,7 +591,7 @@ Class CT_Toolbar {
 		<div class="oxygen-measure-box ct-noheader" 
 			ng-if="iframeScope.isEditing('pseudo-element')&&!iframeScope.isEditing('custom-selector')">
 			
-				<input type="text" class="ct-expand ct-no-animate" placeholder="<?php _e("content...", "oxygen"); ?>" spellcheck="false"
+				<input type="text" class="ct-expand ct-no-animate" placeholder="<?php oxygen_translate_echo("content...", "oxygen"); ?>" spellcheck="false"
 					ng-model="iframeScope.component.options[iframeScope.component.active.id]['model']['content']"
 					ng-change="iframeScope.setOption(iframeScope.component.active.id,iframeScope.component.active.name,'content')"/>
 			
@@ -615,7 +615,7 @@ Class CT_Toolbar {
 				<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg' />
 			</div>
 			<div class="oxygen-sidebar-breadcrumb-all-styles"  
-				ng-click="tabs.settings=[]"><?php _e("All Settings", "oxygen"); ?> </div>
+				ng-click="tabs.settings=[]"><?php oxygen_translate_echo("All Settings", "oxygen"); ?> </div>
 			<div class='oxygen-sidebar-breadcrumb-separator'>/</div>
 			<div class='oxygen-sidebar-breadcrumb-current'><?php echo $current_label; ?></div>
 		</div>
@@ -757,7 +757,7 @@ Class CT_Toolbar {
 					<?php if ( file_exists( CT_FW_PATH . "/toolbar/views/$key.view.php" ) ) :
 						include( "views/$key.view.php");
 					else : ?>
-						<span><?php printf( __( 'Wrong parameter type: %s', 'oxygen' ), "$key" ); ?></span>
+						<span><?php printf( oxygen_translate( 'Wrong parameter type: %s', 'oxygen' ), "$key" ); ?></span>
 					<?php endif; ?>
 				</div>
 
@@ -769,7 +769,7 @@ Class CT_Toolbar {
 					<?php if ( file_exists( CT_FW_PATH . "/toolbar/views/background/background.gradient.view.php" ) ) :
 						include( "views/background/background.gradient.view.php");
 					else : ?>
-						<span><?php printf( __( 'Wrong parameter type: %s', 'oxygen' ), "background-gradient" ); ?></span>
+						<span><?php printf( oxygen_translate( 'Wrong parameter type: %s', 'oxygen' ), "background-gradient" ); ?></span>
 					<?php endif; ?>
 				</div>
 				
@@ -784,7 +784,7 @@ Class CT_Toolbar {
 							ng-change="iframeScope.setOption(iframeScope.component.active.id,iframeScope.component.active.name,'selector-locked')">
 						<div class='oxygen-checkbox-checkbox'
 							ng-class="{'oxygen-checkbox-checkbox-active':iframeScope.getOption('selector-locked')=='true'}">
-							<?php _e("Lock Selector Styles","oxygen"); ?>
+							<?php oxygen_translate_echo("Lock Selector Styles","oxygen"); ?>
 						</div>
 					</label>
 				</div>
@@ -808,9 +808,9 @@ Class CT_Toolbar {
 				<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg' />
 			</div>
 			<div class="oxygen-sidebar-breadcrumb-all-styles"  
-				ng-click="switchTab('settings', 'default-styles');"><?php _e("Global Styles", "oxygen"); ?> </div>
+				ng-click="switchTab('settings', 'default-styles');"><?php oxygen_translate_echo("Global Styles", "oxygen"); ?> </div>
 			<div class='oxygen-sidebar-breadcrumb-separator'>/</div>
-			<div class='oxygen-sidebar-breadcrumb-current'><?php _e("Fonts", "oxygen"); ?></div>
+			<div class='oxygen-sidebar-breadcrumb-current'><?php oxygen_translate_echo("Fonts", "oxygen"); ?></div>
 		</div>
 
 		<div ng-repeat="(name,font) in iframeScope.globalSettings.fonts">
@@ -826,31 +826,31 @@ Class CT_Toolbar {
 						<div class="oxygen-select-box-options">
 
 							<div class="oxygen-select-box-option">
-								<input type="text" value="" placeholder="<?php _e("Search...", "oxygen"); ?>" spellcheck="false"
+								<input type="text" value="" placeholder="<?php oxygen_translate_echo("Search...", "oxygen"); ?>" spellcheck="false"
 									ng-model="iframeScope.fontsFilter"/>
 							</div>
 							<div class="oxygen-select-box-option"
 								ng-repeat="font in iframeScope.elegantCustomFonts | filter:iframeScope.fontsFilter | limitTo: 20"
 								ng-click="iframeScope.setGlobalFont(name, font);"
-								title="<?php _e("Apply this font family", "oxygen"); ?>">
+								title="<?php oxygen_translate_echo("Apply this font family", "oxygen"); ?>">
 									{{font}}
 							</div>
 							<div class="oxygen-select-box-option"
 								ng-repeat="font in iframeScope.typeKitFonts | filter:iframeScope.fontsFilter | limitTo: 20"
 								ng-click="iframeScope.setGlobalFont(name, font.slug);"
-								title="<?php _e('Apply this font family', 'oxygen'); ?>">
+								title="<?php oxygen_translate_echo('Apply this font family', 'oxygen'); ?>">
 									{{font.name}}
 							</div>
 							<div class="oxygen-select-box-option"
 								ng-repeat="font in iframeScope.webSafeFonts | filter:iframeScope.fontsFilter | limitTo: 20"
 								ng-click="iframeScope.setGlobalFont(name, font);"
-								title="<?php _e("Apply this font family", "oxygen"); ?>">
+								title="<?php oxygen_translate_echo("Apply this font family", "oxygen"); ?>">
 									{{font}}
 							</div>
 							<div class="oxygen-select-box-option"
 								ng-repeat="font in iframeScope.googleFontsList | filter:iframeScope.fontsFilter | limitTo: 20"
 								ng-click="iframeScope.setGlobalFont(name,font.family);"
-								title="<?php _e('Apply this font family', 'oxygen'); ?>">
+								title="<?php oxygen_translate_echo('Apply this font family', 'oxygen'); ?>">
 									{{font.family}}
 							</div>
 
@@ -859,7 +859,7 @@ Class CT_Toolbar {
 					</div>
 					<!-- .oxygen-select.oxygen-select-box-wrapper -->
 					<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/currently-editing/delete.svg'
-						title="<?php _e('Remove Font', 'oxygen'); ?>"
+						title="<?php oxygen_translate_echo('Remove Font', 'oxygen'); ?>"
 						ng-show="name!='Display'&&name!='Text'"
 						ng-click="iframeScope.deleteGlobalFont(name)"/>
 
@@ -867,7 +867,7 @@ Class CT_Toolbar {
 			</div>
 			<div ng-show="iframeScope.getGoogleFont(iframeScope.globalSettings.fonts[name]).variants">
 				<div class="oxygen-font-weight-link" 
-					ng-click="showFontWeights=!showFontWeights"><?php _e("weights »","oxygen"); ?></div>
+					ng-click="showFontWeights=!showFontWeights"><?php oxygen_translate_echo("weights »","oxygen"); ?></div>
 				<div class='oxygen-control-wrapper oxygen-font-weight-options'
 					ng-show='showFontWeights'>{{font.variants | json}}
 					<label class="oxygen-checkbox"
@@ -888,7 +888,7 @@ Class CT_Toolbar {
 
 		<div class="oxygen-add-global-font" 
 			ng-click="iframeScope.addGlobalFont()">
-			<?php _e('Add font', 'oxygen'); ?>
+			<?php oxygen_translate_echo('Add font', 'oxygen'); ?>
 		</div>
 
 	<?php }
@@ -909,9 +909,9 @@ Class CT_Toolbar {
 				<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg' />
 			</div>
 			<div class="oxygen-sidebar-breadcrumb-all-styles"  
-				ng-click="switchTab('settings', 'default-styles');"><?php _e("Global Styles", "oxygen"); ?> </div>
+				ng-click="switchTab('settings', 'default-styles');"><?php oxygen_translate_echo("Global Styles", "oxygen"); ?> </div>
 			<div class='oxygen-sidebar-breadcrumb-separator'>/</div>
-			<div class='oxygen-sidebar-breadcrumb-current'><?php _e("Headings", "oxygen"); ?></div>
+			<div class='oxygen-sidebar-breadcrumb-current'><?php oxygen_translate_echo("Headings", "oxygen"); ?></div>
 		</div>
 
 		<?php $headings = array("H1","H2","H3","H4","H5","H6");
@@ -923,7 +923,7 @@ Class CT_Toolbar {
 
 			<div class="oxygen-control-row">
 				<div class="oxygen-control-wrapper">
-					<label class="oxygen-control-label"><?php _e("Font Size","oxygen"); ?></label>
+					<label class="oxygen-control-label"><?php oxygen_translate_echo("Font Size","oxygen"); ?></label>
 					<div class="oxygen-control">
 						
 						<div class="oxygen-measure-box" 
@@ -937,7 +937,7 @@ Class CT_Toolbar {
 				</div>
 		
 				<div class='oxygen-control-wrapper' id='oxygen-typography-font-family'>
-					<label class='oxygen-control-label'><?php _e("Font Weight","oxygen"); ?></label>
+					<label class='oxygen-control-label'><?php oxygen_translate_echo("Font Weight","oxygen"); ?></label>
 					<div class='oxygen-control'>
 
 						<div class="oxygen-select oxygen-select-box-wrapper">
@@ -974,7 +974,7 @@ Class CT_Toolbar {
 
 			<div class="oxygen-control-row">
 				<div class="oxygen-control-wrapper">
-					<label class="oxygen-control-label"><?php _e("Line Height","oxygen"); ?></label>
+					<label class="oxygen-control-label"><?php oxygen_translate_echo("Line Height","oxygen"); ?></label>
 					<div class="oxygen-control">
 						<div class="oxygen-input">
 							<input type="text" spellcheck="false" 
@@ -987,7 +987,7 @@ Class CT_Toolbar {
 
 			<div class="oxygen-control-row">
 				<div class='oxygen-control-wrapper' id='oxygen-typography-font-family'>
-					<label class='oxygen-control-label'><?php _e("Color","oxygen"); ?></label>
+					<label class='oxygen-control-label'><?php oxygen_translate_echo("Color","oxygen"); ?></label>
 					<div class='oxygen-control'>
 
 						<div class='oxygen-color-picker'>
@@ -1001,7 +1001,7 @@ Class CT_Toolbar {
 							<input type="text" spellcheck="false"
 								ng-model="$parent.iframeScope.globalSettings.headings['<?php echo $heading; ?>']['color']"/>
 							<img class="oxygen-add-global-color-icon" 
-								title="<?php _e("Save as Global Color","oxygen"); ?>"
+								title="<?php oxygen_translate_echo("Save as Global Color","oxygen"); ?>"
 								src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/make-global-color.svg'
 								ng-click="$parent.showAddNewColorDialog($event)"/>
 						</div>
@@ -1030,9 +1030,9 @@ Class CT_Toolbar {
 				<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg' />
 			</div>
 			<div class="oxygen-sidebar-breadcrumb-all-styles" 
-				ng-click="switchTab('settings', 'default-styles');"><?php _e("Global Styles", "oxygen"); ?> </div>
+				ng-click="switchTab('settings', 'default-styles');"><?php oxygen_translate_echo("Global Styles", "oxygen"); ?> </div>
 			<div class='oxygen-sidebar-breadcrumb-separator'>/</div>
-			<div class='oxygen-sidebar-breadcrumb-current'><?php _e("Colors", "oxygen"); ?></div>
+			<div class='oxygen-sidebar-breadcrumb-current'><?php oxygen_translate_echo("Colors", "oxygen"); ?></div>
 		</div>
 
 		<div ng-repeat="(setID,set) in iframeScope.globalColorSets.sets">
@@ -1053,13 +1053,13 @@ Class CT_Toolbar {
 					</div>
 					<div class="oxygen-sidebar-breadcrumb-all-styles"
 						ng-click="switchTab('settings','colors')">
-						<?php _e("Colors", "oxygen"); ?>
+						<?php oxygen_translate_echo("Colors", "oxygen"); ?>
 					</div>
 					<div class='oxygen-sidebar-breadcrumb-separator'>/</div>
 					<div class='oxygen-sidebar-breadcrumb-current'>
 						{{set.name}}
 						<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/currently-editing/delete.svg"
-							title="<?php _e("Delete","oxygen")?> {{set.name}}"
+							title="<?php oxygen_translate_echo("Delete","oxygen")?> {{set.name}}"
 	                    	ng-click="iframeScope.deleteGlobalColorSet(set.id, true)">
 					</div>
 				</div>
@@ -1088,14 +1088,14 @@ Class CT_Toolbar {
 					</div>
 					<img class="oxygen-remove-color-icon" 
 						src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/currently-editing/delete.svg" 
-						title="<?php _e("Remove Color","oxygen"); ?>" 
+						title="<?php oxygen_translate_echo("Remove Color","oxygen"); ?>" 
 						ng-click="iframeScope.deleteGlobalColor(color.id)">
 				</div>
 				
 				<div class="oxygen-add-global-color"
 					ng-show="!$parent.$parent.showAddGlobalColorPanel"
 					ng-click="$parent.$parent.showAddGlobalColorPanel=true;$parent.$parent.newGlobalColorNameFocus=true">
-					<?php _e("Add Color", "oxygen"); ?>
+					<?php oxygen_translate_echo("Add Color", "oxygen"); ?>
 				</div>
 				
 				<div class="oxygen-global-colors-new-color" 
@@ -1103,10 +1103,10 @@ Class CT_Toolbar {
 					
 					<div class="oxygen-control-row">
 						<div class='oxygen-control-wrapper'>
-							<label class='oxygen-control-label'><?php _e("New Color","oxygen"); ?></label>
+							<label class='oxygen-control-label'><?php oxygen_translate_echo("New Color","oxygen"); ?></label>
 							<div class='oxygen-control'>
 								<div class="oxygen-input">
-		                        	<input type="text" spellcheck="false" placeholder="<?php _e("Color Name","oxygen"); ?>"
+		                        	<input type="text" spellcheck="false" placeholder="<?php oxygen_translate_echo("Color Name","oxygen"); ?>"
 		                            	ng-model="$parent.$parent.newGlobalColorName" ng-model-options="{ debounce: 10 }"
 		                            	focus-me="$parent.$parent.newGlobalColorNameFocus"
 		                    			ng-keypress="$parent.$parent.newGlobalColorNameKeyPress($event, set.id)">
@@ -1136,7 +1136,7 @@ Class CT_Toolbar {
 						ng-show="$parent.$parent.showAddGlobalColorPanel">
 						<div class="oxygen-add-global-color"
 							ng-click="iframeScope.addNewColor($parent.$parent.newGlobalColorName,set.id,$parent.$parent.newGlobalColorValue);">
-							<?php _e("Add Color", "oxygen"); ?>
+							<?php oxygen_translate_echo("Add Color", "oxygen"); ?>
 						</div>
 					</div>
 
@@ -1148,16 +1148,16 @@ Class CT_Toolbar {
 		<div class="oxygen-add-global-color-set"
 			ng-show="!$parent.hasOpenChildTabs('settings', 'colors');"
 			ng-click="$parent.addGlobalColorSetPanel=true;$parent.addGlobalColorSetFocus=true">
-			<?php _e("Add Color Set", "oxygen"); ?>
+			<?php oxygen_translate_echo("Add Color Set", "oxygen"); ?>
 		</div>
         <div class="oxygen-global-colors-new-color-set" 
             ng-show="$parent.addGlobalColorSetPanel">
             <div class="oxygen-control-row">
 				<div class='oxygen-control-wrapper'>
-					<label class='oxygen-control-label'><?php _e("New Color Set","oxygen"); ?></label>
+					<label class='oxygen-control-label'><?php oxygen_translate_echo("New Color Set","oxygen"); ?></label>
 					<div class='oxygen-control'>
 						<div class="oxygen-input">
-		                    <input type="text" spellcheck="false" placeholder="<?php _e("Color Set Name","oxygen"); ?>"
+		                    <input type="text" spellcheck="false" placeholder="<?php oxygen_translate_echo("Color Set Name","oxygen"); ?>"
 		                    	focus-me="$parent.addGlobalColorSetFocus"
 		                    	ng-keypress="$parent.addGlobalColorSetKeyPress($event)"
 		                        ng-model="$parent.newGlobalColorSetName" ng-model-options="{ debounce: 10 }">
@@ -1189,14 +1189,14 @@ Class CT_Toolbar {
 				<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg' />
 			</div>
 			<div class="oxygen-sidebar-breadcrumb-all-styles" 
-				ng-click="switchTab('settings', 'default-styles');"><?php _e("Global Styles", "oxygen"); ?> </div>
+				ng-click="switchTab('settings', 'default-styles');"><?php oxygen_translate_echo("Global Styles", "oxygen"); ?> </div>
 			<div class='oxygen-sidebar-breadcrumb-separator'>/</div>
-			<div class='oxygen-sidebar-breadcrumb-current'><?php _e("Body Text", "oxygen"); ?></div>
+			<div class='oxygen-sidebar-breadcrumb-current'><?php oxygen_translate_echo("Body Text", "oxygen"); ?></div>
 		</div>
 
 		<div class="oxygen-control-row">
 			<div class="oxygen-control-wrapper">
-				<label class="oxygen-control-label"><?php _e("Font Size","oxygen"); ?></label>
+				<label class="oxygen-control-label"><?php oxygen_translate_echo("Font Size","oxygen"); ?></label>
 				<div class="oxygen-control">
 					
 					<div class="oxygen-measure-box">
@@ -1211,7 +1211,7 @@ Class CT_Toolbar {
 	
 		<div class="oxygen-control-row">
 			<div class='oxygen-control-wrapper' id='oxygen-typography-font-family'>
-				<label class='oxygen-control-label'><?php _e("Font Weight","oxygen"); ?></label>
+				<label class='oxygen-control-label'><?php oxygen_translate_echo("Font Weight","oxygen"); ?></label>
 				<div class='oxygen-control'>
 
 					<div class="oxygen-select oxygen-select-box-wrapper">
@@ -1248,7 +1248,7 @@ Class CT_Toolbar {
 
 		<div class="oxygen-control-row">
 			<div class="oxygen-control-wrapper">
-				<label class="oxygen-control-label"><?php _e("Line Height","oxygen"); ?></label>
+				<label class="oxygen-control-label"><?php oxygen_translate_echo("Line Height","oxygen"); ?></label>
 				<div class="oxygen-control">
 					<div class="oxygen-input">
 						<input type="text" spellcheck="false" 
@@ -1261,7 +1261,7 @@ Class CT_Toolbar {
 
 		<div class="oxygen-control-row">
 			<div class='oxygen-control-wrapper' id='oxygen-typography-font-family'>
-				<label class='oxygen-control-label'><?php _e("Color","oxygen"); ?></label>
+				<label class='oxygen-control-label'><?php oxygen_translate_echo("Color","oxygen"); ?></label>
 				<div class='oxygen-control'>
 
 					<div class='oxygen-color-picker'>
@@ -1275,7 +1275,7 @@ Class CT_Toolbar {
 						<input type="text" spellcheck="false"
 							ng-model="$parent.iframeScope.globalSettings.body_text['color']"/>
 						<img class="oxygen-add-global-color-icon" 
-							title="<?php _e("Save as Global Color","oxygen"); ?>"
+							title="<?php oxygen_translate_echo("Save as Global Color","oxygen"); ?>"
 							src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/make-global-color.svg'
 							ng-click="$parent.showAddNewColorDialog($event)"/>
 					</div>
@@ -1296,15 +1296,15 @@ Class CT_Toolbar {
 	function settings_links() { ?>
 
 		<?php $this->settings_breadcrumbs(	
-			__('Links','oxygen'),
-			__('Global Styles','oxygen'),
+			oxygen_translate('Links','oxygen'),
+			oxygen_translate('Global Styles','oxygen'),
 			'default-styles',
 			"hasOpenChildTabs('settings','links')" ); ?>
 
-		<?php $links = array(	"all" => __("All","oxygen"),
-								"text_link" => __("Text Link","oxygen"),
-								"link_wrapper" => __("Link Wrapper","oxygen"),
-								"button" => __("Button","oxygen") );
+		<?php $links = array(	"all" => oxygen_translate("All","oxygen"),
+								"text_link" => oxygen_translate("Text Link","oxygen"),
+								"link_wrapper" => oxygen_translate("Link Wrapper","oxygen"),
+								"button" => oxygen_translate("Button","oxygen") );
 
 		foreach ($links as $link => $title) : ?>
 
@@ -1325,7 +1325,7 @@ Class CT_Toolbar {
 					<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/advanced/chevron-left.svg' />
 				</div>
 				<div class="oxygen-sidebar-breadcrumb-all-styles"  
-					ng-click="switchTab('settings', 'links');"><?php _e("Links", "oxygen"); ?> </div>
+					ng-click="switchTab('settings', 'links');"><?php oxygen_translate_echo("Links", "oxygen"); ?> </div>
 				<div class='oxygen-sidebar-breadcrumb-separator'>/</div>
 				<div class='oxygen-sidebar-breadcrumb-current' 
 					ng-show="isShowChildTab('settings','links','<?php echo $link; ?>')">
@@ -1334,10 +1334,10 @@ Class CT_Toolbar {
 			</div>
 					
 			<?php if ($link!="button") : ?>
-			<div class="oxygen-settings-section-heading"><?php _e("Normal","oxygen"); ?></div>
+			<div class="oxygen-settings-section-heading"><?php oxygen_translate_echo("Normal","oxygen"); ?></div>
 			<div class="oxygen-control-row">
 				<div class='oxygen-control-wrapper' id='oxygen-typography-font-family'>
-					<label class='oxygen-control-label'><?php _e("Color","oxygen"); ?></label>
+					<label class='oxygen-control-label'><?php oxygen_translate_echo("Color","oxygen"); ?></label>
 					<div class='oxygen-control'>
 						<div class='oxygen-color-picker'>
 							<div class="oxygen-color-picker-color">
@@ -1350,7 +1350,7 @@ Class CT_Toolbar {
 							<input type="text" spellcheck="false"
 								ng-model="$parent.iframeScope.globalSettings.links['<?php echo $link ?>']['color']"/>
 							<img class="oxygen-add-global-color-icon" 
-								title="<?php _e("Save as Global Color","oxygen"); ?>"
+								title="<?php oxygen_translate_echo("Save as Global Color","oxygen"); ?>"
 								src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/make-global-color.svg'
 								ng-click="$parent.showAddNewColorDialog($event)"/>
 						</div>
@@ -1361,7 +1361,7 @@ Class CT_Toolbar {
 
 			<div class="oxygen-control-row">
 				<div class='oxygen-control-wrapper' id='oxygen-typography-font-family'>
-					<label class='oxygen-control-label'><?php _e("Font Weight","oxygen"); ?></label>
+					<label class='oxygen-control-label'><?php oxygen_translate_echo("Font Weight","oxygen"); ?></label>
 					<div class='oxygen-control'>
 
 						<div class="oxygen-select oxygen-select-box-wrapper">
@@ -1398,7 +1398,7 @@ Class CT_Toolbar {
 			
 			<?php if ($link!="button") : ?>
 			<div class='oxygen-control-wrapper'>
-				<label class='oxygen-control-label'><?php _e("Text Decoration"); ?></label>
+				<label class='oxygen-control-label'><?php oxygen_translate_echo("Text Decoration"); ?></label>
 				<div class='oxygen-control'>
 					<div class='oxygen-button-list'>
 
@@ -1446,7 +1446,7 @@ Class CT_Toolbar {
 			<?php if ($link=="button") : ?>
 			<div class="oxygen-control-row">
 				<div class="oxygen-control-wrapper">
-					<label class="oxygen-control-label"><?php _e("Border radius","oxygen"); ?></label>
+					<label class="oxygen-control-label"><?php oxygen_translate_echo("Border radius","oxygen"); ?></label>
 					<div class="oxygen-control">
 						
 						<div class="oxygen-measure-box">
@@ -1460,11 +1460,11 @@ Class CT_Toolbar {
 			</div>
 			<?php endif; ?>
 			<?php if ($link!="button") : ?>
-			<div class="oxygen-settings-section-heading"><?php _e("Hover","oxygen"); ?></div>
+			<div class="oxygen-settings-section-heading"><?php oxygen_translate_echo("Hover","oxygen"); ?></div>
 
 			<div class="oxygen-control-row">
 				<div class='oxygen-control-wrapper' id='oxygen-typography-font-family'>
-					<label class='oxygen-control-label'><?php _e("Color","oxygen"); ?></label>
+					<label class='oxygen-control-label'><?php oxygen_translate_echo("Color","oxygen"); ?></label>
 					<div class='oxygen-control'>
 						<div class='oxygen-color-picker'>
 							<div class="oxygen-color-picker-color">
@@ -1477,7 +1477,7 @@ Class CT_Toolbar {
 							<input type="text" spellcheck="false"
 								ng-model="$parent.iframeScope.globalSettings.links['<?php echo $link ?>']['hover_color']"/>
 							<img class="oxygen-add-global-color-icon" 
-								title="<?php _e("Save as Global Color","oxygen"); ?>"
+								title="<?php oxygen_translate_echo("Save as Global Color","oxygen"); ?>"
 								src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/make-global-color.svg'
 								ng-click="$parent.showAddNewColorDialog($event)"/>
 						</div>
@@ -1486,7 +1486,7 @@ Class CT_Toolbar {
 			</div>
 
 			<div class='oxygen-control-wrapper'>
-				<label class='oxygen-control-label'><?php _e("Text Decoration"); ?></label>
+				<label class='oxygen-control-label'><?php oxygen_translate_echo("Text Decoration"); ?></label>
 				<div class='oxygen-control'>
 					<div class='oxygen-button-list'>
 
@@ -1718,7 +1718,7 @@ Class CT_Toolbar {
 							<div class="oxygen-add-section-designed-component-header">
 								<span class="oxygen-add-section-designed-component-title">{{item.name}}</span>
 								<span class="oxygen-add-section-designed-component-design-label"></span>
-								<span class="oxygen-add-section-designed-component-add-icon" title="<?php _e("Add now","oxygen")?>"
+								<span class="oxygen-add-section-designed-component-add-icon" title="<?php oxygen_translate_echo("Add now","oxygen")?>"
 									ng-click="iframeScope.addItem(item.id, 'page', $event, item.source)"></span>
 							</div>
 							<img class="ct-add-item-button-image" data-src="{{item.screenshot_url}}">
@@ -1816,7 +1816,7 @@ Class CT_Toolbar {
 									<div class="oxygen-add-section-designed-component-header">
 										<span class="oxygen-add-section-designed-component-title"><?php echo sanitize_text_field( $subfolder["name"] ); ?></span>
 										<span class="oxygen-add-section-designed-component-design-label"><?php echo sanitize_text_field( $subfolder["design_set_name"] ); ?></span>
-										<span class="oxygen-add-section-designed-component-add-icon" title="<?php _e("Add now","oxygen")?>"
+										<span class="oxygen-add-section-designed-component-add-icon" title="<?php oxygen_translate_echo("Add now","oxygen")?>"
 											ng-click="iframeScope.addItem(<?php echo sanitize_text_field($subfolder["id"]); ?>, '<?php echo sanitize_text_field($folder["type"]); ?>', $event<?php echo isset($subfolder["source"])?", '".sanitize_text_field($subfolder["source"])."'":""; echo isset($subfolder["page"])?", '".sanitize_text_field($subfolder["page"])."'":"";?>)"></span>
 									</div>
 									<img class="ct-add-item-button-image" data-src="<?php echo esc_url($subfolder["screenshot_url"]); ?>">
@@ -1865,7 +1865,7 @@ Class CT_Toolbar {
 				do_action("oxygen_basics_components_containers"); 
 				$output = ob_get_clean();
 				if (strpos($output,"oxygen-add-section-element")!==false) { ?>
-					<h2><?php _e("Containers", "oxygen");?></h2>
+					<h2><?php oxygen_translate_echo("Containers", "oxygen");?></h2>
 					<?php echo $output;
 				}
 			?>
@@ -1875,7 +1875,7 @@ Class CT_Toolbar {
 				do_action("oxygen_basics_components_text"); 
 				$output = ob_get_clean();
 				if (strpos($output,"oxygen-add-section-element")!==false) { ?>
-					<h2><?php _e("Text", "oxygen");?></h2>
+					<h2><?php oxygen_translate_echo("Text", "oxygen");?></h2>
 					<?php echo $output;
 				}
 			?>
@@ -1885,7 +1885,7 @@ Class CT_Toolbar {
 				do_action("oxygen_basics_components_links"); 
 				$output = ob_get_clean();
 				if (strpos($output,"oxygen-add-section-element")!==false) { ?>
-					<h2><?php _e("Links", "oxygen");?></h2>
+					<h2><?php oxygen_translate_echo("Links", "oxygen");?></h2>
 					<?php echo $output;
 				}
 			?>
@@ -1895,7 +1895,7 @@ Class CT_Toolbar {
 				do_action("oxygen_basics_components_visual"); 
 				$output = ob_get_clean();
 				if (strpos($output,"oxygen-add-section-element")!==false) { ?>
-					<h2><?php _e("Visual", "oxygen");?></h2>
+					<h2><?php oxygen_translate_echo("Visual", "oxygen");?></h2>
 					<?php echo $output;
 				}
 			?>
@@ -1905,7 +1905,7 @@ Class CT_Toolbar {
 				do_action("ct_toolbar_fundamentals_list"); 
 				$output = ob_get_clean();
 				if (strpos($output,"oxygen-add-section-element")!==false) { ?>
-					<h2><?php _e("Other", "oxygen");?></h2>
+					<h2><?php oxygen_translate_echo("Other", "oxygen");?></h2>
 					<?php echo $output;
 				}
 			?>
@@ -1915,7 +1915,7 @@ Class CT_Toolbar {
 			<div class='oxygen-add-section-accordion'
 				ng-click="switchTab('components', 'fundamentals');"
 				ng-hide="iframeScope.hasOpenFolders()">
-				<?php _e("Basics", "oxygen") ?>
+				<?php oxygen_translate_echo("Basics", "oxygen") ?>
 				<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/add-icons/dropdown-arrow.svg'/>
 			</div>
 			<?php echo $output;
@@ -1933,7 +1933,7 @@ Class CT_Toolbar {
 				do_action("oxygen_helpers_components_composite"); 
 				$output = ob_get_clean();
 				if (strpos($output,"oxygen-add-section-element")!==false) { ?>
-					<h2><?php _e("Composite", "oxygen");?></h2>					
+					<h2><?php oxygen_translate_echo("Composite", "oxygen");?></h2>					
 					<?php echo $output;
 				}
 			?>
@@ -1943,7 +1943,7 @@ Class CT_Toolbar {
 				do_action("oxygen_helpers_components_dynamic"); 
 				$output = ob_get_clean();
 				if (strpos($output,"oxygen-add-section-element")!==false) { ?>
-					<h2><?php _e("Dynamic", "oxygen");?></h2>					
+					<h2><?php oxygen_translate_echo("Dynamic", "oxygen");?></h2>					
 					<?php echo $output;
 				}
 			?>
@@ -1953,7 +1953,7 @@ Class CT_Toolbar {
 				do_action("oxygen_helpers_components_interactive"); 
 				$output = ob_get_clean();
 				if (strpos($output,"oxygen-add-section-element")!==false) { ?>
-					<h2><?php _e("Interactive", "oxygen");?></h2>					
+					<h2><?php oxygen_translate_echo("Interactive", "oxygen");?></h2>					
 					<?php echo $output;
 				}
 			?>
@@ -1963,7 +1963,7 @@ Class CT_Toolbar {
 				do_action("oxygen_helpers_components_external"); 
 				$output = ob_get_clean();
 				if (strpos($output,"oxygen-add-section-element")!==false) { ?>
-					<h2><?php _e("External", "oxygen");?></h2>					
+					<h2><?php oxygen_translate_echo("External", "oxygen");?></h2>					
 					<?php echo $output;
 				}
 			?>
@@ -1973,7 +1973,7 @@ Class CT_Toolbar {
 			<div class='oxygen-add-section-accordion'
 				ng-click="switchTab('components', 'smart');"
 				ng-hide="iframeScope.hasOpenFolders()">
-				<?php _e("Helpers", "oxygen") ?>
+				<?php oxygen_translate_echo("Helpers", "oxygen") ?>
 				<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/add-icons/dropdown-arrow.svg'/>
 			</div>
 			<?php echo $output;
@@ -2020,7 +2020,7 @@ Class CT_Toolbar {
 		<div class='oxygen-add-section-accordion'
 			ng-click="switchTab('components', 'reusable_parts');"
 			ng-hide="iframeScope.hasOpenFolders()">
-			<?php _e("Reusable", "oxygen") ?>
+			<?php oxygen_translate_echo("Reusable", "oxygen") ?>
 			<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/add-icons/dropdown-arrow.svg'/>
 		</div>
 		<div class='oxygen-add-section-accordion-contents oxygen-add-section-accordion-contents-toppad'
@@ -2092,13 +2092,13 @@ Class CT_Toolbar {
 				<img src="<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/add-icons/reusable.svg">
 				<?php echo esc_html( $template->post_title ); ?>
 				<div class="oxygen-add-section-element-options">
-					<div class="oxygen-add-section-element-option" title="<?php _e("Add Re-usable part as single component", "oxygen")?>"
+					<div class="oxygen-add-section-element-option" title="<?php oxygen_translate_echo("Add Re-usable part as single component", "oxygen")?>"
 						ng-click="iframeScope.loadReusablePart(<?php echo esc_attr( $template->ID ); ?>)">
-						<?php _e("Single", "oxygen"); ?>
+						<?php oxygen_translate_echo("Single", "oxygen"); ?>
 					</div>
-					<div class="oxygen-add-section-element-option" title="<?php _e("Add Re-usable part as editable fundamentals", "oxygen")?>"
+					<div class="oxygen-add-section-element-option" title="<?php oxygen_translate_echo("Add Re-usable part as editable fundamentals", "oxygen")?>"
 						ng-click="iframeScope.loadReusablePart(<?php echo esc_attr( $template->ID ); ?>, iframeScope.component.active.id)">
-						<?php _e("Editable", "oxygen"); ?>
+						<?php oxygen_translate_echo("Editable", "oxygen"); ?>
 					</div>
 				</div>
 			</div>	
@@ -2146,7 +2146,7 @@ Class CT_Toolbar {
 			<div class="ct-button ct-measure-type-option"
 				ng-click="<?php echo $param; ?>['<?php echo esc_attr( $option ); ?>-unit'] = 'auto'; setOptionForBGLayers()"
 				ng-class="{'ct-active':<?php echo $param; ?>['<?php echo esc_attr( $option ); ?>-unit'] =='auto'}">
-				<span class="ct-bullet"></span> <?php _e("Auto", "oxygen"); ?>
+				<span class="ct-bullet"></span> <?php oxygen_translate_echo("Auto", "oxygen"); ?>
 			</div>
 			<?php endif; ?>
 		</div>
@@ -2201,7 +2201,7 @@ Class CT_Toolbar {
 			<div class="oxygen-measure-box-unit"
 				ng-click="iframeScope.setOptionUnit('<?php echo esc_attr( $option ); ?>', 'auto')"
 				ng-class="{'oxygen-measure-box-unit-active':iframeScope.getOptionUnit('<?php echo esc_attr( $option ); ?>')=='auto'}">
-				<?php _e("auto", "oxygen"); ?>
+				<?php oxygen_translate_echo("auto", "oxygen"); ?>
 			</div>
 			<?php endif; ?>
 			<?php if (in_array("vw", $types)) : ?>
@@ -2318,7 +2318,7 @@ Class CT_Toolbar {
 			<div class="oxygen-measure-box-unit"
 				ng-click="iframeScope.setGlobalOptionUnit('<?php echo $context; ?>','<?php echo esc_attr( $option ); ?>', 'auto')"
 				ng-class="{'oxygen-measure-box-unit-active':iframeScope.getGlobalOptionUnit('<?php echo $context; ?>','<?php echo esc_attr( $option ); ?>')=='auto'}">
-				<?php _e("auto", "oxygen"); ?>
+				<?php oxygen_translate_echo("auto", "oxygen"); ?>
 			</div>
 			<?php endif; ?>
 			<?php if (in_array("vw", $types)) : ?>
@@ -2338,7 +2338,7 @@ Class CT_Toolbar {
 			<div class="oxygen-measure-box-unit"
 				ng-click="iframeScope.setGlobalOptionUnit('<?php echo $context; ?>','<?php echo esc_attr( $option ); ?>', ' ')"
 				ng-class="{'oxygen-measure-box-unit-active':iframeScope.getGlobalOptionUnit('<?php echo $context; ?>','<?php echo esc_attr( $option ); ?>')==' '}">
-				<?= __("none", "oxygen") ?>
+				<?= oxygen_translate("none", "oxygen") ?>
 			</div>
 		</div>
 
@@ -2375,7 +2375,7 @@ Class CT_Toolbar {
                 <div class="oxygen-measure-box-unit" 
                     ng-click="iframeScope.setGlobalOptionUnit('<?= $context ?>', '<?= $option ?>', ' ')"
                     ng-class="{'oxygen-measure-box-unit-active':iframeScope.getGlobalOptionUnit('<?= $context ?>', '<?= $option ?>')==' '}">
-                    <?= __("none", "oxygen") ?>
+                    <?= oxygen_translate("none", "oxygen") ?>
                 </div>
                 <?php endif ?>
             </div>
@@ -2416,7 +2416,7 @@ Class CT_Toolbar {
 			<label>
 				<input class="oxygen-apply-all-trigger" type="radio" name="<?php echo esc_attr( $option ); ?>_measure"
 					data-option="<?php echo esc_attr( $option ); ?>"/>
-				<span><?php _e("Apply All", "oxygen"); ?></span>
+				<span><?php oxygen_translate_echo("Apply All", "oxygen"); ?></span>
 			</label>
 
 		</div>
@@ -2891,7 +2891,7 @@ Class CT_Toolbar {
 			<div class="oxy-style-indicator"
 				ng-class="{'oxygen-has-class-value':iframeScope.classHasOption('<?php echo $option; ?>')&&!IDHasOption('<?php echo $option; ?>'),'oxygen-has-id-value':iframeScope.IDHasOption('<?php echo $option; ?>')}">
 			</div>
-			<label class='oxygen-control-label'><?php _e("Font Family","oxygen"); ?></label>
+			<label class='oxygen-control-label'><?php oxygen_translate_echo("Font Family","oxygen"); ?></label>
 			<div class='oxygen-control'>
 
 				<div class="oxygen-select oxygen-select-box-wrapper">
@@ -2903,52 +2903,52 @@ Class CT_Toolbar {
 					<div class="oxygen-select-box-options">
 
 						<div class="oxygen-select-box-option">
-							<input type="text" value="" placeholder="<?php _e("Search...", "oxygen"); ?>" spellcheck="false"
+							<input type="text" value="" placeholder="<?php oxygen_translate_echo("Search...", "oxygen"); ?>" spellcheck="false"
 								ng-model="iframeScope.fontsFilter"/>
 						</div>
 						<div class="oxygen-select-box-option"
 							ng-click="iframeScope.setComponentFont(iframeScope.component.active.id, iframeScope.component.active.name, '', '<?php echo $option; ?>');"
-							title="<?php _e("Unset font", "oxygen"); ?>">
-								<?php _e("Default", "oxygen"); ?>
+							title="<?php oxygen_translate_echo("Unset font", "oxygen"); ?>">
+								<?php oxygen_translate_echo("Default", "oxygen"); ?>
 						</div>
 						<div class="oxygen-select-box-option"
 							ng-repeat="(name,font) in iframeScope.globalSettings.fonts"
 							ng-click="iframeScope.setComponentFont(iframeScope.component.active.id, iframeScope.component.active.name, ['global', name], '<?php echo $option; ?>');"
-							title="<?php _e("Apply global font", "oxygen"); ?>">
+							title="<?php oxygen_translate_echo("Apply global font", "oxygen"); ?>">
 								{{name}} ({{font}})
 						</div>
 						<div class="oxygen-select-box-option"
 							ng-repeat="name in ['Inherit'] | filter:iframeScope.fontsFilter"
 							ng-click="iframeScope.setComponentFont(iframeScope.component.active.id, iframeScope.component.active.name, name, '<?php echo $option; ?>');"
-							title="<?php _e("Use parent element font", "oxygen"); ?>">
+							title="<?php oxygen_translate_echo("Use parent element font", "oxygen"); ?>">
 								Inherit
 						</div>
 						<div class="oxygen-select-box-option"
 							ng-hide="iframeScope.globalFontExist(name)"
 							ng-repeat="name in iframeScope.elegantCustomFonts | filter:iframeScope.fontsFilter | limitTo: 20"
 							ng-click="iframeScope.setComponentFont(iframeScope.component.active.id, iframeScope.component.active.name, name, '<?php echo $option; ?>');"
-							title="<?php _e("Apply this font family", "oxygen"); ?>">
+							title="<?php oxygen_translate_echo("Apply this font family", "oxygen"); ?>">
 								{{name}}
 						</div>
 						<div class="oxygen-select-box-option"
 							ng-hide="iframeScope.globalFontExist(font.name)"
 							ng-repeat="font in iframeScope.typeKitFonts | filter:iframeScope.fontsFilter | limitTo: 20"
 							ng-click="iframeScope.setComponentFont(iframeScope.component.active.id, iframeScope.component.active.name, font.slug, '<?php echo $option; ?>');"
-							title="<?php _e("Apply this font family", "oxygen"); ?>">
+							title="<?php oxygen_translate_echo("Apply this font family", "oxygen"); ?>">
 								{{font.name}}
 						</div>
 						<div class="oxygen-select-box-option"
 							ng-hide="iframeScope.globalFontExist(font)"
 							ng-repeat="font in iframeScope.webSafeFonts | filter:iframeScope.fontsFilter | limitTo: 20"
 							ng-click="iframeScope.setComponentFont(iframeScope.component.active.id, iframeScope.component.active.name, font, '<?php echo $option; ?>');"
-							title="<?php _e("Apply this font family", "oxygen"); ?>">
+							title="<?php oxygen_translate_echo("Apply this font family", "oxygen"); ?>">
 								{{font}}
 						</div>
 						<div class="oxygen-select-box-option"
 							ng-hide="iframeScope.globalFontExist(font.family)"
 							ng-repeat="font in iframeScope.googleFontsList | filter:iframeScope.fontsFilter | limitTo: 20"
 							ng-click="iframeScope.setComponentFont(iframeScope.component.active.id, iframeScope.component.active.name, font.family, '<?php echo $option; ?>');"
-							title="<?php _e('Apply this font family', 'oxygen'); ?>">
+							title="<?php oxygen_translate_echo('Apply this font family', 'oxygen'); ?>">
 								{{font.family}}
 						</div>
 					</div>
@@ -3071,7 +3071,7 @@ Class CT_Toolbar {
 				ng-model="$parent.iframeScope.component.options[$parent.iframeScope.component.active.id]['model']['<?php echo esc_attr( $option ); ?>']<?php echo $deepProperty?esc_attr($deepProperty):'';?>"
 				/>
 			<img class="oxygen-add-global-color-icon" 
-				title="<?php _e("Save as Global Color","oxygen"); ?>"
+				title="<?php oxygen_translate_echo("Save as Global Color","oxygen"); ?>"
 				src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/make-global-color.svg'
 				ng-click="$parent.showAddNewColorDialog($event)"/>
 		</div>
@@ -3128,7 +3128,7 @@ Class CT_Toolbar {
 				data-mediaButton="Select Image" 
 				data-mediaProperty="<?php echo esc_attr( $option ); ?>"
 				data-mediaType="mediaUrl"
-				data-returnValue="<?php echo $attachment ? 'id':'url';?>"><?php _e("browse","oxygen"); ?></div>
+				data-returnValue="<?php echo $attachment ? 'id':'url';?>"><?php oxygen_translate_echo("browse","oxygen"); ?></div>
 			<?php if( !$attachment ): ?>
 			    <div class="oxygen-dynamic-data-browse" ctdynamicdata data="iframeScope.dynamicShortcodesImageMode" callback="iframeScope.insertShortcodeToImage">data</div>
 			<?php endif; ?>
@@ -3147,7 +3147,7 @@ Class CT_Toolbar {
 				ng-class="{'oxygen-option-default':iframeScope.isInherited(iframeScope.component.active.id, '<?php echo esc_attr( $option ); ?>')}"
 				<?php $this->ng_attributes($option); ?>/>
 			<div class="oxygen-selector-browse" data-option="<?php echo esc_attr( $option ); ?>">
-				<?php _e("choose","oxygen"); ?>
+				<?php oxygen_translate_echo("choose","oxygen"); ?>
 			</div>
 		</div>
 	<?php }
@@ -3161,7 +3161,7 @@ Class CT_Toolbar {
 			<div class="oxygen-set-link"
 				data-linkproperty="<?php echo esc_attr( $option ); ?>" 
 				data-linktarget="target"
-				ng-click="processLink()"><?php _e("set","oxygen"); ?></div>
+				ng-click="processLink()"><?php oxygen_translate_echo("set","oxygen"); ?></div>
 			<?php if(isset($param['dynamicdatacode'])) {
 					echo $param['dynamicdatacode'];
 			} ?>
@@ -3242,14 +3242,14 @@ Class CT_Toolbar {
 				<div class="oxygen-select-box-option" 
 					ng-click="iframeScope.setOptionModel('<?php echo $option; ?>','always')"
 					ng-class="{'oxygen-select-box-option-active':iframeScope.getOption('<?php echo $option; ?>')=='always'}">
-					<?php _e("Always","oxygen"); ?>
+					<?php oxygen_translate_echo("Always","oxygen"); ?>
 				</div>
 				<?php endif; ?>
 				<?php if ($never&&$above) : ?>
 				<div class="oxygen-select-box-option" 
 					ng-click="iframeScope.setOptionModel('<?php echo $option; ?>','never')"
 					ng-class="{'oxygen-select-box-option-active':iframeScope.getOption('<?php echo $option; ?>')=='never'}">
-					<?php _e("Never","oxygen"); ?>
+					<?php oxygen_translate_echo("Never","oxygen"); ?>
 				</div>
 				<?php endif; ?>
 				<div class="oxygen-select-box-option" 
@@ -3263,14 +3263,14 @@ Class CT_Toolbar {
 				<div class="oxygen-select-box-option" 
 					ng-click="iframeScope.setOptionModel('<?php echo $option; ?>','always')"
 					ng-class="{'oxygen-select-box-option-active':iframeScope.getOption('<?php echo $option; ?>')=='always'}">
-					<?php _e("Always","oxygen"); ?>
+					<?php oxygen_translate_echo("Always","oxygen"); ?>
 				</div>
 				<?php endif; ?>
 				<?php if ($never&&!$above) : ?>
 				<div class="oxygen-select-box-option" 
 					ng-click="iframeScope.setOptionModel('<?php echo $option; ?>','never')"
 					ng-class="{'oxygen-select-box-option-active':iframeScope.getOption('<?php echo $option; ?>')=='never'}">
-					<?php _e("Never","oxygen"); ?>
+					<?php oxygen_translate_echo("Never","oxygen"); ?>
 				</div>
 				<?php endif; ?>
 			</div>
@@ -3304,14 +3304,14 @@ Class CT_Toolbar {
 				<div class="oxygen-select-box-option" 
 					ng-click="iframeScope.pageSettingsMeta<?php echo $option; ?>='always'"
 					ng-class="{'oxygen-select-box-option-active':iframeScope.pageSettingsMeta<?php echo $option; ?>=='always'}">
-					<?php _e("Always","oxygen"); ?>
+					<?php oxygen_translate_echo("Always","oxygen"); ?>
 				</div>
 				<?php endif; ?>
 				<?php if ($never&&$above) : ?>
 				<div class="oxygen-select-box-option" 
 					ng-click="iframeScope.pageSettingsMeta<?php echo $option; ?>='never'"
 					ng-class="{'oxygen-select-box-option-active':iframeScope.pageSettingsMeta<?php echo $option; ?>=='never'}">
-					<?php _e("Never","oxygen"); ?>
+					<?php oxygen_translate_echo("Never","oxygen"); ?>
 				</div>
 				<?php endif; ?>
 				<div class="oxygen-select-box-option" 
@@ -3325,14 +3325,14 @@ Class CT_Toolbar {
 				<div class="oxygen-select-box-option" 
 					ng-click="iframeScope.pageSettingsMeta<?php echo $option; ?>='always'"
 					ng-class="{'oxygen-select-box-option-active':iframeScope.pageSettingsMeta<?php echo $option; ?>=='always'}">
-					<?php _e("Always","oxygen"); ?>
+					<?php oxygen_translate_echo("Always","oxygen"); ?>
 				</div>
 				<?php endif; ?>
 				<?php if ($never&&!$above) : ?>
 				<div class="oxygen-select-box-option" 
 					ng-click="iframeScope.pageSettingsMeta<?php echo $option; ?>='never'"
 					ng-class="{'oxygen-select-box-option-active':iframeScope.pageSettingsMeta<?php echo $option; ?>=='never'}">
-					<?php _e("Never","oxygen"); ?>
+					<?php oxygen_translate_echo("Never","oxygen"); ?>
 				</div>
 				<?php endif; ?>
 			</div>
@@ -3353,14 +3353,14 @@ Class CT_Toolbar {
 				<div class="oxygen-select-box-option" 
 					ng-click="iframeScope.globalSettings<?php echo $option; ?>='always'"
 					ng-class="{'oxygen-select-box-option-active':iframeScope.globalSettings<?php echo $option; ?>=='always'}">
-					<?php _e("Always","oxygen"); ?>
+					<?php oxygen_translate_echo("Always","oxygen"); ?>
 				</div>
 				<?php endif; ?>
 				<?php if ($never&&$above) : ?>
 				<div class="oxygen-select-box-option" 
 					ng-click="iframeScope.globalSettings<?php echo $option; ?>='never'"
 					ng-class="{'oxygen-select-box-option-active':iframeScope.globalSettings<?php echo $option; ?>=='never'}">
-					<?php _e("Never","oxygen"); ?>
+					<?php oxygen_translate_echo("Never","oxygen"); ?>
 				</div>
 				<?php endif; ?>
 				<div class="oxygen-select-box-option" 
@@ -3374,14 +3374,14 @@ Class CT_Toolbar {
 				<div class="oxygen-select-box-option" 
 					ng-click="iframeScope.globalSettings<?php echo $option; ?>='always'"
 					ng-class="{'oxygen-select-box-option-active':iframeScope.globalSettings<?php echo $option; ?>=='always'}">
-					<?php _e("Always","oxygen"); ?>
+					<?php oxygen_translate_echo("Always","oxygen"); ?>
 				</div>
 				<?php endif; ?>
 				<?php if ($never&&!$above) : ?>
 				<div class="oxygen-select-box-option" 
 					ng-click="iframeScope.globalSettings<?php echo $option; ?>='never'"
 					ng-class="{'oxygen-select-box-option-active':iframeScope.globalSettings<?php echo $option; ?>=='never'}">
-					<?php _e("Never","oxygen"); ?>
+					<?php oxygen_translate_echo("Never","oxygen"); ?>
 				</div>
 				<?php endif; ?>
 			</div>
@@ -3453,69 +3453,69 @@ Class CT_Toolbar {
 		?>
 
 		<p ng-show="iframeScope.isShowFolder('dynamic-data-data')"
-			style="font-size: 14px">Please <a style="color: var(--oxy-light-text)" target="_blank" href="https://oxygenbuilder.com/documentation/other/security/#filtering-dynamic-data">review this security information</a> if you plan to render untrusted data via Oxygen’s dynamic data functions.</p>
+			style="font-size: 14px">Please <a style="color: var(--oxy-light-text)" target="_blank" href="https://classic.oxygenbuilder.com/documentation/other/security/#filtering-dynamic-data">review this security information</a> if you plan to render untrusted data via Oxygen’s dynamic data functions.</p>
 
 		<div class="oxygen-add-section-element"
 			data-searchid="dynamic_data_title"
 			ng-click="iframeScope.addDynamicContent('ct_headline', '[oxygen data=\'title\']');">
 			<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/add-icons/dynamicdata.svg' />
-			<?php _e("Title","oxygen"); ?>
+			<?php oxygen_translate_echo("Title","oxygen"); ?>
 		</div>
 
 		<div class="oxygen-add-section-element"
 			data-searchid="dynamic_data_content"
 			ng-click="iframeScope.addDynamicContent('ct_text_block', '[oxygen data=\'content\']');">
 			<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/add-icons/dynamicdata.svg' />
-			<?php _e("Content","oxygen"); ?>
+			<?php oxygen_translate_echo("Content","oxygen"); ?>
 		</div>
 
 		<div class="oxygen-add-section-element"
 			data-searchid="dynamic_data_date"
 			ng-click="iframeScope.addDynamicContent('ct_text_block', '[oxygen data=\'date\']');">
 			<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/add-icons/dynamicdata.svg' />
-			<?php _e("Date","oxygen"); ?>
+			<?php oxygen_translate_echo("Date","oxygen"); ?>
 		</div>
 
 		<div class="oxygen-add-section-element"
 			data-searchid="dynamic_data_categories"
 			ng-click="iframeScope.addDynamicContent('ct_text_block', '[oxygen data=\'terms\' taxonomy=\'category\' separator=\', \']');">
 			<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/add-icons/dynamicdata.svg' />
-			<?php _e("Categories","oxygen"); ?>
+			<?php oxygen_translate_echo("Categories","oxygen"); ?>
 		</div>
 
 		<div class="oxygen-add-section-element"
 			data-searchid="dynamic_data_tags"
 			ng-click="iframeScope.addDynamicContent('ct_text_block', '[oxygen data=\'terms\' taxonomy=\'post_tag\' separator=\', \']');">
 			<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/add-icons/dynamicdata.svg' />
-			<?php _e("Tags","oxygen"); ?>
+			<?php oxygen_translate_echo("Tags","oxygen"); ?>
 		</div>
 
 		<div class="oxygen-add-section-element"
 			data-searchid="dynamic_data_featured_image"
 			ng-click="iframeScope.addComponent('ct_image');iframeScope.insertShortcodeToImage('[oxygen data=\'featured_image\']')">
 			<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/add-icons/dynamicdata.svg' />
-			<?php _e("Featured Image","oxygen"); ?>
+			<?php oxygen_translate_echo("Featured Image","oxygen"); ?>
 		</div>
 
 		<div class="oxygen-add-section-element"
 			data-searchid="dynamic_data_author"
 			ng-click="iframeScope.addDynamicContent('ct_text_block', '[oxygen data=\'author\']');">
 			<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/add-icons/dynamicdata.svg' />
-			<?php _e("Author","oxygen"); ?>
+			<?php oxygen_translate_echo("Author","oxygen"); ?>
 		</div>
 
 		<div class="oxygen-add-section-element"
 			data-searchid="dynamic_data_author_avatar"
 			ng-click="iframeScope.addComponent('ct_image');iframeScope.insertShortcodeToImage('[oxygen data=\'author_pic\']')">
 			<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/add-icons/dynamicdata.svg' />
-			<?php _e("Author Avatar","oxygen"); ?>
+			<?php oxygen_translate_echo("Author Avatar","oxygen"); ?>
 		</div>
 
 		<div class="oxygen-add-section-element"
 			data-searchid="dynamic_data_custom_field"
 			ng-click="iframeScope.addCustomFieldComponent()">
 			<img src='<?php echo CT_FW_URI; ?>/toolbar/UI/oxygen-icons/add-icons/dynamicdata.svg' />
-			<?php _e("Custom field","oxygen"); ?>
+			<?php oxygen_translate_echo("Custom field","oxygen"); ?>
 		</div>
 
 	<?php }
@@ -3532,14 +3532,14 @@ Class CT_Toolbar {
 	
 		<div class="oxygen-tinymce-dialog-wrap" ng-show="tinyMCEWindow">
 			<div class="oxygen-data-dialog">
-				<h1><?php _e("Edit text", "oxygen"); ?></h1>
+				<h1><?php oxygen_translate_echo("Edit text", "oxygen"); ?></h1>
 				<?php wp_editor("", "oxygen_vsb_tinymce", $settings = array(
 					"media_buttons" => false,
 					"editor_height" => 350
 					)); ?>
 				<br/>
 				<span class="oxygen-apply-button" 
-					ng-click="closeTinyMCEDialog()"><?php _e("Save & Close", "oxygen"); ?></span>
+					ng-click="closeTinyMCEDialog()"><?php oxygen_translate_echo("Save & Close", "oxygen"); ?></span>
 			</div>
 			<div class="oxygen-data-dialog-bg"
 				ng-show="tinyMCEWindow"
@@ -3579,19 +3579,19 @@ Class CT_Toolbar {
 		<?php endif; ?>
 		
 		<div class="oxygen-control-row">
-	        <?php $this->colorpicker_with_wrapper($prefix."box-shadow-color", __("Shadow Color", "oxygen") ); ?>
+	        <?php $this->colorpicker_with_wrapper($prefix."box-shadow-color", oxygen_translate("Shadow Color", "oxygen") ); ?>
 	    </div>
 		<div class='oxygen-control-row'>
-			<?php $this->slider_measure_box_with_wrapper($prefix.'box-shadow-horizontal-offset',__('Shadow Horizontal Offset','oxygen'), 'px'); ?>
+			<?php $this->slider_measure_box_with_wrapper($prefix.'box-shadow-horizontal-offset',oxygen_translate('Shadow Horizontal Offset','oxygen'), 'px'); ?>
 		</div>
 		<div class='oxygen-control-row'>
-			<?php $this->slider_measure_box_with_wrapper($prefix.'box-shadow-vertical-offset',__('Shadow Vertical Offset','oxygen'), 'px'); ?>
+			<?php $this->slider_measure_box_with_wrapper($prefix.'box-shadow-vertical-offset',oxygen_translate('Shadow Vertical Offset','oxygen'), 'px'); ?>
 		</div>
 		<div class='oxygen-control-row'>
-			<?php $this->slider_measure_box_with_wrapper($prefix.'box-shadow-blur',__('Shadow Blur','oxygen'), 'px'); ?>
+			<?php $this->slider_measure_box_with_wrapper($prefix.'box-shadow-blur',oxygen_translate('Shadow Blur','oxygen'), 'px'); ?>
 		</div>
 		<div class='oxygen-control-row'>
-			<?php $this->slider_measure_box_with_wrapper($prefix.'box-shadow-spread',__('Shadow Spread','oxygen'), 'px'); ?>
+			<?php $this->slider_measure_box_with_wrapper($prefix.'box-shadow-spread',oxygen_translate('Shadow Spread','oxygen'), 'px'); ?>
 		</div>
 	
 	<?php }
@@ -3646,7 +3646,7 @@ Class CT_Toolbar {
 				<div class="oxygen-sidebar-flex-panel">
 					<div class='oxygen-control-row'>
 						<div class='oxygen-control-wrapper'>
-		                    <label class='oxygen-control-label'><?php _e("Use Preset","oxygen"); ?></label>
+		                    <label class='oxygen-control-label'><?php oxygen_translate_echo("Use Preset","oxygen"); ?></label>
 		                    <div class='oxygen-control'>
 		                        <div class="oxygen-select oxygen-select-box-wrapper">
 		                            <div class="oxygen-select-box">
@@ -3655,7 +3655,7 @@ Class CT_Toolbar {
 		                            </div>
 		                            <div class="oxygen-select-box-options">
 		                                <div class="oxygen-select-box-option" 
-		                                    title="<?php _e("Apply Preset to current element", "oxygen"); ?>"
+		                                    title="<?php oxygen_translate_echo("Apply Preset to current element", "oxygen"); ?>"
 		                                    ng-repeat="(presetKey,options) in iframeScope.elementPresets[iframeScope.component.active.name]"
 		                                    ng-click="iframeScope.applyElementPreset(presetKey)">
 		                                    <div>{{iframeScope.elementPresets[iframeScope.component.active.name][presetKey].name}}</div>
@@ -3672,7 +3672,7 @@ Class CT_Toolbar {
 		                	<div class='oxygen-control'>
 		                        <div class="oxygen-apply-button"
 		                            ng-click="iframeScope.deleteCurrentElementPreset()">
-		                            <?php _e("Delete","oxygen"); ?>
+		                            <?php oxygen_translate_echo("Delete","oxygen"); ?>
 		                        </div>
 		                    </div>
 		                </div>
@@ -3680,7 +3680,7 @@ Class CT_Toolbar {
 		                	<div class='oxygen-control'>
 		                        <div class="oxygen-apply-button"
 		                            ng-click="iframeScope.exportCurrentPreset()">
-		                            <?php _e("Export","oxygen"); ?>
+		                            <?php oxygen_translate_echo("Export","oxygen"); ?>
 		                        </div>
 		                    </div>
 		                </div>
@@ -3688,7 +3688,7 @@ Class CT_Toolbar {
 		                    <div class='oxygen-control'>
 		                        <div class="oxygen-apply-button"
 		                            ng-click="iframeScope.importPreset()">
-		                            <?php _e("Import","oxygen"); ?>
+		                            <?php oxygen_translate_echo("Import","oxygen"); ?>
 		                        </div>
 		                    </div>
 		                </div>
@@ -3696,10 +3696,10 @@ Class CT_Toolbar {
 		            
 		            <div class='oxygen-control-row'>
 		                <div class='oxygen-control-wrapper'>
-		                    <label class='oxygen-control-label'><?php _e("Save New Preset","oxygen"); ?></label>
+		                    <label class='oxygen-control-label'><?php oxygen_translate_echo("Save New Preset","oxygen"); ?></label>
 		                    <div class='oxygen-control'>
 		                        <div class='oxygen-input'>
-		                            <input type="text" spellcheck="false" placeholder="<?php _e("Preset Name","oxygen"); ?>" 
+		                            <input type="text" spellcheck="false" placeholder="<?php oxygen_translate_echo("Preset Name","oxygen"); ?>" 
 		                                ng-model="iframeScope.newPresetName"/>
 		                        </div>
 		                    </div>
@@ -3709,7 +3709,7 @@ Class CT_Toolbar {
 		                    <div class='oxygen-control'>
 		                        <div class="oxygen-apply-button"
 		                            ng-click="iframeScope.saveElementPreset()">
-		                            <?php _e("Save","oxygen"); ?>
+		                            <?php oxygen_translate_echo("Save","oxygen"); ?>
 		                        </div>
 		                    </div>
 		                </div>
@@ -3734,17 +3734,17 @@ Class CT_Toolbar {
 			<div class="oxygen-select-box">
 				<div class="oxygen-select-box-current"
 					ng-class="{'oxygen-select-box-current-default':$parent.iframeScope.globalCodeMirrorTheme=='gruvboxDark'}">
-					<?php _e("Editor Theme", "oxygen"); ?>: "{{$parent.iframeScope.globalCodeMirrorTheme}}"
+					<?php oxygen_translate_echo("Editor Theme", "oxygen"); ?>: "{{$parent.iframeScope.globalCodeMirrorTheme}}"
 				</div>
 				<div class="oxygen-select-box-dropdown"></div>
 			</div>
 			<?php $themes = array(
-				'materialDark'=>__("Material","oxygen"),
-				'solarizedDark'=>__("Solarized Dark","oxygen"),
-				'solarizedLight'=>__("Solarized Light","oxygen"),
-				'gruvboxDark'=>__("Gruvbox Dark","oxygen"),
-				'gruvboxLight'=>__("Gruvbox Light","oxygen"),
-				'nord'=>__("Nord","oxygen"),
+				'materialDark'=>oxygen_translate("Material","oxygen"),
+				'solarizedDark'=>oxygen_translate("Solarized Dark","oxygen"),
+				'solarizedLight'=>oxygen_translate("Solarized Light","oxygen"),
+				'gruvboxDark'=>oxygen_translate("Gruvbox Dark","oxygen"),
+				'gruvboxLight'=>oxygen_translate("Gruvbox Light","oxygen"),
+				'nord'=>oxygen_translate("Nord","oxygen"),
 				); ?>
 			<div class="oxygen-select-box-options">
 				<?php foreach ($themes as $key => $name) : ?>
@@ -3765,7 +3765,7 @@ Class CT_Toolbar {
 					ng-model="iframeScope.globalCodeMirrorWrap"> 
 				<div class='oxygen-checkbox-checkbox'
 					ng-class="{'oxygen-checkbox-checkbox-active':iframeScope.globalCodeMirrorWrap=='true'}">
-					<?php _e("Wrap","oxygen"); ?>
+					<?php oxygen_translate_echo("Wrap","oxygen"); ?>
 				</div>
 			</label>
 		</div>
@@ -3869,34 +3869,34 @@ Class CT_Toolbar {
 		ng-class="{'oxy-hide-context-menu': !contextMenu.show}">
 		<div class="oxy-context-menu-item"
 			ng-click="iframeScope.$broadcast('copyElement');contextMenuItemAfterClick($event)">
-			<?php _e("Copy","oxygen"); ?>
+			<?php oxygen_translate_echo("Copy","oxygen"); ?>
 		</div>
 		<div class="oxy-context-menu-item"
 			ng-click="iframeScope.$broadcast('pasteElement');contextMenuItemAfterClick($event)">
-			<?php _e("Paste","oxygen"); ?>
+			<?php oxygen_translate_echo("Paste","oxygen"); ?>
 		</div>
 		<div class="oxy-context-menu-item"
 			ng-show="iframeScope.component.active.id > 0 && iframeScope.component.active.name != 'ct_span'"
 			ng-click="iframeScope.duplicateComponent();contextMenuItemAfterClick($event)"
-			><?php _e("Duplicate","oxygen"); ?>
+			><?php oxygen_translate_echo("Duplicate","oxygen"); ?>
 		</div>
 		<div class="oxy-context-menu-item"
 			ng-click="iframeScope.removeActiveComponent();contextMenuItemAfterClick($event)"
-			><?php _e("Delete","oxygen"); ?>
+			><?php oxygen_translate_echo("Delete","oxygen"); ?>
 		</div>
 		<div class="oxy-context-menu-item"
 			ng-click="iframeScope.setEditableFriendlyName(contextMenu.id,$event,true);contextMenuItemAfterClick($event)"
-			><?php _e("Rename","oxygen"); ?>
+			><?php oxygen_translate_echo("Rename","oxygen"); ?>
 		</div>
 		<div class="oxy-context-menu-item"
 			ng-click="copyElementExportJSON(contextMenu.id);contextMenuItemAfterClick($event)"
-			><?php _e("Export","oxygen"); ?>
+			><?php oxygen_translate_echo("Export","oxygen"); ?>
 		</div>
 		<div class="oxy-context-menu-divider"></div>
 		<div class="oxy-context-menu-item"
 			ng-hide="iframeScope.component.active.name=='ct_reusable'"
 			ng-click="showConditionsMenu=false;showDialogWindow();dialogForms['ifCondition']=true;contextMenuItemAfterClick($event)"
-			><?php _e("Conditions","oxygen"); ?>
+			><?php oxygen_translate_echo("Conditions","oxygen"); ?>
 		</div>
 		<div class="oxy-context-menu-item"
 			ng-click="state.editable = false;state.showCategorize=false;iframeScope.setOptionModel('conditionspreview', (iframeScope.getOption('conditionspreview')!=='0'?'0':'2'), item.id, item.name); evalGlobalConditions(item.id); evalGlobalConditionsInList();contextMenuItemAfterClick($event)"
@@ -3905,11 +3905,11 @@ Class CT_Toolbar {
 		<div class="oxy-context-menu-item"
 			ng-hide="iframeScope.component.active.name=='ct_reusable'"
 			ng-click="iframeScope.saveReusable(item.id);contextMenuItemAfterClick($event)"
-			><?php _e("Make Re-Usable","oxygen"); ?>
+			><?php oxygen_translate_echo("Make Re-Usable","oxygen"); ?>
 		</div>
 		<div class="oxy-context-menu-item"
 			ng-click="iframeScope.wrapComponentWith('ct_div_block', item.id, item.options.ct_parent);contextMenuItemAfterClick($event)"
-			><?php _e("Wrap with div","oxygen"); ?>
+			><?php oxygen_translate_echo("Wrap with div","oxygen"); ?>
 		</div>
 	</div>
 		

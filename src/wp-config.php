@@ -85,11 +85,16 @@ $table_prefix = 'wp_hotelnowydworeu';
  *
  * @link https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/
  */
-define( 'WP_DEBUG', false );
+define( 'WP_DEBUG', true );
+define( 'WP_DEBUG_DISPLAY', false );
+define( 'WP_DEBUG_LOG', true );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
-
+define( 'DISALLOW_FILE_EDIT', true );
+define( 'WP_POST_REVISIONS', false );
+define( 'AUTOSAVE_INTERVAL', false );
+define( 'WP_AUTO_UPDATE_CORE', false );
 
 /* That's all, stop editing! Happy publishing. */
 

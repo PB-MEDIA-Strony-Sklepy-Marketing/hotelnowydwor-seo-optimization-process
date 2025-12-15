@@ -130,7 +130,7 @@ endif; ?><!DOCTYPE html>
 		<div class="oxy-style-indicator"
 			ng-class="{'oxygen-has-class-value':iframeScope.classHasOption(data.paramName)&&!IDHasOption(data.paramName),'oxygen-has-id-value':iframeScope.IDHasOption(data.paramName)}">
 		</div>
-		<label class='oxygen-control-label'><?php _e("Font Weight","oxygen"); ?></label>
+		<label class='oxygen-control-label'><?php oxygen_translate_echo("Font Weight","oxygen"); ?></label>
 		<div class='oxygen-control'>
 
 			<div class="oxygen-select oxygen-select-box-wrapper" ng-include="'ctDropDownTemplate'" ng-init='data["pairs"]={"":"&nbsp;", "100":"100","200":"200","300":"300","400":"400","500":"500","600":"600","700":"700","800":"800","900":"900"}'>
@@ -139,7 +139,7 @@ endif; ?><!DOCTYPE html>
 	</div>
 </script>
 <script type="text/ng-template" id="ctFontFamilyTemplate">
-	<label class='oxygen-control-label'><?php _e("Font Family","oxygen"); ?></label>
+	<label class='oxygen-control-label'><?php oxygen_translate_echo("Font Family","oxygen"); ?></label>
 	<div class='oxygen-control'>
 	
 		<div class="oxygen-select oxygen-select-box-wrapper">
@@ -151,52 +151,52 @@ endif; ?><!DOCTYPE html>
 			<div class="oxygen-select-box-options">
 
 				<div class="oxygen-select-box-option">
-					<input type="text" value="" placeholder="<?php _e("Search...", "oxygen"); ?>" spellcheck="false"
+					<input type="text" value="" placeholder="<?php oxygen_translate_echo("Search...", "oxygen"); ?>" spellcheck="false"
 						ng-model="iframeScope.fontsFilter"/>
 				</div>
 				<div class="oxygen-select-box-option"
 					ng-click="iframeScope.setComponentFont(iframeScope.component.active.id, iframeScope.component.active.name, '', data.paramName);"
-					title="<?php _e("Unset font", "oxygen"); ?>">
-						<?php _e("Default", "oxygen"); ?>
+					title="<?php oxygen_translate_echo("Unset font", "oxygen"); ?>">
+						<?php oxygen_translate_echo("Default", "oxygen"); ?>
 				</div>
 				<div class="oxygen-select-box-option"
 					ng-repeat="(name,font) in iframeScope.globalSettings.fonts | filter:{font:iframeScope.fontsFilter}"
 					ng-click="iframeScope.setComponentFont(iframeScope.component.active.id, iframeScope.component.active.name, ['global', name], data.paramName);"
-					title="<?php _e("Apply global font", "oxygen"); ?>">
+					title="<?php oxygen_translate_echo("Apply global font", "oxygen"); ?>">
 						{{name}} ({{font}})
 				</div>
 				<div class="oxygen-select-box-option"
 					ng-repeat="name in ['Inherit'] | filter:iframeScope.fontsFilter"
 					ng-click="iframeScope.setComponentFont(iframeScope.component.active.id, iframeScope.component.active.name, name, data.paramName);"
-					title="<?php _e("Use parent element font", "oxygen"); ?>">
+					title="<?php oxygen_translate_echo("Use parent element font", "oxygen"); ?>">
 						Inherit
 				</div>
 				<div class="oxygen-select-box-option"
 					ng-hide="iframeScope.globalFontExist(name)"
 					ng-repeat="name in iframeScope.elegantCustomFonts | filter:iframeScope.fontsFilter | limitTo: 20"
 					ng-click="iframeScope.setComponentFont(iframeScope.component.active.id, iframeScope.component.active.name, name, data.paramName);"
-					title="<?php _e("Apply this font family", "oxygen"); ?>">
+					title="<?php oxygen_translate_echo("Apply this font family", "oxygen"); ?>">
 						{{name}}
 				</div>
 				<div class="oxygen-select-box-option"
 					ng-hide="iframeScope.globalFontExist(font.name)"
 					ng-repeat="font in iframeScope.typeKitFonts | filter:iframeScope.fontsFilter | limitTo: 20"
 					ng-click="iframeScope.setComponentFont(iframeScope.component.active.id, iframeScope.component.active.name, font.slug, data.paramName);"
-					title="<?php _e("Apply this font family", "oxygen"); ?>">
+					title="<?php oxygen_translate_echo("Apply this font family", "oxygen"); ?>">
 						{{font.name}}
 				</div>
 				<div class="oxygen-select-box-option"
 					ng-hide="iframeScope.globalFontExist(font)"
 					ng-repeat="font in iframeScope.webSafeFonts | filter:iframeScope.fontsFilter | limitTo: 20"
 					ng-click="iframeScope.setComponentFont(iframeScope.component.active.id, iframeScope.component.active.name, font, data.paramName);"
-					title="<?php _e("Apply this font family", "oxygen"); ?>">
+					title="<?php oxygen_translate_echo("Apply this font family", "oxygen"); ?>">
 						{{font}}
 				</div>
 				<div class="oxygen-select-box-option"
 					ng-hide="iframeScope.globalFontExist(font.family)"
 					ng-repeat="font in iframeScope.googleFontsList | filter:iframeScope.fontsFilter | limitTo: 20"
 					ng-click="iframeScope.setComponentFont(iframeScope.component.active.id, iframeScope.component.active.name, font.family, data.paramName);"
-					title="<?php _e('Apply this font family', 'oxygen'); ?>">
+					title="<?php oxygen_translate_echo('Apply this font family', 'oxygen'); ?>">
 						{{font.family}}
 				</div>
 

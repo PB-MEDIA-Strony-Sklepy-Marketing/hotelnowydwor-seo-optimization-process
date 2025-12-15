@@ -73,23 +73,23 @@ $oxygen_vsb_components['text_block'] = new CT_Text_Block(
 					),
 					array(
 						"type" 			=> "font-family",
-						"heading" 		=> __("Font Family", "oxygen"),
+						"heading" 		=> oxygen_translate("Font Family", "oxygen"),
 						"css" 			=> false,
 					),
 					array(
 						"type" 			=> "colorpicker",
-						"heading" 		=> __("Text Color", "oxygen"),
+						"heading" 		=> oxygen_translate("Text Color", "oxygen"),
 						"param_name" 	=> "color",
 						"value" 		=> "",
 					),
 					array(
 						"type" 			=> "slider-measurebox",
-						"heading" 		=> __("Font Size", "oxygen"),
+						"heading" 		=> oxygen_translate("Font Size", "oxygen"),
 						"param_name" 	=> "font-size",
 					),
 					array(
 						"type" 			=> "dropdown",
-						"heading" 		=> __("Font Weight", "oxygen"),
+						"heading" 		=> oxygen_translate("Font Weight", "oxygen"),
 						"param_name" 	=> "font-weight",
 						"value" 		=> array (
 											"" 		=> "&nbsp;",
@@ -106,7 +106,7 @@ $oxygen_vsb_components['text_block'] = new CT_Text_Block(
 					),
 					array(
 						"type" 			=> "tag",
-						"heading" 		=> __("Tag", "oxygen"),
+						"heading" 		=> oxygen_translate("Tag", "oxygen"),
 						"param_name" 	=> "tag",
 						"value" 		=> array (
 											"div" 			=> "div",

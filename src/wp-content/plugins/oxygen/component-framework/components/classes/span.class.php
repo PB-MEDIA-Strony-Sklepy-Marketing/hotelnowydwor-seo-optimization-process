@@ -90,28 +90,28 @@ $oxygen_vsb_components['span'] = new CT_Span (
 					array(
 						"type" 			=> "content",
 						"param_name" 	=> "ct_content",
-						"value" 		=> __("Span text", "oxygen"),
+						"value" 		=> oxygen_translate("Span text", "oxygen"),
 						"css" 			=> false,
 					),
 					array(
 						"type" 			=> "font-family",
-						"heading" 		=> __("Font Family", "oxygen"),
+						"heading" 		=> oxygen_translate("Font Family", "oxygen"),
 						"css" 			=> false,
 					),
 					array(
 						"type" 			=> "colorpicker",
-						"heading" 		=> __("Text Color", "oxygen"),
+						"heading" 		=> oxygen_translate("Text Color", "oxygen"),
 						"param_name" 	=> "color",
 						"value" 		=> "",
 					),
 					array(
 						"type" 			=> "slider-measurebox",
-						"heading" 		=> __("Font Size", "oxygen"),
+						"heading" 		=> oxygen_translate("Font Size", "oxygen"),
 						"param_name" 	=> "font-size",
 					),
 					array(
 						"type" 			=> "dropdown",
-						"heading" 		=> __("Font Weight", "oxygen"),
+						"heading" 		=> oxygen_translate("Font Weight", "oxygen"),
 						"param_name" 	=> "font-weight",
 						"value" 		=> array (
 											"" 		=> "&nbsp;",

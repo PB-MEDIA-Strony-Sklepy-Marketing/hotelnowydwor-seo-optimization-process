@@ -63,7 +63,7 @@ function do_oxygen_elements($node) {
 			
 			if ( ! is_callable( $oxygen_registered_elements[ $tag ] ) ) {
 				/* translators: %s: Shortcode tag. */
-				$message = sprintf( __( 'Attempting to parse a shortcode without a valid callback: %s' ), $tag );
+				$message = sprintf( oxygen_translate( 'Attempting to parse a shortcode without a valid callback: %s' ), $tag );
 				_doing_it_wrong( __FUNCTION__, $message, '4.3.0' );
 				return "";
 			}
@@ -219,11 +219,11 @@ function ct_templates_buffer_start() {
 						the_content();
 
 						wp_link_pages( array(
-							'before'      => '<div><span>' . __( 'Pages:', 'oxygen' ) . '</span>',
+							'before'      => '<div><span>' . oxygen_translate( 'Pages:', 'oxygen' ) . '</span>',
 							'after'       => '</div>',
 							'link_before' => '<span>',
 							'link_after'  => '</span>',
-							'pagelink'    => '<span>' . __( 'Page', 'oxygen' ) . ' </span>%',
+							'pagelink'    => '<span>' . oxygen_translate( 'Page', 'oxygen' ) . ' </span>%',
 							'separator'   => '<span>, </span>',
 						) );
 						?>
@@ -289,7 +289,7 @@ function ct_template_builder_settings() {
 	?>
 	<div class='oxygen-control-wrapper'>
 		<div class='oxygen-control oxygen-template-previewing-control oxygen-editing-list-control'>
-			<label class='oxygen-control-label'><?php _e("Editing","oxygen"); ?></label>
+			<label class='oxygen-control-label'><?php oxygen_translate_echo("Editing","oxygen"); ?></label>
 			<div class="oxygen-select oxygen-select-box-wrapper">
 				<div class="oxygen-select-box">
 					<div class="oxygen-select-box-current" >
@@ -299,11 +299,11 @@ function ct_template_builder_settings() {
 				</div>
 				<div class="oxygen-select-box-options">
 					<div class="oxygen-select-box-option">
-						<input type="text" value="" placeholder="<?php _e("Filter...", "oxygen"); ?>" spellcheck="false"
+						<input type="text" value="" placeholder="<?php oxygen_translate_echo("Filter...", "oxygen"); ?>" spellcheck="false"
 							ng-model="currentlyEditingFilter"
 							ng-change="iframeScope.loadEditingList()"/>
 					</div>
-					<div class="oxygen-select-box-option" title="<?php _e("Edit", "oxygen"); ?>"
+					<div class="oxygen-select-box-option" title="<?php oxygen_translate_echo("Edit", "oxygen"); ?>"
 						ng-repeat="post in iframeScope.editingList"
 						ng-click="iframeScope.changePreview(post);">
 						{{post.post_title}}<span>{{post.type}}</span>
@@ -316,7 +316,7 @@ function ct_template_builder_settings() {
 	<div class='oxygen-control-wrapper'
 		ng-show="iframeScope.ajaxVar.oxyTemplate && !iframeScope.ajaxVar.oxyReusable">
 		<div class='oxygen-control oxygen-template-previewing-control'>
-			<label class='oxygen-control-label'><?php _e("Previewing","oxygen"); ?></label>
+			<label class='oxygen-control-label'><?php oxygen_translate_echo("Previewing","oxygen"); ?></label>
 			<div class="oxygen-select oxygen-select-box-wrapper">
 				<div class="oxygen-select-box">
 					<div class="oxygen-select-box-current" title="{{iframeScope.previewType == 'post' ? iframeScope.template.postData.post_title : iframeScope.template.postData.term_name}}">{{iframeScope.previewType == 'post' ? iframeScope.template.postData.post_title : iframeScope.template.postData.term_name}}</div>
@@ -324,21 +324,21 @@ function ct_template_builder_settings() {
 				</div>
 				<div class="oxygen-select-box-options">
 					<div class="oxygen-select-box-option">
-						<input ng-model="postsFilter" type="text" value="" placeholder="<?php _e("Filter...", "oxygen"); ?>" spellcheck="false"/>
+						<input ng-model="postsFilter" type="text" value="" placeholder="<?php oxygen_translate_echo("Filter...", "oxygen"); ?>" spellcheck="false"/>
 					</div>
-					<div class="oxygen-select-box-option" title="<?php _e("Preview this post", "oxygen"); ?>"
+					<div class="oxygen-select-box-option" title="<?php oxygen_translate_echo("Preview this post", "oxygen"); ?>"
 						ng-repeat="post in iframeScope.template.postsList | filter:postsFilter | limitTo:20"
 						ng-click="iframeScope.loadTemplatesTerm(post.id, 'post');">
 						{{post.title}}
 					</div>
-					<div class="oxygen-select-box-option" title="<?php _e("Preview this post", "oxygen"); ?>"
+					<div class="oxygen-select-box-option" title="<?php oxygen_translate_echo("Preview this post", "oxygen"); ?>"
 						ng-repeat="term in iframeScope.template.termsList | filter:postsFilter | limitTo:20"
 						ng-click="iframeScope.loadTemplatesTerm(term.id, 'term');">
 						{{term.title}}
 					</div>
 					<div class="oxygen-select-box-option oxygen-nothing-found-option"
 						ng-show="!iframeScope.template.termsList.length && !iframeScope.template.postsList.length">
-						<?php _e("No items to preview"); ?>
+						<?php oxygen_translate_echo("No items to preview"); ?>
 					</div>
 				</div>
 			</div>
@@ -1412,14 +1412,14 @@ function ct_add_term_posts( &$terms, $taxonomy_name, $term_ids = false ) {
 
 		if ( $taxonomy_name == "index" ) {
 			
-			$term_name 	= __("Index", "oxygen");
+			$term_name 	= oxygen_translate("Index", "oxygen");
 			$args 		= array();
 			$permalink 	= get_home_url(null, '/'); //????
 		}
 		
 		if ( $taxonomy_name == "date_archive" ) {
 			
-			$term_name 	= __("Date Archive", "oxygen") . date(" (Y/M)");
+			$term_name 	= oxygen_translate("Date Archive", "oxygen") . date(" (Y/M)");
 			$args 		= array();
 			$permalink 	= get_month_link("",""); // current year, current month
 		}
@@ -1428,7 +1428,7 @@ function ct_add_term_posts( &$terms, $taxonomy_name, $term_ids = false ) {
 
 			if ( get_option( 'page_on_front' ) ) {
 				
-				$term_name 	= __("Front Page", "oxygen");
+				$term_name 	= oxygen_translate("Front Page", "oxygen");
 				$args 		= array();
 				$permalink 	= get_permalink( get_option( 'page_on_front' ) );
 			}
@@ -1441,7 +1441,7 @@ function ct_add_term_posts( &$terms, $taxonomy_name, $term_ids = false ) {
 			
 			if ( get_option( 'page_for_posts' ) ) {
 
-				$term_name 	= __("Blog Posts", "oxygen");
+				$term_name 	= oxygen_translate("Blog Posts", "oxygen");
 				$args 		= array('post_type'=>'post'); // unless the post type is specified, it will also load component templates and any other custom post types
 				$permalink 	= get_page_link( get_option( 'page_for_posts' ) );
 			}
@@ -1452,14 +1452,14 @@ function ct_add_term_posts( &$terms, $taxonomy_name, $term_ids = false ) {
 
 		if ( $taxonomy_name == "search_page" ) {
 			
-			$term_name 	= __("Search Page", "oxygen");
+			$term_name 	= oxygen_translate("Search Page", "oxygen");
 			$args 		= array();
 			$permalink 	= get_search_link("post");
 		}
 
 		if ( $taxonomy_name == "404_page" ) {
 			
-			$term_name 	= __("404 Page", "oxygen");
+			$term_name 	= oxygen_translate("404 Page", "oxygen");
 			$args 		= array();
 			$permalink 	= get_home_url( null, "absoltely_incredible_not_possible_to_exist_in_real_world_url_that_will_always_output_404_error_page" );
 		}

@@ -180,14 +180,14 @@ class EDD_SL_Plugin_Updater_Oxygen {
 
             if ( empty( $version_info->download_link ) ) {
                 printf(
-                    __( 'There is a new version of %1$s available. <a target="_blank" class="thickbox" href="%2$s">View version %3$s details</a>.', 'edd' ),
+                    oxygen_translate( 'There is a new version of %1$s available. <a target="_blank" class="thickbox" href="%2$s">View version %3$s details</a>.', 'edd' ),
                     esc_html( $version_info->name ),
                     esc_url( $changelog_link ),
                     esc_html( $version_info->new_version )
                 );
             } else {
                 printf(
-                    __( 'There is a new version of %1$s available. <a target="_blank" class="thickbox" href="%2$s">View version %3$s details</a> or <a href="%4$s">update now</a>.', 'edd' ),
+                    oxygen_translate( 'There is a new version of %1$s available. <a target="_blank" class="thickbox" href="%2$s">View version %3$s details</a> or <a href="%4$s">update now</a>.', 'edd' ),
                     esc_html( $version_info->name ),
                     esc_url( $changelog_link ),
                     esc_html( $version_info->new_version ),
@@ -335,7 +335,7 @@ class EDD_SL_Plugin_Updater_Oxygen {
         }
 
         if( ! current_user_can( 'update_plugins' ) ) {
-            wp_die( __( 'You do not have permission to install plugin updates', 'edd' ), __( 'Error', 'edd' ), array( 'response' => 403 ) );
+            wp_die( oxygen_translate( 'You do not have permission to install plugin updates', 'edd' ), oxygen_translate( 'Error', 'edd' ), array( 'response' => 403 ) );
         }
 
         $response = $this->api_request( 'plugin_latest_version', array( 'slug' => $_REQUEST['slug'] ) );
