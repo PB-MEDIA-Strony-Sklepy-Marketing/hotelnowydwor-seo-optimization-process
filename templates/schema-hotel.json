@@ -1,0 +1,54 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Hotel",
+  "name": "Hotel Nowy Dwór",
+  "image": [
+    "https://www.hotelnowydwor.eu/wp-content/uploads/hotel-front.webp",
+    "https://www.hotelnowydwor.eu/wp-content/uploads/pokoj-deluxe.webp"
+  ],
+  "description": "Luksusowy hotel w Trzebnicy, oferujący komfortowe noclegi, wykwintną restaurację oraz sale weselne. Idealne miejsce na wypoczynek blisko Wrocławia.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "ul. Nowy Dwór 2",
+    "addressLocality": "Trzebnica",
+    "postalCode": "55-100",
+    "addressCountry": "PL"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 51.3056,
+    "longitude": 17.0625
+  },
+  "url": "https://www.hotelnowydwor.eu/",
+  "telephone": "+48713120714",
+  "email": "rezerwacja@hotelnowydwor.eu",
+  "priceRange": "$$",
+  "starRating": {
+    "@type": "Rating",
+    "ratingValue": "3"
+  },
+  "amenityFeature": [
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Free Wi-Fi",
+      "value": "True"
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Free Parking",
+      "value": "True"
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Restaurant",
+      "value": "True"
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Air Conditioning",
+      "value": "True"
+    }
+  ]
+}
+</script>
