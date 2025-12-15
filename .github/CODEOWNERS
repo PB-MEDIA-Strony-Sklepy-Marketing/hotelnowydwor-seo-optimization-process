@@ -1,0 +1,14 @@
+# This file is used to define code owners for the repository.
+# The owners will be automatically requested for review when a pull request is opened.
+
+# Default owner for everything
+* @PB-MEDIA-Strony-Sklepy-Marketing
+
+# Documentation
+/docs/ @PB-MEDIA-Strony-Sklepy-Marketing
+
+# Source code
+/src/ @PB-MEDIA-Strony-Sklepy-Marketing
+
+# GitHub Actions and configuration
+/.github/ @PB-MEDIA-Strony-Sklepy-Marketing

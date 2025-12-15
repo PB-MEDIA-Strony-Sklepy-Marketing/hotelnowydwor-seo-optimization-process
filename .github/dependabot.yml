@@ -1,0 +1,28 @@
+version: 2
+updates:
+  # Maintain GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    # Ensure we use commit SHAs for security in organization repositories
+    # (This comment reminds developers/dependabot to pin actions)
+
+  # Maintain NPM dependencies (if any in root)
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+
+  # Maintain Composer dependencies (if any in root)
+  - package-ecosystem: "composer"
+    directory: "/"
+    schedule:
+      interval: "daily"
+
+  # Maintain dependencies in specific themes/plugins if needed
+  # Example for a theme:
+  # - package-ecosystem: "npm"
+  #   directory: "/src/wp-content/themes/twentytwentyfive"
+  #   schedule:
+  #     interval: "weekly"
