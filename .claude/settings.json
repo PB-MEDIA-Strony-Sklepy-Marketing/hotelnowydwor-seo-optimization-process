@@ -1,0 +1,183 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "C:\\Users\\konta\\.claude-worktrees\\hotelnowydwor-seo-optimization-process\\bold-pare"],
+      "description": "Access to WordPress project files for SEO optimization"
+    },
+    "brave-search": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-brave-search"],
+      "env": {
+        "BRAVE_API_KEY": "${BRAVE_API_KEY}"
+      },
+      "description": "Search for SEO best practices, WordPress documentation, and competitor analysis"
+    },
+    "fetch": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-fetch"],
+      "description": "Fetch website content, analyze competitor pages, and validate external resources"
+    },
+    "puppeteer": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-puppeteer"],
+      "description": "Automated browser testing for PageSpeed, accessibility, and UX validation"
+    },
+    "git": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-git"],
+      "description": "Git operations for version control and deployment workflow"
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
+      },
+      "description": "GitHub integration for issues, PRs, and project management"
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
+      "description": "Structured problem-solving for complex SEO optimization decisions"
+    },
+    "memory": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-memory"],
+      "description": "Maintain context about hotel information, optimization progress, and decisions"
+    }
+  },
+  "defaultModel": "claude-sonnet-4",
+  "customInstructions": {
+    "enabled": true,
+    "instructions": "You are an expert WordPress + Oxygen Builder SEO optimization specialist working on Hotel Nowy Dwór website. Your primary focus is achieving PageSpeed ≥90, improving Google rankings, and enhancing UX/UI. Always follow WordPress coding standards, implement security best practices, and optimize for Core Web Vitals. Refer to docs/audyt-seo-hotel-nowy-dwor-claude.md for audit details and implementation priorities."
+  },
+  "workspaceRules": {
+    "codeStyle": {
+      "php": {
+        "standard": "WordPress",
+        "indentation": 4,
+        "lineEnding": "LF",
+        "charset": "UTF-8"
+      },
+      "web": {
+        "indentation": 2,
+        "lineEnding": "LF",
+        "charset": "UTF-8"
+      }
+    },
+    "filePatterns": {
+      "wordpress": {
+        "include": ["src/**/*.php", "src/wp-content/**/*"],
+        "exclude": ["src/wp-content/plugins/*/vendor/**", "src/wp-includes/**", "src/wp-admin/**"]
+      },
+      "documentation": {
+        "include": ["docs/**/*.md", "*.md"],
+        "exclude": ["node_modules/**", "vendor/**"]
+      },
+      "configuration": {
+        "include": [".github/**/*", "composer.json", "package.json", ".editorconfig", ".htaccess"],
+        "exclude": []
+      }
+    },
+    "protectedFiles": [
+      "src/wp-config.php",
+      "src/wp-includes/**",
+      "src/wp-admin/**",
+      "src/wp-content/plugins/*/vendor/**",
+      "src/nowydwor_hotelnowydworeunew.sql"
+    ]
+  },
+  "optimization": {
+    "priorities": [
+      "Security & Performance (PageSpeed ≥90)",
+      "SEO Technical (meta tags, schema.org, headings)",
+      "Accessibility (WCAG 2.1 AA compliance)",
+      "Content Optimization (8 priority pages)",
+      "Mobile-Friendly validation",
+      "UX/UI improvements"
+    ],
+    "targets": {
+      "pageSpeedScore": 90,
+      "coreWebVitals": {
+        "LCP": "< 2.5s",
+        "FID": "< 100ms",
+        "CLS": "< 0.1"
+      },
+      "accessibility": "WCAG 2.1 AA",
+      "security": "PB MEDIA standards"
+    }
+  },
+  "hotelContext": {
+    "name": "Hotel Nowy Dwór",
+    "owner": "Artur Balczun",
+    "address": "ul. Nowy Dwór 2, 55-100 Trzebnica, Poland",
+    "phone": "+48 71 312 07 14",
+    "email": "rezerwacja@hotelnowydwor.eu",
+    "website": "https://www.hotelnowydwor.eu/",
+    "features": ["28 rooms", "restaurant", "event halls", "15 km from Wrocław"],
+    "brandColors": {
+      "primary": "#0a97b0",
+      "secondary": "#000000",
+      "hover": "#000000",
+      "background": "#ffffff",
+      "secondaryBackground": "#f7f7f7"
+    },
+    "priorityPages": [
+      "/",
+      "/faq/",
+      "/galeria/",
+      "/kontakt/",
+      "/o-nas/",
+      "/pokoje/",
+      "/regulamin/",
+      "/restauracja/menu/"
+    ]
+  },
+  "tools": {
+    "composer": {
+      "lint": "composer lint",
+      "fix": "composer fix",
+      "install": "composer install"
+    },
+    "validation": {
+      "pageSpeed": "https://pagespeed.web.dev/",
+      "accessibility": "https://wave.webaim.org/",
+      "html": "https://validator.w3.org/",
+      "schema": "https://validator.schema.org/",
+      "mobile": "https://search.google.com/test/mobile-friendly"
+    }
+  },
+  "phases": {
+    "current": 1,
+    "timeline": {
+      "phase1": {
+        "name": "Security & Performance",
+        "weeks": "1-4",
+        "focus": "PageSpeed ≥90, HTTPS, compression, image optimization, caching"
+      },
+      "phase2": {
+        "name": "SEO & Content",
+        "weeks": "5-8",
+        "focus": "Meta tags, schema.org, headings, content expansion, blog posts"
+      },
+      "phase3": {
+        "name": "Integration & Cleanup",
+        "weeks": "9-12",
+        "focus": "Google tools, error fixes, plugin updates, final validation"
+      }
+    }
+  },
+  "reminders": [
+    "Always run 'composer lint' before committing PHP changes",
+    "Test changes in local WordPress environment first",
+    "Validate PageSpeed score after performance changes",
+    "Check accessibility with WAVE or axe DevTools",
+    "Document all optimizations in commit messages",
+    "Never modify WordPress core files or wp-config.php directly",
+    "Use WordPress hooks and filters for customizations",
+    "Follow EditorConfig standards (4 spaces PHP, 2 spaces web)",
+    "Implement security best practices (sanitize inputs, escape outputs)",
+    "Optimize for mobile-first and Core Web Vitals"
+  ]
+}
