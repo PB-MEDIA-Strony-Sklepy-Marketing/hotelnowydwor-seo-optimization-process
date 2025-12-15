@@ -13,7 +13,7 @@
     "php": ">=7.4"
   },
   "require-dev": {
-    "squizlabs/php_codesniffer": "^3.7",
+    "squizlabs/php_codesniffer": "^3.9",
     "wp-coding-standards/wpcs": "^3.0",
     "phpcompatibility/phpcompatibility-wp": "^2.1",
     "dealerdirect/phpcodesniffer-composer-installer": "^1.0"
@@ -26,7 +26,9 @@
     }
   },
   "scripts": {
-    "lint": "phpcs --standard=WordPress src/",
-    "fix": "phpcbf --standard=WordPress src/"
+    "lint": "vendor/bin/phpcs --standard=WordPress --extensions=php src/",
+    "lint:security": "vendor/bin/phpcs --standard=WordPress-Extra --sniffs=WordPress.Security.EscapeOutput src/",
+    "lint:compat": "vendor/bin/phpcs --standard=PHPCompatibilityWP --runtime-set testVersion 7.4-8.3 src/",
+    "fix": "vendor/bin/phpcbf --standard=WordPress --extensions=php src/"
   }
 }

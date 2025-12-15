@@ -1,0 +1,44 @@
+{
+  "name": "hotelnowydwor-seo-optimization",
+  "description": "Repozytorium automatyzujące audyty SEO, wydajności i bezpieczeństwa dla hotelnowydwor.eu",
+  "agents": [
+    { "name": "SEO Specialist", "path": "agents/seo-specialist.md" },
+    { "name": "Performance Engineer", "path": "agents/performance-engineer.md" },
+    { "name": "Content Creator", "path": "agents/content-creator.md" },
+    { "name": "Security Auditor", "path": "agents/security-auditor.md" },
+    { "name": "WordPress Developer", "path": "agents/wordpress-developer.md" }
+  ],
+  "prompts": [
+    { "name": "SEO Analysis", "path": "prompts/seo-analysis.md" },
+    { "name": "Content Generation", "path": "prompts/content-generation.md" },
+    { "name": "Code Review", "path": "prompts/code-review.md" },
+    { "name": "Performance Optimization", "path": "prompts/performance-optimization.md" }
+  ],
+  "scripts": {
+    "npm": {
+      "optimize:images": "Konwertuje obrazy z uploads do formatów WebP/AVIF.",
+      "test:lighthouse": "Uruchamia lokalny audyt Lighthouse CI (LHCI).",
+      "format": "Formatowanie plików JS/CSS/HTML/MD/JSON przy pomocy Prettier."
+    },
+    "composer": {
+      "lint": "Kontrola standardów WPCS.",
+      "lint:security": "Sprawdzenie bezpieczeństwa (WordPress-Extra).",
+      "lint:compat": "Weryfikacja kompatybilności z PHP 7.4-8.3.",
+      "fix": "Automatyczne poprawki formatowania WPCS."
+    }
+  },
+  "workflows": [
+    { "name": "pagespeed-test", "path": ".github/workflows/pagespeed-test.yml", "description": "Codzienne raporty Lighthouse Mobile/Desktop." },
+    { "name": "seo-audit", "path": ".github/workflows/seo-audit.yml", "description": "Link checker + Lighthouse SEO." },
+    { "name": "security-scan", "path": ".github/workflows/security-scan.yml", "description": "WPScan i PHPCS pod kątem bezpieczeństwa." },
+    { "name": "lighthouse-ci", "path": ".github/workflows/lighthouse-ci.yml", "description": "A/B test Lighthouse dla PR." },
+    { "name": "deploy-staging", "path": ".github/workflows/deploy-staging.yml", "description": "Automatyczne wdrożenie na serwer staging." },
+    { "name": "deploy-production", "path": ".github/workflows/deploy-production.yml", "description": "Wdrożenie na produkcję po release." }
+  ],
+  "docs": [
+    { "name": "Contributing", "path": "docs/CONTRIBUTING.md" },
+    { "name": "Security", "path": "docs/SECURITY.md" },
+    { "name": "Roadmap", "path": "docs/ROADMAP.md" },
+    { "name": "Changelog", "path": "docs/CHANGELOG.md" }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "hotelnowydwor-seo-optimization",
+  "version": "1.0.0",
+  "description": "Narzędzia deweloperskie do optymalizacji strony Hotelu Nowy Dwór",
+  "main": "index.js",
+  "scripts": {
+    "optimize:images": "./scripts/optimize-images.sh",
+    "test:lighthouse": "lhci autorun",
+    "format": "prettier --write \"**/*.{js,css,html,md,json}\""
+  },
+  "keywords": [
+    "wordpress",
+    "seo",
+    "optimization",
+    "hotel"
+  ],
+  "author": "PB MEDIA",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "prettier": "^3.0.0",
+    "@lhci/cli": "^0.12.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
