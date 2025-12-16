@@ -179,7 +179,7 @@ npm run optimize:images
 - WordPress core files (`wp-includes/`, `wp-admin/`)
 - Plugin vendor directories
 - Database backup file (`src/nowydwor_hotelnowydworeunew.sql`)
-- `wp-config.php` (contains production credentials)
+- `wp-config.php` (**must NOT contain production credentials**; use environment variables or a secrets management system for all sensitive credentials)
 
 **SAFE TO MODIFY:**
 - Custom plugins in `src/wp-content/plugins/custom-*/`
