@@ -64,7 +64,6 @@ composer run fix
 composer run lint:security
 
 # PHP compatibility check (7.4-8.3)
-composer run lint:compat
 
 # JavaScript/CSS/JSON/Markdown formatting
 npm run format
