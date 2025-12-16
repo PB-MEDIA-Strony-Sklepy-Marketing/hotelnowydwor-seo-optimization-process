@@ -31,7 +31,11 @@
 ### 1. Initial Setup (First Time Only)
 ```bash
 # Install Node.js dependencies (required for Lighthouse testing and code formatting)
-npm install
+# Prefer deterministic installs when package-lock.json exists
+npm ci
+
+# Fallback (only if package-lock.json is missing or you explicitly need to regenerate it)
+# npm install
 
 # Install PHP dependencies (required for linting and code quality checks)
 composer install --no-interaction
