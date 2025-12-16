@@ -135,7 +135,7 @@ npm run optimize:images
 │   │   │   └── wp-speed-of-light/       # Performance optimization
 │   │   ├── uploads/         # Media files (images, videos)
 │   │   └── wpsol-config/    # WP Speed of Light configuration
-│   └── nowydwor_hotelnowydworeunew.sql  # Database backup (WARNING: Contains sensitive data, should not be in version control)
+│   └── nowydwor_hotelnowydworeunew.sql  # Database backup (**DO NOT COMMIT** – contains sensitive data; must be in .gitignore, see below)
 │
 ├── docs/                    # Project documentation
 │   ├── CONTRIBUTING.md      # Development guidelines (READ FIRST for development)
