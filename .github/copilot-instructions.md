@@ -18,7 +18,7 @@
 
 - **PHP:** 7.4+ (see `.php-version`)
 - **Node.js:** 20+ (see `.nvmrc`)
-- **WordPress:** 6.x with Oxygen Builder (visual page builder)
+- **WordPress:** 6.4+ with Oxygen Builder (visual page builder)
 - **Package Managers:** Composer (PHP), npm (Node.js)
 - **Key Plugins:** Oxygen Builder, Advanced Custom Fields Pro, WebP Express, WP Speed of Light
 - **Build Tools:** PHPCS (WordPress Coding Standards), Prettier, Lighthouse CI
