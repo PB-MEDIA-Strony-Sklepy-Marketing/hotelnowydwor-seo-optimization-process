@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'pb-media/hotelnowydwor-seo-optimization',
-        'pretty_version' => 'dev-copilot/add-copilot-instructions-file',
-        'version' => 'dev-copilot/add-copilot-instructions-file',
-        'reference' => '64928690ff8c55eb2442348e640927fe5bd946f4',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '8c348f10a7eab2e490db6977ef9fd15a122b90b9',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -20,9 +20,9 @@
             'dev_requirement' => true,
         ),
         'pb-media/hotelnowydwor-seo-optimization' => array(
-            'pretty_version' => 'dev-copilot/add-copilot-instructions-file',
-            'version' => 'dev-copilot/add-copilot-instructions-file',
-            'reference' => '64928690ff8c55eb2442348e640927fe5bd946f4',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '8c348f10a7eab2e490db6977ef9fd15a122b90b9',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

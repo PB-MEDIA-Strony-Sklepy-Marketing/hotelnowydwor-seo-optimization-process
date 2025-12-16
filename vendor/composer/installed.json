@@ -33,7 +33,7 @@
             "extra": {
                 "class": "PHPCSStandards\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin"
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "PHPCSStandards\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\": "src/"
@@ -130,7 +130,7 @@
             },
             "time": "2019-12-27T09:44:58+00:00",
             "type": "phpcodesniffer-standard",
-            "installation-source": "source",
+            "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "LGPL-3.0-or-later"
@@ -193,7 +193,7 @@
             },
             "time": "2025-09-19T17:43:28+00:00",
             "type": "phpcodesniffer-standard",
-            "installation-source": "source",
+            "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "LGPL-3.0-or-later"
@@ -272,7 +272,7 @@
             },
             "time": "2025-10-18T00:05:59+00:00",
             "type": "phpcodesniffer-standard",
-            "installation-source": "source",
+            "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "LGPL-3.0-or-later"
@@ -356,7 +356,7 @@
                     "dev-develop": "1.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "LGPL-3.0-or-later"
@@ -441,7 +441,7 @@
                     "dev-develop": "1.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "classmap": [
                     "PHPCSUtils/"
@@ -532,7 +532,7 @@
                 "bin/phpcs"
             ],
             "type": "library",
-            "installation-source": "source",
+            "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
@@ -622,7 +622,7 @@
             },
             "time": "2025-11-25T12:08:04+00:00",
             "type": "phpcodesniffer-standard",
-            "installation-source": "source",
+            "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
