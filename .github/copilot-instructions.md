@@ -278,14 +278,12 @@ brew install webp libavif jpegoptim optipng
 **All code MUST follow these rules:**
 
 1. **Input Sanitization:** Use `sanitize_text_field()`, `sanitize_email()`, `sanitize_key()`, etc.
-2. **Output Escaping:** Use `esc_html()`, `esc_attr()`, `esc_url()`, `wp_kses_post()`
-3. **Nonces:** Always use `wp_nonce_field()` and verify with `wp_verify_nonce()`
-4. **Capabilities:** Check user permissions with `current_user_can()`
-5. **Database:** Always use `$wpdb->prepare()` with placeholders
-6. **No XML-RPC:** Interface is blocked via .htaccess
-7. **HTTPS Only:** All assets must be served via HTTPS
-8. **Security Headers:** HSTS, X-Frame-Options, X-XSS-Protection required in .htaccess
 
+   ```php
+   // Example: Sanitizing user input from a form
+   $name  = sanitize_text_field( $_POST['name'] );
+   $email = sanitize_email( $_POST['email'] );
+   $key   = sanitize_key( $_POST['key'] );
 ## Quick Reference
 
 **Most Common Commands:**
