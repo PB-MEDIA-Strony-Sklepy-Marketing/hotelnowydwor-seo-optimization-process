@@ -338,17 +338,11 @@ brew install webp libavif jpegoptim optipng
 6. **No XML-RPC:** Interface is blocked via .htaccess
    
    Add the following to your `.htaccess` file to block all access to `xmlrpc.php`:
-   ```apache
-   <Files xmlrpc.php>
-     Order allow,deny
-     Deny from all
-   </Files>
-   ```
-   
-   Alternatively, for Apache 2.4+:
+   <!-- Apache 2.4+ (modern, recommended) -->
    ```apache
    <Files xmlrpc.php>
      Require all denied
+   </Files>
    </Files>
    ```
 
