@@ -266,8 +266,8 @@ add_filter( 'update_plugins_oxygenbuilder.com', function( $update, array $plugin
     $version_info = $oxygen_main_updater->edd_updater->api_request( 'plugin_latest_version', array( 'slug' => 'functions' ) );
 
 	// check if this is a license for this exact plugin
-	if ( !$version_info || $version_info->name !== $oxygen_main_updater->edd_updater->get_api_data()["item_name"] ) {
-		return $update;    
+	if ( ! $version_info || ! is_object( $version_info ) || ! isset( $version_info->name ) || $version_info->name !== $oxygen_main_updater->edd_updater->get_api_data()['item_name'] ) {
+		return $update;
 	}
 
 	$is_update_available = false;

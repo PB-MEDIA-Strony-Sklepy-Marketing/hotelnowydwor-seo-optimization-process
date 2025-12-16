@@ -12,11 +12,13 @@ define("CT_OXYGEN_GUTENBERG_VERSION", 	"1.4.4");
 
 class Oxygen_Gutenberg
 {
-    private $content_array;
+	private $content_array;
 	private $reusable_parts;
-	static $running;
+	public static $running;
 	private $all_blocks_shortcodes;
 	private $rendered_blocks_shortcodes;
+	/** @var array */
+	public $blocks = array();
 
 	function __construct()
 	{

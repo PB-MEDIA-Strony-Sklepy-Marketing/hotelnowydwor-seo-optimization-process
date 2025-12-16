@@ -6,18 +6,29 @@ if( !class_exists( 'EDD_SL_Plugin_Updater_Oxygen_Gutenberg' ) ) {
 
 Class OxygenGutenbergPluginUpdater {
 
-	public $oxygen_url 	= "http://oxygenbuilder.com";
-	
+	public $oxygen_url = 'http://oxygenbuilder.com';
+
+	/** @var string */
+	public $prefix = '';
+
+	/** @var string */
+	public $plugin_name = '';
+
+	/** @var int */
+	public $priority = 10;
+
+	/** @var string */
+	public $license_text = '';
+
 	/**
 	 * Add the actions in the constructor
-	 * 
+	 *
 	 * @since 1.0
 	 */
-
 	function __construct( $args ) {
 
-		$this->prefix 		= $args["prefix"];
-		$this->plugin_name 	= $args["plugin_name"]; // should be exact as EDD item name
+		$this->prefix       = $args['prefix'];
+		$this->plugin_name  = $args['plugin_name']; // should be exact as EDD item name
 		$this->priority 	= $args["priority"];
 		$this->license_text = (isset($args["license_text"])) ? $args["license_text"] : __('Enter your license key to get updates', 'component-theme');
 

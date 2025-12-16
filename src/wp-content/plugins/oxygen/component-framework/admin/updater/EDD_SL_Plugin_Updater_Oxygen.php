@@ -84,8 +84,8 @@ class EDD_SL_Plugin_Updater_Oxygen {
             $version_info = $this->api_request( 'plugin_latest_version', array( 'slug' => $this->slug ) );
 
             // check if this is a license for this exact plugin
-            if ( !$version_info || $version_info->name !== $this->api_data["item_name"] ) {
-                return $_transient_data;    
+            if ( ! $version_info || ! is_object( $version_info ) || ! isset( $version_info->name ) || $version_info->name !== $this->api_data['item_name'] ) {
+                return $_transient_data;
             }
 
             if ( false !== $version_info && is_object( $version_info ) && isset( $version_info->new_version ) ) {

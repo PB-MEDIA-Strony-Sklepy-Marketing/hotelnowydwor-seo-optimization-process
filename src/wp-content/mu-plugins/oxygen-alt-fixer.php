@@ -28,11 +28,38 @@ add_action('template_redirect', 'pb_media_buffer_start', 1);
  * Główna funkcja przetwarzająca kod HTML strony.
  */
 function pb_media_add_alt_tags_callback($content) {
+    // Napraw wyciek kodu jQuery z Oxygen Pro Menu.
+    // Problem: niezamknięte tagi script powodują wyświetlanie kodu jQuery jako tekst.
+    $content = pb_media_fix_jquery_leak($content);
+
     // Znajdź wszystkie tagi <img>
     // Regex szuka tagów img, które mogą mieć różne atrybuty
     $pattern = '/<img([^>]+)>/i';
-    
+
     return preg_replace_callback($pattern, 'pb_media_process_img_tag', $content);
+}
+
+/**
+ * Naprawia wyciek kodu jQuery z Oxygen Pro Menu.
+ * Usuwa orphaned jQuery code wyświetlany jako tekst na stronie.
+ */
+function pb_media_fix_jquery_leak($content) {
+    // Wzorzec: wyciek kodu jQuery z Pro Menu (bez zamknięcia tagu script).
+    // Przykład: '); }); jQuery('#-pro-menu-134-11 .oxy-pro-menu-show-dropdown...
+    $patterns = array(
+        // Usuń wyciek kodu jQuery z Pro Menu wyświetlany jako tekst (pełny wzorzec).
+        '/\'\);\s*\}\);\s*jQuery\([\'"][^"\']+[\'"][^\)]*\)\.[^;]+;/s',
+        // Usuń krótszy wyciek: '); });
+        '/\'\);\s*\}\);/s',
+        // Usuń samo }); na końcu linii (orphaned).
+        '/(?<=[>\s])\}\);(?=\s*<)/s',
+    );
+
+    foreach ($patterns as $pattern) {
+        $content = preg_replace($pattern, '', $content);
+    }
+
+    return $content;
 }
 
 /**
