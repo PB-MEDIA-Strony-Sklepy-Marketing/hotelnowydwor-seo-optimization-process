@@ -18,7 +18,7 @@
 
 - **PHP:** 7.4+ (see `.php-version`)
 - **Node.js:** 20+ (see `.nvmrc`)
-- **WordPress:** 6.x with Oxygen Builder (visual page builder)
+- **WordPress:** 6.4+ with Oxygen Builder (visual page builder)
 - **Package Managers:** Composer (PHP), npm (Node.js)
 - **Key Plugins:** Oxygen Builder, Advanced Custom Fields Pro, WebP Express, WP Speed of Light
 - **Build Tools:** PHPCS (WordPress Coding Standards), Prettier, Lighthouse CI
@@ -38,7 +38,7 @@ composer install --no-interaction
 ```
 
 **Expected Results:**
-- npm: ~311 packages installed in ~10-15 seconds
+- npm: approximately 300+ packages installed in ~10-15 seconds
 - composer: 8 packages installed in ~60-80 seconds (may clone from GitHub if auth fails for dist)
 - Both commands must complete successfully before proceeding
 
@@ -179,7 +179,7 @@ npm run optimize:images
 - WordPress core files (`wp-includes/`, `wp-admin/`)
 - Plugin vendor directories
 - Database backup file (`src/nowydwor_hotelnowydworeunew.sql`)
-- `wp-config.php` (contains production credentials)
+- `wp-config.php` (**must NOT contain production credentials**; use environment variables or a secrets management system for all sensitive credentials)
 
 **SAFE TO MODIFY:**
 - Custom plugins in `src/wp-content/plugins/custom-*/`
@@ -278,10 +278,60 @@ brew install webp libavif jpegoptim optipng
 **All code MUST follow these rules:**
 
 1. **Input Sanitization:** Use `sanitize_text_field()`, `sanitize_email()`, `sanitize_key()`, etc.
+
+   ```php
+   // Example: Sanitizing user input from a form
+   $name  = sanitize_text_field( $_POST['name'] );
+   $email = sanitize_email( $_POST['email'] );
+   $key   = sanitize_key( $_POST['key'] );
+   ```
+
 2. **Output Escaping:** Use `esc_html()`, `esc_attr()`, `esc_url()`, `wp_kses_post()`
+
+   ```php
+   // Example: Escaping output before rendering in HTML
+   <h1><?php echo esc_html( $label ); ?></h1>
+   
+   // Allow safe HTML in post content
+   echo wp_kses_post( $post_content );
+   ```
+
 3. **Nonces:** Always use `wp_nonce_field()` and verify with `wp_verify_nonce()`
+
+   ```php
+   // In your form:
+   <?php wp_nonce_field( 'my_action', 'my_nonce' ); ?>
+
+   // On form submission:
+   if ( isset( $_POST['my_nonce'] ) && wp_verify_nonce( $_POST['my_nonce'], 'my_action' ) ) {
+       // Process form
+   } else {
+       // Invalid nonce
+   }
+   ```
+
 4. **Capabilities:** Check user permissions with `current_user_can()`
+
+   ```php
+   if ( current_user_can( 'edit_post', $post_id ) ) {
+       // User is allowed to edit this post
+   } else {
+       // Permission denied
+   }
+   ```
+
 5. **Database:** Always use `$wpdb->prepare()` with placeholders
+
+   ```php
+   global $wpdb;
+   $sql = $wpdb->prepare(
+       "SELECT * FROM {$wpdb->posts} WHERE post_author = %d AND post_status = %s",
+       $author_id,
+       $status
+   );
+   $results = $wpdb->get_results( $sql );
+   ```
+
 6. **No XML-RPC:** Interface is blocked via .htaccess
    
    Add the following to your `.htaccess` file to block all access to `xmlrpc.php`:
@@ -298,8 +348,24 @@ brew install webp libavif jpegoptim optipng
      Require all denied
    </Files>
    ```
+
 7. **HTTPS Only:** All assets must be served via HTTPS
+
+   - Ensure `WP_HOME` and `WP_SITEURL` use `https://` in `wp-config.php`:
+     ```php
+     define( 'WP_HOME', 'https://www.hotelnowydwor.eu' );
+     define( 'WP_SITEURL', 'https://www.hotelnowydwor.eu' );
+     ```
+   - Use plugins or server config to force HTTPS redirects.
+
 8. **Security Headers:** HSTS, X-Frame-Options, X-XSS-Protection required in .htaccess
+
+   ```apache
+   # .htaccess security headers
+   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+   Header always set X-Frame-Options "SAMEORIGIN"
+   Header always set X-XSS-Protection "1; mode=block"
+   ```
 
 ## Quick Reference
 
