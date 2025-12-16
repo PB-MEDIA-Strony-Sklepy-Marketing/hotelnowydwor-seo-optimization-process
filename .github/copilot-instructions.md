@@ -38,7 +38,7 @@ composer install --no-interaction
 ```
 
 **Expected Results:**
-- npm: ~311 packages installed in ~10-15 seconds
+- npm: approximately 300+ packages installed in ~10-15 seconds
 - composer: 8 packages installed in ~60-80 seconds (may clone from GitHub if auth fails for dist)
 - Both commands must complete successfully before proceeding
 
