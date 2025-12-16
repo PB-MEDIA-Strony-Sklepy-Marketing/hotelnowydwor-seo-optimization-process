@@ -1,13 +1,17 @@
 # WordPress - ignore
-!/wp-config.php
-!/wp-content/uploads/
-!/wp-content/upgrade/
-!/wp-content/cache/
-!*.sql
-!*.sql.gz
-!*.log
+wp-content/uploads/
+wp-content/upgrade/
+wp-content/cache/
+*.log
 .env
-!/vendor/
-!/node_modules/
-# ignore commercial plugins (ACF Pro etc.)
-!/wp-content/plugins/advanced-custom-fields-pro/
+
+# Dependencies
+vendor/
+node_modules/
+
+# Lock files (keep these for reproducibility)
+!composer.lock
+!package-lock.json
+
+# Commercial plugins (ACF Pro etc.)
+wp-content/plugins/advanced-custom-fields-pro/
