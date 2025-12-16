@@ -18,7 +18,7 @@
   "license": "UNLICENSED",
   "devDependencies": {
     "prettier": "^3.0.0",
-    "@lhci/cli": "^0.12.0"
+    "@lhci/cli": "^0.15.1"
   },
   "engines": {
     "node": ">=20"
