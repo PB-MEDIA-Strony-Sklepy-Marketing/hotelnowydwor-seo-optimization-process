@@ -14,7 +14,7 @@
             </div>
             <div class="hnd-image hnd-anim-right">
                 <div style="background-color: #eee; width: 100%; height: 350px; border-radius: 8px; overflow: hidden;">
-                    <img src="https://www.hotelnowydwor.eu/wp-content/uploads/restauracja-hotel-nowy-dwor.jpg" alt="Restauracja w Hotelu Nowy Dwór" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://nowydwor.smarthost.pl/hotelnowydwor.eu-new/wp-content/uploads/2025/12/restauracja-hotelowa-nowy-dwor.jpg" alt="Restauracja w Hotelu Nowy Dwór" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
         </div>
@@ -23,7 +23,7 @@
         <div class="hnd-split-section">
             <div class="hnd-image hnd-order-swap hnd-anim-right">
                 <div style="background-color: #eee; width: 100%; height: 350px; border-radius: 8px; overflow: hidden;">
-                    <img src="https://www.hotelnowydwor.eu/wp-content/uploads/sala-weselna.jpg" alt="Sala Weselna Trzebnica" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://nowydwor.smarthost.pl/hotelnowydwor.eu-new/wp-content/uploads/2023/06/first-wedding-dance-2022-05-31-22-38-16-utc-Sredni.jpg" alt="Sala Weselna Trzebnica" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
             <div class="hnd-content hnd-anim-left">

@@ -17,7 +17,7 @@
             <div class="hnd-image hnd-anim-right" style="position: relative;">
                 <!-- Placeholder Image - podmień URL -->
                 <div style="background-color: #ddd; width: 100%; height: 400px; border-radius: 8px; overflow: hidden; box-shadow: 20px 20px 0px var(--hnd-primary);">
-                     <img src="https://www.hotelnowydwor.eu/wp-content/uploads/hotel-nowy-dwor-front.jpg" alt="Hotel Nowy Dwór Fasada" style="width: 100%; height: 100%; object-fit: cover;">
+                     <img src="https://nowydwor.smarthost.pl/hotelnowydwor.eu-new/wp-content/uploads/2023/06/pokojdwuosobowystandarddouble-scaled-Sredni.jpg" alt="Hotel Nowy Dwór Fasada" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
         </div>

@@ -5,7 +5,7 @@
             <div class="hnd-image hnd-anim-left">
                  <!-- Zastąp obrazem pokoju -->
                  <div style="background-color: #ccc; width: 100%; height: 500px; border-radius: 8px; overflow: hidden; position: relative;">
-                    <img src="https://www.hotelnowydwor.eu/wp-content/uploads/room-deluxe.jpg" alt="Pokój LUX w Hotelu Nowy Dwór" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://nowydwor.smarthost.pl/hotelnowydwor.eu-new/wp-content/uploads/2025/12/nasze-pokoje-hotel-nowy-dwor.png" alt="Pokój LUX w Hotelu Nowy Dwór" style="width: 100%; height: 100%; object-fit: cover;">
                     <div style="position: absolute; bottom: 20px; left: 20px; background: #fff; padding: 15px; border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
                         <strong style="color: var(--hnd-primary); font-size: 1.2rem;">28 Pokoi</strong><br>
                         <span style="color: #666;">w tym 10 w standardzie LUX</span>
