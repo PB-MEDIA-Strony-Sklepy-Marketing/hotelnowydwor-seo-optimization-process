@@ -1,0 +1,194 @@
+:root {
+    /* Brand Colors - Hotel Nowy Dwór */
+    --hnd-home-primary: #0a97b0;       /* Teal */
+    --hnd-home-primary-dark: #087d91;
+    --hnd-home-secondary: #000000;     /* Black */
+    --hnd-home-white: #ffffff;
+    --hnd-home-bg-light: #f7f7f7;
+    --hnd-home-text: #374151;
+    --hnd-home-text-light: #6b7280;
+    
+    /* Spacing */
+    --hnd-home-space-xs: 1rem;
+    --hnd-home-space-md: 2rem;
+    --hnd-home-space-xl: 4rem;
+    
+    /* UI Elements */
+    --hnd-home-radius: 8px;
+    --hnd-home-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --hnd-home-shadow-3d: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* --- Base --- */
+.hnd-home-wrapper {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--hnd-home-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.hnd-home-container {
+    width: 100%;
+    padding: 0 var(--hnd-home-space-xs);
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.hnd-home-section {
+    padding: var(--hnd-home-space-xl) 0;
+    position: relative;
+}
+
+.hnd-bg-alt {
+    background-color: var(--hnd-home-bg-light);
+}
+
+.hnd-bg-dark {
+    background-color: var(--hnd-home-secondary);
+    color: var(--hnd-home-white);
+}
+
+/* --- Typography --- */
+.hnd-home-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--hnd-home-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hnd-bg-dark .hnd-home-title {
+    color: var(--hnd-home-white);
+}
+
+.hnd-home-subtitle {
+    color: var(--hnd-home-primary);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.hnd-home-lead {
+    font-size: 1.1rem;
+    color: var(--hnd-home-text-light);
+    margin-bottom: 2rem;
+}
+
+/* --- Buttons --- */
+.hnd-home-btn {
+    display: inline-block;
+    padding: 12px 32px;
+    background-color: var(--hnd-home-primary);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    border: 2px solid var(--hnd-home-primary);
+    cursor: pointer;
+}
+
+.hnd-home-btn:hover {
+    background-color: transparent;
+    color: var(--hnd-home-primary);
+    transform: translateY(-2px);
+}
+
+.hnd-home-btn-outline {
+    background-color: transparent;
+    border-color: var(--hnd-home-white);
+    color: var(--hnd-home-white);
+}
+
+.hnd-home-btn-outline:hover {
+    background-color: var(--hnd-home-white);
+    color: var(--hnd-home-secondary);
+}
+
+/* --- Cards with 3D Hover --- */
+.hnd-home-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: var(--hnd-home-radius);
+    box-shadow: var(--hnd-home-shadow);
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    border-bottom: 4px solid transparent;
+    height: 100%;
+}
+
+.hnd-home-card:hover {
+    transform: translateY(-10px) perspective(1000px) rotateX(2deg);
+    box-shadow: var(--hnd-home-shadow-3d);
+    border-bottom-color: var(--hnd-home-primary);
+}
+
+/* --- Grids (Mobile First) --- */
+.hnd-home-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr;
+}
+
+/* --- Images --- */
+.hnd-home-img-wrap {
+    border-radius: var(--hnd-home-radius);
+    overflow: hidden;
+    box-shadow: var(--hnd-home-shadow);
+    position: relative;
+}
+
+.hnd-home-img-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.hnd-home-img-wrap:hover img {
+    transform: scale(1.05);
+}
+
+/* --- Animations --- */
+.hnd-anim-hidden {
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+.hnd-anim-fade-up {
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.hnd-anim-slide-left {
+    transform: translateX(-50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.hnd-anim-slide-right {
+    transform: translateX(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.hnd-anim-visible {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* --- Desktop Breakpoints --- */
+@media (min-width: 768px) {
+    .hnd-home-title { font-size: 2.75rem; }
+    .hnd-home-grid-2 { grid-template-columns: 1fr 1fr; align-items: center; }
+    .hnd-home-grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .hnd-home-grid-4 { grid-template-columns: repeat(4, 1fr); }
+    
+    .hnd-desktop-swap { order: -1; }
+}
+
+@media (min-width: 992px) {
+    .hnd-home-container { padding: 0 var(--hnd-home-space-md); }
+    .hnd-home-section { padding: 6rem 0; }
+}
