@@ -156,7 +156,7 @@ function hnd_inject_premium_layout_v8($content)
 
                 <aside class="hnd-author-box">
                     <div class="hnd-author-avatar">
-                        <img src="https://nowydwor.smarthost.pl/hotelnowydwor.eu-new/wp-content/uploads/2025/12/logologo.png" alt="<?php echo esc_attr($author_name); ?>">
+                        <img src="<?php echo esc_url($author_avatar); ?>" alt="<?php echo esc_attr($author_name); ?>">
                     </div>
                     <div class="hnd-author-info">
                         <h4>O Autorze: <?php echo esc_html($author_name); ?></h4>
