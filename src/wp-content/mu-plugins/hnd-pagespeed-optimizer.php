@@ -222,7 +222,10 @@ class HND_PageSpeed_Optimizer {
 	 * i łączy je z domyślnymi ustawieniami.
 	 */
 	private function load_settings() {
-		// Zawsze pobieraj świeże dane z bazy.
+		// Wyczyść cache opcji, aby zawsze pobierać świeże dane.
+		wp_cache_delete( self::OPTION_NAME, 'options' );
+
+		// Pobierz świeże dane z bazy.
 		$saved_settings = get_option( self::OPTION_NAME, array() );
 
 		// Upewnij się, że mamy tablicę.
@@ -391,21 +394,90 @@ class HND_PageSpeed_Optimizer {
 	/**
 	 * Sanityzuj ustawienia.
 	 *
-	 * @param array $input Dane wejściowe.
-	 * @return array
+	 * KLUCZOWA FUNKCJA: Łączy nowe ustawienia z istniejącymi w bazie danych.
+	 * Dzięki temu zapisanie jednego podmenu nie kasuje ustawień z innych podmenu.
+	 *
+	 * @param array $input Dane wejściowe z formularza.
+	 * @return array Połączone i sanityzowane ustawienia.
 	 */
 	public function sanitize_settings( $input ) {
-		$sanitized = array();
+		// KROK 1: Pobierz ISTNIEJĄCE ustawienia bezpośrednio z bazy danych.
+		// Używamy wpdb aby ominąć cache i get_option.
+		global $wpdb;
+		$row = $wpdb->get_row(
+			$wpdb->prepare(
+				"SELECT option_value FROM {$wpdb->options} WHERE option_name = %s LIMIT 1",
+				self::OPTION_NAME
+			)
+		);
 
-		foreach ( $this->default_settings as $key => $default ) {
-			if ( is_bool( $default ) ) {
-				$sanitized[ $key ] = isset( $input[ $key ] ) && $input[ $key ] ? true : false;
-			} elseif ( is_int( $default ) ) {
-				$sanitized[ $key ] = isset( $input[ $key ] ) ? absint( $input[ $key ] ) : $default;
-			} else {
-				$sanitized[ $key ] = isset( $input[ $key ] ) ? sanitize_text_field( $input[ $key ] ) : $default;
+		$existing_settings = array();
+		if ( $row && ! empty( $row->option_value ) ) {
+			$existing_settings = maybe_unserialize( $row->option_value );
+			if ( ! is_array( $existing_settings ) ) {
+				$existing_settings = array();
 			}
 		}
+
+		// KROK 2: Rozpocznij od istniejących ustawień połączonych z domyślnymi.
+		$sanitized = wp_parse_args( $existing_settings, $this->default_settings );
+
+		// KROK 3: Sprawdź które klucze zostały przesłane w formularzu.
+		$submitted_keys = array();
+		if ( isset( $input['_hnd_submitted_keys'] ) && ! empty( $input['_hnd_submitted_keys'] ) ) {
+			$submitted_keys = array_map( 'sanitize_key', explode( ',', $input['_hnd_submitted_keys'] ) );
+		}
+
+		// KROK 4: Aktualizuj TYLKO te klucze, które zostały przesłane.
+		if ( ! empty( $submitted_keys ) ) {
+			foreach ( $submitted_keys as $key ) {
+				// Pomiń nieznane klucze.
+				if ( ! isset( $this->default_settings[ $key ] ) ) {
+					continue;
+				}
+
+				$default = $this->default_settings[ $key ];
+
+				if ( is_bool( $default ) ) {
+					// Checkbox: jeśli jest w $input i ma wartość = włączony, inaczej wyłączony.
+					$sanitized[ $key ] = ( isset( $input[ $key ] ) && $input[ $key ] ) ? true : false;
+				} elseif ( is_int( $default ) ) {
+					$sanitized[ $key ] = isset( $input[ $key ] ) ? absint( $input[ $key ] ) : $default;
+				} else {
+					$sanitized[ $key ] = isset( $input[ $key ] ) ? sanitize_text_field( $input[ $key ] ) : $default;
+				}
+			}
+		} else {
+			// Fallback: jeśli brak _hnd_submitted_keys, aktualizuj wszystkie przesłane.
+			// To zachowuje kompatybilność wsteczną.
+			if ( is_array( $input ) ) {
+				foreach ( $input as $key => $value ) {
+					if ( $key === '_hnd_submitted_keys' ) {
+						continue;
+					}
+					if ( isset( $this->default_settings[ $key ] ) ) {
+						$default = $this->default_settings[ $key ];
+						if ( is_bool( $default ) ) {
+							$sanitized[ $key ] = $value ? true : false;
+						} elseif ( is_int( $default ) ) {
+							$sanitized[ $key ] = absint( $value );
+						} else {
+							$sanitized[ $key ] = sanitize_text_field( $value );
+						}
+					}
+				}
+			}
+		}
+
+		// KROK 5: Upewnij się, że wszystkie domyślne klucze istnieją.
+		foreach ( $this->default_settings as $key => $default ) {
+			if ( ! array_key_exists( $key, $sanitized ) ) {
+				$sanitized[ $key ] = $default;
+			}
+		}
+
+		// KROK 6: Aktualizuj lokalne ustawienia w instancji.
+		$this->settings = $sanitized;
 
 		return $sanitized;
 	}
@@ -1336,6 +1408,16 @@ class HND_PageSpeed_Optimizer {
 	 * @param array  $settings Lista ustawień.
 	 */
 	private function render_settings_page( $title, $settings ) {
+		// Odśwież ustawienia z bazy danych przed wyświetleniem formularza.
+		$this->load_settings();
+
+		// Zbierz klucze ustawień dla tego formularza.
+		$submitted_keys = array();
+		foreach ( $settings as $setting ) {
+			$submitted_keys[] = $setting['key'];
+		}
+		$submitted_keys_string = implode( ',', $submitted_keys );
+
 		?>
 		<div class="wrap hnd-wrap">
 			<div class="hnd-header">
@@ -1346,6 +1428,11 @@ class HND_PageSpeed_Optimizer {
 			<form method="post" action="options.php">
 				<?php settings_fields( 'hnd_optimizer_settings_group' ); ?>
 				<?php wp_nonce_field( 'hnd_optimizer_nonce', 'hnd_nonce' ); ?>
+
+				<!-- Ukryte pole z listą kluczy przesyłanych w tym formularzu -->
+				<input type="hidden"
+					   name="<?php echo esc_attr( self::OPTION_NAME . '[_hnd_submitted_keys]' ); ?>"
+					   value="<?php echo esc_attr( $submitted_keys_string ); ?>">
 
 				<div class="hnd-settings-section">
 					<?php foreach ( $settings as $setting ) : ?>

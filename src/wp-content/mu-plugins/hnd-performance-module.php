@@ -79,6 +79,10 @@ class HND_Performance_Module {
 	 */
 	private function load_settings() {
 		$option_name = 'hnd_pagespeed_optimizer_settings';
+
+		// Wyczyść cache opcji, aby zawsze pobierać świeże dane.
+		wp_cache_delete( $option_name, 'options' );
+
 		$saved = get_option( $option_name, array() );
 
 		// Domyślne ustawienia dla tego modułu.

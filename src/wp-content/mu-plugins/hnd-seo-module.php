@@ -103,6 +103,10 @@ class HND_SEO_Module {
             'enable_canonical'     => 'canonical',
         );
 
+        // Wyczyść cache opcji, aby zawsze pobierać świeże dane.
+        wp_cache_delete( 'hnd_pagespeed_optimizer_settings', 'options' );
+        wp_cache_delete( 'hnd_seo_settings', 'options' );
+
         // Pobierz ustawienia z głównego optymalizatora.
         $optimizer_settings = get_option( 'hnd_pagespeed_optimizer_settings', array() );
 
