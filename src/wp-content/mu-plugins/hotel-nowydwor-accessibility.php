@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: PB MEDIA - Hotel Nowy Dwór Accessibility
- * Description: Usprawnienia dostępności WCAG 2.1 AA: skip links, ARIA landmarks, focus indicators, kontrast, czytniki ekranu.
- * Version: 1.0
+ * Description: Usprawnienia dostępności WCAG 2.1 AA - tylko frontend. Bezpieczne dla panelu admina i Oxygen Builder.
+ * Version: 1.2
  * Author: PB MEDIA
  */
 
@@ -19,25 +19,25 @@ class Hotel_Nowydwor_Accessibility {
 	 * Konstruktor.
 	 */
 	public function __construct() {
-		// Dodaj skip links na początku body.
+		// Dodaj skip links na początku body (tylko frontend).
 		add_action( 'wp_body_open', array( $this, 'add_skip_links' ), 1 );
 
-		// Dodaj CSS dla dostępności.
+		// Dodaj CSS dla dostępności (tylko frontend).
 		add_action( 'wp_head', array( $this, 'add_accessibility_css' ), 99 );
 
-		// Dodaj JS dla dostępności.
+		// Dodaj JS dla dostępności (tylko frontend).
 		add_action( 'wp_footer', array( $this, 'add_accessibility_js' ), 99 );
 
-		// Dodaj ARIA landmarks do nawigacji.
+		// Dodaj ARIA do menu items.
 		add_filter( 'nav_menu_item_args', array( $this, 'add_aria_to_menu' ), 10, 3 );
 
-		// Dodaj atrybut lang do html tag.
+		// Dodaj atrybuty językowe.
 		add_filter( 'language_attributes', array( $this, 'add_language_attributes' ) );
 
-		// Filtruj obrazki - dodaj role="img" jeśli brak alt.
+		// Napraw dostępność obrazków w treści (tylko frontend).
 		add_filter( 'the_content', array( $this, 'fix_image_accessibility' ), 99 );
 
-		// Dodaj focus-visible polyfill.
+		// Dodaj focus-visible polyfill (tylko frontend).
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_focus_visible' ) );
 
 		// Dodaj role="navigation" do widgetów nawigacyjnych.
@@ -52,18 +52,59 @@ class Hotel_Nowydwor_Accessibility {
 	}
 
 	/**
+	 * Sprawdź czy jesteśmy na frontendzie (nie w adminie, nie w edytorze Oxygen).
+	 */
+	private function is_frontend() {
+		// Wyklucz panel admina
+		if ( is_admin() ) {
+			return false;
+		}
+
+		// Wyklucz edytor Oxygen Builder
+		if ( defined( 'SHOW_CT_BUILDER' ) && SHOW_CT_BUILDER ) {
+			return false;
+		}
+
+		// Wyklucz iframe edytora Oxygen
+		if ( isset( $_GET['ct_builder'] ) || isset( $_GET['oxygen_iframe'] ) ) {
+			return false;
+		}
+
+		// Wyklucz AJAX requests
+		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+			return false;
+		}
+
+		// Wyklucz REST API
+		if ( defined( 'REST_REQUEST' ) && REST_REQUEST ) {
+			return false;
+		}
+
+		// Wyklucz customizer
+		if ( is_customize_preview() ) {
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
 	 * Dodaj skip links.
 	 */
 	public function add_skip_links() {
+		// Tylko na frontendzie
+		if ( ! $this->is_frontend() ) {
+			return;
+		}
 		?>
-		<nav id="skip-links" class="skip-links" aria-label="<?php esc_attr_e( 'Przejdź do sekcji', 'hotel-nowydwor' ); ?>">
-			<a class="skip-link" href="#main-content">
+		<nav id="skip-links" class="hnd-skip-links" aria-label="<?php esc_attr_e( 'Przejdź do sekcji', 'hotel-nowydwor' ); ?>">
+			<a class="hnd-skip-link" href="#main-content">
 				<?php esc_html_e( 'Przejdź do treści głównej', 'hotel-nowydwor' ); ?>
 			</a>
-			<a class="skip-link" href="#main-navigation">
+			<a class="hnd-skip-link" href="#main-navigation">
 				<?php esc_html_e( 'Przejdź do nawigacji', 'hotel-nowydwor' ); ?>
 			</a>
-			<a class="skip-link" href="#footer">
+			<a class="hnd-skip-link" href="#footer">
 				<?php esc_html_e( 'Przejdź do stopki', 'hotel-nowydwor' ); ?>
 			</a>
 		</nav>
@@ -71,21 +112,32 @@ class Hotel_Nowydwor_Accessibility {
 	}
 
 	/**
-	 * CSS dla dostępności.
+	 * CSS dla dostępności - TYLKO FRONTEND z prefixowanymi klasami.
 	 */
 	public function add_accessibility_css() {
+		// Tylko na frontendzie
+		if ( ! $this->is_frontend() ) {
+			return;
+		}
 		?>
 		<style id="hotel-nowydwor-accessibility-css">
+			/* ============================================
+			   HOTEL NOWY DWÓR - ACCESSIBILITY STYLES
+			   Prefix: .hnd- (Hotel Nowy Dwór)
+			   Scope: Frontend only, excludes admin/Oxygen
+			   ============================================ */
+
 			/* Skip Links - widoczne tylko przy fokusie */
-			.skip-links {
+			.hnd-skip-links {
 				position: absolute;
 				top: 0;
 				left: 0;
-				z-index: 100000;
+				z-index: 99999;
 				width: 100%;
+				pointer-events: none;
 			}
 
-			.skip-link {
+			.hnd-skip-link {
 				position: absolute;
 				top: -100px;
 				left: 50%;
@@ -99,60 +151,71 @@ class Hotel_Nowydwor_Accessibility {
 				border-radius: 0 0 8px 8px;
 				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 				transition: top 0.3s ease;
-				z-index: 100001;
+				pointer-events: auto;
 			}
 
-			.skip-link:focus {
+			.hnd-skip-link:focus {
 				top: 0;
 				outline: 3px solid #000000;
 				outline-offset: 2px;
 			}
 
-			/* Focus indicators - WCAG 2.1 AA wymaga widocznego focus */
-			*:focus {
+			/* Focus indicators - TYLKO dla elementów na stronie (nie w adminie) */
+			body:not(.wp-admin) main a:focus,
+			body:not(.wp-admin) main button:focus,
+			body:not(.wp-admin) main input:focus,
+			body:not(.wp-admin) main select:focus,
+			body:not(.wp-admin) main textarea:focus,
+			body:not(.wp-admin) header a:focus,
+			body:not(.wp-admin) footer a:focus,
+			body:not(.wp-admin) nav a:focus {
 				outline: 2px solid #0a97b0;
 				outline-offset: 2px;
 			}
 
-			/* Focus-visible - dla klawiaturowej nawigacji */
-			*:focus:not(:focus-visible) {
+			/* Focus-visible - dla nawigacji klawiaturowej */
+			body:not(.wp-admin) main a:focus:not(:focus-visible),
+			body:not(.wp-admin) main button:focus:not(:focus-visible),
+			body:not(.wp-admin) header a:focus:not(:focus-visible),
+			body:not(.wp-admin) footer a:focus:not(:focus-visible) {
 				outline: none;
 			}
 
-			*:focus-visible {
+			body:not(.wp-admin) main a:focus-visible,
+			body:not(.wp-admin) main button:focus-visible,
+			body:not(.wp-admin) header a:focus-visible,
+			body:not(.wp-admin) footer a:focus-visible {
 				outline: 3px solid #0a97b0;
 				outline-offset: 2px;
 			}
 
-			/* Przycisk focus */
-			button:focus-visible,
-			input[type="submit"]:focus-visible,
-			input[type="button"]:focus-visible,
-			a.button:focus-visible,
-			.btn:focus-visible {
+			/* Przycisk focus - TYLKO w main content */
+			body:not(.wp-admin) main button:focus-visible,
+			body:not(.wp-admin) main input[type="submit"]:focus-visible,
+			body:not(.wp-admin) main input[type="button"]:focus-visible,
+			body:not(.wp-admin) main a.button:focus-visible,
+			body:not(.wp-admin) main .btn:focus-visible {
 				outline: 3px solid #000000;
 				outline-offset: 3px;
 				box-shadow: 0 0 0 6px rgba(10, 151, 176, 0.3);
 			}
 
 			/* Link focus */
-			a:focus-visible {
-				outline: 2px solid #0a97b0;
-				outline-offset: 2px;
+			body:not(.wp-admin) main a:focus-visible {
 				text-decoration: underline;
 			}
 
 			/* Input focus */
-			input:focus-visible,
-			textarea:focus-visible,
-			select:focus-visible {
+			body:not(.wp-admin) main input:focus-visible,
+			body:not(.wp-admin) main textarea:focus-visible,
+			body:not(.wp-admin) main select:focus-visible {
 				outline: 2px solid #0a97b0;
 				outline-offset: 1px;
 				border-color: #0a97b0;
 			}
 
 			/* Screen reader only - tekst tylko dla czytników ekranu */
-			.sr-only,
+			.hnd-sr-only,
 			.screen-reader-text {
 				position: absolute !important;
 				width: 1px !important;
@@ -166,9 +229,9 @@ class Hotel_Nowydwor_Accessibility {
 			}
 
 			/* Pokazuj sr-only przy fokusie */
-			.sr-only:focus,
+			.hnd-sr-only:focus,
 			.screen-reader-text:focus,
-			.sr-only-focusable:focus {
+			.hnd-sr-only-focusable:focus {
 				position: relative !important;
 				width: auto !important;
 				height: auto !important;
@@ -178,30 +241,29 @@ class Hotel_Nowydwor_Accessibility {
 				white-space: normal !important;
 			}
 
-			/* Minimalny rozmiar touch target - 44x44px (WCAG 2.1) */
-			button,
-			a,
-			input[type="submit"],
-			input[type="button"],
-			input[type="checkbox"],
-			input[type="radio"],
-			select {
+			/* Minimalny rozmiar touch target - TYLKO dla głównej treści strony */
+			body:not(.wp-admin) main button,
+			body:not(.wp-admin) main .btn,
+			body:not(.wp-admin) main a.button,
+			body:not(.wp-admin) main input[type="submit"],
+			body:not(.wp-admin) main input[type="button"] {
 				min-height: 44px;
 				min-width: 44px;
 			}
 
-			/* Mniejsze elementy z większym paddingiem */
-			.menu-item a,
-			nav a {
+			/* Mniejsze elementy z większym paddingiem - TYLKO nawigacja frontendu */
+			body:not(.wp-admin) .site-navigation .menu-item a,
+			body:not(.wp-admin) .main-navigation .menu-item a,
+			body:not(.wp-admin) #main-navigation a {
 				padding: 10px 12px;
 				display: inline-block;
 			}
 
 			/* Redukcja ruchu dla użytkowników preferujących */
 			@media (prefers-reduced-motion: reduce) {
-				*,
-				*::before,
-				*::after {
+				body:not(.wp-admin) *,
+				body:not(.wp-admin) *::before,
+				body:not(.wp-admin) *::after {
 					animation-duration: 0.01ms !important;
 					animation-iteration-count: 1 !important;
 					transition-duration: 0.01ms !important;
@@ -209,155 +271,132 @@ class Hotel_Nowydwor_Accessibility {
 				}
 			}
 
-			/* Wysoki kontrast dla elementów hover */
-			a:hover {
+			/* Wysoki kontrast dla elementów hover - TYLKO frontend */
+			body:not(.wp-admin) main a:hover,
+			body:not(.wp-admin) header a:hover,
+			body:not(.wp-admin) footer a:hover {
 				text-decoration: underline;
 			}
 
-			/* Kontrastowe podświetlenie przy hover */
-			button:hover,
-			input[type="submit"]:hover,
-			.btn:hover {
-				opacity: 0.9;
-			}
-
-			/* Widoczne stany dla checkbox i radio */
-			input[type="checkbox"]:checked,
-			input[type="radio"]:checked {
+			/* Widoczne stany dla checkbox i radio - TYLKO w formularzach frontendu */
+			body:not(.wp-admin) main input[type="checkbox"]:checked,
+			body:not(.wp-admin) main input[type="radio"]:checked {
 				accent-color: #0a97b0;
 			}
 
 			/* Error states - kontrast dla walidacji */
-			input.error,
-			input:invalid,
-			textarea.error,
-			textarea:invalid {
+			body:not(.wp-admin) main input.error,
+			body:not(.wp-admin) main input:invalid:not(:placeholder-shown),
+			body:not(.wp-admin) main textarea.error,
+			body:not(.wp-admin) main textarea:invalid:not(:placeholder-shown) {
 				border-color: #dc3545;
 				outline-color: #dc3545;
 			}
 
-			/* Success states */
-			input.success,
-			input:valid:not(:placeholder-shown),
-			textarea.success,
-			textarea:valid:not(:placeholder-shown) {
-				border-color: #28a745;
-			}
-
-			/* Live region dla powiadomień */
-			[aria-live] {
-				position: relative;
-			}
-
 			/* Zakres selekcji - wysoki kontrast */
-			::selection {
+			body:not(.wp-admin)::selection {
 				background-color: #0a97b0;
 				color: #ffffff;
 			}
 
-			/* Mark element - highliting */
-			mark {
+			/* Mark element - highlighting */
+			body:not(.wp-admin) mark {
 				background-color: #ffeb3b;
 				color: #000000;
 				padding: 0.1em 0.2em;
 			}
 
 			/* Tabela - responsywność i dostępność */
-			table {
+			body:not(.wp-admin) main table {
 				border-collapse: collapse;
 			}
 
-			th,
-			td {
+			body:not(.wp-admin) main th,
+			body:not(.wp-admin) main td {
 				padding: 8px 12px;
 				text-align: left;
 			}
 
-			th {
+			body:not(.wp-admin) main th {
 				background-color: #f5f5f5;
 			}
 
 			/* Caption dla tabel */
-			caption {
+			body:not(.wp-admin) main caption {
 				font-weight: bold;
 				text-align: left;
 				padding: 8px 0;
 			}
 
 			/* Formularz - etykiety */
-			label {
+			body:not(.wp-admin) main label {
 				display: block;
 				margin-bottom: 4px;
 				font-weight: 500;
 			}
 
 			/* Required indicator */
-			.required,
-			[aria-required="true"]::before {
+			body:not(.wp-admin) main .required {
 				color: #dc3545;
 			}
 
 			/* Error messages */
-			.error-message,
-			.wpcf7-not-valid-tip {
+			body:not(.wp-admin) main .error-message,
+			body:not(.wp-admin) main .wpcf7-not-valid-tip {
 				color: #dc3545;
 				font-size: 0.875rem;
 				margin-top: 4px;
 			}
 
 			/* Main content landmark */
-			#main-content,
-			[role="main"],
-			main {
+			body:not(.wp-admin) #main-content,
+			body:not(.wp-admin) [role="main"],
+			body:not(.wp-admin) main {
 				min-height: 50vh;
 			}
 
-			/* Dialog/Modal accessibility */
-			[role="dialog"],
-			[aria-modal="true"] {
-				position: fixed;
-				z-index: 10000;
-			}
-
 			/* Loading state */
-			[aria-busy="true"] {
+			body:not(.wp-admin) [aria-busy="true"] {
 				cursor: wait;
 				opacity: 0.7;
 			}
 
 			/* Disabled state */
-			[aria-disabled="true"],
-			[disabled] {
+			body:not(.wp-admin) main [aria-disabled="true"],
+			body:not(.wp-admin) main [disabled] {
 				opacity: 0.5;
 				cursor: not-allowed;
 			}
 
 			/* Current page in navigation */
-			[aria-current="page"] {
+			body:not(.wp-admin) nav [aria-current="page"] {
 				font-weight: bold;
 				text-decoration: underline;
-			}
-
-			/* Expanded/Collapsed states */
-			[aria-expanded="true"]::after {
-				content: " ▲";
-			}
-
-			[aria-expanded="false"]::after {
-				content: " ▼";
 			}
 		</style>
 		<?php
 	}
 
 	/**
-	 * JavaScript dla dostępności.
+	 * JavaScript dla dostępności - TYLKO FRONTEND.
 	 */
 	public function add_accessibility_js() {
+		// Tylko na frontendzie
+		if ( ! $this->is_frontend() ) {
+			return;
+		}
 		?>
 		<script id="hotel-nowydwor-accessibility-js">
 		(function() {
 			'use strict';
+
+			// Sprawdź czy jesteśmy na frontendzie (dodatkowe zabezpieczenie)
+			if (document.body.classList.contains('wp-admin') || 
+			    document.body.classList.contains('oxygen-builder-body') ||
+			    window.location.href.indexOf('ct_builder') !== -1 ||
+			    window.location.href.indexOf('oxygen_iframe') !== -1) {
+				return;
+			}
 
 			// Dodaj ID do main content jeśli nie istnieje.
 			var mainContent = document.querySelector('main, [role="main"], .main-content, #content, .content');
@@ -366,13 +405,13 @@ class Hotel_Nowydwor_Accessibility {
 			}
 
 			// Dodaj ID do nawigacji głównej.
-			var mainNav = document.querySelector('nav, .navigation, .main-navigation, #menu, .menu');
+			var mainNav = document.querySelector('nav.main-navigation, .site-navigation, #primary-menu');
 			if (mainNav && !mainNav.id) {
 				mainNav.id = 'main-navigation';
 			}
 
 			// Dodaj ID do stopki.
-			var footer = document.querySelector('footer, .footer, #footer');
+			var footer = document.querySelector('footer, .site-footer, #footer');
 			if (footer && !footer.id) {
 				footer.id = 'footer';
 			}
@@ -382,18 +421,22 @@ class Hotel_Nowydwor_Accessibility {
 				mainContent.setAttribute('role', 'main');
 			}
 
-			// Dodaj role="navigation" do nav elementów.
-			document.querySelectorAll('nav').forEach(function(nav) {
+			// Dodaj role="navigation" do nav elementów (tylko główne, nie w modals).
+			document.querySelectorAll('body:not(.wp-admin) nav:not(.media-router)').forEach(function(nav) {
+				// Pomijaj elementy w modals WordPress
+				if (nav.closest('.media-modal') || nav.closest('.wp-media-wrapper')) {
+					return;
+				}
 				if (!nav.hasAttribute('role')) {
 					nav.setAttribute('role', 'navigation');
 				}
-				if (!nav.hasAttribute('aria-label')) {
+				if (!nav.hasAttribute('aria-label') && !nav.hasAttribute('aria-labelledby')) {
 					nav.setAttribute('aria-label', 'Nawigacja strony');
 				}
 			});
 
-			// Dodaj role="banner" do header.
-			var header = document.querySelector('header, .header, #header');
+			// Dodaj role="banner" do header (tylko główny header).
+			var header = document.querySelector('body:not(.wp-admin) > header, body:not(.wp-admin) .site-header, body:not(.wp-admin) #masthead');
 			if (header && !header.hasAttribute('role')) {
 				header.setAttribute('role', 'banner');
 			}
@@ -403,118 +446,96 @@ class Hotel_Nowydwor_Accessibility {
 				footer.setAttribute('role', 'contentinfo');
 			}
 
-			// Napraw obrazki bez alt - dodaj aria-hidden.
-			document.querySelectorAll('img').forEach(function(img) {
-				if (!img.hasAttribute('alt')) {
-					img.setAttribute('alt', '');
-					// Jeśli obrazek jest dekoracyjny.
-					if (!img.closest('a') && !img.closest('button')) {
-						img.setAttribute('aria-hidden', 'true');
-						img.setAttribute('role', 'presentation');
-					}
-				}
-			});
-
-			// Obsługa klawiatury dla elementów z onclick.
-			document.querySelectorAll('[onclick]').forEach(function(el) {
-				if (!el.hasAttribute('tabindex')) {
-					el.setAttribute('tabindex', '0');
-				}
-				if (!el.hasAttribute('role')) {
-					el.setAttribute('role', 'button');
-				}
-
-				// Dodaj obsługę Enter i Space.
-				el.addEventListener('keydown', function(e) {
-					if (e.key === 'Enter' || e.key === ' ') {
-						e.preventDefault();
-						el.click();
-					}
-				});
-			});
-
-			// Zewnętrzne linki - dodaj ostrzeżenie dla czytników ekranu.
-			document.querySelectorAll('a[target="_blank"]').forEach(function(link) {
-				if (!link.querySelector('.sr-only') && !link.getAttribute('aria-label')) {
-					var srText = document.createElement('span');
-					srText.className = 'sr-only';
-					srText.textContent = ' (otwiera się w nowym oknie)';
-					link.appendChild(srText);
-
-					// Dodaj rel="noopener" dla bezpieczeństwa.
-					var rel = link.getAttribute('rel') || '';
-					if (rel.indexOf('noopener') === -1) {
-						link.setAttribute('rel', rel + ' noopener');
-					}
-				}
-			});
-
-			// Popraw tabele - dodaj scope do nagłówków.
-			document.querySelectorAll('table').forEach(function(table) {
-				// Dodaj role jeśli brak.
-				if (!table.hasAttribute('role')) {
-					table.setAttribute('role', 'table');
-				}
-
-				// Dodaj scope do th.
-				table.querySelectorAll('th').forEach(function(th) {
-					if (!th.hasAttribute('scope')) {
-						// Sprawdź czy to nagłówek wiersza czy kolumny.
-						var isRowHeader = th.parentNode.querySelector('td');
-						th.setAttribute('scope', isRowHeader ? 'row' : 'col');
-					}
-				});
-			});
-
-			// Trap focus w modal/dialog.
-			function trapFocus(element) {
-				var focusableElements = element.querySelectorAll(
-					'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-				);
-				var firstFocusable = focusableElements[0];
-				var lastFocusable = focusableElements[focusableElements.length - 1];
-
-				element.addEventListener('keydown', function(e) {
-					if (e.key === 'Tab') {
-						if (e.shiftKey) {
-							if (document.activeElement === firstFocusable) {
-								lastFocusable.focus();
-								e.preventDefault();
-							}
-						} else {
-							if (document.activeElement === lastFocusable) {
-								firstFocusable.focus();
-								e.preventDefault();
-							}
-						}
-					}
-					if (e.key === 'Escape') {
-						// Zamknij modal przy Escape.
-						var closeButton = element.querySelector('[data-dismiss], .close, .modal-close');
-						if (closeButton) {
-							closeButton.click();
+			// Napraw obrazki bez alt - dodaj aria-hidden (tylko w głównej treści).
+			var mainArea = document.querySelector('main, #main-content, .site-content');
+			if (mainArea) {
+				mainArea.querySelectorAll('img').forEach(function(img) {
+					if (!img.hasAttribute('alt')) {
+						img.setAttribute('alt', '');
+						// Jeśli obrazek jest dekoracyjny.
+						if (!img.closest('a') && !img.closest('button')) {
+							img.setAttribute('aria-hidden', 'true');
+							img.setAttribute('role', 'presentation');
 						}
 					}
 				});
 			}
 
-			// Aktywuj trap focus dla modali.
-			document.querySelectorAll('[role="dialog"], [aria-modal="true"], .modal').forEach(trapFocus);
+			// Obsługa klawiatury dla elementów z onclick (tylko w głównej treści).
+			if (mainArea) {
+				mainArea.querySelectorAll('[onclick]').forEach(function(el) {
+					// Pomijaj elementy WordPress admin
+					if (el.closest('.media-modal') || el.closest('.wp-media-wrapper')) {
+						return;
+					}
+					if (!el.hasAttribute('tabindex')) {
+						el.setAttribute('tabindex', '0');
+					}
+					if (!el.hasAttribute('role') && el.tagName !== 'BUTTON' && el.tagName !== 'A') {
+						el.setAttribute('role', 'button');
+					}
+
+					// Dodaj obsługę Enter i Space.
+					el.addEventListener('keydown', function(e) {
+						if (e.key === 'Enter' || e.key === ' ') {
+							e.preventDefault();
+							el.click();
+						}
+					});
+				});
+			}
+
+			// Zewnętrzne linki - dodaj ostrzeżenie dla czytników ekranu (tylko w głównej treści).
+			if (mainArea) {
+				mainArea.querySelectorAll('a[target="_blank"]').forEach(function(link) {
+					if (!link.querySelector('.hnd-sr-only') && !link.getAttribute('aria-label')) {
+						var srText = document.createElement('span');
+						srText.className = 'hnd-sr-only';
+						srText.textContent = ' (otwiera się w nowym oknie)';
+						link.appendChild(srText);
+
+						// Dodaj rel="noopener" dla bezpieczeństwa.
+						var rel = link.getAttribute('rel') || '';
+						if (rel.indexOf('noopener') === -1) {
+							link.setAttribute('rel', (rel + ' noopener').trim());
+						}
+					}
+				});
+			}
+
+			// Popraw tabele - dodaj scope do nagłówków (tylko w głównej treści).
+			if (mainArea) {
+				mainArea.querySelectorAll('table').forEach(function(table) {
+					// Dodaj role jeśli brak.
+					if (!table.hasAttribute('role')) {
+						table.setAttribute('role', 'table');
+					}
+
+					// Dodaj scope do th.
+					table.querySelectorAll('th').forEach(function(th) {
+						if (!th.hasAttribute('scope')) {
+							// Sprawdź czy to nagłówek wiersza czy kolumny.
+							var isRowHeader = th.parentNode.querySelector('td');
+							th.setAttribute('scope', isRowHeader ? 'row' : 'col');
+						}
+					});
+				});
+			}
 
 			// Live region dla dynamicznych powiadomień.
-			var liveRegion = document.querySelector('[aria-live]');
-			if (!liveRegion) {
+			var liveRegion = document.getElementById('hnd-live-region');
+			if (!liveRegion && mainArea) {
 				liveRegion = document.createElement('div');
 				liveRegion.setAttribute('aria-live', 'polite');
 				liveRegion.setAttribute('aria-atomic', 'true');
-				liveRegion.className = 'sr-only';
-				liveRegion.id = 'live-region';
+				liveRegion.className = 'hnd-sr-only';
+				liveRegion.id = 'hnd-live-region';
 				document.body.appendChild(liveRegion);
 			}
 
 			// Funkcja do ogłaszania zmian.
-			window.announceToScreenReader = function(message) {
-				var region = document.getElementById('live-region');
+			window.hndAnnounceToScreenReader = function(message) {
+				var region = document.getElementById('hnd-live-region');
 				if (region) {
 					region.textContent = '';
 					setTimeout(function() {
@@ -525,22 +546,30 @@ class Hotel_Nowydwor_Accessibility {
 
 			// Obsługa smooth scroll z respektowaniem prefers-reduced-motion.
 			if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-				document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+				document.querySelectorAll('.hnd-skip-link, a[href^="#"]').forEach(function(anchor) {
+					// Tylko linki wewnętrzne na tej samej stronie
+					if (anchor.closest('.media-modal') || anchor.closest('.wp-media-wrapper')) {
+						return;
+					}
+					
 					anchor.addEventListener('click', function(e) {
-						var target = document.querySelector(this.getAttribute('href'));
-						if (target) {
-							e.preventDefault();
-							target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-							target.focus();
+						var href = this.getAttribute('href');
+						if (href && href.startsWith('#') && href.length > 1) {
+							var target = document.querySelector(href);
+							if (target) {
+								e.preventDefault();
+								target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+								target.focus({ preventScroll: true });
+							}
 						}
 					});
 				});
 			}
 
-			// Dodaj aria-current="page" do aktualnej strony w menu.
-			var currentUrl = window.location.href.replace(/\/$/, '');
-			document.querySelectorAll('nav a, .menu a').forEach(function(link) {
-				var linkUrl = link.href.replace(/\/$/, '');
+			// Dodaj aria-current="page" do aktualnej strony w menu (tylko główna nawigacja).
+			var currentUrl = window.location.href.replace(/\/$/, '').split('?')[0].split('#')[0];
+			document.querySelectorAll('.site-navigation a, .main-navigation a, #main-navigation a').forEach(function(link) {
+				var linkUrl = link.href.replace(/\/$/, '').split('?')[0].split('#')[0];
 				if (linkUrl === currentUrl) {
 					link.setAttribute('aria-current', 'page');
 				}
@@ -585,7 +614,12 @@ class Hotel_Nowydwor_Accessibility {
 	 * Napraw dostępność obrazków w treści.
 	 */
 	public function fix_image_accessibility( $content ) {
-		// Dodaj role="img" do figur z obrazkami.
+		// Tylko na frontendzie
+		if ( is_admin() ) {
+			return $content;
+		}
+
+		// Dodaj role="figure" do figur z obrazkami.
 		$content = preg_replace(
 			'/<figure([^>]*)class="([^"]*)"([^>]*)>/i',
 			'<figure$1class="$2" role="figure"$3>',
@@ -616,9 +650,28 @@ class Hotel_Nowydwor_Accessibility {
 	 * Focus visible polyfill.
 	 */
 	public function enqueue_focus_visible() {
+		// Tylko na frontendzie, nie w adminie
+		if ( is_admin() ) {
+			return;
+		}
+
+		// Nie ładuj w Oxygen Builder
+		if ( defined( 'SHOW_CT_BUILDER' ) && SHOW_CT_BUILDER ) {
+			return;
+		}
+
+		if ( isset( $_GET['ct_builder'] ) || isset( $_GET['oxygen_iframe'] ) ) {
+			return;
+		}
+
 		// Focus-visible polyfill dla starszych przeglądarek.
-		// Opcjonalnie - możesz załadować z CDN.
-		wp_enqueue_script( 'focus-visible', 'https://unpkg.com/focus-visible@5.2.0/dist/focus-visible.min.js', array(), '5.2.0', true );
+		wp_enqueue_script( 
+			'focus-visible', 
+			'https://unpkg.com/focus-visible@5.2.0/dist/focus-visible.min.js', 
+			array(), 
+			'5.2.0', 
+			true 
+		);
 	}
 
 	/**
@@ -635,6 +688,11 @@ class Hotel_Nowydwor_Accessibility {
 	 * Dostępny formularz wyszukiwania.
 	 */
 	public function accessible_search_form( $form ) {
+		// Tylko na frontendzie
+		if ( is_admin() ) {
+			return $form;
+		}
+
 		// Dodaj aria-label jeśli brak.
 		if ( strpos( $form, 'aria-label' ) === false ) {
 			$form = str_replace(
@@ -650,7 +708,7 @@ class Hotel_Nowydwor_Accessibility {
 
 		// Dodaj label jeśli brak.
 		if ( strpos( $form, '<label' ) === false ) {
-			$label = '<label for="' . $search_id . '" class="sr-only">Szukaj:</label>';
+			$label = '<label for="' . $search_id . '" class="hnd-sr-only">Szukaj:</label>';
 			$form = str_replace( '<input', $label . '<input', $form );
 		}
 
@@ -663,7 +721,7 @@ class Hotel_Nowydwor_Accessibility {
 	public function accessible_more_link( $link, $more_link_text ) {
 		// Dodaj kontekst dla czytników ekranu.
 		$title = get_the_title();
-		$sr_text = '<span class="sr-only">: ' . esc_html( $title ) . '</span>';
+		$sr_text = '<span class="hnd-sr-only">: ' . esc_html( $title ) . '</span>';
 
 		return str_replace( '</a>', $sr_text . '</a>', $link );
 	}
@@ -673,7 +731,7 @@ class Hotel_Nowydwor_Accessibility {
 	 */
 	public function accessible_excerpt_more( $more ) {
 		$title = get_the_title();
-		return '... <a href="' . esc_url( get_permalink() ) . '" aria-label="Czytaj więcej o: ' . esc_attr( $title ) . '">Czytaj więcej<span class="sr-only">: ' . esc_html( $title ) . '</span></a>';
+		return '... <a href="' . esc_url( get_permalink() ) . '" aria-label="Czytaj więcej o: ' . esc_attr( $title ) . '">Czytaj więcej<span class="hnd-sr-only">: ' . esc_html( $title ) . '</span></a>';
 	}
 }
 

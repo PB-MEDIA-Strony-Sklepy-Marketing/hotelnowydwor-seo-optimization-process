@@ -201,3 +201,251 @@
 @media (min-width: 992px) {
     .hnd-contact-container { padding: 0 var(--hnd-space-md); }
 }
+
+
+:root {
+  /* Zmienne zgodne z Brand Book Hotelu Nowy Dwór */
+  --hnd-primary: #0a97b0;
+  --hnd-primary-dark: #087d91;
+  --hnd-secondary: #000000;
+  --hnd-bg-light: #f7f7f7;
+  --hnd-white: #ffffff;
+  --hnd-error: #e53e3e;
+  --hnd-text: #333333;
+  --hnd-border-radius: 4px;
+  --hnd-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =========================================
+   Kontener Formularza
+   ========================================= */
+.wpcf7 {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px 0;
+  perspective: 1000px; /* Przygotowanie pod 3D */
+}
+
+/* Układ formularza - Mobile First */
+.wpcf7-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Animacja wjazdu elementów formularza */
+@keyframes slideInUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px) translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+  }
+}
+
+.wpcf7 p {
+  margin-bottom: 0;
+  width: 100%;
+  animation: slideInUpFade 0.6s ease-out forwards;
+  opacity: 0; /* Domyślnie ukryte przed animacją */
+}
+
+/* Opóźnienia animacji dla kolejnych elementów (kaskada) */
+.wpcf7 p:nth-child(1) { animation-delay: 0.1s; }
+.wpcf7 p:nth-child(2) { animation-delay: 0.2s; }
+.wpcf7 p:nth-child(3) { animation-delay: 0.3s; }
+.wpcf7 p:nth-child(4) { animation-delay: 0.4s; }
+.wpcf7 p:nth-child(5) { animation-delay: 0.5s; }
+
+/* =========================================
+   Etykiety (Labels)
+   ========================================= */
+.wpcf7 label {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--hnd-secondary);
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* =========================================
+   Pola Input i Textarea
+   ========================================= */
+.wpcf7 input[type="text"],
+.wpcf7 input[type="email"],
+.wpcf7 input[type="tel"],
+.wpcf7 input[type="date"],
+.wpcf7 input[type="number"],
+.wpcf7 textarea,
+.wpcf7 select {
+  width: 100%;
+  background-color: var(--hnd-bg-light);
+  border: 1px solid #e2e8f0;
+  border-radius: var(--hnd-border-radius);
+  padding: 12px 16px;
+  font-size: 16px; /* Zapobiega zoomowaniu na iOS */
+  color: var(--hnd-text);
+  outline: none;
+  transition: var(--hnd-transition);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  
+  /* Mobile touch target size */
+  min-height: 48px; 
+}
+
+.wpcf7 textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Stan Focus - Aktywny */
+.wpcf7 input:focus,
+.wpcf7 textarea:focus,
+.wpcf7 select:focus {
+  background-color: var(--hnd-white);
+  border-color: var(--hnd-primary);
+  box-shadow: 0 4px 12px rgba(10, 151, 176, 0.15); /* Subtelna poświata primary */
+  transform: translateY(-2px); /* Lekkie uniesienie 3D */
+}
+
+/* Placeholder styling */
+.wpcf7 ::placeholder {
+  color: #a0aec0;
+  opacity: 1;
+}
+
+/* =========================================
+   Przycisk Submit
+   ========================================= */
+.wpcf7 input[type="submit"] {
+  width: 100%;
+  background-color: var(--hnd-primary);
+  color: var(--hnd-white);
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 16px 32px;
+  border: none;
+  border-radius: var(--hnd-border-radius);
+  cursor: pointer;
+  transition: var(--hnd-transition);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(10, 151, 176, 0.3);
+  margin-top: 10px;
+  
+  /* Touch target */
+  min-height: 50px;
+}
+
+/* Hover & Focus dla przycisku */
+.wpcf7 input[type="submit"]:hover,
+.wpcf7 input[type="submit"]:focus {
+  background-color: var(--hnd-secondary); /* Zgodnie z brandem hover na czarny */
+  transform: translateY(-3px) scale(1.02); /* Efekt 3D */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Active (kliknięcie) */
+.wpcf7 input[type="submit"]:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Spinner ładowania CF7 */
+.wpcf7 .ajax-loader {
+  position: absolute;
+  margin-left: 10px;
+}
+
+/* =========================================
+   Walidacja i Komunikaty (UX/UI)
+   ========================================= */
+   
+/* Błąd pod konkretnym polem */
+.wpcf7-not-valid-tip {
+  font-size: 12px;
+  color: var(--hnd-error);
+  margin-top: 5px;
+  font-weight: 600;
+  animation: slideInUpFade 0.3s ease-out;
+}
+
+/* Pole z błędem */
+.wpcf7-not-valid {
+  border-color: var(--hnd-error) !important;
+  background-color: #fff5f5 !important;
+}
+
+/* Główny komunikat statusu (na dole) */
+.wpcf7-response-output {
+  border: none !important;
+  border-radius: var(--hnd-border-radius);
+  padding: 15px !important;
+  margin: 20px 0 0 0 !important;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 600;
+  animation: slideInUpFade 0.4s ease-out;
+}
+
+/* Sukces */
+.wpcf7 form.sent .wpcf7-response-output {
+  background-color: #f0fdf4;
+  color: #15803d;
+  border-left: 5px solid #15803d !important;
+}
+
+/* Błąd */
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.failed .wpcf7-response-output {
+  background-color: #fef2f2;
+  color: var(--hnd-error);
+  border-left: 5px solid var(--hnd-error) !important;
+}
+
+/* =========================================
+   Responsywność (Desktop)
+   ========================================= */
+@media (min-width: 768px) {
+  /* Na tablecie i desktopie pola mogą być ułożone w gridzie,
+     jeśli w HTML użyto klas pomocniczych (np. one-half) */
+  
+  .wpcf7-form {
+    /* Opcjonalnie można tu dodać grid, ale CF7 domyślnie używa bloków p */
+    max-width: 100%;
+  }
+
+  .wpcf7 input[type="submit"] {
+    width: auto; /* Przycisk nie musi być na całą szerokość na desktopie */
+    padding: 16px 48px;
+    display: inline-block;
+  }
+}
+
+/* Checkboxy i Radio Buttony (Stylizacja niestandardowa) */
+.wpcf7-list-item {
+  margin: 0 15px 10px 0;
+  display: inline-block;
+}
+
+.wpcf7-checkbox input,
+.wpcf7-radio input {
+  accent-color: var(--hnd-primary); /* Nowoczesna obsługa kolorów checkboxów */
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.wpcf7-list-item-label {
+  vertical-align: middle;
+  cursor: pointer;
+}
