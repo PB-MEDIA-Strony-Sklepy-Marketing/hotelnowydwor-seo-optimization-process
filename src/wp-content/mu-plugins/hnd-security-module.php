@@ -56,12 +56,32 @@ class HND_Security_Module {
      * Konstruktor
      */
     private function __construct() {
+        // Opóźnij pełną inicjalizację, ale niektóre funkcje muszą działać wcześniej.
+        add_action( 'plugins_loaded', array( $this, 'delayed_init' ), 25 );
+
+        // Te hooki muszą być dodane wcześniej (przed plugins_loaded).
+        $this->load_settings();
+
+        // Wyłącz edytor plików w adminie - musi być przed init.
+        if ( $this->settings['disable_file_edit'] && ! defined( 'DISALLOW_FILE_EDIT' ) ) {
+            define( 'DISALLOW_FILE_EDIT', true );
+        }
+    }
+
+    /**
+     * Opóźniona inicjalizacja.
+     */
+    public function delayed_init() {
+        // Przeładuj ustawienia (mogły się zmienić).
         $this->load_settings();
         $this->init_hooks();
     }
 
     /**
      * Załaduj ustawienia
+     *
+     * Pobiera ustawienia zarówno z głównego optymalizatora,
+     * jak i z własnych ustawień modułu Security.
      */
     private function load_settings() {
         $defaults = array(
@@ -81,6 +101,26 @@ class HND_Security_Module {
             'remove_readme'        => true,
         );
 
+        // Mapowanie ustawień z głównego optymalizatora.
+        $optimizer_mapping = array(
+            'enable_security_headers' => 'security_headers',
+            'enable_csp'              => 'csp_enabled',
+            'hide_wp_version'         => 'hide_wp_version',
+            'disable_xmlrpc'          => 'disable_xmlrpc',
+            'limit_login_attempts'    => 'login_protection',
+        );
+
+        // Pobierz ustawienia z głównego optymalizatora.
+        $optimizer_settings = get_option( 'hnd_pagespeed_optimizer_settings', array() );
+
+        // Zastosuj mapowanie.
+        foreach ( $optimizer_mapping as $optimizer_key => $local_key ) {
+            if ( isset( $optimizer_settings[ $optimizer_key ] ) ) {
+                $defaults[ $local_key ] = (bool) $optimizer_settings[ $optimizer_key ];
+            }
+        }
+
+        // Pobierz własne ustawienia modułu (nadpisują domyślne).
         $saved = get_option( 'hnd_security_settings', array() );
         $this->settings = wp_parse_args( $saved, $defaults );
     }
@@ -106,10 +146,8 @@ class HND_Security_Module {
             add_filter( 'wp_headers', array( $this, 'remove_x_pingback' ) );
         }
 
-        // Wyłącz edytor plików w adminie
-        if ( $this->settings['disable_file_edit'] && ! defined( 'DISALLOW_FILE_EDIT' ) ) {
-            define( 'DISALLOW_FILE_EDIT', true );
-        }
+        // Uwaga: DISALLOW_FILE_EDIT jest definiowane w konstruktorze,
+        // ponieważ musi być zdefiniowane przed załadowaniem admina.
 
         // Ochrona logowania
         if ( $this->settings['login_protection'] ) {

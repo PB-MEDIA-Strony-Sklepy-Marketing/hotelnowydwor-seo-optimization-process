@@ -217,10 +217,53 @@ class HND_PageSpeed_Optimizer {
 
 	/**
 	 * Załaduj ustawienia z bazy danych.
+	 *
+	 * Ta funkcja zawsze pobiera świeże dane z bazy danych
+	 * i łączy je z domyślnymi ustawieniami.
 	 */
 	private function load_settings() {
+		// Zawsze pobieraj świeże dane z bazy.
 		$saved_settings = get_option( self::OPTION_NAME, array() );
+
+		// Upewnij się, że mamy tablicę.
+		if ( ! is_array( $saved_settings ) ) {
+			$saved_settings = array();
+		}
+
+		// Połącz z domyślnymi ustawieniami.
 		$this->settings = wp_parse_args( $saved_settings, $this->default_settings );
+
+		// Upewnij się, że wszystkie wartości boolean są rzeczywiście boolean.
+		foreach ( $this->default_settings as $key => $default ) {
+			if ( is_bool( $default ) && isset( $this->settings[ $key ] ) ) {
+				$this->settings[ $key ] = (bool) $this->settings[ $key ];
+			}
+		}
+	}
+
+	/**
+	 * Zapisz ustawienia do bazy danych.
+	 *
+	 * @param array $new_settings Nowe ustawienia do zapisania.
+	 * @return bool Czy zapis się powiódł.
+	 */
+	public function save_settings( $new_settings ) {
+		// Pobierz istniejące ustawienia.
+		$existing = get_option( self::OPTION_NAME, array() );
+		if ( ! is_array( $existing ) ) {
+			$existing = array();
+		}
+
+		// Połącz z istniejącymi (nowe nadpisują stare).
+		$merged = array_merge( $existing, $new_settings );
+
+		// Zapisz do bazy.
+		$result = update_option( self::OPTION_NAME, $merged, true );
+
+		// Odśwież lokalne ustawienia.
+		$this->settings = wp_parse_args( $merged, $this->default_settings );
+
+		return $result;
 	}
 
 	/**
@@ -1635,10 +1678,14 @@ class HND_PageSpeed_Optimizer {
 			wp_send_json_error( 'Nieznane ustawienie' );
 		}
 
-		$this->settings[ $setting ] = true;
-		update_option( self::OPTION_NAME, $this->settings );
+		// Użyj nowej metody save_settings, która poprawnie łączy ustawienia.
+		$result = $this->save_settings( array( $setting => true ) );
 
-		wp_send_json_success( array( 'message' => 'Poprawka zastosowana' ) );
+		if ( $result ) {
+			wp_send_json_success( array( 'message' => 'Poprawka zastosowana' ) );
+		} else {
+			wp_send_json_error( 'Błąd zapisu' );
+		}
 	}
 
 	/**
@@ -1651,10 +1698,18 @@ class HND_PageSpeed_Optimizer {
 			wp_send_json_error( 'Brak uprawnień' );
 		}
 
-		update_option( self::OPTION_NAME, $this->default_settings );
+		// Usuń istniejące ustawienia i zapisz domyślne.
+		delete_option( self::OPTION_NAME );
+		$result = update_option( self::OPTION_NAME, $this->default_settings, true );
 		$this->settings = $this->default_settings;
 
-		wp_send_json_success( array( 'message' => 'Ustawienia zresetowane' ) );
+		if ( $result ) {
+			wp_send_json_success( array( 'message' => 'Ustawienia zresetowane' ) );
+		} else {
+			// Nawet jeśli update_option zwraca false (bo wartość się nie zmieniła),
+			// to ustawienia zostały zresetowane przez delete_option.
+			wp_send_json_success( array( 'message' => 'Ustawienia zresetowane' ) );
+		}
 	}
 
 	/**

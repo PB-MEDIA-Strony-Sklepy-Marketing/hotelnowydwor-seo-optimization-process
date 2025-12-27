@@ -44,10 +44,18 @@ class HND_Performance_Module {
 	}
 
 	/**
+	 * Lokalne ustawienia (cache).
+	 *
+	 * @var array
+	 */
+	private $settings = array();
+
+	/**
 	 * Konstruktor.
 	 */
 	private function __construct() {
-		add_action( 'plugins_loaded', array( $this, 'init' ), 20 );
+		// Użyj późniejszego hooka, aby główny optymalizator był już załadowany.
+		add_action( 'plugins_loaded', array( $this, 'init' ), 25 );
 	}
 
 	/**
@@ -59,7 +67,35 @@ class HND_Performance_Module {
 			$this->optimizer = HND_PageSpeed_Optimizer::get_instance();
 		}
 
+		// Załaduj ustawienia z bazy danych (niezależnie od optymalizatora).
+		$this->load_settings();
+
 		$this->init_hooks();
+	}
+
+	/**
+	 * Załaduj ustawienia bezpośrednio z bazy danych.
+	 * To zapewnia, że ustawienia są zawsze aktualne.
+	 */
+	private function load_settings() {
+		$option_name = 'hnd_pagespeed_optimizer_settings';
+		$saved = get_option( $option_name, array() );
+
+		// Domyślne ustawienia dla tego modułu.
+		$defaults = array(
+			'enable_browser_cache'       => true,
+			'enable_gzip_compression'    => true,
+			'enable_lazy_loading'        => true,
+			'enable_preload_hints'       => true,
+			'enable_dns_prefetch'        => true,
+			'enable_defer_js'            => true,
+			'disable_emojis'             => true,
+			'disable_embed'              => true,
+			'disable_heartbeat_frontend' => true,
+			'optimize_heartbeat_admin'   => true,
+		);
+
+		$this->settings = wp_parse_args( $saved, $defaults );
 	}
 
 	/**
@@ -69,10 +105,17 @@ class HND_Performance_Module {
 	 * @return bool
 	 */
 	private function is_enabled( $key ) {
+		// Najpierw sprawdź lokalne ustawienia (pobrane z bazy).
+		if ( isset( $this->settings[ $key ] ) ) {
+			return (bool) $this->settings[ $key ];
+		}
+
+		// Fallback do głównego optymalizatora.
 		if ( $this->optimizer && method_exists( $this->optimizer, 'is_enabled' ) ) {
 			return $this->optimizer->is_enabled( $key );
 		}
-		// Domyślnie włączone jeśli brak optymalizatora.
+
+		// Domyślnie włączone jeśli brak ustawienia.
 		return true;
 	}
 

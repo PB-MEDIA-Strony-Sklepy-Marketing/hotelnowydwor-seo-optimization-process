@@ -62,6 +62,14 @@ class HND_SEO_Module {
      * Konstruktor
      */
     private function __construct() {
+        // Opóźnij inicjalizację, aby główny optymalizator był już załadowany.
+        add_action( 'plugins_loaded', array( $this, 'delayed_init' ), 25 );
+    }
+
+    /**
+     * Opóźniona inicjalizacja.
+     */
+    public function delayed_init() {
         $this->load_settings();
         $this->set_hotel_data();
         $this->init_hooks();
@@ -69,8 +77,12 @@ class HND_SEO_Module {
 
     /**
      * Załaduj ustawienia
+     *
+     * Pobiera ustawienia zarówno z głównego optymalizatora,
+     * jak i z własnych ustawień modułu SEO.
      */
     private function load_settings() {
+        // Domyślne ustawienia modułu.
         $defaults = array(
             'meta_tags'      => true,
             'schema_org'     => true,
@@ -82,6 +94,26 @@ class HND_SEO_Module {
             'sitemap_ping'   => true,
         );
 
+        // Mapowanie ustawień z głównego optymalizatora.
+        $optimizer_mapping = array(
+            'enable_schema_org'    => 'schema_org',
+            'enable_meta_tags'     => 'meta_tags',
+            'enable_open_graph'    => 'open_graph',
+            'enable_twitter_cards' => 'twitter_cards',
+            'enable_canonical'     => 'canonical',
+        );
+
+        // Pobierz ustawienia z głównego optymalizatora.
+        $optimizer_settings = get_option( 'hnd_pagespeed_optimizer_settings', array() );
+
+        // Zastosuj mapowanie.
+        foreach ( $optimizer_mapping as $optimizer_key => $local_key ) {
+            if ( isset( $optimizer_settings[ $optimizer_key ] ) ) {
+                $defaults[ $local_key ] = (bool) $optimizer_settings[ $optimizer_key ];
+            }
+        }
+
+        // Pobierz własne ustawienia modułu (nadpisują domyślne).
         $saved = get_option( 'hnd_seo_settings', array() );
         $this->settings = wp_parse_args( $saved, $defaults );
     }
@@ -1004,10 +1036,9 @@ class HND_SEO_Module {
     }
 }
 
-// Inicjalizuj moduł
-add_action( 'plugins_loaded', function() {
-    HND_SEO_Module::get_instance();
-}, 5 );
+// Inicjalizuj moduł - używamy wczesnego hooka, ponieważ
+// konstruktor dodaje własny hook plugins_loaded z priorytetem 25.
+HND_SEO_Module::get_instance();
 
 // Funkcja pomocnicza
 function hnd_seo() {
