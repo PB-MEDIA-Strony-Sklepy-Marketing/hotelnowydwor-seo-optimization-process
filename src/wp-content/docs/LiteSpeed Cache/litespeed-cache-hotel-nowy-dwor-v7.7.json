@@ -1,0 +1,345 @@
+{
+  "_comment": {
+    "plugin": "LiteSpeed Cache for WordPress",
+    "version": "7.7",
+    "website": "https://www.hotelnowydwor.eu/",
+    "staging": "https://nowydwor.smarthost.pl/hotelnowydwor.eu-new/",
+    "created": "2025-12-28",
+    "author": "PB MEDIA - SEO Optimization Project",
+    "description": "Optimized configuration for WordPress + Oxygen Builder hotel website",
+    "targets": {
+      "pagespeed_mobile": "≥90/100",
+      "pagespeed_desktop": "≥90/100",
+      "lcp": "<2.5s",
+      "fid": "<100ms",
+      "cls": "<0.1"
+    }
+  },
+  
+  "litespeed.conf._version": "7.7",
+  
+  "cache": {
+    "cache_priv": true,
+    "cache_commenter": true,
+    "cache_rest": true,
+    "cache_page_login": false,
+    "cache_favicon": true,
+    "cache_resources": true,
+    "cache_mobile": true,
+    "cache_mobile_rules": "Mobile|Android|Silk\\/|Kindle|BlackBerry|Opera Mini|Opera Mobi|webOS|iPhone|iPad|iPod",
+    "cache_browser": true,
+    "login_cookie": "",
+    "improve_http2": true
+  },
+  
+  "ttl": {
+    "pub_ttl": 604800,
+    "priv_ttl": 1800,
+    "front_page_ttl": 604800,
+    "feed_ttl": 604800,
+    "rest_ttl": 604800,
+    "status_404_ttl": 3600,
+    "status_403_ttl": 3600,
+    "status_500_ttl": 3600
+  },
+  
+  "purge": {
+    "auto_purge_time": "",
+    "timed_urls": "",
+    "timed_urls_time": "",
+    "purge_post_update": true,
+    "purge_stale": true,
+    "stale_ttl": 86400,
+    "hook_purge": "frontpage,homepage,pages,terms,author,sitemap,amp,categories,tags,archives"
+  },
+  
+  "excludes": {
+    "force_cache_uri": "",
+    "excludes_uri": "/wp-admin/\n/wp-login.php\n/koszyk/\n/checkout/\n/moje-konto/\n/rezerwacja/\n/booking/\n/oxygenim/\n/?ct_builder=\n/?oxygen_iframe=\n/ct_template/\n/wp-json/wp/v2/users\n/wp-json/oembed/\n/?vc_editable=\n/?elementor-preview=",
+    "excludes_qs": "fbclid\ngclid\nutm_*\nmc_*\npreview\ncustomize_changeset_uuid\nct_builder\noxygen_iframe\nvc_editable\nelementor-preview\n_ga\n_gid",
+    "excludes_cat": "",
+    "excludes_tag": "",
+    "excludes_cookie": "wordpress_logged_in_\ncomment_author_\nwoocommerce_\nwp_woocommerce_session_",
+    "excludes_ua": "PayPal\ngooglebot-image\nStripe",
+    "excludes_roles": "administrator\neditor"
+  },
+  
+  "esi": {
+    "esi_enabled": false,
+    "esi_cache_admbar": false,
+    "esi_cache_commform": false,
+    "esi_nonces": ""
+  },
+  
+  "drop_qs": {
+    "drop_qs": "fbclid\ngclid\nutm_source\nutm_medium\nutm_campaign\nutm_term\nutm_content\nutm_id\nmc_cid\nmc_eid\n_ga\n_gid\n_gl\nmsclkid\nref\nsrc"
+  },
+  
+  "optm_settings": {
+    "optm_qs": true,
+    "optm_uri_exc": "/wp-admin/\n/?ct_builder=\n/?oxygen_iframe=\n/feed/",
+    "optm_uri_exc_roles": "administrator"
+  },
+  
+  "css": {
+    "css_minify": true,
+    "css_combine": true,
+    "css_inline_min": 1024,
+    "css_async": true,
+    "css_async_inline": true,
+    "css_font_display": "swap",
+    "css_exc": "oxygen\nwp-admin\nct-\nnfhotel\noxygen.css\noxygen.min.css\nuniversal.css\nct-*.css"
+  },
+  
+  "ucss": {
+    "optm_ucss": true,
+    "optm_ucss_async": true,
+    "optm_ucss_inline": true,
+    "optm_ucss_whitelist": ".ct-\n.oxy-\n.oxygen-\n#ct-\n.slick-\n.swiper-\n[class*=\"ct-\"]\n[class*=\"oxy-\"]\n.nfhotel-\n.booking-",
+    "optm_ucss_exc": ""
+  },
+  
+  "ccss": {
+    "optm_ccss": true,
+    "optm_ccss_per_url": false,
+    "optm_ccss_separate_post": false
+  },
+  
+  "js": {
+    "js_minify": true,
+    "js_combine": true,
+    "js_inline_min": 1024,
+    "js_defer": true,
+    "js_delay": true,
+    "js_delay_timeout": 2000,
+    "js_delay_items": "gtag\ngtm.js\nanalytics.js\nfacebook\nfbevents.js\nfbq\nhotjar\nclarity.js\nrecaptcha\ndisqus\ntwitter\nlinkedin\npinterest\ninstagram\nadsbygoogle\npagead\ndoubleclick\ncrisp\nintercom\ntawk\nzendesk\nliveagent\nsmartsuppchat",
+    "optm_js_exc": "jquery.js\njquery.min.js\njquery-migrate.min.js\njquery-core\noxygen\nct-\nnfhotel-booking\nbooking-engine\nwp-includes/js/dist/",
+    "js_defer_exc": "jquery.js\njquery.min.js\noxygen\nct-\nnfhotel",
+    "js_inline_defer_exc": "CDATA\nctc-\noxygen\nct_\noxygenVSBFrontendData"
+  },
+  
+  "html": {
+    "html_minify": true,
+    "optm_emoji": true,
+    "optm_noscript_rm": true,
+    "optm_ggfonts_async": true,
+    "optm_ggfonts_rm": false,
+    "optm_dns_prefetch": "//fonts.googleapis.com\n//fonts.gstatic.com\n//www.google-analytics.com\n//www.googletagmanager.com\n//connect.facebook.net\n//www.google.com\n//maps.googleapis.com\n//maps.google.com\n//www.gstatic.com\n//cdnjs.cloudflare.com",
+    "optm_dns_prefetch_ctrl": true,
+    "optm_exc_jquery": true,
+    "optm_inline_style": true,
+    "optm_exc_roles": "administrator"
+  },
+  
+  "media": {
+    "media_lazyload": true,
+    "media_lazyload_basic_img": true,
+    "media_lazyload_bg": true,
+    "media_lazyload_video": true,
+    "media_lazyload_inline": true,
+    "media_lazyload_uri_exc": "/wp-admin/\n/?ct_builder=\n/?oxygen_iframe=",
+    "media_lazyload_cls_exc": "skip-lazy\nno-lazy\nno-lazyload\nessential-image\nct-image\nhero-bg\nlcp-image\nabove-fold\nsite-logo\nlogo\nbooking-widget\nno-lazyload\nwp-image-",
+    "media_lazyload_parent_cls_exc": "slick-\nswiper-\nhero-section\nct-section-inner-wrap\noxy-header\noxy-navigation\nct-link-wrapper",
+    "media_lqip": true,
+    "media_lqip_quality": 4,
+    "media_lqip_min": 200,
+    "media_placeholder_resp": true,
+    "media_placeholder_resp_color": "#f7f7f7",
+    "media_placeholder_resp_css": "",
+    "media_placeholder_resp_async": true,
+    "media_vpi": true,
+    "media_vpi_cron": true,
+    "media_iframe_lazy": true,
+    "media_add_missing_sizes": true,
+    "media_resp_placeholder": true,
+    "media_resp_placeholder_color": "#f7f7f7",
+    "media_resp_placeholder_svg": true,
+    "media_resp_placeholder_svg_color": "#f7f7f7"
+  },
+  
+  "image_opt": {
+    "img_optm_auto": true,
+    "img_optm_cron": true,
+    "img_optm_ori": true,
+    "img_optm_rm_bkup": false,
+    "img_optm_webp": true,
+    "img_optm_webp_att": true,
+    "img_optm_webp_replace": true,
+    "img_optm_lossless": false,
+    "img_optm_exif": false,
+    "img_optm_webp_quality": 82,
+    "img_optm_max_w": 1920,
+    "img_optm_max_h": 1920,
+    "img_optm_sm_md": true
+  },
+  
+  "localization": {
+    "localize_gravatar": true,
+    "localize_gravatar_cron": true,
+    "localize_gravatar_ttl": 604800
+  },
+  
+  "cdn": {
+    "cdn_enabled": false,
+    "cdn_url": "",
+    "cdn_inc_img": true,
+    "cdn_inc_css": true,
+    "cdn_inc_js": true,
+    "cdn_filetype": ".avif\n.gif\n.jpeg\n.jpg\n.png\n.svg\n.webp\n.woff\n.woff2\n.ttf\n.eot\n.css\n.js\n.pdf\n.ico\n.mp4\n.webm\n.ogg",
+    "cdn_ori": "",
+    "cdn_ori_dir": "/wp-content/\n/wp-includes/",
+    "cdn_exc": "",
+    "cdn_quic": false,
+    "cdn_cloudflare": false,
+    "cdn_cloudflare_email": "",
+    "cdn_cloudflare_key": "",
+    "cdn_cloudflare_zone": ""
+  },
+  
+  "quic_cloud": {
+    "quic_enabled": true,
+    "quic_domain_key": "",
+    "quic_email": ""
+  },
+  
+  "object_cache": {
+    "object_enabled": false,
+    "object_kind": 0,
+    "object_host": "127.0.0.1",
+    "object_port": 6379,
+    "object_life": 360,
+    "object_admin": true,
+    "object_transients": true,
+    "object_db_id": 0,
+    "object_user": "",
+    "object_pswd": "",
+    "object_persistent": true,
+    "object_global_groups": "blog-details\nblog-id-cache\nblog-lookup\nglobal-posts\nnetworks\nrss\nsites\nsite-details\nsite-lookup\nsite-options\nsite-transient\nusers\nuseremail\nuserlogins\nusermeta\nuser_meta\nuserslugs",
+    "object_non_persistent_groups": "counts\nplugins\nthemes"
+  },
+  
+  "db_optm": {
+    "db_optm_revisions": true,
+    "db_optm_revisions_max": 3,
+    "db_optm_auto_draft": true,
+    "db_optm_trash_post": true,
+    "db_optm_spam_comment": true,
+    "db_optm_trash_comment": true,
+    "db_optm_post_meta_exp": true,
+    "db_optm_comment_meta_exp": true,
+    "db_optm_user_meta_exp": true,
+    "db_optm_term_meta_exp": true,
+    "db_optm_options_transients": true,
+    "db_optm_tables": true
+  },
+  
+  "crawler": {
+    "crawler_enabled": true,
+    "crawler_usleep": 500,
+    "crawler_run_duration": 300,
+    "crawler_run_interval": 28800,
+    "crawler_crawl_interval": 302400,
+    "crawler_threads": 2,
+    "crawler_timeout": 30,
+    "crawler_load_limit": 1,
+    "crawler_sitemap": "https://www.hotelnowydwor.eu/sitemap.xml",
+    "crawler_roles": "",
+    "crawler_cookies": "",
+    "crawler_drop_domain": true
+  },
+  
+  "misc": {
+    "heartbeat_front": true,
+    "heartbeat_front_ttl": 60,
+    "heartbeat_back": true,
+    "heartbeat_back_ttl": 60,
+    "heartbeat_editor": false,
+    "heartbeat_editor_ttl": 120,
+    "instant_click": true,
+    "disable_admin_bar": false,
+    "auto_upgrade": false,
+    "news": false
+  },
+  
+  "debug": {
+    "debug_enabled": false,
+    "debug_ips": "",
+    "debug_level": 2,
+    "debug_file_count": 5,
+    "debug_file_size": 2,
+    "debug_log_filters": false,
+    "debug_log_no_filters": false,
+    "debug_log_part_filters": false,
+    "debug_disable_all": false,
+    "debug_log_purge": true,
+    "debug_log_query_string": false,
+    "debug_log_cookie": false,
+    "debug_log_header": false
+  },
+  
+  "tuning": {
+    "css_async_type": "full",
+    "ccss_async_per_url": false,
+    "ccss_separate_posttype": false,
+    "optm_css_comb_ext_inl": true,
+    "optm_js_comb_ext_inl": true,
+    "optm_max_size": 2000000,
+    "optm_rm_comm": true,
+    "optm_cache_disable": false
+  },
+  
+  "_oxygen_builder_notes": {
+    "description": "Settings specifically tuned for Oxygen Builder compatibility",
+    "excluded_from_css_combine": ["oxygen.css", "oxygen.min.css", "universal.css", "ct-*.css"],
+    "excluded_from_js_combine": ["oxygen.js", "oxygen.min.js", "ct-*.js"],
+    "protected_selectors": [".ct-", ".oxy-", "#ct-", "[class*='oxygen-']"],
+    "protected_inline_scripts": ["oxygenVSBFrontendData", "ct_", "ctc", "CDATA"]
+  },
+  
+  "_hotel_specific_notes": {
+    "description": "Hotel Nowy Dwór specific optimizations",
+    "booking_widget": {
+      "plugin": "NFHotel Booking Engine",
+      "excluded_urls": ["/rezerwacja/", "/booking/"],
+      "excluded_scripts": ["nfhotel-booking", "booking-engine"]
+    },
+    "high_priority_pages": ["/", "/pokoje/", "/restauracja/", "/kontakt/", "/wesela/"],
+    "lcp_images": {
+      "excluded_from_lazyload": [".hero-bg", ".lcp-image", "#site-logo", ".booking-widget"]
+    }
+  },
+  
+  "_performance_targets": {
+    "baseline": {
+      "pagespeed_mobile": 52,
+      "pagespeed_desktop": 61,
+      "lcp": "4.2s",
+      "fid": "180ms",
+      "cls": 0.18,
+      "seo_score": 55
+    },
+    "targets": {
+      "pagespeed_mobile": 90,
+      "pagespeed_desktop": 90,
+      "lcp": "<2.5s",
+      "fid": "<100ms",
+      "cls": "<0.1",
+      "seo_score": 90
+    }
+  },
+  
+  "_post_import_checklist": [
+    "1. Verify Server IP in Crawler > General Settings",
+    "2. Register for QUIC.cloud and add API key",
+    "3. Enable Object Cache if Redis/Memcached available",
+    "4. Purge all cache after import",
+    "5. Test Oxygen Builder editor functionality",
+    "6. Verify NFHotel booking widget works",
+    "7. Run PageSpeed Insights test",
+    "8. Check that hero images load immediately (not lazy)",
+    "9. Wait 24-48h for QUIC.cloud Critical CSS generation",
+    "10. Test mobile responsiveness",
+    "11. Monitor error logs for 24 hours",
+    "12. Verify all forms work (Contact Form 7)"
+  ]
+}

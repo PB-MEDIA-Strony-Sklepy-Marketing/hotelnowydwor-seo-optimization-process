@@ -1,0 +1,514 @@
+# LiteSpeed Cache Configuration Data File
+# Plugin: LiteSpeed Cache for WordPress v7.7
+# Website: https://www.hotelnowydwor.eu/
+# Staging: https://nowydwor.smarthost.pl/hotelnowydwor.eu-new/
+# Created: 2025-12-28
+# Author: PB MEDIA - Hotel Nowy Dwór SEO Optimization
+# Target: PageSpeed Score ≥90 (Mobile & Desktop)
+#
+# ============================================================
+# IMPORT INSTRUCTIONS:
+# 1. Go to WordPress Admin > LiteSpeed Cache > Toolbox
+# 2. Click "Import / Export" tab
+# 3. Under "Import Settings" click "Choose File"
+# 4. Select this file and click "Import"
+# 5. After import, click "Save Changes"
+# 6. Purge All Cache
+# ============================================================
+
+litespeed.conf.version = 7.7
+
+# ============================================================
+# GENERAL SETTINGS
+# ============================================================
+general.enabled = 1
+general.cache_status = on
+general.auto_upgrade = 0
+general.news = 0
+general.heartbeat_front = 1
+general.heartbeat_front_ttl = 60
+general.heartbeat_back = 1
+general.heartbeat_back_ttl = 60
+general.heartbeat_editor = 0
+general.heartbeat_editor_ttl = 120
+general.instant_click = 1
+
+# ============================================================
+# CACHE SETTINGS
+# ============================================================
+cache.cache_priv = 1
+cache.cache_commenter = 1
+cache.cache_rest = 1
+cache.cache_page_login = 0
+cache.cache_favicon = 1
+cache.cache_resources = 1
+cache.cache_mobile = 1
+cache.cache_mobile_rules = Mobile|Android|Silk/|Kindle|BlackBerry|Opera Mini|Opera Mobi|webOS|iPhone|iPad|iPod
+cache.cache_browser = 1
+cache.improve_http2 = 1
+
+# ============================================================
+# TTL (Time To Live) SETTINGS
+# ============================================================
+ttl.pub_ttl = 604800
+ttl.priv_ttl = 1800
+ttl.front_page_ttl = 604800
+ttl.feed_ttl = 604800
+ttl.rest_ttl = 604800
+ttl.status_404_ttl = 3600
+ttl.status_403_ttl = 3600
+ttl.status_500_ttl = 3600
+
+# ============================================================
+# PURGE SETTINGS
+# ============================================================
+purge.purge_post_update = 1
+purge.purge_stale = 1
+purge.stale_ttl = 86400
+purge.hook_purge = frontpage,homepage,pages,terms,author,sitemap,amp,categories,tags,archives
+
+# ============================================================
+# EXCLUDE SETTINGS
+# ============================================================
+excludes.excludes_uri = /wp-admin/
+/wp-login.php
+/koszyk/
+/checkout/
+/moje-konto/
+/rezerwacja/
+/booking/
+/oxygenim/
+/?ct_builder=
+/?oxygen_iframe=
+/ct_template/
+/wp-json/wp/v2/users
+/wp-json/oembed/
+/?vc_editable=
+/?elementor-preview=
+
+excludes.excludes_qs = fbclid
+gclid
+utm_*
+mc_*
+preview
+customize_changeset_uuid
+ct_builder
+oxygen_iframe
+vc_editable
+elementor-preview
+_ga
+_gid
+
+excludes.excludes_cookie = wordpress_logged_in_
+comment_author_
+woocommerce_
+wp_woocommerce_session_
+
+excludes.excludes_ua = PayPal
+googlebot-image
+Stripe
+
+excludes.excludes_roles = administrator
+editor
+
+# ============================================================
+# DROP QUERY STRING
+# ============================================================
+drop_qs.drop_qs = fbclid
+gclid
+utm_source
+utm_medium
+utm_campaign
+utm_term
+utm_content
+utm_id
+mc_cid
+mc_eid
+_ga
+_gid
+_gl
+msclkid
+ref
+src
+
+# ============================================================
+# CSS OPTIMIZATION
+# ============================================================
+css.css_minify = 1
+css.css_combine = 1
+css.css_inline_min = 1024
+css.css_async = 1
+css.css_async_inline = 1
+css.css_font_display = swap
+css.css_exc = oxygen
+wp-admin
+ct-
+nfhotel
+oxygen.css
+oxygen.min.css
+universal.css
+ct-*.css
+
+# ============================================================
+# UNIQUE CSS (UCSS)
+# ============================================================
+ucss.optm_ucss = 1
+ucss.optm_ucss_async = 1
+ucss.optm_ucss_inline = 1
+ucss.optm_ucss_whitelist = .ct-
+.oxy-
+.oxygen-
+#ct-
+.slick-
+.swiper-
+[class*="ct-"]
+[class*="oxy-"]
+.nfhotel-
+.booking-
+
+# ============================================================
+# CRITICAL CSS (CCSS)
+# ============================================================
+ccss.optm_ccss = 1
+ccss.optm_ccss_per_url = 0
+ccss.optm_ccss_separate_post = 0
+
+# ============================================================
+# JAVASCRIPT OPTIMIZATION
+# ============================================================
+js.js_minify = 1
+js.js_combine = 1
+js.js_inline_min = 1024
+js.js_defer = 1
+js.js_delay = 1
+js.js_delay_timeout = 2000
+js.js_delay_items = gtag
+gtm.js
+analytics.js
+facebook
+fbevents.js
+fbq
+hotjar
+clarity.js
+recaptcha
+disqus
+twitter
+linkedin
+pinterest
+instagram
+adsbygoogle
+pagead
+doubleclick
+crisp
+intercom
+tawk
+zendesk
+liveagent
+smartsuppchat
+
+js.optm_js_exc = jquery.js
+jquery.min.js
+jquery-migrate.min.js
+jquery-core
+oxygen
+ct-
+nfhotel-booking
+booking-engine
+wp-includes/js/dist/
+
+js.js_defer_exc = jquery.js
+jquery.min.js
+oxygen
+ct-
+nfhotel
+
+js.js_inline_defer_exc = CDATA
+ctc-
+oxygen
+ct_
+oxygenVSBFrontendData
+
+# ============================================================
+# HTML OPTIMIZATION
+# ============================================================
+html.html_minify = 1
+html.optm_emoji = 1
+html.optm_noscript_rm = 1
+html.optm_ggfonts_async = 1
+html.optm_ggfonts_rm = 0
+html.optm_dns_prefetch = //fonts.googleapis.com
+//fonts.gstatic.com
+//www.google-analytics.com
+//www.googletagmanager.com
+//connect.facebook.net
+//www.google.com
+//maps.googleapis.com
+//maps.google.com
+//www.gstatic.com
+//cdnjs.cloudflare.com
+html.optm_dns_prefetch_ctrl = 1
+html.optm_exc_jquery = 1
+html.optm_inline_style = 1
+html.optm_exc_roles = administrator
+
+# ============================================================
+# MEDIA / LAZY LOAD
+# ============================================================
+media.media_lazyload = 1
+media.media_lazyload_basic_img = 1
+media.media_lazyload_bg = 1
+media.media_lazyload_video = 1
+media.media_lazyload_inline = 1
+media.media_lazyload_uri_exc = /wp-admin/
+/?ct_builder=
+/?oxygen_iframe=
+
+media.media_lazyload_cls_exc = skip-lazy
+no-lazy
+no-lazyload
+essential-image
+ct-image
+hero-bg
+lcp-image
+above-fold
+site-logo
+logo
+booking-widget
+no-lazyload
+wp-image-
+
+media.media_lazyload_parent_cls_exc = slick-
+swiper-
+hero-section
+ct-section-inner-wrap
+oxy-header
+oxy-navigation
+ct-link-wrapper
+
+media.media_lqip = 1
+media.media_lqip_quality = 4
+media.media_lqip_min = 200
+media.media_placeholder_resp = 1
+media.media_placeholder_resp_color = #f7f7f7
+media.media_placeholder_resp_async = 1
+media.media_vpi = 1
+media.media_vpi_cron = 1
+media.media_iframe_lazy = 1
+media.media_add_missing_sizes = 1
+media.media_resp_placeholder = 1
+media.media_resp_placeholder_color = #f7f7f7
+media.media_resp_placeholder_svg = 1
+media.media_resp_placeholder_svg_color = #f7f7f7
+
+# ============================================================
+# IMAGE OPTIMIZATION
+# ============================================================
+img_optm.img_optm_auto = 1
+img_optm.img_optm_cron = 1
+img_optm.img_optm_ori = 1
+img_optm.img_optm_rm_bkup = 0
+img_optm.img_optm_webp = 1
+img_optm.img_optm_webp_att = 1
+img_optm.img_optm_webp_replace = 1
+img_optm.img_optm_lossless = 0
+img_optm.img_optm_exif = 0
+img_optm.img_optm_webp_quality = 82
+img_optm.img_optm_max_w = 1920
+img_optm.img_optm_max_h = 1920
+img_optm.img_optm_sm_md = 1
+
+# ============================================================
+# LOCALIZATION (GRAVATAR)
+# ============================================================
+localize.localize_gravatar = 1
+localize.localize_gravatar_cron = 1
+localize.localize_gravatar_ttl = 604800
+
+# ============================================================
+# CDN SETTINGS
+# ============================================================
+cdn.cdn_enabled = 0
+cdn.cdn_url = 
+cdn.cdn_inc_img = 1
+cdn.cdn_inc_css = 1
+cdn.cdn_inc_js = 1
+cdn.cdn_filetype = .avif
+.gif
+.jpeg
+.jpg
+.png
+.svg
+.webp
+.woff
+.woff2
+.ttf
+.eot
+.css
+.js
+.pdf
+.ico
+.mp4
+.webm
+.ogg
+cdn.cdn_ori_dir = /wp-content/
+/wp-includes/
+cdn.cdn_quic = 0
+cdn.cdn_cloudflare = 0
+
+# ============================================================
+# QUIC.cloud
+# ============================================================
+quic.quic_enabled = 1
+quic.quic_domain_key = 
+quic.quic_email = 
+
+# ============================================================
+# OBJECT CACHE
+# ============================================================
+object.object_enabled = 0
+object.object_kind = 0
+object.object_host = 127.0.0.1
+object.object_port = 6379
+object.object_life = 360
+object.object_admin = 1
+object.object_transients = 1
+object.object_db_id = 0
+object.object_persistent = 1
+object.object_global_groups = blog-details
+blog-id-cache
+blog-lookup
+global-posts
+networks
+rss
+sites
+site-details
+site-lookup
+site-options
+site-transient
+users
+useremail
+userlogins
+usermeta
+user_meta
+userslugs
+object.object_non_persistent_groups = counts
+plugins
+themes
+
+# ============================================================
+# DATABASE OPTIMIZATION
+# ============================================================
+db_optm.db_optm_revisions = 1
+db_optm.db_optm_revisions_max = 3
+db_optm.db_optm_auto_draft = 1
+db_optm.db_optm_trash_post = 1
+db_optm.db_optm_spam_comment = 1
+db_optm.db_optm_trash_comment = 1
+db_optm.db_optm_post_meta_exp = 1
+db_optm.db_optm_comment_meta_exp = 1
+db_optm.db_optm_user_meta_exp = 1
+db_optm.db_optm_term_meta_exp = 1
+db_optm.db_optm_options_transients = 1
+db_optm.db_optm_tables = 1
+
+# ============================================================
+# CRAWLER SETTINGS
+# ============================================================
+crawler.crawler_enabled = 1
+crawler.crawler_usleep = 500
+crawler.crawler_run_duration = 300
+crawler.crawler_run_interval = 28800
+crawler.crawler_crawl_interval = 302400
+crawler.crawler_threads = 2
+crawler.crawler_timeout = 30
+crawler.crawler_load_limit = 1
+crawler.crawler_sitemap = https://www.hotelnowydwor.eu/sitemap.xml
+crawler.crawler_drop_domain = 1
+
+# ============================================================
+# DEBUG SETTINGS
+# ============================================================
+debug.debug_enabled = 0
+debug.debug_level = 2
+debug.debug_file_count = 5
+debug.debug_file_size = 2
+debug.debug_log_filters = 0
+debug.debug_log_no_filters = 0
+debug.debug_log_part_filters = 0
+debug.debug_disable_all = 0
+debug.debug_log_purge = 1
+debug.debug_log_query_string = 0
+debug.debug_log_cookie = 0
+debug.debug_log_header = 0
+
+# ============================================================
+# TUNING / ADVANCED
+# ============================================================
+tuning.css_async_type = full
+tuning.ccss_async_per_url = 0
+tuning.ccss_separate_posttype = 0
+tuning.optm_css_comb_ext_inl = 1
+tuning.optm_js_comb_ext_inl = 1
+tuning.optm_max_size = 2000000
+tuning.optm_rm_comm = 1
+tuning.optm_cache_disable = 0
+
+# ============================================================
+# OPTIMIZATION SETTINGS
+# ============================================================
+optm.optm_qs = 1
+optm.optm_uri_exc = /wp-admin/
+/?ct_builder=
+/?oxygen_iframe=
+/feed/
+optm.optm_uri_exc_roles = administrator
+
+# ============================================================
+# ESI (Edge Side Includes) - DISABLED
+# ============================================================
+esi.esi_enabled = 0
+esi.esi_cache_admbar = 0
+esi.esi_cache_commform = 0
+
+# ============================================================
+# END OF CONFIGURATION
+# ============================================================
+# 
+# POST-IMPORT CHECKLIST:
+# ----------------------
+# [ ] 1. Add Server IP in Crawler > General Settings
+# [ ] 2. Register at quic.cloud and add API key
+# [ ] 3. Enable Object Cache if Redis/Memcached available
+# [ ] 4. Purge All Cache after import
+# [ ] 5. Test Oxygen Builder editor functionality
+# [ ] 6. Verify NFHotel booking widget works correctly
+# [ ] 7. Run PageSpeed Insights test (target: ≥90)
+# [ ] 8. Verify hero images load immediately (not lazy)
+# [ ] 9. Wait 24-48h for Critical CSS generation by QUIC.cloud
+# [ ] 10. Test mobile responsiveness
+# [ ] 11. Monitor error logs for first 24 hours
+# [ ] 12. Verify Contact Form 7 works properly
+#
+# EXPECTED IMPROVEMENTS:
+# ----------------------
+# PageSpeed Mobile:  52 → 90+ (target)
+# PageSpeed Desktop: 61 → 90+ (target)
+# LCP: 4.2s → <2.5s
+# FID: 180ms → <100ms
+# CLS: 0.18 → <0.1
+# SEO Score: 55 → 90+ (target)
+#
+# OXYGEN BUILDER COMPATIBILITY:
+# -----------------------------
+# - All Oxygen CSS/JS files excluded from combination
+# - Oxygen selectors (.ct-, .oxy-) whitelisted in UCSS
+# - Editor/Builder URLs excluded from cache
+# - Inline Oxygen scripts protected
+#
+# HOTEL-SPECIFIC SETTINGS:
+# ------------------------
+# - NFHotel booking widget protected
+# - Reservation pages excluded from cache
+# - Hero images excluded from lazy loading
+# - High priority pages: /, /pokoje/, /restauracja/, /kontakt/
+# ============================================================
